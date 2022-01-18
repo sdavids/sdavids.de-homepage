@@ -1,0 +1,17 @@
+# https://git-scm.com/docs/gitignore
+
+### Linux ###
+*.swp
+
+### OSX ###
+.DS_Store
+
+### Windows ###
+Thumbs.db
+
+### IntelliJ ###
+.idea/
+out/
+
+### Code ###
+.vscode/

@@ -1,0 +1,22 @@
+= sdavids.de Homepage
+Sebastian Davids
+
+// Metadata:
+:description: Sebastian Davids' Homepage
+
+// Settings:
+:sectnums:
+:sectanchors:
+:sectlinks:
+:toc: macro
+:hide-uri-scheme:
+
+// Refs:
+
+ifdef::env-browser[:outfilesuffix: .adoc]
+
+ifdef::env-github,env-gitlab[]
+:outfilesuffix: .adoc
+endif::[]
+
+toc::[]
