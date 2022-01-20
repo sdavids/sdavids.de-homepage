@@ -8,6 +8,11 @@ jobs:
   deploy-now:
     runs-on: ubuntu-latest
     steps:
+      - name: Install brotli
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        run: |
+          run apt update
+          run apt-get install brotli -y
       - name: Fetch project data
         uses: ionos-deploy-now/retrieve-project-info-action@v1
         id: project
@@ -36,6 +41,14 @@ jobs:
         env:
           CI: true
           SITE_URL: ${{ steps.project.outputs.site-url }}
+      - name: Minify HTML
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        working-directory: ./hp
+        run: npm run minify:html
+      - name: Compress files
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        working-directory: ./hp
+        run: npm run compress:files
       - name: Deploy build
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: ionos-deploy-now/deploy-to-ionos-action@v1
