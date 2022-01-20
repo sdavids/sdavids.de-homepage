@@ -1,0 +1,5 @@
+# https://git-scm.com/docs/gitattributes
+
+package-lock.json linguist-generated
+
+*.png binary

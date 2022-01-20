@@ -1,0 +1,38 @@
+{
+  "name": "sdavids.de-homepage",
+  "description": "sdavids.de-homepage",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "contributors": [
+    "Sebastian Davids <sdavids@gmx.de>"
+  ],
+  "homepage": "https://github.com/sdavids/sdavids.de-homepage",
+  "bugs": "https://github.com/sdavids/sdavids.de-homepage/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sdavids/sdavids.de-homepage.git"
+  },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "scripts/build.sh",
+    "clean": "rm -rf dist src/s/app.css",
+    "clean:node": "rm -rf node_modules package-lock.json",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint --fix .",
+    "prettier": "npx prettier --write '.'",
+    "start": "browser-sync src -f src -b \"google chrome\" --no-notify",
+    "start:tailwind": "npx tailwindcss --config tailwind.config.cjs -i src/s/app.src.css -o src/s/app.css --watch",
+    "tailwind:build": "npx tailwindcss --config tailwind.config.cjs -i src/s/app.src.css -o src/s/app.css --minify"
+  },
+  "devDependencies": {
+    "browser-sync": "2.27.7",
+    "eslint": "8.7.0",
+    "eslint-config-prettier": "8.3.0",
+    "prettier": "2.5.1",
+    "tailwindcss": "3.0.15"
+  },
+  "dependencies": {
+    "postcss-100vh-fix": "1.0.2"
+  }
+}

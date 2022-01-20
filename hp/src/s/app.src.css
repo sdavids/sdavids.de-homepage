@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+span.em::before {
+  content: attr(data-d) '.' attr(data-h) '\0040'attr(data-u);
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
