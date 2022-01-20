@@ -19,6 +19,7 @@
     "clean": "rm -rf dist src/s/app.css",
     "clean:node": "rm -rf node_modules package-lock.json",
     "compress:files": "scripts/compress-files.sh dist",
+    "create:google-verification-file": "scripts/create-google-verification-file.sh dist",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint --fix .",
     "minify:html": "scripts/minify-html.sh",
