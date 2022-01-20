@@ -15,7 +15,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "scripts/build.sh",
+    "build": "scripts/build.sh && scripts/minify-html.sh",
     "clean": "rm -rf dist src/s/app.css",
     "clean:node": "rm -rf node_modules package-lock.json",
     "lint": "npx eslint .",
@@ -29,6 +29,7 @@
     "browser-sync": "2.27.7",
     "eslint": "8.7.0",
     "eslint-config-prettier": "8.3.0",
+    "html-minifier": "4.0.0",
     "prettier": "2.5.1",
     "tailwindcss": "3.0.15"
   },
