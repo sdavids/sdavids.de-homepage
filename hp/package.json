@@ -15,6 +15,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prepare": "scripts/prepare.sh",
     "build": "scripts/build.sh",
     "clean": "rm -rf dist src/s/app.css",
     "clean:node": "rm -rf node_modules package-lock.json",
@@ -33,6 +34,7 @@
     "eslint": "8.7.0",
     "eslint-config-prettier": "8.3.0",
     "html-minifier": "4.0.0",
+    "husky": "7.0.4",
     "is-ci": "3.0.1",
     "prettier": "2.5.1",
     "tailwindcss": "3.0.15"
