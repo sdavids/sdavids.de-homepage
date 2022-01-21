@@ -42,8 +42,5 @@
     "lint-staged": "12.2.2",
     "prettier": "2.5.1",
     "tailwindcss": "3.0.15"
-  },
-  "dependencies": {
-    "postcss-100vh-fix": "1.0.2"
   }
 }
