@@ -53,6 +53,9 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
         run: npm run create:google-verification-file
+      - name: Copy .htaccess file
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        run: cp .ionos/.htaccess hp/dist
       - name: Deploy build
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: ionos-deploy-now/deploy-to-ionos-action@v1
