@@ -4,4 +4,5 @@ module.exports = {
   theme: {
     extend: {},
   },
+  plugins: [require('@rvxlab/tailwind-plugin-ios-full-height')],
 };

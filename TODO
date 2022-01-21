@@ -1,1 +1,5 @@
 = sdavids.de-homepage
+
+- iOS 100v bug: https://github.com/tailwindlabs/tailwindcss/discussions/7155
+  remove @rvxlab/tailwind-plugin-ios-full-height from package.json & tailwind.config.cjs
+  remove min-h-screen-ios in *.html

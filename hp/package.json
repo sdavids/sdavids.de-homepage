@@ -30,6 +30,7 @@
     "tailwind:build": "npx tailwindcss --config tailwind.config.cjs -i src/s/app.src.css -o src/s/app.css --minify"
   },
   "devDependencies": {
+    "@rvxlab/tailwind-plugin-ios-full-height": "1.1.0",
     "browser-sync": "2.27.7",
     "browserslist": "4.19.1",
     "esbuild": "0.14.12",
