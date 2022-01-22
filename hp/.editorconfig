@@ -1,0 +1,4 @@
+# http://EditorConfig.org
+
+[*.{js,cjs,json,html}]
+max_line_length = 80
