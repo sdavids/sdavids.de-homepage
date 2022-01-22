@@ -1,8 +1,8 @@
 # https://git-scm.com/docs/gitignore
 
 ### NodeJS ###
-node_modules/
+/node_modules/
 
 ### Build ###
-dist/
-src/s/app.css
+/dist/
+/src/s/app.css

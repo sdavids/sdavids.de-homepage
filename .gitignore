@@ -10,7 +10,7 @@
 Thumbs.db
 
 ### Jetbrains IDEs ###
-.idea/
+/.idea/
 
 ### Code ###
-.vscode/
+/.vscode/
