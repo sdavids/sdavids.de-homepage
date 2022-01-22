@@ -9,9 +9,8 @@
 ### Windows ###
 Thumbs.db
 
-### IntelliJ ###
+### Jetbrains IDEs ###
 .idea/
-out/
 
 ### Code ###
 .vscode/
