@@ -1,5 +1,5 @@
 = sdavids.de Homepage
-Sebastian Davids
+Sebastian Davids <sdavids@gmx.de>
 
 // Metadata:
 :description: Sebastian Davids' Homepage
