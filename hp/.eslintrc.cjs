@@ -15,4 +15,5 @@ module.exports = {
     'sort-keys': 'off',
   },
   ignorePatterns: ['dist/*'],
+  reportUnusedDisableDirectives: true,
 };
