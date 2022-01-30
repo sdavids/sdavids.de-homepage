@@ -22,13 +22,13 @@
     "clean:node": "rm -rf node_modules package-lock.json",
     "compress:files": "scripts/compress-files.sh dist",
     "create:google-verification-file": "scripts/create-google-verification-file.sh dist",
+    "dev": "npm run dev:css && browser-sync src -f src -b \"google chrome\" --no-notify",
     "dev:css": "npx tailwindcss -c ./tailwind.config.cjs -i ./src/s/app.src.css -o ./src/s/app.css -w",
     "hash:filename": "scripts/hash-filename.sh",
     "lint": "npx eslint --cache .",
     "lint:fix": "npm run prettier && npx eslint --cache --fix .",
     "minify:html": "scripts/minify-html.sh",
-    "prettier": "npx prettier --write '.'",
-    "start": "npm run dev:css && browser-sync src -f src -b \"google chrome\" --no-notify"
+    "prettier": "npx prettier --write '.'"
   },
   "devDependencies": {
     "@rvxlab/tailwind-plugin-ios-full-height": "1.1.0",
