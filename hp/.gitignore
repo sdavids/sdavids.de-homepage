@@ -3,6 +3,10 @@
 ### NodeJS ###
 /node_modules/
 
+
+### ESLint ###
+/.eslintcache
+
 ### Build ###
 /dist/
 /src/s/app.css
