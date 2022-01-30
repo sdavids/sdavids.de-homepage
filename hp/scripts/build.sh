@@ -2,7 +2,7 @@
 
 set -eu
 
-npm run tailwind:build
+npm run build:css
 
 rm -rf dist
 cp -rp src dist
