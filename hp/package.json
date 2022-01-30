@@ -17,7 +17,7 @@
   "scripts": {
     "prepare": "scripts/prepare.sh",
     "build": "scripts/build.sh",
-    "clean": "rm -rf dist src/s/app.css",
+    "clean": "scripts/clean.sh",
     "clean:node": "rm -rf node_modules package-lock.json",
     "compress:files": "scripts/compress-files.sh dist",
     "create:google-verification-file": "scripts/create-google-verification-file.sh dist",
