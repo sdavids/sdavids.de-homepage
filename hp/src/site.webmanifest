@@ -8,13 +8,13 @@
   "start_url": "./",
   "icons": [
     {
-      "src": "/android-chrome-192.c3657ab.png",
+      "src": "/favicon-192.c3657ab.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "/android-chrome-512.5c12f65.png",
+      "src": "/favicon-512.5c12f65.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
