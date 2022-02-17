@@ -11,6 +11,8 @@ module.exports = {
     sourceType: 'module',
   },
   extends: ['eslint:all', 'plugin:json/recommended', 'prettier'],
+  ignorePatterns: ['dist/*'],
+  reportUnusedDisableDirectives: true,
   rules: {
     'capitalized-comments': 'off',
     'id-length': 'off',
@@ -18,6 +20,7 @@ module.exports = {
     'line-comment-position': 'off',
     'no-underscore-dangle': 'off',
     'no-inline-comments': 'off',
+    'no-undefined': 'off',
     'max-params': 'off',
     'no-magic-numbers': 'off',
     'no-ternary': 'off',
@@ -25,6 +28,4 @@ module.exports = {
     'sort-keys': 'off',
     'sort-imports': 'off',
   },
-  ignorePatterns: ['dist/*'],
-  reportUnusedDisableDirectives: true,
 };
