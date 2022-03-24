@@ -7,4 +7,7 @@ set -eu
 readonly base_dir="$(pwd)"
 
 cd "${base_dir}/hp"
+
+if [[ ! -d "node_modules" ]]; then npm install --ignore-scripts=false; fi
+
 npm outdated --long
