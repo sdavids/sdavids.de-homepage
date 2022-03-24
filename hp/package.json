@@ -33,7 +33,7 @@
   "devDependencies": {
     "@rvxlab/tailwind-plugin-ios-full-height": "1.1.0",
     "browser-sync": "2.27.9",
-    "browserslist": "4.19.3",
+    "browserslist": "4.20.2",
     "esbuild": "0.14.23",
     "eslint": "8.11.0",
     "eslint-config-prettier": "8.5.0",
