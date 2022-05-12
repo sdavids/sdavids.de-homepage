@@ -1,6 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-set -Eeuo pipefail
+# script needs to be invoked from the hp root directory
+
+set -eu
 
 readonly dir="dist"
 readonly file="${dir}/index.html"

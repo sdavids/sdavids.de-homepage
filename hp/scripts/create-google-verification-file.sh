@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# script needs to be executed from homepage root
+# script needs to be invoked from the hp root directory
 
 set -Eeuo pipefail
 
