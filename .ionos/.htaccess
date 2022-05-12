@@ -24,10 +24,14 @@
     Header append Content-Encoding gzip
     Header append Vary Accept-Encoding
   </FilesMatch>
+
+  <Files ".well-known/traffic-advice">
+      ForceType application/trafficadvice+json
+  </Files>
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml text/css text/javascript application/javascript
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml text/css text/javascript application/javascript application/trafficadvice+json
 </IfModule>
 
 <IfModule mod_headers.c>

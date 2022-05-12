@@ -20,3 +20,21 @@ ifdef::env-github[]
 endif::[]
 
 toc::[]
+
+== Prerequisites
+
+=== jq
+
+=== Linux
+
+[source,shell]
+----
+$ sudo apt-get install jq
+----
+
+=== Mac
+
+[source,shell]
+----
+$ brew install jq
+----
