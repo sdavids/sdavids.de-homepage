@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 span.__sd_email::before {
-  content: attr(data-d) '.' attr(data-h) '\0040'attr(data-u);
+  content: attr(data-d) '.' attr(data-h) '\0040' attr(data-u);
   unicode-bidi: bidi-override;
   direction: rtl;
 }
