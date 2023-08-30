@@ -38,3 +38,59 @@ $ sudo apt-get install jq
 ----
 $ brew install jq
 ----
+
+== brotli
+
+=== Linux
+
+[source,shell]
+----
+$ sudo apt-get install brotli
+----
+
+=== Mac
+
+[source,shell]
+----
+$ brew install brotli
+----
+
+== Local Dev
+
+[source,shell]
+----
+$ cd hp
+$ npm i
+----
+
+=== Shell 1
+
+[source,shell]
+----
+$ npm run dev:css
+----
+
+=== Shell 2
+
+[source,shell]
+----
+$ npm run dev
+----
+
+=> http://localhost:3000
+
+== Local Build
+
+[source,shell]
+----
+$ cd hp
+$ npm run clean
+$ npm run clean:node
+$ npm i
+$ npm run build
+$ npm run minify:html
+$ npm run minify:json
+$ npm run compress:files
+$ npm run create:google-verification-file
+----
+
