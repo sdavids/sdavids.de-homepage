@@ -25,11 +25,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: 'recursive'
-      - name: Setup Node.js 16.x
+      - name: Setup Node.js
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version-file: ./hp/.nvmrc
+          cache-dependency-path: ./hp/package-lock.json
+          cache: npm
       - name: Prepare project environment
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
