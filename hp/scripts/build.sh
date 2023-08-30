@@ -10,7 +10,6 @@ rm -rf dist
 cp -rp src dist
 
 npx esbuild src/j/app.js --bundle --splitting --outdir=dist/j --format=esm --target=es2017 --minify --legal-comments=none
-# npx esbuild src/j/app.js --bundle --outfile=dist/j/app.es5.js --format=iife --target=es5 --minify --legal-comments=none
 
 npx esbuild --bundle dist/s/app.css --outfile=dist/s/app.css --allow-overwrite --minify --legal-comments=none
 

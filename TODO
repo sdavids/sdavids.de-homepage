@@ -6,7 +6,3 @@ Sebastian Davids <sdavids@gmx.de>
 remove @rvxlab/tailwind-plugin-ios-full-height from package.json & tailwind.config.cjs
 +
 remove min-h-screen-ios in *.html
-
-* esbuild does not support ES5-target yet
-+
-https://github.com/evanw/esbuild/issues/297
