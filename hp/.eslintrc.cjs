@@ -14,18 +14,7 @@ module.exports = {
   ignorePatterns: ['dist/*'],
   reportUnusedDisableDirectives: true,
   rules: {
-    'capitalized-comments': 'off',
     'id-length': 'off',
-    'no-console': 'off',
-    'line-comment-position': 'off',
-    'no-underscore-dangle': 'off',
-    'no-inline-comments': 'off',
-    'no-undefined': 'off',
-    'max-params': 'off',
-    'no-magic-numbers': 'off',
-    'no-ternary': 'off',
-    'one-var': 'off',
     'sort-keys': 'off',
-    'sort-imports': 'off',
   },
 };
