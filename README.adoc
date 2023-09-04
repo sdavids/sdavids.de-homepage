@@ -12,6 +12,8 @@ Sebastian Davids <sdavids@gmx.de>
 :hide-uri-scheme:
 
 // Refs:
+:docker-install-url: https://docs.docker.com/install/
+:nvm-install-url: https://github.com/nvm-sh/nvm#installing-and-updating
 
 ifdef::env-browser[:outfilesuffix: .adoc]
 
@@ -21,7 +23,32 @@ endif::[]
 
 toc::[]
 
-== Prerequisites
+== Development Environment Setup
+
+=== Docker
+
+Install {docker-install-url}[Docker].
+
+=== NVM
+
+Install {nvm-install-url}[NVM].
+
+=== husky
+
+Create `~/.huskyrc` to ensure Git UI tools can execute `node`:
+
+[source]
+----
+export NVM_DIR="${HOME}/.nvm"
+
+if [[ -f "${NVM_DIR}/nvm.sh" ]]; then
+  source "${NVM_DIR}/nvm.sh"
+
+  if [[ -f ".nvmrc" ]]; then
+    nvm use
+  fi
+fi
+----
 
 === jq
 
