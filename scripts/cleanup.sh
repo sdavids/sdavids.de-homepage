@@ -4,8 +4,10 @@ set -eu
 
 git clean -fdx \
   -e .idea \
+  -e .fleet \
   -e .vscode \
   -e hp/.idea \
+  -e hp/.fleet \
   -e hp/.vscode \
   .
 git remote prune origin
