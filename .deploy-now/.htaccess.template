@@ -5,6 +5,10 @@
     .js \
     .webmanifest \
     .xml
+
+  <Files "traffic-advice">
+    ForceType application/trafficadvice+json
+  </Files>
 </IfModule>
 
 <IfModule mod_autoindex.c>
@@ -59,10 +63,6 @@ FileETag None
   <FilesMatch "(\.html\.br|\.html\.gz|\.html)$">
     Header set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'self'; require-trusted-types-for 'script'; script-src 'self' 'unsafe-inline' 'sha256-4G95wqgQBCNBt5k1EjP9NgJQfr74J3kBKgCkhdtc5vA='; img-src 'self'; style-src 'self'; manifest-src 'self'"
   </FilesMatch>
-
-  <Files "traffic-advice">
-    ForceType application/trafficadvice+json
-  </Files>
 </IfModule>
 
 <IfModule mod_deflate.c>
