@@ -39,6 +39,19 @@ ServerSignature Off
   RewriteRule "^" "-" [NC,F,L]
 </IfModule>
 
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond "%{HTTP_REFERER}" "!^$"
+  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?sdavids.de" [NC]
+  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?google.com" [NC]
+  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?twitter.com" [NC]
+  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?bing.com" [NC]
+  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?yahoo.com" [NC]
+  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?duckduckgo.com" [NC]
+  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?ecosia.com" [NC]
+  RewriteRule "\.(ico|png|svg)$" "-" [NC,F,L]
+</IfModule>
+
 <IfModule mod_headers.c>
   Header unset ETag
 
