@@ -7,6 +7,11 @@
     .xml
 </IfModule>
 
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RedirectMatch 404 /\..*$
+</IfModule>
+
 <IfModule mod_headers.c>
   RewriteCond "%{HTTP:Accept-encoding}" "br"
   RewriteCond "%{REQUEST_FILENAME}.br" -s
