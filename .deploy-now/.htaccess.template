@@ -27,6 +27,12 @@ ServerSignature Off
   RedirectMatch 404 /\..*$
 </IfModule>
 
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond "%{SERVER_PROTOCOL}" "^HTTP/1\.0$"
+  RewriteRule "^" "-" [NC,F,L]
+</IfModule>
+
 <IfModule mod_headers.c>
   Header unset ETag
 
