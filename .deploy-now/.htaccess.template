@@ -20,6 +20,9 @@
 <IfModule mod_headers.c>
   Header unset ETag
 
+  # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#x-content-type-options
+  Header always set X-Content-Type-Options "nosniff"
+
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#x-frame-options
   Header always set X-Frame-Options "DENY" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
 </IfModule>
