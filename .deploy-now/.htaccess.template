@@ -35,6 +35,10 @@
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#referrer-policy
   Header always set Referrer-Policy "strict-origin-when-cross-origin" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
+
+  # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#permissions-policy-formerly-feature-policy
+  # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#floc-federated-learning-of-cohorts
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
 </IfModule>
 
 FileETag None
