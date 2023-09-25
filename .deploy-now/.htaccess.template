@@ -1,3 +1,12 @@
+<IfModule mod_mime.c>
+  AddDefaultCharset utf-8
+
+  AddCharset utf-8 .css \
+    .js \
+    .webmanifest \
+    .xml
+</IfModule>
+
 <IfModule mod_headers.c>
   RewriteCond "%{HTTP:Accept-encoding}" "br"
   RewriteCond "%{REQUEST_FILENAME}.br" -s
