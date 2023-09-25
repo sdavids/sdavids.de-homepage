@@ -7,6 +7,11 @@
     .xml
 </IfModule>
 
+<IfModule mod_autoindex.c>
+  # https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#directory_access
+  Options -Indexes
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RedirectMatch 404 /\..*$
