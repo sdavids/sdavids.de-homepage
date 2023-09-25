@@ -24,6 +24,9 @@
 <IfModule mod_headers.c>
   Header unset ETag
 
+  # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#strict-transport-security
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#x-content-type-options
   Header always set X-Content-Type-Options "nosniff"
 
