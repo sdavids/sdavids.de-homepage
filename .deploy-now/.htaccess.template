@@ -1,5 +1,9 @@
 ServerSignature Off
 
+<LimitExcept GET>
+  Deny from all
+</LimitExcept>
+
 <IfModule mod_mime.c>
   AddDefaultCharset utf-8
 
