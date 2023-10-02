@@ -29,6 +29,7 @@
     "lint:fix": "npm run prettier && npx eslint --cache --fix .",
     "minify:html": "scripts/minify-html.sh",
     "minify:json": "scripts/minify-json.sh",
+    "minify:robots": "scripts/minify-robots.sh",
     "prettier": "npx prettier --cache --write '.'"
   },
   "devDependencies": {

@@ -53,6 +53,10 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
         run: npm run minify:json
+      - name: Minify robots.txt
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        working-directory: ./hp
+        run: npm run minify:robots
       - name: Compress files
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
