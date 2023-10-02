@@ -10,4 +10,4 @@ if [[ ! -d "$1" ]]; then echo "$1 does not exist or is not a directory"; exit 2;
 readonly dir="$(pwd)/$1"
 
 find "${dir}" \( -name '*.html' -o -name '*.css' -o -name '*.js' -type f \) -exec scripts/compress-brotli.sh {} ';'
-find "${dir}" \( -name '*.html' -o -name '*.css' -o -name '*.js' -type f \) -exec scripts/compress-gzip.sh {} ';'
+find "${dir}" \( -name '*.html' -o -name '*.css' -o -name '*.js' -o -name 'sitemap.xml' -type f \) -exec scripts/compress-gzip.sh {} ';'
