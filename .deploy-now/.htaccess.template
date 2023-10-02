@@ -97,7 +97,7 @@ FileETag None
     Header set Cache-Control "public, max-age=31536000, stale-while-revalidate=60"
   </FilesMatch>
 
-  <FilesMatch "\.[0-9a-f]{7}\.(css|js|png|svg)$">
+  <FilesMatch "\.[0-9a-f]{7}\.(css(\.br|\.gz)?|js(\.br|\.gz)?|png|svg)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
@@ -105,11 +105,11 @@ FileETag None
     Header set Cache-Control "private, no-store"
   </FilesMatch>
 
-  <FilesMatch "sitemap\.xml$">
+  <FilesMatch "sitemap\.xml(\.gz)?$">
     Header set Cache-Control "private, no-store"
   </FilesMatch>
 
-  <FilesMatch "index\.html$">
+  <FilesMatch "index\.html(\.br|\.gz)?$">
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 </IfModule>
