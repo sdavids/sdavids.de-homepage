@@ -1,3 +1,6 @@
+# https://80legs.com/the-80legs-web-crawler/
+User-agent: voltron
+Disallow: /
 
 # https://yoast.com/ultimate-guide-robots-txt/#disallow-directive
 User-agent: *
