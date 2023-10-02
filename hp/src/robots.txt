@@ -1,3 +1,19 @@
+# https://platform.openai.com/docs/gptbot/disallowing-gptbot
+User-agent: GPTBot
+Disallow: /
+
+# https://platform.openai.com/docs/plugins/bot
+User-agent: ChatGPT-User
+Disallow: /
+
+# https://commoncrawl.org/faq
+User-agent: CCBot
+Disallow: /
+
+# https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers#google-extended
+User-agent: Google-Extended
+Disallow: /
+
 # https://80legs.com/the-80legs-web-crawler/
 User-agent: voltron
 Disallow: /
