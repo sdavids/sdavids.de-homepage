@@ -22,7 +22,7 @@ readonly css_filename="$(npm run hash:filename -- dist/s/app.css -e| sed -nr "s/
 
 readonly index_file="${dir}/index.html"
 
-if [[ "$(uname)" == "Darwin" ]]; then
+if [ "$(uname)" = "Darwin" ]; then
   sed -i '' "s/app\.js/${js_filename}/g" "${index_file}"
   sed -i '' "s/app\.css/${css_filename}/g" "${index_file}"
 else
