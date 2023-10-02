@@ -28,6 +28,7 @@
     "lint": "npx eslint --cache .",
     "lint:fix": "npm run prettier && npx eslint --cache --fix .",
     "minify:html": "scripts/minify-html.sh",
+    "minify:xml": "scripts/minify-xml.sh",
     "minify:json": "scripts/minify-json.sh",
     "minify:robots": "scripts/minify-robots.sh",
     "prettier": "npx prettier --cache --write '.'"
@@ -44,6 +45,7 @@
     "husky": "8.0.3",
     "is-ci": "3.0.1",
     "lint-staged": "14.0.1",
+    "minify-xml": "4.0.0",
     "prettier": "3.0.3",
     "prettier-plugin-tailwindcss": "0.5.4",
     "tailwindcss": "3.3.3"

@@ -49,6 +49,10 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
         run: npm run minify:html
+      - name: Minify XML
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        working-directory: ./hp
+        run: npm run minify:xml
       - name: Minify JSON
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
