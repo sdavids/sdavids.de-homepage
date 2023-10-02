@@ -24,7 +24,7 @@ ServerSignature Off
 
 <IfModule mod_rewrite.c>
   RewriteEngine on
-  RedirectMatch 404 /\..*$
+  RedirectMatch 404 /\..*(?<!well-known\/traffic-advice)$
 </IfModule>
 
 <IfModule mod_rewrite.c>
