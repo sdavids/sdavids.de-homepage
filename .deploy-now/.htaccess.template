@@ -94,7 +94,7 @@ FileETag None
 
 <IfModule mod_headers.c>
   <FilesMatch "\.(ico|png|webmanifest)$">
-    Header set Cache-Control "public, max-age=31536000, stale-while-revalidate=60"
+    Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 
   <FilesMatch "\.[0-9a-f]{7}\.(css(\.br|\.gz)?|js(\.br|\.gz)?|png|svg)$">
