@@ -52,30 +52,30 @@ fi
 
 === jq
 
-=== Linux
+==== Linux
 
 [source,shell]
 ----
 $ sudo apt-get install jq
 ----
 
-=== Mac
+==== Mac
 
 [source,shell]
 ----
 $ brew install jq
 ----
 
-== brotli
+=== brotli
 
-=== Linux
+==== Linux
 
 [source,shell]
 ----
 $ sudo apt-get install brotli
 ----
 
-=== Mac
+==== Mac
 
 [source,shell]
 ----
