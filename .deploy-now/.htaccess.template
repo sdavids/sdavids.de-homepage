@@ -62,7 +62,7 @@ ServerSignature Off
   Header always set X-Content-Type-Options "nosniff"
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-resource-policy-corp
-  Header always set Cross-Origin-Resource-Policy "same-site"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
 
   # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods
   Header always set Access-Control-Allow-Methods "GET"
