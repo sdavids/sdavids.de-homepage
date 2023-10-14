@@ -14,6 +14,7 @@ Sebastian Davids <sdavids@gmx.de>
 // Refs:
 :docker-install-url: https://docs.docker.com/install/
 :nvm-install-url: https://github.com/nvm-sh/nvm#installing-and-updating
+:fnm-install-url: https://github.com/Schniz/fnm#installation
 
 ifdef::env-browser[:outfilesuffix: .adoc]
 
@@ -29,15 +30,20 @@ toc::[]
 
 Install {docker-install-url}[Docker].
 
-=== NVM
+=== Node Version Manager
 
-Install {nvm-install-url}[NVM].
+Install {nvm-install-url}[NVM] or {fnm-install-url}[fnm].
 
 === husky
 
-Create `~/.huskyrc` to ensure Git UI tools can execute `node`:
+This repository uses https://typicode.github.io/husky/[husky] for git hooks.
 
-[source]
+More information: https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - Command not found]
+
+==== nvm
+
+.~/.huskyrc
+[source,shell]
 ----
 export NVM_DIR="${HOME}/.nvm"
 
@@ -46,6 +52,20 @@ if [[ -f "${NVM_DIR}/nvm.sh" ]]; then
 
   if [[ -f ".nvmrc" ]]; then
     nvm use
+  fi
+fi
+----
+
+==== fnm
+
+.~/.huskyrc
+[source,shell]
+----
+if type fnm &>/dev/null; then
+  eval "$(fnm env)"
+
+  if [[ -f .node-version || -f .nvmrc ]]; then
+    fnm use --silent-if-unchanged
   fi
 fi
 ----
@@ -120,4 +140,3 @@ $ npm run minify:json
 $ npm run compress:files
 $ npm run create:google-verification-file
 ----
-
