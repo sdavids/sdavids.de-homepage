@@ -9,8 +9,10 @@ readonly echo="${2:-}"
 
 if [[ ! -f "${file}" ]]; then echo "${file} does not exist"; exit 2; fi
 
-readonly hash=($(sha1sum "${file}" | cut -c 1-7))
-readonly filename=$(rev <<< "${file}" | cut -d "." -f2- | rev)
+sha=$(sha1sum "${file}")
+hash=$(echo "${sha}" | cut -c 1-7)
+filename=$(rev <<< "${file}" | cut -d "." -f2- | rev)
+
 readonly extension="${1##*.}"
 
 if [[ "${filename}" == "${extension}" ]]; then

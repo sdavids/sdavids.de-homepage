@@ -17,8 +17,8 @@ npx esbuild --bundle "${dir}/s/app.css" --outfile="${dir}/s/app.css" --allow-ove
 
 rm "${dir}/s/app.src.css"
 
-readonly js_filename="$(npm run hash:filename -- dist/j/app.js -e | sed -nr "s/.*(app.[0-9a-f]+\.js)/\1/p")"
-readonly css_filename="$(npm run hash:filename -- dist/s/app.css -e| sed -nr "s/.*(app.[0-9a-f]+\.css)/\1/p")"
+js_filename="$(npm run hash:filename -- dist/j/app.js -e | sed -nr "s/.*(app.[0-9a-f]+\.js)/\1/p")"
+css_filename="$(npm run hash:filename -- dist/s/app.css -e| sed -nr "s/.*(app.[0-9a-f]+\.css)/\1/p")"
 
 readonly index_file="${dir}/index.html"
 

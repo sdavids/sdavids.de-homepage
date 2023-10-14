@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # script needs to be invoked from the project root directory
 
-set -eu
+set -Eeuo pipefail
 
 readonly base_dir="$PWD"
 
