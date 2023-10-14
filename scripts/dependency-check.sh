@@ -4,7 +4,7 @@
 
 set -eu
 
-readonly base_dir="$(pwd)"
+readonly base_dir="$PWD"
 
 cd "${base_dir}/hp"
 

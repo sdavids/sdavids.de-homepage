@@ -4,7 +4,7 @@
 
 set -eu
 
-readonly base_dir="$(pwd)"
+readonly base_dir="$PWD"
 
 readonly build_dir="${base_dir}/dist"
 readonly eslint_cache_file="${base_dir}/.eslintcache"
