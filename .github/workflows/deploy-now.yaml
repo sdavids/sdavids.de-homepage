@@ -10,11 +10,6 @@ jobs:
   deploy-now:
     runs-on: ubuntu-22.04
     steps:
-      - name: Install brotli
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        run: |
-          run apt update
-          run apt-get install brotli -y
       - name: Fetch project data
         uses: ionos-deploy-now/retrieve-project-info-action@v1
         id: project
