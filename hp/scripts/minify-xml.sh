@@ -4,7 +4,7 @@
 
 set -eu
 
-readonly dir="dist"
+readonly dir='dist'
 readonly file="${dir}/sitemap.xml"
 
 npx minify-xml "${file}" \

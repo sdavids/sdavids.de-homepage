@@ -1,13 +1,15 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # script needs to be invoked from the project root directory
 
-set -Eeuo pipefail
+set -eu
 
-readonly base_dir="$PWD"
+readonly base_dir="${PWD}"
 
 cd "${base_dir}/hp"
 
-if [[ ! -d "node_modules" ]]; then npm install --ignore-scripts=false; fi
+if [ ! -d "node_modules" ]; then
+  npm install --ignore-scripts=false
+fi
 
 npm outdated --long

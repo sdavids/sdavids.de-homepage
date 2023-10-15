@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# script needs to be invoked from the project root directory
+
 set -eu
 
 git clean -fdx \

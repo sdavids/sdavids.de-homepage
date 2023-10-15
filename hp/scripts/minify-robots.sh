@@ -4,11 +4,11 @@
 
 set -eu
 
-readonly dir="dist"
+readonly dir='dist'
 readonly file="${dir}/robots.txt"
 
-if [ "$(uname)" = "Darwin" ]; then
-  sed -i '' "/^[@#]/ d" "${file}"
+if [ "$(uname)" = 'Darwin' ]; then
+  sed -i '' '/^[@#]/ d' "${file}"
 else
-  sed -i "/^[@#]/ d" "${file}"
+  sed -i '/^[@#]/ d' "${file}"
 fi

@@ -2,9 +2,15 @@
 
 # script needs to be invoked from the hp root directory
 
+# jq needs to be in $PATH
+#   Mac:
+#     brew install jq
+#   Linux:
+#     apt-get install jq
+
 set -eu
 
-readonly dir="dist"
+readonly dir='dist'
 
 readonly traffic_advice_file="${dir}/.well-known/traffic-advice"
 readonly traffic_advice_tmp_file="${traffic_advice_file}.tmp"
