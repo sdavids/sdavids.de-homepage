@@ -16,3 +16,10 @@ jffi*.dylib
 
 ### Code ###
 .vscode/
+
+### Certificates ###
+*.cer
+*.crt
+*.key
+*.pem
+
