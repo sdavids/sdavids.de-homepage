@@ -102,6 +102,22 @@ $ sudo apt-get install brotli
 $ brew install brotli
 ----
 
+=== shellcheck
+
+==== Linux
+
+[source,shell]
+----
+$ sudo apt-get install shellcheck
+----
+
+==== Mac
+
+[source,shell]
+----
+$ brew install shellcheck
+----
+
 == Local Dev
 
 [source,shell]
