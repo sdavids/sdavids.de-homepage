@@ -165,7 +165,9 @@ $ npm run clean:node
 $ npm i
 $ npm run build
 $ npm run minify:html
+$ npm run minify:xml
 $ npm run minify:json
+$ npm run minify:robots
 $ npm run compress:files
 $ npm run create:google-verification-file
 ----
