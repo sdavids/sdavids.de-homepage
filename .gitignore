@@ -10,9 +10,9 @@
 Thumbs.db
 
 ### Jetbrains IDEs ###
-/.idea/
-/.fleet/
-/jffi*.dylib
+.idea/
+.fleet/
+jffi*.dylib
 
 ### Code ###
-/.vscode/
+.vscode/
