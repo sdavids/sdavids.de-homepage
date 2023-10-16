@@ -23,6 +23,7 @@
     "compress:files": "scripts/compress-files.sh dist",
     "create:google-verification-file": "scripts/create-google-verification-file.sh dist",
     "create:security-txt-file": "scripts/create-security-txt-file.sh",
+    "create:timestamp-file": "scripts/create-timestamp-file.sh",
     "dev": "browser-sync src -f src -b \"google chrome\" --no-notify",
     "dev:css": "npx tailwindcss -c ./tailwind.config.cjs -i ./src/s/app.src.css -o ./src/s/app.css -w",
     "hash:filename": "scripts/hash-filename.sh",

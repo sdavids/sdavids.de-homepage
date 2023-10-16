@@ -67,6 +67,10 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
         run: npm run create:google-verification-file
+      - name: Create timestamp file
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        working-directory: ./hp
+        run: npm run create:timestamp-file dist/.deploy-timestamp
       - name: Deploy build
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: ionos-deploy-now/deploy-to-ionos-action@v1
