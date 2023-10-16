@@ -63,7 +63,7 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
         run: npm run compress:files
-      - name: Create Google Verification File
+      - name: Create Google Verification file
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
         run: npm run create:google-verification-file
