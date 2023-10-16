@@ -9,6 +9,7 @@ ServerSignature Off
 
   AddCharset utf-8 .css \
     .js \
+    .txt \
     .webmanifest \
     .xml
 
@@ -24,7 +25,7 @@ ServerSignature Off
 
 <IfModule mod_rewrite.c>
   RewriteEngine on
-  RedirectMatch 404 /\..*(?<!well-known\/traffic-advice)$
+  RedirectMatch 404 /\.(?!well-known\/)
 </IfModule>
 
 <IfModule mod_rewrite.c>
