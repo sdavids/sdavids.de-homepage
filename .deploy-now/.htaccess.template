@@ -16,6 +16,10 @@ ServerSignature Off
   <Files "traffic-advice">
     ForceType application/trafficadvice+json
   </Files>
+
+ <Files "*.webmanifest">
+    ForceType application/manifest+json
+  </Files>
 </IfModule>
 
 <IfModule mod_autoindex.c>
@@ -148,5 +152,5 @@ FileETag None
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml text/css text/javascript application/javascript application/trafficadvice+json
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml text/css text/javascript application/javascript application/manifest+json application/trafficadvice+json
 </IfModule>
