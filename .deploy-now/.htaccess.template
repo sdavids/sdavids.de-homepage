@@ -147,7 +147,7 @@ FileETag None
   </FilesMatch>
 
   <FilesMatch "(\.html\.br|\.html\.gz|\.html)$">
-    Header set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'self'; require-trusted-types-for 'script'; script-src 'self'; img-src 'self'; style-src 'self'; manifest-src 'self'"
+    Header set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'self'; trusted-types; require-trusted-types-for 'script'; script-src 'self'; img-src 'self'; style-src 'self'; manifest-src 'self'"
   </FilesMatch>
 </IfModule>
 
