@@ -65,6 +65,8 @@ jobs:
       - name: Create timestamp file
         working-directory: hp
         run: npm run create:timestamp-file dist/.deploy-timestamp
+      - name: Copy .htaccess file
+        run: cp .deploy-now/.htaccess.template hp/dist/.htaccess
       - name: Deploy build
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: ionos-deploy-now/deploy-to-ionos-action@v1
