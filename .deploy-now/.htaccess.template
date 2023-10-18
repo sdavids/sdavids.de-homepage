@@ -9,6 +9,7 @@ ServerSignature Off
 
   AddCharset utf-8 .css \
     .js \
+    .svg \
     .txt \
     .webmanifest \
     .xml
@@ -22,6 +23,13 @@ ServerSignature Off
     # https://w3c.github.io/manifest/#iana-considerations
     ForceType application/manifest+json
   </Files>
+</IfModule>
+
+# setting the MIME type for SVG via ForceType does not work
+<IfModule mod_headers.c>
+  <FilesMatch "\.svg(\.br|\.gz)?$">
+    Header set Content-Type "image/svg+xml"
+  </FilesMatch>
 </IfModule>
 
 <IfModule mod_autoindex.c>
@@ -84,7 +92,7 @@ FileETag None
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 
-  <FilesMatch "\.[0-9a-f]{7}\.(css(\.br|\.gz)?|js(\.br|\.gz)?|png|svg)$">
+  <FilesMatch "\.[0-9a-f]{7}\.(css(\.br|\.gz)?|js(\.br|\.gz)?|png|svg(\.br|\.gz)?)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
@@ -105,26 +113,28 @@ FileETag None
 <IfModule mod_headers.c>
   RewriteCond "%{HTTP:Accept-encoding}" "br"
   RewriteCond "%{REQUEST_FILENAME}.br" -s
-  RewriteRule "^(.*)\.(css|html|js)$" "/$1.$2.br" [QSA]
+  RewriteRule "^(.*)\.(css|html|js|svg)$" "/$1.$2.br" [QSA]
 
   RewriteRule "\.css\.br$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.html\.br$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.js\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
+  RewriteRule "\.svg\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
 
-  <FilesMatch "(\.css|\.html|\.js)\.br$">
+  <FilesMatch "(\.css|\.html|\.js|\.svg)\.br$">
     Header append Content-Encoding br
     Header append Vary Accept-Encoding
   </FilesMatch>
 
   RewriteCond "%{HTTP:Accept-encoding}" "gzip"
   RewriteCond "%{REQUEST_FILENAME}.gz" -s
-  RewriteRule "^(.*)\.(css|html|js)$" "/$1.$2.gz" [QSA]
+  RewriteRule "^(.*)\.(css|html|js|svg)$" "/$1.$2.gz" [QSA]
 
   RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.js\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
+  RewriteRule "\.svg\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
 
-  <FilesMatch "(\.css|\.html|\.js)\.gz$">
+  <FilesMatch "(\.css|\.html|\.js|\.svg)\.gz$">
     Header append Content-Encoding gzip
     Header append Vary Accept-Encoding
   </FilesMatch>
@@ -132,5 +142,5 @@ FileETag None
 
 # on-demand gzip compression
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml text/css text/javascript application/javascript application/manifest+json application/trafficadvice+json
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml text/css text/javascript application/javascript application/manifest+json application/trafficadvice+json image/svg+xml
 </IfModule>

@@ -16,5 +16,5 @@ fi
 
 readonly dir="${PWD}/$1"
 
-find "${dir}" \( -name '*.html' -o -name '*.css' -o -name '*.js' -type f \) -exec scripts/compress-brotli.sh {} ';'
-find "${dir}" \( -name '*.html' -o -name '*.css' -o -name '*.js' -o -name 'sitemap.xml' -type f \) -exec scripts/compress-gzip.sh {} ';'
+find "${dir}" \( -name '*.css' -o -name '*.html' -o -name '*.js' -o -name '*.svg' -type f \) -exec scripts/compress-brotli.sh {} ';'
+find "${dir}" \( -name '*.css' -o -name '*.html' -o -name '*.js' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress-gzip.sh {} ';'
