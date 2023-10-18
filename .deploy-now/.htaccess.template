@@ -1,6 +1,6 @@
 ServerSignature Off
 
-<LimitExcept GET>
+<LimitExcept GET HEAD OPTIONS>
   Deny from all
 </LimitExcept>
 
@@ -14,10 +14,12 @@ ServerSignature Off
     .xml
 
   <Files "traffic-advice">
+    # https://developer.chrome.com/blog/private-prefetch-proxy/#traffic
     ForceType application/trafficadvice+json
   </Files>
 
- <Files "*.webmanifest">
+  <Files "site.webmanifest">
+    # https://w3c.github.io/manifest/#iana-considerations
     ForceType application/manifest+json
   </Files>
 </IfModule>
@@ -27,76 +29,56 @@ ServerSignature Off
   Options -Indexes
 </IfModule>
 
+# block hidden files in root except .well-known/
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RedirectMatch 404 /\.(?!well-known\/)
 </IfModule>
 
-<IfModule mod_rewrite.c>
-  RewriteEngine on
-  RewriteCond "%{SERVER_PROTOCOL}" "^HTTP/1\.0$"
-  RewriteRule "^" "-" [NC,F,L]
-</IfModule>
-
+# block unknown user agent
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteCond "%{HTTP_USER_AGENT}" "^(?:\s|-)*$"
   RewriteRule "^" "-" [NC,F,L]
 </IfModule>
 
-<IfModule mod_rewrite.c>
-  RewriteEngine on
-  RewriteCond "%{HTTP_REFERER}" "!^$"
-  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?sdavids.de" [NC]
-  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?google.com" [NC]
-  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?twitter.com" [NC]
-  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?bing.com" [NC]
-  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?yahoo.com" [NC]
-  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?duckduckgo.com" [NC]
-  RewriteCond "%{HTTP_REFERER}" "!^http(s)?://(www\.)?ecosia.com" [NC]
-  RewriteRule "\.(ico|png|svg)$" "-" [NC,F,L]
-</IfModule>
-
 <IfModule mod_headers.c>
   Header unset ETag
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#strict-transport-security
-  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#x-content-type-options
-  Header always set X-Content-Type-Options "nosniff"
+  Header set X-Content-Type-Options "nosniff"
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-resource-policy-corp
-  Header always set Cross-Origin-Resource-Policy "same-origin"
-
-  # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods
-  Header always set Access-Control-Allow-Methods "GET"
-
-  # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
-  Header always set Access-Control-Allow-Origin "https://sdavids.de"
-
-  # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
-  Header always set Access-Control-Max-Age "600"
-
-  # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#x-frame-options
-  Header always set X-Frame-Options "DENY" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
-
-  # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#referrer-policy
-  Header always set Referrer-Policy "strict-origin-when-cross-origin" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
-
-  # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#permissions-policy-formerly-feature-policy
-  # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#floc-federated-learning-of-cohorts
-  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
+  Header set Cross-Origin-Resource-Policy "same-origin"
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-opener-policy-coop
-  Header always set Cross-Origin-Opener-Policy "same-origin" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
+  Header set Cross-Origin-Opener-Policy "same-origin"
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-embedder-policy-coep
-  Header always set Cross-Origin-Embedder-Policy "require-corp" "expr=%{CONTENT_TYPE} =~ m#text/html#i"
+  Header set Cross-Origin-Embedder-Policy "require-corp"
+
+ <FilesMatch "\.html(\.br|\.gz)?$">
+    # https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+    Header set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'self'; script-src 'self'; img-src 'self'; style-src 'self'; manifest-src 'self'; trusted-types; require-trusted-types-for 'script'"
+
+    # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#referrer-policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#x-frame-options
+    Header set X-Frame-Options "DENY"
+
+    # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#permissions-policy-formerly-feature-policy
+    # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#floc-federated-learning-of-cohorts
+    Header set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()"
+  </FilesMatch>
 </IfModule>
 
 FileETag None
 
+# configure caching
 <IfModule mod_headers.c>
   <FilesMatch "\.(ico|png|webmanifest)$">
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
@@ -119,38 +101,36 @@ FileETag None
   </FilesMatch>
 </IfModule>
 
+# serve pre-compressed gzip and brotli files
 <IfModule mod_headers.c>
   RewriteCond "%{HTTP:Accept-encoding}" "br"
   RewriteCond "%{REQUEST_FILENAME}.br" -s
-  RewriteRule "^(.*)\.(html|css|js)$" "/$1.$2.br" [QSA]
+  RewriteRule "^(.*)\.(css|html|js)$" "/$1.$2.br" [QSA]
 
-  RewriteRule "\.html\.br$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.css\.br$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
+  RewriteRule "\.html\.br$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.js\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
 
-  <FilesMatch "(\.html\.br|\.js\.br|\.css\.br)$">
+  <FilesMatch "(\.css|\.html|\.js)\.br$">
     Header append Content-Encoding br
     Header append Vary Accept-Encoding
   </FilesMatch>
 
   RewriteCond "%{HTTP:Accept-encoding}" "gzip"
   RewriteCond "%{REQUEST_FILENAME}.gz" -s
-  RewriteRule "^(.*)\.(html|css|js)$" "/$1.$2.gz" [QSA]
+  RewriteRule "^(.*)\.(css|html|js)$" "/$1.$2.gz" [QSA]
 
-  RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
+  RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.js\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
 
-  <FilesMatch "(\.html\.gz|\.js\.gz|\.css\.gz)$">
+  <FilesMatch "(\.css|\.html|\.js)\.gz$">
     Header append Content-Encoding gzip
     Header append Vary Accept-Encoding
   </FilesMatch>
-
-  <FilesMatch "(\.html\.br|\.html\.gz|\.html)$">
-    Header set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'self'; script-src 'self'; img-src 'self'; style-src 'self'; manifest-src 'self'; trusted-types; require-trusted-types-for 'script'"
-  </FilesMatch>
 </IfModule>
 
+# on-demand gzip compression
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml text/css text/javascript application/javascript application/manifest+json application/trafficadvice+json
 </IfModule>
