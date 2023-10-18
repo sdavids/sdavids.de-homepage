@@ -104,6 +104,14 @@ FileETag None
     Header set Cache-Control "private, no-store"
   </FilesMatch>
 
+  <Files "traffic-advice">
+    Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
+  </Files>
+
+  <Files "security.txt">
+    Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
+  </Files>
+
   <FilesMatch "index\.html(\.br|\.gz)?$">
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
