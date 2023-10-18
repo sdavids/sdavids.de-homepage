@@ -155,20 +155,29 @@ $ npm run dev
 
 => http://localhost:3000
 
-== Local Build
+== Local Deployment
 
+=== Build And Start Apache HTTPD
 [source,shell]
 ----
 $ cd hp
-$ npm run clean
-$ npm run clean:node
-$ npm i
-$ npm run build
-$ npm run minify:html
-$ npm run minify:xml
-$ npm run minify:json
-$ npm run minify:robots
-$ npm run compress:files
-$ npm run create:google-verification-file
-$ npm run create:timestamp-file dist/.deploy-timestamp
+$ npm run docker:http:start:with-build
+----
+
+=> http://localhost:8080
+
+=== Start Apache HTTPD Without a Build
+[source,shell]
+----
+$ cd hp
+$ npm run docker:http:start
+----
+
+=> http://localhost:8080
+
+=== Stop Apache HTTPD
+[source,shell]
+----
+$ cd hp
+$ npm run docker:http:stop
 ----
