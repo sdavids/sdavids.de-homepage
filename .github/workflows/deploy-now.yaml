@@ -36,6 +36,10 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
         run: npm install
+      - name: Lint project
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        working-directory: ./hp
+        run: npm run lint
       - name: Build project
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
