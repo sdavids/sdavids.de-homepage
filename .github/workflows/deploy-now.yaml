@@ -3,9 +3,10 @@ name: Deploy Now
 # https://docs.ionos.space/docs/git-integration/#v1-projects-created-until-112022
 
 on:
-  - push
-  - workflow_dispatch
-
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 jobs:
   deploy-now:
     runs-on: ubuntu-22.04
