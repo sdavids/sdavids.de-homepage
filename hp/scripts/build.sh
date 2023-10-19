@@ -11,7 +11,7 @@ npm run build:css
 rm -rf "${dir}"
 cp -rp src "${dir}"
 
-npx esbuild 'src/j/app.js' --bundle --splitting --outdir="${dir}/j" --format=esm --target=es2017 --minify --legal-comments=none
+npx esbuild 'src/j/app.js' --bundle --splitting --outdir="${dir}/j" --format=esm --target=es2020 --minify --legal-comments=none
 
 npx esbuild --bundle "${dir}/s/app.css" --outfile="${dir}/s/app.css" --allow-overwrite --minify --legal-comments=none
 
