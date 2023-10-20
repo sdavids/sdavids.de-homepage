@@ -16,5 +16,6 @@ module.exports = {
   rules: {
     'id-length': 'off',
     'sort-keys': 'off',
+    'multiline-comment-style': 'off',
   },
 };
