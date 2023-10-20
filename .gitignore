@@ -23,3 +23,5 @@ jffi*.dylib
 *.key
 *.pem
 
+### environment files ###
+.env
