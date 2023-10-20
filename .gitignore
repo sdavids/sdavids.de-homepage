@@ -25,3 +25,6 @@ jffi*.dylib
 
 ### environment files ###
 .env
+
+### direnv files ###
+.envrc
