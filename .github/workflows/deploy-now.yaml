@@ -41,6 +41,8 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp
         run: npm run lint
+        env:
+          ESLINT_USE_FLAT_CONFIG: false
       - name: Build project
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         working-directory: ./hp

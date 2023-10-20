@@ -6,3 +6,16 @@ Sebastian Davids <sdavids@gmx.de>
 remove @rvxlab/tailwind-plugin-ios-full-height from package.json & tailwind.config.cjs
 +
 remove min-h-screen-ios in *.html
+
+* update eslint config to flat config
++
+https://github.com/prettier/eslint-plugin-prettier/issues/591
+https://github.com/azeemba/eslint-plugin-json/issues/80
++
+https://eslint.org/docs/latest/use/configure/migration-guide
++
+vi ~/Library/Application\ Support/com.fournova.Tower3/environment.plist
++
+remove ESLINT_USE_FLAT_CONFIG in deploy-now.yaml and the plist above
++
+remove .envrc in cleanup.sh
