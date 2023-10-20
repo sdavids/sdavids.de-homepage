@@ -3,4 +3,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 cd hp || exit 1
-npx lint-staged >&2
+npx --no lint-staged >&2
