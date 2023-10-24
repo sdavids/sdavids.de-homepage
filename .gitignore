@@ -28,3 +28,7 @@ jffi*.dylib
 
 ### direnv files ###
 .envrc
+
+### npm ###
+/hp/_logs/
+/hp/_cacache/
