@@ -28,7 +28,7 @@ jobs:
         run: scripts/shellscript-check.sh
       - name: Setup Node.js
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: ./hp/.nvmrc
           cache-dependency-path: ./hp/package-lock.json
