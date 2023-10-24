@@ -48,7 +48,6 @@ jobs:
         working-directory: ./hp
         run: npm run build
         env:
-          CI: true
           SITE_URL: ${{ steps.project.outputs.site-url }}
       - name: Minify HTML
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
