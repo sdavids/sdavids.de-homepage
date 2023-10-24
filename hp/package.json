@@ -17,7 +17,7 @@
   "scripts": {
     "prepare": "scripts/prepare.sh",
     "build": "scripts/build.sh",
-    "build:css": "npx --no tailwindcss -c ./tailwind.config.cjs -i ./src/s/app.src.css -o ./src/s/app.css -m",
+    "build:css": "npx --no tailwindcss -- -c ./tailwind.config.cjs -i ./src/s/app.src.css -o ./src/s/app.css -m",
     "clean": "scripts/clean.sh",
     "clean:node": "rm -rf node_modules package-lock.json",
     "compress:files": "scripts/compress-files.sh dist",
@@ -25,7 +25,7 @@
     "create:security-txt-file": "scripts/create-security-txt-file.sh",
     "create:timestamp-file": "scripts/create-timestamp-file.sh",
     "dev": "browser-sync src -f src -b \"google chrome\" --no-notify",
-    "dev:css": "npx --no tailwindcss -c ./tailwind.config.cjs -i ./src/s/app.src.css -o ./src/s/app.css -w",
+    "dev:css": "npx --no tailwindcss -- -c ./tailwind.config.cjs -i ./src/s/app.src.css -o ./src/s/app.css -w",
     "docker:httpd:start": "scripts/docker-httpd-start.sh --skip-build",
     "docker:httpd:start:with-build": "scripts/docker-httpd-start.sh",
     "docker:httpd:stop": "scripts/docker-httpd-stop.sh",
