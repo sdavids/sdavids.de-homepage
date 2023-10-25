@@ -38,6 +38,7 @@
     "minify:robots": "scripts/minify-robots.sh",
     "prettier": "npx --no prettier -- . --cache --write"
   },
+  "packageManager": "npm@10.2.1",
   "devDependencies": {
     "@eslint/js": "8.52.0",
     "@rvxlab/tailwind-plugin-ios-full-height": "1.1.0",
