@@ -39,11 +39,16 @@ docker run \
   --interactive \
   --tty \
   --rm \
+  --user www-data \
+  --read-only \
+  --tmpfs /tmp:rw,noexec,nosuid \
   --security-opt=no-new-privileges \
+  --cap-add net_bind_service \
   --cap-drop=all \
   --publish "${port}:80/tcp" \
   --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
   --name "${name}" \
-  "${container_name}:${version}"
+  "${container_name}:${version}" \
+  httpd-foreground -C 'PidFile /tmp/httpd.pid'
 
 printf "\nLocal: http://localhost:%s\n" "${port}"
