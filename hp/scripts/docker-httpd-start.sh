@@ -21,7 +21,7 @@ readonly site_dir="${PWD}/dist"
 if [ "${skip_build}" != '--skip-build' ]; then
   npm run clean
   npm run clean:node
-  npm install --fund=false
+  npm install --fund=false --audit=false
   npm run build
   npm run minify:html
   npm run minify:xml

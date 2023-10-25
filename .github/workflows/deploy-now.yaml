@@ -35,7 +35,7 @@ jobs:
           cache: npm
       - name: Prepare project environment
         working-directory: hp
-        run: npm install --fund=false
+        run: npm install --fund=false --audit=false
       - name: Lint project
         working-directory: hp
         run: npm run lint
