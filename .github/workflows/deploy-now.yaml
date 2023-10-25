@@ -7,9 +7,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+permissions: {}
 jobs:
   deploy-now:
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
     steps:
       - name: Fetch project data
         uses: ionos-deploy-now/retrieve-project-info-action@v1
