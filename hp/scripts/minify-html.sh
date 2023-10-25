@@ -7,7 +7,7 @@ set -eu
 readonly dir='dist'
 readonly file="${dir}/index.html"
 
-npx --no html-minifier "${file}" \
+npx --no html-minifier -- "${file}" \
   --collapse-boolean-attributes \
   --collapse-whitespace \
   --html5 \

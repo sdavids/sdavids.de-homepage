@@ -7,5 +7,5 @@ set -eu
 readonly dir='dist'
 readonly file="${dir}/sitemap.xml"
 
-npx --no minify-xml "${file}" \
+npx --no minify-xml -- "${file}" \
   --in-place
