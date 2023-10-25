@@ -22,63 +22,48 @@ jobs:
           project: ${{ secrets.IONOS_PROJECT_ID }}
           service-host: api-eu.ionos.space
       - name: checkout
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Check shell scripts
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         run: scripts/shellscript-check.sh
       - name: Setup Node.js
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: actions/setup-node@v4
         with:
-          node-version-file: ./hp/.nvmrc
-          cache-dependency-path: ./hp/package-lock.json
+          node-version-file: hp/.nvmrc
+          cache-dependency-path: hp/package-lock.json
           cache: npm
       - name: Prepare project environment
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm install
       - name: Lint project
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm run lint
         env:
           ESLINT_USE_FLAT_CONFIG: false
       - name: Build project
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm run build
-        env:
-          SITE_URL: ${{ steps.project.outputs.site-url }}
       - name: Minify HTML
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm run minify:html
       - name: Minify XML
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm run minify:xml
       - name: Minify JSON
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm run minify:json
       - name: Minify robots.txt
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm run minify:robots
       - name: Compress files
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm run compress:files
       - name: Create Google Verification file
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm run create:google-verification-file
       - name: Create timestamp file
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        working-directory: ./hp
+        working-directory: hp
         run: npm run create:timestamp-file dist/.deploy-timestamp
       - name: Deploy build
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
@@ -87,7 +72,7 @@ jobs:
           api-key: ${{ secrets.IONOS_API_KEY }}
           bootstrap-deploy: ${{ steps.project.outputs.bootstrap-deploy }}
           branch-id: ${{ steps.project.outputs.branch-id }}
-          dist-folder: ./hp/dist
+          dist-folder: hp/dist
           project: ${{ secrets.IONOS_PROJECT_ID }}
           remote-host: ${{ steps.project.outputs.remote-host }}
           service-host: api-eu.ionos.space
