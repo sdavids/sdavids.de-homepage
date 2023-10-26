@@ -34,6 +34,11 @@ fi
 
 cp ../.deploy-now/.htaccess.template "${site_dir}/.htaccess"
 
+readonly network_name='sdavids.de-homepage'
+
+docker network inspect "${network_name}" > /dev/null 2>&1 \
+  || docker network create --driver bridge "${network_name}" > /dev/null
+
 docker run \
   --detach \
   --interactive \
@@ -45,6 +50,7 @@ docker run \
   --security-opt=no-new-privileges \
   --cap-add net_bind_service \
   --cap-drop=all \
+  --network="${network_name}" \
   --publish "${port}:80/tcp" \
   --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
   --name "${name}" \
