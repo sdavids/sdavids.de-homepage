@@ -49,6 +49,6 @@ docker run \
   --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
   --name "${name}" \
   "${container_name}:${version}" \
-  httpd-foreground -C 'PidFile /tmp/httpd.pid'
+  httpd-foreground -C 'PidFile /tmp/httpd.pid' > /dev/null
 
 printf "\nLocal: http://localhost:%s\n" "${port}"
