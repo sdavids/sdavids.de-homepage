@@ -7,10 +7,5 @@
 * whitespace=tab-in-indent,trailing-space,tabwidth=2
 
 *.adoc linguist-documentation
-*.afdesign binary -eol -whitespace
-*.css diff=css
-*.hmtl diff=html
-*.ico binary -eol -whitespace
 *.md diff=markdown linguist-documentation
-*.png binary -eol -whitespace
 *.sh diff=bash
