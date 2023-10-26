@@ -20,5 +20,5 @@ if [ ! -f "$1" ]; then
   exit 2
 fi
 
-brotli "$1" -o "$1.br"
+brotli "$1" -fo "$1.br"
 touch -c -r "$1" "$1.br"

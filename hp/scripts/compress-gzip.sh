@@ -12,5 +12,5 @@ if [ ! -f "$1" ]; then
   exit 2
 fi
 
-gzip --best --keep "$1"
+gzip -9fk "$1"
 touch -c -r "$1" "$1.gz"
