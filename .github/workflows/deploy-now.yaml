@@ -14,13 +14,6 @@ jobs:
     permissions:
       contents: read
     steps:
-      - name: Fetch project data
-        uses: ionos-deploy-now/retrieve-project-info-action@v1
-        id: project
-        with:
-          api-key: ${{ secrets.IONOS_API_KEY }}
-          project: ${{ secrets.IONOS_PROJECT_ID }}
-          service-host: api-eu.ionos.space
       - name: checkout
         uses: actions/checkout@v4
         with:
@@ -67,6 +60,13 @@ jobs:
         run: npm run create:timestamp-file dist/.deploy-timestamp
       - name: Copy .htaccess file
         run: cp .deploy-now/.htaccess.template hp/dist/.htaccess
+      - name: Fetch project data
+        uses: ionos-deploy-now/retrieve-project-info-action@v1
+        id: project
+        with:
+          api-key: ${{ secrets.IONOS_API_KEY }}
+          project: ${{ secrets.IONOS_PROJECT_ID }}
+          service-host: api-eu.ionos.space
       - name: Deploy build
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: ionos-deploy-now/deploy-to-ionos-action@v1
