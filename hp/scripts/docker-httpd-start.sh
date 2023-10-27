@@ -34,10 +34,12 @@ readonly port='8080'
 
 readonly site_dir="${PWD}/dist"
 
+export CI=true
+
 if [ "${skip_build}" != '--skip-build' ]; then
   npm run clean
-  npm run clean:node
-  npm install --fund=false --audit=false
+  rm -rf node_modules
+  npm ci --fund=false --audit=false
   npm run build
   npm run minify:html
   npm run minify:xml
