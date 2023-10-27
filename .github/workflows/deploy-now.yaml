@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 permissions: {}
 jobs:
-  deploy-now:
+  lint:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -31,6 +31,21 @@ jobs:
         run: npm run lint
         env:
           ESLINT_USE_FLAT_CONFIG: false
+  deploy-now:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: 'Setup node and install dependencies'
+        uses: ./.github/actions/setup-node-and-install-dependencies
+        with:
+          working-directory: 'hp'
+          node-version-file: 'hp/.nvmrc'
+          dependencies-lock-file: 'hp/package-lock.json'
       - name: Build project
         working-directory: hp
         run: npm run build
