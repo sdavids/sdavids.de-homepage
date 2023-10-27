@@ -18,17 +18,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+      - name: 'Setup node and install dependencies'
+        uses: ./.github/actions/setup-node-and-install-dependencies
+        with:
+          working-directory: 'hp'
+          node-version-file: 'hp/.nvmrc'
+          dependencies-lock-file: 'hp/package-lock.json'
       - name: Check shell scripts
         run: scripts/shellscript-check.sh
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: hp/.nvmrc
-          cache-dependency-path: hp/package-lock.json
-          cache: npm
-      - name: Prepare project environment
-        working-directory: hp
-        run: npm install --fund=false --audit=false
       - name: Lint project
         working-directory: hp
         run: npm run lint
