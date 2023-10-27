@@ -19,3 +19,7 @@ vi ~/Library/Application\ Support/com.fournova.Tower3/environment.plist
 remove ESLINT_USE_FLAT_CONFIG in deploy-now.yaml and the plist above
 +
 remove .envrc in cleanup.sh
+
+* use official corepack support from setup-node action
++
+https://github.com/actions/setup-node/issues/531
