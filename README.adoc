@@ -10,8 +10,13 @@ Sebastian Davids <sdavids@gmx.de>
 :sectlinks:
 :toc: macro
 :hide-uri-scheme:
+:source-highlighter: rouge
+:rouge-style: github
 
 // Refs:
+:uri-contributor-covenant: https://www.contributor-covenant.org
+:uri-apache-license: https://www.apache.org/licenses/LICENSE-2.0
+:uri-google-style: https://github.com/google/gts
 :docker-install-url: https://docs.docker.com/install/
 :nvm-install-url: https://github.com/nvm-sh/nvm#installing-and-updating
 :fnm-install-url: https://github.com/Schniz/fnm#installation
@@ -20,9 +25,36 @@ ifdef::env-browser[:outfilesuffix: .adoc]
 
 ifdef::env-github[]
 :outfilesuffix: .adoc
+:badges:
+endif::[]
+
+ifdef::badges[]
+image:https://img.shields.io/github/license/sdavids/sdavids.de-homepage[Apache License,Version 2.0,link={uri-apache-license}]
+image:https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg[Contributor Covenant,Version 2.1,link={uri-contributor-covenant}]
+image:https://img.shields.io/badge/code%20style-google-blueviolet.svg[Code Style: Google,link={uri-google-style}]
+image:https://img.shields.io/osslifecycle/sdavids/sdavids.de-homepage[OSS Lifecycle]
+image:https://img.shields.io/maintenance/yes/2023[Maintenance]
+image:https://img.shields.io/github/last-commit/sdavids/sdavids.de-homepage[GitHub last commit]
+image:http://isitmaintained.com/badge/resolution/sdavids/sdavids.de-homepage.svg[Resolution Time]
+image:http://isitmaintained.com/badge/open/sdavids/sdavids.de-homepage.svg[Open Issues]
 endif::[]
 
 toc::[]
+
+== License
+
+Apache License, Version 2.0 (link:LICENSE[] or {uri-apache-license}).
+
+=== Contribution
+
+See link:CONTRIBUTING{outfilesuffix}[].
+
+== Code of Conduct
+
+We abide by the {uri-contributor-covenant}[Contributor Covenant, Version 2.1]
+and ask that you do as well.
+
+For more information, please see link:CODE_OF_CONDUCT{outfilesuffix}[].
 
 == Development Environment Setup
 
@@ -38,7 +70,8 @@ Install {nvm-install-url}[NVM] or {fnm-install-url}[fnm].
 
 This repository uses https://typicode.github.io/husky/[husky] for git hooks.
 
-More information: https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - Command not found]
+More information:
+https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - Command not found]
 
 ==== nvm
 

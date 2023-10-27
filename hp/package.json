@@ -2,7 +2,7 @@
   "name": "sdavids.de-homepage",
   "description": "sdavids.de-homepage",
   "version": "1.0.0",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "contributors": [
     "Sebastian Davids <sdavids@gmx.de>"
   ],
