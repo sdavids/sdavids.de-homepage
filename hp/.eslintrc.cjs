@@ -10,7 +10,12 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
   },
-  extends: ['eslint:all', 'plugin:json/recommended', 'prettier'],
+  extends: [
+    'eslint:all',
+    'plugin:compat/recommended',
+    'plugin:json/recommended',
+    'prettier',
+  ],
   ignorePatterns: ['dist/*'],
   reportUnusedDisableDirectives: true,
   rules: {
