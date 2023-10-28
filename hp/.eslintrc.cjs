@@ -14,6 +14,7 @@ module.exports = {
   ignorePatterns: ['dist/*'],
   reportUnusedDisableDirectives: true,
   rules: {
+    'capitalized-comments': 'off',
     'id-length': 'off',
     'sort-keys': 'off',
     'multiline-comment-style': 'off',
