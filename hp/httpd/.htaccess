@@ -165,3 +165,11 @@ FileETag None
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml text/css text/javascript application/javascript application/manifest+json application/trafficadvice+json image/svg+xml
 </IfModule>
+
+# enable server push
+<IfModule http2_module>
+  <FilesMatch "index\.html$">
+    Header add Link "</s/app.css>;rel=preload;as=style"
+    Header add Link "</j/app.js>;rel=modulepreload;as=script;crossorigin=anonymous"
+  </FilesMatch>
+</IfModule>

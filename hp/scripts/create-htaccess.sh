@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 #
 # Copyright (c) 2023, Sebastian Davids
@@ -18,6 +18,32 @@
 
 # script needs to be invoked from the hp root directory
 
-set -eu
+set -Eeuo pipefail
 
-cp httpd/.htaccess dist
+readonly dist_dir="dist"
+
+readonly htaccess_file="${dist_dir}/.htaccess"
+
+cp httpd/.htaccess "${htaccess_file}"
+
+js_filename="$( find "${dist_dir}" -name 'app*.js' -type f -exec basename {} \; )"
+
+if [ -z "${js_filename}" ]; then
+  echo 'app.*.js not found'
+  exit 1
+fi
+
+css_filename="$( find "${dist_dir}" -name 'app*.css' -type f -exec basename {} \; )"
+
+if [ -z "${css_filename}" ]; then
+  echo 'app.*.css not found'
+  exit 2
+fi
+
+if [ "$(uname)" = 'Darwin' ]; then
+  sed -i '' "s/\/j\/app\.js/\/j\/${js_filename}/g" "${htaccess_file}"
+  sed -i '' "s/\/s\/app\.css/\/s\/${css_filename}/g" "${htaccess_file}"
+else
+  sed -i "s/\/j\/app\.js/\/j\/${js_filename}/g" "${htaccess_file}"
+  sed -i "s/\/s\/app\.css/\/s\/${css_filename}/g" "${htaccess_file}"
+fi
