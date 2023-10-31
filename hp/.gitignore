@@ -9,3 +9,6 @@
 ### Build ###
 /dist/
 /src/s/app.css
+
+### easyrsa ###
+/certs/

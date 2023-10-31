@@ -30,9 +30,16 @@ readonly container_name="${group}/${artifact}"
 
 readonly name='sdavids-homepage'
 
-readonly port='8080'
+readonly http_port='8080'
+readonly https_port='8443'
+
+# needs entry in /etc/hosts to work:
+# 127.0.0.1 localhost httpd.local
+readonly host_name="httpd.local"
 
 readonly site_dir="${PWD}/dist"
+
+readonly certs_dir="${PWD}/certs"
 
 export CI=true
 
@@ -68,10 +75,14 @@ docker run \
   --cap-add net_bind_service \
   --cap-drop=all \
   --network="${network_name}" \
-  --publish "${port}:80/tcp" \
+  --publish "${http_port}:80/tcp" \
+  --publish "${https_port}:443/tcp" \
+  --hostname="${host_name}" \
   --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
+  --mount "type=bind,source=${certs_dir}/server.crt,target=/usr/local/apache2/conf/server.crt,readonly" \
+  --mount "type=bind,source=${certs_dir}/server.key,target=/usr/local/apache2/conf/server.key,readonly" \
   --name "${name}" \
   "${container_name}:${version}" \
   httpd-foreground -C 'PidFile /tmp/httpd.pid' > /dev/null
 
-printf "\nLocal: http://localhost:%s\n" "${port}"
+printf "\nLocal: https://%s\n" "${host_name}:${https_port}"

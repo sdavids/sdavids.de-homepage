@@ -164,6 +164,22 @@ $ sudo apt-get install gpg
 
 Install https://gpgtools.org[GPG Suite].
 
+=== easyrsa
+
+==== Linux
+
+[source,shell]
+----
+$ sudo apt-get install easy-rsa
+----
+
+==== Mac
+
+[source,shell]
+----
+$ brew install easy-rsa
+----
+
 == Local Dev
 
 [source,shell]
