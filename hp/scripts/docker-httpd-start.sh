@@ -47,10 +47,9 @@ if [ "${skip_build}" != '--skip-build' ]; then
   npm run minify:robots
   npm run compress:files
   npm run create:google-verification-file
+  npm run create:htaccess
   npm run create:timestamp-file dist/.deploy-timestamp
 fi
-
-cp ../.deploy-now/.htaccess.template "${site_dir}/.htaccess"
 
 readonly network_name='sdavids.de-homepage'
 

@@ -67,11 +67,12 @@ jobs:
       - name: Create Google Verification file
         working-directory: hp
         run: npm run create:google-verification-file
+      - name: Create .htaccess file
+        working-directory: hp
+        run: npm run create:htaccess
       - name: Create timestamp file
         working-directory: hp
         run: npm run create:timestamp-file dist/.deploy-timestamp
-      - name: Copy .htaccess file
-        run: cp .deploy-now/.htaccess.template hp/dist/.htaccess
       - name: Fetch project data
         uses: ionos-deploy-now/retrieve-project-info-action@v1
         id: project

@@ -23,6 +23,7 @@
     "clean:node": "rm -rf node_modules package-lock.json",
     "compress:files": "scripts/compress-files.sh dist",
     "create:google-verification-file": "scripts/create-google-verification-file.sh dist",
+    "create:htaccess": "scripts/create-htaccess.sh",
     "create:security-txt-file": "scripts/create-security-txt-file.sh",
     "create:timestamp-file": "scripts/create-timestamp-file.sh",
     "dev": "browser-sync src -f src -b \"google chrome\" --no-notify",
