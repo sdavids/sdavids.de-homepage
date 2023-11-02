@@ -26,13 +26,18 @@ readonly file="${dir}/index.html"
 npx --no html-minifier -- "${file}" \
   --collapse-boolean-attributes \
   --collapse-whitespace \
+  --collapse-inline-tag-whitespace \
+  --decode-entities \
   --html5 \
   --minify-css \
+  --quote-character \" \
   --remove-comments \
   --remove-empty-attributes \
   --remove-redundant-attributes \
   --remove-script-type-attributes \
   --remove-style-link-type-attributes \
+  --sort-attributes \
+  --sort-class-name \
   --use-short-doctype \
   -o "${file}.min"
 
