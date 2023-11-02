@@ -14,6 +14,6 @@
  limitations under the License.
  */
 document.addEventListener('DOMContentLoaded', () => {
-  const a = document.getElementById('sd_contact');
+  const a = document.getElementById('sd-contact');
   a.href = atob(a.dataset.h);
 });

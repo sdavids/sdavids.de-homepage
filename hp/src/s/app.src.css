@@ -17,7 +17,7 @@
 @tailwind components;
 @tailwind utilities;
 
-span.__sd_contact::before {
+span.sd-contact::before {
   content: attr(data-d) '.' attr(data-h) '\0040' attr(data-u);
   unicode-bidi: bidi-override;
   direction: rtl;
