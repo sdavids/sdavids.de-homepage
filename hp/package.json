@@ -40,7 +40,7 @@
     "minify:xml": "scripts/minify-xml.sh",
     "minify:json": "scripts/minify-json.sh",
     "minify:robots": "scripts/minify-robots.sh",
-    "prettier": "npx --no prettier -- . --cache --write"
+    "prettier": "npx --no prettier -- --cache --write ."
   },
   "packageManager": "npm@10.2.1",
   "devDependencies": {
