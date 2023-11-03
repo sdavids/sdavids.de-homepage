@@ -135,6 +135,22 @@ $ sudo apt-get install brotli
 $ brew install brotli
 ----
 
+=== zstd
+
+==== Linux
+
+[source,shell]
+----
+$ sudosudo apt install zstd
+----
+
+==== Mac
+
+[source,shell]
+----
+$ brew install zstd
+----
+
 === shellcheck
 
 ==== Linux

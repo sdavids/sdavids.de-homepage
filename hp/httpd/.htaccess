@@ -28,13 +28,13 @@ ServerSignature Off
 
 # setting the MIME type for SVG via ForceType does not work
 <IfModule mod_headers.c>
-  <FilesMatch "\.mjs(\.br|\.gz)?$">
+  <FilesMatch "\.mjs(\.br|\.gz|\.zst)?$">
     Header set Content-Type "text/javascript"
   </FilesMatch>
-  <FilesMatch "\.svg(\.br|\.gz)?$">
+  <FilesMatch "\.svg(\.br|\.gz|\.zst)?$">
     Header set Content-Type "image/svg+xml"
   </FilesMatch>
-  <FilesMatch "\.(age|gpg|keys)(\.br|\.gz)?$">
+  <FilesMatch "\.(age|gpg|keys)(\.br|\.gz|\.zst)?$">
     Header set Content-Type "text/plain"
   </FilesMatch>
 </IfModule>
@@ -75,7 +75,7 @@ ServerSignature Off
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-embedder-policy-coep
   Header set Cross-Origin-Embedder-Policy "require-corp"
 
- <FilesMatch "\.html(\.br|\.gz)?$">
+ <FilesMatch "\.html(\.br|\.gz|\.zst)?$">
     # https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
     Header set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; img-src 'self'; style-src 'self'; manifest-src 'self'; trusted-types; require-trusted-types-for 'script'"
 
@@ -99,11 +99,11 @@ FileETag None
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 
-  <FilesMatch "\.(age|gpg|keys)(\.br|\.gz)?$">
+  <FilesMatch "\.(age|gpg|keys)(\.br|\.gz|\.zst)?$">
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 
-  <FilesMatch "\.[0-9a-f]{7}\.(css(\.br|\.gz)?|js(\.br|\.gz)?|mjs(\.br|\.gz)?|png|svg(\.br|\.gz)?)$">
+  <FilesMatch "\.[0-9a-f]{7}\.(css(\.br|\.gz|\.zst)?|js(\.br|\.gz|\.zst)?|mjs(\.br|\.gz|\.zst)?|png|svg(\.br|\.gz|\.zst)?)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
@@ -123,7 +123,7 @@ FileETag None
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </Files>
 
-  <FilesMatch "index\.html(\.br|\.gz)?$">
+  <FilesMatch "index\.html(\.br|\.gz|\.zst)?$">
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 </IfModule>
@@ -134,14 +134,14 @@ FileETag None
   RewriteCond "%{REQUEST_FILENAME}.br" -s
   RewriteRule "^(.*)\.(age|css|gpg|html|js|mjs|keys|svg)$" "/$1.$2.br" [QSA]
 
-  RewriteRule "\.age\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.css\.br$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.gpg\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.html\.br$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.js\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.mjs\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.keys\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.svg\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
+  RewriteRule "\.age\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.css\.br$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.gpg\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.html\.br$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.js\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.mjs\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.keys\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:,E=no-zstd:1]
+  RewriteRule "\.svg\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
 
   <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.mjs|\.keys|\.svg)\.br$">
     Header append Content-Encoding br
@@ -152,17 +152,35 @@ FileETag None
   RewriteCond "%{REQUEST_FILENAME}.gz" -s
   RewriteRule "^(.*)\.(age|css|gpg|html|js|mjs|keys|svg)$" "/$1.$2.gz" [QSA]
 
-  RewriteRule "\.age\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.gpg\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.js\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.mjs\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.keys\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
-  RewriteRule "\.svg\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
+  RewriteRule "\.age\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.gpg\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.js\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.mjs\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.keys\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.svg\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
 
   <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.mjs|\.keys|\.svg)\.gz$">
     Header append Content-Encoding gzip
+    Header append Vary Accept-Encoding
+  </FilesMatch>
+
+  RewriteCond "%{HTTP:Accept-encoding}" "zstd"
+  RewriteCond "%{REQUEST_FILENAME}.zst" -s
+  RewriteRule "^(.*)\.(age|css|gpg|html|js|mjs|keys|svg)$" "/$1.$2.zst" [QSA]
+
+  RewriteRule "\.age\.zst$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.css\.zst$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.gpg\.zst$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.html\.zst$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.js\.zst$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.mjs\.zst$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.keys\.zst$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.svg\.zst$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+
+  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.mjs|\.keys|\.svg)\.zst$">
+    Header append Content-Encoding zstd
     Header append Vary Accept-Encoding
   </FilesMatch>
 </IfModule>
