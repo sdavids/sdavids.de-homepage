@@ -9,6 +9,7 @@ ServerSignature Off
 
   AddCharset utf-8 .css \
     .js \
+    .mjs \
     .svg \
     .txt \
     .webmanifest \
@@ -27,6 +28,9 @@ ServerSignature Off
 
 # setting the MIME type for SVG via ForceType does not work
 <IfModule mod_headers.c>
+  <FilesMatch "\.mjs(\.br|\.gz)?$">
+    Header set Content-Type "text/javascript"
+  </FilesMatch>
   <FilesMatch "\.svg(\.br|\.gz)?$">
     Header set Content-Type "image/svg+xml"
   </FilesMatch>
@@ -99,7 +103,7 @@ FileETag None
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 
-  <FilesMatch "\.[0-9a-f]{7}\.(css(\.br|\.gz)?|js(\.br|\.gz)?|png|svg(\.br|\.gz)?)$">
+  <FilesMatch "\.[0-9a-f]{7}\.(css(\.br|\.gz)?|js(\.br|\.gz)?|mjs(\.br|\.gz)?|png|svg(\.br|\.gz)?)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
@@ -128,34 +132,36 @@ FileETag None
 <IfModule mod_headers.c>
   RewriteCond "%{HTTP:Accept-encoding}" "br"
   RewriteCond "%{REQUEST_FILENAME}.br" -s
-  RewriteRule "^(.*)\.(age|css|gpg|html|js|keys|svg)$" "/$1.$2.br" [QSA]
+  RewriteRule "^(.*)\.(age|css|gpg|html|js|mjs|keys|svg)$" "/$1.$2.br" [QSA]
 
   RewriteRule "\.age\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.css\.br$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.gpg\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.html\.br$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.js\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
+  RewriteRule "\.mjs\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.keys\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.svg\.br$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
 
-  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.keys|\.svg)\.br$">
+  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.mjs|\.keys|\.svg)\.br$">
     Header append Content-Encoding br
     Header append Vary Accept-Encoding
   </FilesMatch>
 
   RewriteCond "%{HTTP:Accept-encoding}" "gzip"
   RewriteCond "%{REQUEST_FILENAME}.gz" -s
-  RewriteRule "^(.*)\.(age|css|gpg|html|js|keys|svg)$" "/$1.$2.gz" [QSA]
+  RewriteRule "^(.*)\.(age|css|gpg|html|js|mjs|keys|svg)$" "/$1.$2.gz" [QSA]
 
   RewriteRule "\.age\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.gpg\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.js\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
+  RewriteRule "\.mjs\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.keys\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
   RewriteRule "\.svg\.gz$"  "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1]
 
-  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.keys|\.svg)\.gz$">
+  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.mjs|\.keys|\.svg)\.gz$">
     Header append Content-Encoding gzip
     Header append Vary Accept-Encoding
   </FilesMatch>
@@ -170,6 +176,6 @@ FileETag None
 <IfModule http2_module>
   <FilesMatch "index\.html$">
     Header add Link "</s/app.css>;rel=preload;as=style"
-    Header add Link "</j/app.js>;rel=modulepreload;as=script;crossorigin=anonymous"
+    Header add Link "</j/app.mjs>;rel=modulepreload;as=script;crossorigin=anonymous"
   </FilesMatch>
 </IfModule>
