@@ -22,7 +22,7 @@
 #   Mac:
 #     brew install jq
 #   Linux:
-#     apt-get install jq
+#     sudo apt-get install jq
 
 set -eu
 

@@ -22,7 +22,7 @@
 #   Mac:
 #     https://gpgtools.org
 #   Linux:
-#     apt-get install gpg
+#     sudo apt-get install gpg
 
 readonly email='security@sdavids.de'
 readonly fingerprint='3B051F8EAA0B63D17220168C99A97C778DCDF19F'

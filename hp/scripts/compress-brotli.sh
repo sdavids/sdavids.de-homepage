@@ -22,7 +22,7 @@
 #   Mac:
 #     brew install brotli
 #   Linux:
-#     apt-get install brotli
+#     sudo apt-get install brotli
 
 set -eu
 
