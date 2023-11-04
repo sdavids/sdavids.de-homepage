@@ -34,6 +34,7 @@
     "docker:httpd:start:with-build": "scripts/create-or-renew-cert.sh && scripts/docker-httpd-start.sh",
     "docker:httpd:stop": "scripts/docker-httpd-stop.sh",
     "hash:filename": "scripts/hash-filename.sh",
+    "hash:importmap": "node scripts/update-importmap-hash-in-htaccess.mjs dist/index.html dist/.htaccess",
     "lint": "npx --no eslint -- --cache --ext js,mjs .",
     "lint:fix": "npm run prettier && npx --no eslint -- --cache --ext js,mjs --fix .",
     "minify:html": "scripts/minify-html.sh",

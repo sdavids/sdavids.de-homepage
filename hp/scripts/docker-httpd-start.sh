@@ -50,12 +50,13 @@ if [ "${skip_build}" != '--skip-build' ]; then
   npm run build
   npm run minify:importmap
   npm run minify:html
+  npm run create:htaccess
+  npm run hash:importmap
   npm run minify:xml
   npm run minify:json
   npm run minify:robots
   npm run compress:files
   npm run create:google-verification-file
-  npm run create:htaccess
   npm run create:timestamp-file dist/.deploy-timestamp
 fi
 

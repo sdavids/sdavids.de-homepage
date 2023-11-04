@@ -55,6 +55,12 @@ jobs:
       - name: Minify HTML
         working-directory: hp
         run: npm run minify:html
+      - name: Create .htaccess file
+        working-directory: hp
+        run: npm run create:htaccess
+      - name: Hash importmap
+        working-directory: hp
+        run: npm run hash:importmap
       - name: Minify XML
         working-directory: hp
         run: npm run minify:xml
@@ -70,9 +76,6 @@ jobs:
       - name: Create Google Verification file
         working-directory: hp
         run: npm run create:google-verification-file
-      - name: Create .htaccess file
-        working-directory: hp
-        run: npm run create:htaccess
       - name: Create timestamp file
         working-directory: hp
         run: npm run create:timestamp-file dist/.deploy-timestamp
