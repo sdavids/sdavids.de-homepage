@@ -17,9 +17,10 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...globals.node,
       },
       parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 2022,
         sourceType: 'module',
       },
     },
@@ -31,6 +32,10 @@ export default [
       'id-length': 'off',
       'sort-keys': 'off',
       'multiline-comment-style': 'off',
+      'no-magic-numbers': 'off',
+      'one-var': 'off',
+      'prefer-destructuring': ['error', { object: true, array: false }],
+      'sort-vars': 'off',
     },
   },
 ];
