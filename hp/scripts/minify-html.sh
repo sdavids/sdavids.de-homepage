@@ -23,14 +23,14 @@ set -eu
 readonly dir='dist'
 readonly file="${dir}/index.html"
 
-npx --no html-minifier -- "${file}" \
+npx --no html-minifier-terser -- "${file}" \
   --collapse-boolean-attributes \
   --collapse-whitespace \
   --collapse-inline-tag-whitespace \
   --decode-entities \
-  --html5 \
   --minify-css \
   --quote-character \" \
+  --process-scripts 'application/ld+json' \
   --remove-comments \
   --remove-empty-attributes \
   --remove-redundant-attributes \
