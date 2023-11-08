@@ -33,15 +33,18 @@ npx --no esbuild -- --bundle "${dir}/s/app.css" --outfile="${dir}/s/app.css" --a
 
 rm "${dir}/s/app.src.css"
 
-js_filename="$(npm run hash:filename -- dist/j/app.mjs -e | sed -nr 's/.*(app.[0-9a-f]+\.mjs)/\1/p')"
-css_filename="$(npm run hash:filename -- dist/s/app.css -e| sed -nr 's/.*(app.[0-9a-f]+\.css)/\1/p')"
-
 readonly index_file="${dir}/index.html"
 
 if [ "$(uname)" = 'Darwin' ]; then
+  js_filename="$(npm run hash:filename -- dist/j/app.mjs -e | sed -nE 's/.*(app.[0-9a-f]+\.mjs)/\1/p')"
+  css_filename="$(npm run hash:filename -- dist/s/app.css -e| sed -nE 's/.*(app.[0-9a-f]+\.css)/\1/p')"
+
   sed -i '' "s/app\.mjs/${js_filename}/g" "${index_file}"
   sed -i '' "s/app\.css/${css_filename}/g" "${index_file}"
 else
+  js_filename="$(npm run hash:filename -- dist/j/app.mjs -e | sed -nr 's/.*(app.[0-9a-f]+\.mjs)/\1/p')"
+  css_filename="$(npm run hash:filename -- dist/s/app.css -e| sed -nr 's/.*(app.[0-9a-f]+\.css)/\1/p')"
+
   sed -i "s/app\.mjs/${js_filename}/g" "${index_file}"
   sed -i "s/app\.css/${css_filename}/g" "${index_file}"
 fi
