@@ -45,6 +45,10 @@
     "prettier": "npx --no prettier -- --cache --write ."
   },
   "packageManager": "npm@10.2.2",
+  "engines": {
+    "node": ">= 18.12",
+    "npm": ">=9"
+  },
   "devDependencies": {
     "@eslint/js": "8.53.0",
     "@rvxlab/tailwind-plugin-ios-full-height": "1.1.0",
