@@ -16,7 +16,8 @@
 
 # https://docs.docker.com/engine/reference/builder/
 
-FROM httpd:2.4.58-alpine
+# https://hub.docker.com/_/httpd/
+FROM httpd:2.4.58-alpine3.18
 
 EXPOSE 443
 
