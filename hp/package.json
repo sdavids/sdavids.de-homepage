@@ -44,7 +44,7 @@
     "minify:robots": "scripts/minify-robots.sh",
     "prettier": "npx --no prettier -- --cache --write ."
   },
-  "packageManager": "npm@10.2.2",
+  "packageManager": "npm@10.2.3",
   "engines": {
     "node": ">= 18.12",
     "npm": ">=9"
