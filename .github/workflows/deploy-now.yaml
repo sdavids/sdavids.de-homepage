@@ -2,7 +2,7 @@ name: Deploy Now
 # https://docs.ionos.space/docs/github-actions-customization/
 # https://docs.ionos.space/docs/git-integration/#v1-projects-created-until-112022
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
     branches:
       - main
@@ -24,6 +24,9 @@ jobs:
           dependencies-lock-file: hp/package-lock.json
       - name: Check shell scripts
         run: scripts/shellscript-check.sh
+      - name: Lint YAML files
+        working-directory: .github
+        run: yamllint --strict .
       - name: Lint project
         working-directory: hp
         run: npm run lint
