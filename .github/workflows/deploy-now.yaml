@@ -16,12 +16,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: 'Setup node and install dependencies'
+      - name: Setup node and install dependencies
         uses: ./.github/actions/setup-node-and-install-dependencies
         with:
-          working-directory: 'hp'
-          node-version-file: 'hp/.nvmrc'
-          dependencies-lock-file: 'hp/package-lock.json'
+          working-directory: hp
+          node-version-file: hp/.nvmrc
+          dependencies-lock-file: hp/package-lock.json
       - name: Check shell scripts
         run: scripts/shellscript-check.sh
       - name: Lint project
@@ -36,12 +36,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: 'Setup node and install dependencies'
+      - name: Setup node and install dependencies
         uses: ./.github/actions/setup-node-and-install-dependencies
         with:
-          working-directory: 'hp'
-          node-version-file: 'hp/.nvmrc'
-          dependencies-lock-file: 'hp/package-lock.json'
+          working-directory: hp
+          node-version-file: hp/.nvmrc
+          dependencies-lock-file: hp/package-lock.json
       - name: Build project
         working-directory: hp
         run: npm run build

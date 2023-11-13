@@ -1,20 +1,20 @@
-name: 'Setup node and install dependencies'
-description: 'Setup node and install dependencies'
+name: Setup node and install dependencies
+description: Setup node and install dependencies
 inputs:
   working-directory:
-    description: 'the working directory'
+    description: the working directory
     required: false
-    default: '.'
+    default: .
   node-version-file:
-    description: 'the path to the node version file'
+    description: the path to the node version file
     required: false
-    default: '.nvmrc'
+    default: .nvmrc
   dependencies-lock-file:
-    description: 'the path to the dependencies lock file'
+    description: the path to the dependencies lock file
     required: false
-    default: 'package-lock.json'
+    default: package-lock.json
 runs:
-  using: 'composite'
+  using: composite
   steps:
     - name: Setup Node.js
       uses: actions/setup-node@v4
