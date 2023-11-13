@@ -2,6 +2,6 @@
 
 /* eslint-disable no-undef */
 module.exports = {
-  '*.{js,cjs,mjs,json}': ['eslint', 'prettier --write'],
-  '*.yaml': ['prettier --write'],
+  '*.{js,cjs,mjs,json}': ['eslint', 'prettier --check'],
+  '*.{css,html,yaml}': ['prettier --check'],
 };
