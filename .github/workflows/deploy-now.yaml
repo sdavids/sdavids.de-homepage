@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
       - name: Setup node and install dependencies
         uses: ./.github/actions/setup-node-and-install-dependencies
@@ -22,12 +22,12 @@ jobs:
           working-directory: hp
           node-version-file: hp/.nvmrc
           dependencies-lock-file: hp/package-lock.json
-      - name: Check shell scripts
+      - name: Lint shell scripts
         run: scripts/shellscript-check.sh
       - name: Lint YAML files
         working-directory: .github
         run: yamllint --strict .
-      - name: Lint project
+      - name: Lint project files
         working-directory: hp
         run: npm run lint
         env:
@@ -37,7 +37,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
       - name: Setup node and install dependencies
         uses: ./.github/actions/setup-node-and-install-dependencies
