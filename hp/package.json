@@ -42,7 +42,8 @@
     "minify:xml": "scripts/minify-xml.sh",
     "minify:json": "scripts/minify-json.sh",
     "minify:robots": "scripts/minify-robots.sh",
-    "prettier": "npx --no prettier -- --cache --write ."
+    "prettier": "npx --no prettier -- --cache --write .",
+    "prettier:check": "npx --no prettier -- --cache --check ."
   },
   "packageManager": "npm@10.2.3",
   "engines": {

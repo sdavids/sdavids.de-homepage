@@ -27,6 +27,9 @@ jobs:
       - name: Lint YAML files
         working-directory: .github
         run: yamllint --strict .
+      - name: Check formatting
+        working-directory: hp
+        run: npm run prettier:check
       - name: Lint project files
         working-directory: hp
         run: npm run lint
