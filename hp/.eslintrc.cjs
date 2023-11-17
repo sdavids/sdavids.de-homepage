@@ -1,6 +1,5 @@
 // https://eslint.org/docs/user-guide/configuring
 
-/* eslint-disable no-undef */
 module.exports = {
   root: true,
   env: {
@@ -15,7 +14,6 @@ module.exports = {
     'eslint:all',
     'plugin:compat/recommended',
     'plugin:json/recommended',
-    'prettier',
   ],
   ignorePatterns: ['dist/*'],
   reportUnusedDisableDirectives: true,

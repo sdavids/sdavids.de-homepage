@@ -3,9 +3,8 @@
 import globals from 'globals';
 import js from '@eslint/js';
 
-// 'plugin:compat/recommended', 'plugin:json/recommended', 'prettier'
+// 'plugin:compat/recommended', 'plugin:json/recommended'
 //
-// https://github.com/prettier/eslint-plugin-prettier/issues/591
 // https://github.com/azeemba/eslint-plugin-json/issues/80
 // https://github.com/amilajack/eslint-plugin-compat/issues/603
 
