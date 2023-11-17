@@ -16,7 +16,7 @@ https://eslint.org/docs/latest/use/configure/migration-guide
 +
 vi ~/Library/Application\ Support/com.fournova.Tower3/environment.plist
 +
-remove ESLINT_USE_FLAT_CONFIG in deploy-now.yaml and the plist above
+remove ESLINT_USE_FLAT_CONFIG in deploy-now.yaml, pre-commit, and the plist above
 +
 remove .envrc in cleanup.sh
 +

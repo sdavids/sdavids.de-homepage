@@ -23,6 +23,8 @@
 #   Linux:
 #     sudo apt-get install yamllint
 
+export ESLINT_USE_FLAT_CONFIG=false
+
 . "$(dirname "$0")/_/husky.sh"
 
 yamllint --strict -c .github/.yamllint.yaml .github
