@@ -51,6 +51,8 @@
     "npm": ">=9"
   },
   "devDependencies": {
+    "@commitlint/cli": "18.4.2",
+    "@commitlint/config-conventional": "18.4.2",
     "@eslint/js": "8.53.0",
     "@rvxlab/tailwind-plugin-ios-full-height": "1.1.0",
     "browser-sync": "2.29.3",
