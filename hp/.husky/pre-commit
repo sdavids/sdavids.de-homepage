@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# shellcheck shell=sh
+
 #
 # Copyright (c) 2022-2023, Sebastian Davids
 #
@@ -25,9 +27,10 @@
 
 export ESLINT_USE_FLAT_CONFIG=false
 
-. "$(dirname "$0")/_/husky.sh"
+. "$(dirname -- "$0")/_/husky.sh"
 
 yamllint --strict -c .github/.yamllint.yaml .github
 
 cd hp || exit 1
+
 npx --no lint-staged >&2
