@@ -4,5 +4,6 @@ package-lock.json linguist-generated=true -diff
 
 *.css diff=css
 *.html diff=html
+
 *.ico binary -eol -whitespace
 *.png binary -eol -whitespace
