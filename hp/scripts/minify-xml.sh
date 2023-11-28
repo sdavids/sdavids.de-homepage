@@ -24,4 +24,5 @@ readonly dir='dist'
 readonly file="${dir}/sitemap.xml"
 
 npx --no minify-xml -- "${file}" \
+  --remove-schema-location-attributes \
   --in-place
