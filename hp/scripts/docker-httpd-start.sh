@@ -55,6 +55,7 @@ if [ "${skip_build}" != '--skip-build' ]; then
   npm run minify:xml
   npm run minify:json
   npm run minify:robots
+  npm run legal:robots
   npm run compress:files
   npm run create:google-verification-file
   npm run create:timestamp-file dist/.deploy-timestamp

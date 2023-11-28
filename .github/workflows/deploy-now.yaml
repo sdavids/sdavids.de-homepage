@@ -72,6 +72,9 @@ jobs:
       - name: Minify robots.txt
         working-directory: hp
         run: npm run minify:robots
+      - name: Add legal notice to robots.txt
+        working-directory: hp
+        run: npm run legal:robots
       - name: Compress files
         working-directory: hp
         run: npm run compress:files
