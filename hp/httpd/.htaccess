@@ -1,5 +1,7 @@
 ServerSignature Off
 
+ErrorDocument 404 /e/404.html
+
 <LimitExcept GET HEAD OPTIONS>
   Deny from all
 </LimitExcept>
