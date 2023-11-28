@@ -21,24 +21,24 @@
 set -eu
 
 readonly dir='dist'
-readonly file="${dir}/index.html"
 
-npx --no html-minifier-terser -- "${file}" \
-  --collapse-boolean-attributes \
-  --collapse-whitespace \
-  --collapse-inline-tag-whitespace \
-  --decode-entities \
-  --minify-css \
-  --quote-character \" \
-  --process-scripts 'application/ld+json' \
-  --remove-comments \
-  --remove-empty-attributes \
-  --remove-redundant-attributes \
-  --remove-script-type-attributes \
-  --remove-style-link-type-attributes \
-  --sort-attributes \
-  --sort-class-name \
-  --use-short-doctype \
-  -o "${file}.min"
+find "${dir}" -type f -name '*.html' -exec \
+  npx --no html-minifier-terser -- "{}" \
+    --collapse-boolean-attributes \
+    --collapse-whitespace \
+    --collapse-inline-tag-whitespace \
+    --decode-entities \
+    --minify-css \
+    --quote-character \" \
+    --process-scripts 'application/ld+json' \
+    --remove-comments \
+    --remove-empty-attributes \
+    --remove-redundant-attributes \
+    --remove-script-type-attributes \
+    --remove-style-link-type-attributes \
+    --sort-attributes \
+    --sort-class-name \
+    --use-short-doctype \
+    -o "{}.min" \;
 
-mv "${file}.min" "${file}"
+find "${dir}" -type f -name '*.html.min' -exec sh -c 'f="$1"; mv -- "$f" "${f%.html.min}.html"' shell {} \;
