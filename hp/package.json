@@ -27,7 +27,7 @@
     "create:htaccess": "scripts/create-htaccess.sh",
     "create:security-txt-file": "scripts/create-security-txt-file.sh",
     "create:timestamp-file": "scripts/create-timestamp-file.sh",
-    "dev": "browser-sync src -f src -b \"google chrome\" --no-notify",
+    "dev": "browser-sync src -f src -b \"polypane\" --no-notify --no-ghost-mode",
     "dev:css": "npx --no tailwindcss -- -c ./tailwind.config.cjs -i ./src/s/app.src.css -o ./src/s/app.css -w",
     "docker:httpd:logs": "scripts/docker-httpd-logs.sh",
     "docker:httpd:start": "scripts/docker-httpd-start.sh --skip-build",
