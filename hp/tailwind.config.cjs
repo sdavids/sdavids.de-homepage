@@ -6,7 +6,11 @@ module.exports = {
     preflight: false,
   },
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        smh: { raw: '(max-height: 550px)' },
+      },
+    },
   },
   plugins: [require('@rvxlab/tailwind-plugin-ios-full-height')],
 };
