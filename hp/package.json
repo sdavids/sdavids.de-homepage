@@ -57,7 +57,7 @@
     "@eslint/js": "8.55.0",
     "@rvxlab/tailwind-plugin-ios-full-height": "1.1.0",
     "browser-sync": "2.29.3",
-    "browserslist": "4.22.1",
+    "browserslist": "4.22.2",
     "dom-serializer": "2.0.0",
     "domutils": "3.1.0",
     "esbuild": "0.19.8",
