@@ -91,7 +91,7 @@ ErrorDocument 404 /e/404.html
 
     # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#permissions-policy-formerly-feature-policy
     # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#floc-federated-learning-of-cohorts
-    Header set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()"
+    Header set Permissions-Policy "camera=(), geolocation=(), interest-cohort=(), microphone=(), unload=()"
   </FilesMatch>
 </IfModule>
 
