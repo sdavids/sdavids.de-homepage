@@ -43,8 +43,8 @@
     "minify:xml": "scripts/minify-xml.sh",
     "minify:json": "scripts/minify-json.sh",
     "minify:robots": "scripts/minify-robots.sh",
-    "prettier": "npx --no prettier -- --cache --write .",
-    "prettier:check": "npx --no prettier -- --cache --check ."
+    "prettier": "scripts/format.sh",
+    "prettier:check": "scripts/format-check.sh"
   },
   "packageManager": "npm@10.2.5",
   "engines": {
