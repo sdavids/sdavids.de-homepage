@@ -78,12 +78,27 @@ https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - 
 .~/.huskyrc
 [source,shell]
 ----
+#!/usr/bin/env sh
+
+# vim:ft=zsh
+
+# shellcheck shell=sh disable=SC1091
+
+set -eu
+
+[ -e /etc/zshenv ] && . /etc/zshenv
+[ -e "${ZDOTDIR:=${HOME}}/.zshenv" ] && . "${ZDOTDIR:=${HOME}}/.zshenv"
+[ -e /etc/zprofile ] && . /etc/zprofile
+[ -e "${ZDOTDIR:=${HOME}}/.zprofile" ] && . "${ZDOTDIR:=${HOME}}/.zprofile"
+[ -e /etc/zlogin ] && . /etc/zlogin
+[ -e "${ZDOTDIR:=${HOME}}/.zlogin" ] && . "${ZDOTDIR:=${HOME}}/.zlogin"
+
 export NVM_DIR="${HOME}/.nvm"
 
-if [[ -f "${NVM_DIR}/nvm.sh" ]]; then
-  source "${NVM_DIR}/nvm.sh"
+if [ -f "${NVM_DIR}/nvm.sh" ]; then
+  . "${NVM_DIR}/nvm.sh"
 
-  if [[ -f ".nvmrc" ]]; then
+  if [ -f ".nvmrc" ]; then
     nvm use
   fi
 fi
@@ -91,16 +106,31 @@ fi
 
 ==== fnm
 
+.~/.zprofile
+[source,shell]
+----
+if type fnm > /dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd)"
+fi
+----
+
 .~/.huskyrc
 [source,shell]
 ----
-if type fnm &>/dev/null; then
-  eval "$(fnm env)"
+#!/usr/bin/env sh
 
-  if [[ -f .node-version || -f .nvmrc ]]; then
-    fnm use --silent-if-unchanged
-  fi
-fi
+# vim:ft=zsh
+
+# shellcheck shell=sh disable=SC1091
+
+set -eu
+
+[ -e /etc/zshenv ] && . /etc/zshenv
+[ -e "${ZDOTDIR:=${HOME}}/.zshenv" ] && . "${ZDOTDIR:=${HOME}}/.zshenv"
+[ -e /etc/zprofile ] && . /etc/zprofile
+[ -e "${ZDOTDIR:=${HOME}}/.zprofile" ] && . "${ZDOTDIR:=${HOME}}/.zprofile"
+[ -e /etc/zlogin ] && . /etc/zlogin
+[ -e "${ZDOTDIR:=${HOME}}/.zlogin" ] && . "${ZDOTDIR:=${HOME}}/.zlogin"
 ----
 
 === jq
