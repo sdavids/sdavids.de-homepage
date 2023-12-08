@@ -46,7 +46,7 @@
     "prettier": "npx --no prettier -- --cache --write .",
     "prettier:check": "npx --no prettier -- --cache --check ."
   },
-  "packageManager": "npm@10.2.4",
+  "packageManager": "npm@10.2.5",
   "engines": {
     "node": ">= 18.12",
     "npm": ">=9"
