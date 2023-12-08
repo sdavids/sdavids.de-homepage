@@ -18,7 +18,7 @@
     "preinstall": "scripts/preinstall.sh",
     "prepare": "scripts/prepare.sh",
     "build": "scripts/build.sh",
-    "build:css": "npx --no tailwindcss -- -c ./tailwind.config.cjs -i ./src/s/app.src.css -o ./src/s/app.css -m",
+    "build:css": "scripts/build-css.sh",
     "clean": "scripts/clean.sh",
     "clean:node": "rm -rf node_modules package-lock.json",
     "compress:files": "scripts/compress-files.sh dist",
