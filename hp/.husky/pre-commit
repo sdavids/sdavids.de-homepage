@@ -31,6 +31,8 @@ export ESLINT_USE_FLAT_CONFIG=false
 
 yamllint --strict -c .github/.yamllint.yaml .github
 
+scripts/shellscript-check.sh .
+
 cd hp || exit 1
 
 npx --no lint-staged >&2
