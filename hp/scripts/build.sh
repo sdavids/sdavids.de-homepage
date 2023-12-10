@@ -30,8 +30,6 @@ cp -rp src "${dir}"
 
 npx --no esbuild -- 'src/j/app.mjs' --bundle --splitting --outdir="${dir}/j" --format=esm --target="${esbuild_target}" --minify --legal-comments=none
 
-npx --no esbuild -- --bundle "${dir}/s/app.css" --outfile="${dir}/s/app.css" --allow-overwrite --target="${esbuild_target}" --minify --legal-comments=none
-
 rm "${dir}/s/app.src.css"
 
 if [ "$(uname)" = 'Darwin' ]; then
