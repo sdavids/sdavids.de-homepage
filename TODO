@@ -33,3 +33,7 @@ https://github.com/terser/html-minifier-terser/issues/169
 * remove body-max-line-length
 +
 https://github.com/conventional-changelog/commitlint/issues/2112
+
+* remove lightningcss-cli
++
+https://github.com/tailwindlabs/tailwindcss/issues/12565
