@@ -28,7 +28,7 @@ npm run build:css
 rm -rf "${dir}"
 cp -rp src "${dir}"
 
-npx --no esbuild -- 'src/j/app.mjs' --bundle --splitting --outdir="${dir}/j" --format=esm --target="${esbuild_target}" --minify --legal-comments=none
+npx --no esbuild -- 'src/j/app.mjs' --bundle --splitting --outdir="${dir}/j" --out-extension:.js=.mjs --format=esm --target="${esbuild_target}" --minify --legal-comments=none
 
 rm "${dir}/s/app.src.css"
 
