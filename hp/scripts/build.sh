@@ -20,6 +20,7 @@
 
 set -eu
 
+readonly esbuild_target="${1:-es2020}"
 readonly dir='dist'
 
 npm run build:css
@@ -27,9 +28,9 @@ npm run build:css
 rm -rf "${dir}"
 cp -rp src "${dir}"
 
-npx --no esbuild -- 'src/j/app.mjs' --bundle --splitting --outdir="${dir}/j" --format=esm --target=es2020 --minify --legal-comments=none
+npx --no esbuild -- 'src/j/app.mjs' --bundle --splitting --outdir="${dir}/j" --format=esm --target="${esbuild_target}" --minify --legal-comments=none
 
-npx --no esbuild -- --bundle "${dir}/s/app.css" --outfile="${dir}/s/app.css" --allow-overwrite --minify --legal-comments=none
+npx --no esbuild -- --bundle "${dir}/s/app.css" --outfile="${dir}/s/app.css" --allow-overwrite --target="${esbuild_target}" --minify --legal-comments=none
 
 rm "${dir}/s/app.src.css"
 
