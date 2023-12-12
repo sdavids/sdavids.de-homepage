@@ -24,7 +24,7 @@ readonly skip_build="${1:-}"
 
 readonly group='sdavids.de-homepage'
 readonly artifact='sdavids-httpd'
-readonly version='latest'
+readonly version='local'
 
 readonly container_name="${group}/${artifact}"
 
