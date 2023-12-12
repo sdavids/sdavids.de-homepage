@@ -22,7 +22,7 @@ set -eu
 
 readonly tag="${1:-local}"
 
-readonly group='sdavids'
+readonly group='sdavids.de-homepage'
 readonly artifact='sdavids-httpd'
 
 readonly container_name="${group}/${artifact}"

@@ -22,7 +22,7 @@ set -eu
 
 readonly skip_build="${1:-}"
 
-readonly group='sdavids'
+readonly group='sdavids.de-homepage'
 readonly artifact='sdavids-httpd'
 readonly version='latest'
 
