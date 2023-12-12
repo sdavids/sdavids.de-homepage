@@ -18,7 +18,7 @@
 
 set -eu
 
-readonly name='sdavids-homepage'
+readonly name='sdavids.de-homepage'
 
 docker logs \
   --follow \

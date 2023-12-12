@@ -18,7 +18,7 @@
 
 set -eu
 
-readonly name='sdavids-homepage'
+readonly name='sdavids.de-homepage'
 
 container_id="$(docker ps --all --quiet --filter="name=${name}")"
 

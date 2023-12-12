@@ -28,7 +28,7 @@ readonly version='latest'
 
 readonly container_name="${group}/${artifact}"
 
-readonly name='sdavids-homepage'
+readonly name='sdavids.de-homepage'
 
 readonly http_port='8080'
 readonly https_port='8443'
