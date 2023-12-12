@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2022-2023, Sebastian Davids
+# Copyright (c) 2023, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,10 +16,15 @@
 # limitations under the License.
 #
 
-# script needs to be invoked from the project root directory
-
 set -eu
 
-readonly base_dir="${PWD}"
+readonly base_dir="${1:-$PWD}"
 
-hp/scripts/dependency-check.sh "${base_dir}/hp"
+cd "${base_dir}"
+
+if [ ! -d "node_modules" ]; then
+  npm ci --ignore-scripts=false --fund=false
+fi
+
+npm outdated --long
+
