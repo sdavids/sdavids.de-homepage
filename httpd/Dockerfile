@@ -26,3 +26,13 @@ COPY --chown=www-data:www-data ./httpd.conf /usr/local/apache2/conf/httpd.conf
 
 # docker run --rm httpd:2.4.58-alpine cat /usr/local/apache2/conf/extra/httpd-ssl.conf > httpd-ssl.conf
 COPY --chown=www-data:www-data ./httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
+
+ARG git_commit
+
+# https://github.com/opencontainers/image-spec/blob/master/annotations.md
+LABEL org.opencontainers.image.revision="${git_commit}" \
+      org.opencontainers.image.licenses="Apache-2.0" \
+      org.opencontainers.image.vendor="Sebastian Davids" \
+      org.opencontainers.image.title="sdavids.de-homepage-httpd" \
+      de.sdavids.docker.group="sdavids.de-homepage" \
+      de.sdavids.docker.type="development"
