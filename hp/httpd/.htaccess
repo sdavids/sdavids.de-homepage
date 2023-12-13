@@ -81,7 +81,7 @@ ErrorDocument 404 /e/404.html
 
  <FilesMatch "\.html(\.br|\.gz|\.zst)?$">
     # https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-    Header set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; img-src 'self'; style-src 'self'; manifest-src 'self'; trusted-types; require-trusted-types-for 'script'"
+    Header set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; img-src 'self'; style-src 'self' 'sha256-trVRtkVk3GwYmc6psEtC5FRCKCnEbOQvoMBBU40z8SY='; manifest-src 'self'; trusted-types; require-trusted-types-for 'script'"
 
     # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#referrer-policy
     Header set Referrer-Policy "strict-origin-when-cross-origin"
