@@ -1,3 +1,5 @@
+# https://www.robotstxt.org
+
 # https://platform.openai.com/docs/gptbot/disallowing-gptbot
 User-agent: GPTBot
 Disallow: /
