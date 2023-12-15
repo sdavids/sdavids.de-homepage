@@ -38,7 +38,6 @@ else
 fi
 
 docker buildx build \
-  --no-cache \
   --compress \
   --tag "${container_name}:latest" \
   --tag "${container_name}:${tag}" \
