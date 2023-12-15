@@ -76,7 +76,7 @@ docker run \
   --user www-data \
   --read-only \
   --tmpfs /tmp:rw,noexec,nosuid \
-  --security-opt=no-new-privileges \
+  --security-opt="no-new-privileges=true" \
   --cap-add net_bind_service \
   --cap-drop=all \
   --network="${network_name}" \
