@@ -93,8 +93,8 @@ Options -MultiViews
   Header always set X-Frame-Options "DENY" "expr=%{CONTENT_TYPE} =~ m#text\/html#i"
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#permissions-policy-formerly-feature-policy
-  # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#floc-federated-learning-of-cohorts
-  Header always set Permissions-Policy "camera=(),geolocation=(),interest-cohort=(),microphone=(),unload=()" "expr=%{CONTENT_TYPE} =~ m#text\/(html|javascript)|application\/xml#i"
+  # https://developers.google.com/privacy-sandbox/relevance/topics/developer-guide#site-opt-out
+  Header always set Permissions-Policy "camera=(),geolocation=(),browsing-topics=(),microphone=(),unload=()" "expr=%{CONTENT_TYPE} =~ m#text\/(html|javascript)|application\/xml#i"
 </IfModule>
 
 FileETag None
