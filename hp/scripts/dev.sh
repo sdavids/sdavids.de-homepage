@@ -20,4 +20,4 @@
 
 set -eu
 
-npx browser-sync src -f src -b "polypane" --no-notify --no-ghost-mode
+npx browser-sync src -f src -b "chrome" --no-notify --no-ghost-mode
