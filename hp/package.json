@@ -37,7 +37,7 @@
     "hash:importmap": "node scripts/update-importmap-hash-in-htaccess.mjs dist/index.html dist/.htaccess",
     "legal:robots": "scripts/add-legal-notice-to-robots.sh",
     "lint": "npx --no eslint -- --cache .",
-    "lint:fix": "npm run prettier && npx --no eslint -- --cache --fix .",
+    "lint:fix": "npx --no eslint -- --cache --fix .",
     "minify:html": "scripts/minify-html.sh",
     "minify:json-tags": " node scripts/minify-json-tags.mjs dist/index.html",
     "minify:xml": "scripts/minify-xml.sh",
