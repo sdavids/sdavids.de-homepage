@@ -3,11 +3,6 @@
 import globals from 'globals';
 import js from '@eslint/js';
 
-// 'plugin:compat/recommended', 'plugin:json/recommended'
-//
-// https://github.com/azeemba/eslint-plugin-json/issues/80
-// https://github.com/amilajack/eslint-plugin-compat/issues/603
-
 export default [
   js.configs.all,
   {
@@ -19,7 +14,7 @@ export default [
         ...globals.node,
       },
       parserOptions: {
-        ecmaVersion: 2022,
+        ecmaVersion: 'latest',
         sourceType: 'module',
       },
     },

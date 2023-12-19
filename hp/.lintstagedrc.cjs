@@ -3,8 +3,8 @@
 'use strict';
 
 module.exports = {
-  '*.{js,cjs,mjs,json}': ['eslint', 'prettier --check'],
-  '*.{css,html}': ['prettier --check'],
+  '*.{cjs,js,mjs}': ['eslint'],
+  '*.{cjs,css,html,js,json,mjs}': ['prettier --check'],
   '*.yaml': [
     'prettier --check',
     'yamllint --strict -c ../.github/.yamllint.yaml',

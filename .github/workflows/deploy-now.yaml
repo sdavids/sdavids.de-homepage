@@ -33,8 +33,6 @@ jobs:
       - name: Lint project files
         working-directory: hp
         run: npm run lint
-        env:
-          ESLINT_USE_FLAT_CONFIG: false
   deploy-now:
     runs-on: ubuntu-22.04
     permissions:

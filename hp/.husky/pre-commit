@@ -26,6 +26,4 @@ set -u
 
 cd hp || exit 1
 
-export ESLINT_USE_FLAT_CONFIG=false
-
 npx --no lint-staged >&2

@@ -27,7 +27,6 @@ git clean -fdx \
   -e hp/.idea \
   -e hp/.fleet \
   -e hp/.vscode \
-  -e hp/.envrc \
   .
 
 origin_url="$(git remote get-url origin 2> /dev/null || echo '')"
