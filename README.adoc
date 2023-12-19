@@ -197,6 +197,22 @@ $ sudo apt-get install shellcheck
 $ brew install shellcheck
 ----
 
+=== yamllint
+
+==== Linux
+
+[source,shell]
+----
+$ sudo apt-get install yamllint
+----
+
+==== Mac
+
+[source,shell]
+----
+$ brew install yamllint
+----
+
 === gpg
 
 ==== Linux
