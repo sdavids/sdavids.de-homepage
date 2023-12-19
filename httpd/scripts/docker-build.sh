@@ -43,3 +43,7 @@ docker buildx build \
   --tag "${container_name}:${tag}" \
   --build-arg "git_commit=${commit}" \
   .
+
+echo
+
+docker inspect -f '{{json .Config.Labels}}' "${container_name}:${tag} "
