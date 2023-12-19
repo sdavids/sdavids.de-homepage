@@ -37,6 +37,8 @@ jobs:
         working-directory: hp
         run: npm run lint
   deploy-now:
+    needs:
+      - lint
     runs-on: ubuntu-22.04
     permissions:
       contents: read
