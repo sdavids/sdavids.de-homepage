@@ -25,8 +25,11 @@ jobs:
       - name: Lint shell scripts
         run: scripts/shellscript-check.sh
       - name: Lint YAML files
-        working-directory: .github
         run: yamllint --strict .
+      - uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: httpd/Dockerfile
+          no-color: true
       - name: Check formatting
         working-directory: hp
         run: npm run prettier:check

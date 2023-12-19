@@ -7,4 +7,5 @@ module.exports = {
   '*.{cjs,css,html,js,json,mjs}': ['prettier --check'],
   '../**/*.yaml': ['prettier --check', 'yamllint --strict .'],
   '../**/*.sh': ['shellcheck'],
+  '../**/Dockerfile': ['hadolint --no-color'],
 };
