@@ -34,14 +34,13 @@
   :host {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
-    font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-      'Apple Color Emoji', 'Segoe UI Emoji';
+    font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
     margin: 0;
-    height: 100svh;
   }
 
   a {
