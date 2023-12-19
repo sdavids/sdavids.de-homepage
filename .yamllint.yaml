@@ -1,6 +1,8 @@
 # https://yamllint.readthedocs.io/en/stable/configuration.html#default-configuration
 
 extends: default
+ignore: |
+  node_modules
 rules:
   braces:
     min-spaces-inside: 0
