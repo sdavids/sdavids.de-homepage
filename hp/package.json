@@ -55,7 +55,6 @@
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
     "@eslint/js": "8.56.0",
-    "@rvxlab/tailwind-plugin-ios-full-height": "1.1.0",
     "browser-sync": "2.29.3",
     "browserslist": "4.22.2",
     "dom-serializer": "2.0.0",

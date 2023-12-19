@@ -1,12 +1,6 @@
 = sdavids.de-homepage
 Sebastian Davids <sdavids@gmx.de>
 
-* iOS 100v bug: https://github.com/tailwindlabs/tailwindcss/discussions/7155
-+
-remove @rvxlab/tailwind-plugin-ios-full-height from package.json & tailwind.config.cjs
-+
-remove min-h-screen-ios in *.html
-
 * update eslint config to flat config
 +
 https://github.com/prettier/eslint-plugin-prettier/issues/591
