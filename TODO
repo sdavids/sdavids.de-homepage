@@ -24,16 +24,18 @@ remove --ext js,mjs from lint and lint:fix in package.json ... verify that *.mjs
 
 * use official corepack support from setup-node action
 +
+remove 'Enable Corepack' step in setup-node-and-install-dependencies/action.yaml
++
 https://github.com/actions/setup-node/issues/531
 
 * remove importmap minification
 +
 https://github.com/terser/html-minifier-terser/issues/169
 
-* remove body-max-line-length
+* remove body-max-line-length in .commitlintrc.cjs
 +
 https://github.com/conventional-changelog/commitlint/issues/2112
 
-* remove lightningcss-cli
+* remove explicit lightningcss-cli step in build-css.sh and add -m to tailwind-cli call
 +
-https://github.com/tailwindlabs/tailwindcss/issues/12565
+https://github.com/tailwindlabs/tailwindcss/issues/12564#issuecomment-1849016135
