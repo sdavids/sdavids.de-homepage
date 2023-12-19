@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+'use strict';
+
 module.exports = {
   content: ['./src/**/*.{html,js}'],
   corePlugins: {
