@@ -32,6 +32,7 @@ export default [
       'id-length': 'off',
       'sort-keys': 'off',
       'multiline-comment-style': 'off',
+      'no-continue': 'off',
       'no-magic-numbers': 'off',
       'no-ternary': 'off',
       'one-var': 'off',
