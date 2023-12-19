@@ -30,7 +30,6 @@ find "${dir}" -type f -name '*.html' -exec \
     --decode-entities \
     --minify-css \
     --quote-character \" \
-    --process-scripts 'application/ld+json' \
     --remove-comments \
     --remove-empty-attributes \
     --remove-redundant-attributes \

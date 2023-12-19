@@ -20,10 +20,10 @@
 //   npm i --save-dev htmlparser2 domutils dom-serializer
 
 // Usage:
-//   node scripts/minify-importmap.mjs index.html
+//   node scripts/minify-json-tags.mjs index.html
 
 import * as htmlparser2 from 'htmlparser2';
-import { findOne, replaceElement, textContent } from 'domutils';
+import { findAll, findOne, replaceElement, textContent } from 'domutils';
 import { readFile, writeFile } from 'fs/promises';
 import { render } from 'dom-serializer';
 
@@ -37,30 +37,39 @@ const html = await readFile(file, 'utf8');
 
 const dom = htmlparser2.parseDocument(html);
 
-const findImportMap = (elem) =>
-  elem.name === 'script' && elem.attribs.type === 'importmap';
+const findJsonStructuredScriptTags = (elem) => {
+  if (elem.name !== 'script') {
+    return false;
+  }
+  const { type } = elem.attribs;
+  if (type === 'importmap') {
+    return true;
+    // eslint-disable-next-line require-unicode-regexp
+  } else if (/^application\/(?:.+\+)?json$/.test(type)) {
+    return true;
+  }
+  return false;
+};
 
-const found = findOne(findImportMap, dom.children, true);
+const jsonTags = findAll(findJsonStructuredScriptTags, dom.children);
 
-if (found === null) {
+if (jsonTags.length === 0) {
   process.exit();
 }
 
-const text = textContent(found).trim();
-
-if (text === '') {
-  process.exit();
+for (const jsonTag of jsonTags) {
+  const text = textContent(jsonTag).trim();
+  if (text === '') {
+    continue;
+  }
+  const minified = JSON.stringify(JSON.parse(text));
+  const { type } = jsonTag.attribs;
+  const newDom = htmlparser2.parseDocument(
+    `<script type="${type}">${minified}</script>`,
+  );
+  const changed = findOne(findJsonStructuredScriptTags, newDom.children);
+  replaceElement(jsonTag, changed);
 }
-
-const minified = JSON.stringify(JSON.parse(text));
-
-const newDom = htmlparser2.parseDocument(
-  `<script type="importmap">${minified}</script>`,
-);
-
-const changed = findOne(findImportMap, newDom.children, true);
-
-replaceElement(found, changed);
 
 const updatedHtml = render(dom);
 

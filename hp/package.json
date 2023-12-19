@@ -39,7 +39,7 @@
     "lint": "npx --no eslint -- --cache --ext js,mjs .",
     "lint:fix": "npm run prettier && npx --no eslint -- --cache --ext js,mjs --fix .",
     "minify:html": "scripts/minify-html.sh",
-    "minify:importmap": " node scripts/minify-importmap.mjs dist/index.html",
+    "minify:json-tags": " node scripts/minify-json-tags.mjs dist/index.html",
     "minify:xml": "scripts/minify-xml.sh",
     "minify:json": "scripts/minify-json.sh",
     "minify:robots": "scripts/minify-robots.sh",

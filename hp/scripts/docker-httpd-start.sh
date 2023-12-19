@@ -48,7 +48,7 @@ if [ "${skip_build}" != '--skip-build' ]; then
   rm -rf node_modules
   npm ci --fund=false --audit=false
   npm run build
-  npm run minify:importmap
+  npm run minify:json-tags
   npm run minify:html
   npm run create:htaccess
   npm run hash:importmap
