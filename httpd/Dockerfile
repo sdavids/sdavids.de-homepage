@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 #
 # Copyright (c) 2023, Sebastian Davids
 #
