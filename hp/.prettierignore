@@ -2,3 +2,7 @@
 
 package-lock.json
 dist/
+.git/
+.idea/
+.fleet/
+.vscode/
