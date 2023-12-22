@@ -54,6 +54,12 @@ jobs:
       - name: Build project
         working-directory: hp
         run: npm run build
+      - name: Hash CSS
+        working-directory: hp
+        run: npm run hash:css
+      - name: Hash JS
+        working-directory: hp
+        run: npm run hash:js
       - name: Minify JSON-structured script tags
         working-directory: hp
         run: npm run minify:json-tags

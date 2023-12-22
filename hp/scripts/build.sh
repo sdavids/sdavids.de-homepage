@@ -31,17 +31,3 @@ cp -rp src "${dir}"
 npx --no esbuild -- 'src/j/app.mjs' --bundle --splitting --outdir="${dir}/j" --out-extension:.js=.mjs --format=esm --target="${esbuild_target}" --minify --legal-comments=none
 
 rm "${dir}/s/app.src.css"
-
-if [ "$(uname)" = 'Darwin' ]; then
-  js_filename="$(npm run hash:filename -- dist/j/app.mjs -e | sed -nE 's/.*(app.[0-9a-f]+\.mjs)/\1/p')"
-  css_filename="$(npm run hash:filename -- dist/s/app.css -e| sed -nE 's/.*(app.[0-9a-f]+\.css)/\1/p')"
-
-  find "${dir}" -type f -name "*.html" -print0 | xargs -0 sed -i '' "s/app\.mjs/${js_filename}/g"
-  find "${dir}" -type f -name "*.html" -print0 | xargs -0 sed -i '' "s/app\.css/${css_filename}/g"
-else
-  js_filename="$(npm run hash:filename -- dist/j/app.mjs -e | sed -nr 's/.*(app.[0-9a-f]+\.mjs)/\1/p')"
-  css_filename="$(npm run hash:filename -- dist/s/app.css -e| sed -nr 's/.*(app.[0-9a-f]+\.css)/\1/p')"
-
-  find "${dir}" -type f -name "*.html" -print0 | xargs -0 sed -i "s/app\.mjs/${js_filename}/g"
-  find "${dir}" -type f -name "*.html" -print0 | xargs -0 sed -i "s/app\.css/${css_filename}/g"
-fi
