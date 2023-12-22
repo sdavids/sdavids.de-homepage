@@ -27,6 +27,19 @@ import { findOne, textContent } from 'domutils';
 import { readFile, writeFile } from 'fs/promises';
 import { createHash } from 'node:crypto';
 
+/**
+ * @param {ChildNode} node
+ * @return {boolean}
+ */
+const isElement = (node) => node.nodeType === 1;
+
+/**
+ * @param {Element} elem
+ * @return {boolean}
+ */
+const isImportMap = (elem) =>
+  elem.name === 'script' && elem.attribs.type === 'importmap';
+
 if (process.argv.length < 4) {
   process.exit(1);
 }
@@ -38,10 +51,7 @@ const html = await readFile(indexFile, 'utf8');
 
 const dom = htmlparser2.parseDocument(html);
 
-const findImportMap = (elem) =>
-  elem.name === 'script' && elem.attribs.type === 'importmap';
-
-const found = findOne(findImportMap, dom.children, true);
+const found = findOne(isImportMap, dom.children.filter(isElement), true);
 
 if (found === null) {
   process.exit();
