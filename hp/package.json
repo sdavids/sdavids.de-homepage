@@ -39,10 +39,10 @@
     "lint": "npx --no eslint -- --cache .",
     "lint:fix": "npx --no eslint -- --cache --fix .",
     "minify:html": "scripts/minify-html.sh",
-    "minify:json-tags": " node scripts/minify-json-tags.mjs dist/index.html",
-    "minify:xml": "scripts/minify-xml.sh",
     "minify:json": "scripts/minify-json.sh",
+    "minify:json-tags": " node scripts/minify-json-tags.mjs dist/index.html",
     "minify:robots": "scripts/minify-robots.sh",
+    "minify:xml": "scripts/minify-xml.sh",
     "prettier": "scripts/format.sh",
     "prettier:check": "scripts/format-check.sh"
   },
