@@ -20,4 +20,4 @@
 
 set -eu
 
-npx --no prettier -- --cache --check .
+npx --no prettier -- --plugin=@prettier/plugin-xml --cache --check .

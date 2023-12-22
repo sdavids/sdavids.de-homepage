@@ -20,4 +20,4 @@
 
 set -eu
 
-npx --no prettier -- --cache --write .
+npx --no prettier -- --plugin=@prettier/plugin-xml --cache --write .

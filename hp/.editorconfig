@@ -1,4 +1,4 @@
 # http://EditorConfig.org
 
-[*.{cjs,css,html,js,json,mjs,webmanifest,xml}]
+[*.{cjs,css,html,js,json,mjs,svg,webmanifest,xml}]
 max_line_length = 80

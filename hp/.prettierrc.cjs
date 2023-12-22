@@ -4,4 +4,8 @@
 
 module.exports = {
   singleQuote: true,
+  // https://github.com/prettier/plugin-xml#configuration
+  xmlQuoteAttributes: 'double',
+  xmlSortAttributesByKey: true,
+  xmlWhitespaceSensitivity: 'ignore',
 };
