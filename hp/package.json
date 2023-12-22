@@ -34,7 +34,7 @@
     "docker:httpd:start:with-build": "scripts/create-or-renew-cert.sh && scripts/docker-httpd-start.sh",
     "docker:httpd:stop": "scripts/docker-httpd-stop.sh",
     "hash:filename": "scripts/hash-filename.sh",
-    "hash:importmap": "node scripts/update-importmap-hash-in-htaccess.mjs dist/index.html dist/.htaccess",
+    "hash:importmap": "scripts/update-importmap-hash-in-htaccess.mjs dist/index.html dist/.htaccess",
     "legal:robots": "scripts/add-legal-notice-to-robots.sh",
     "lint": "npx --no eslint -- --cache .",
     "lint:fix": "npx --no eslint -- --cache --fix .",
