@@ -37,6 +37,7 @@
     "hash:filename": "scripts/hash-filename.sh",
     "hash:importmap": "scripts/update-importmap-hash-in-htaccess.mjs dist/index.html dist/.htaccess",
     "hash:js": "scripts/hash-and-update-files.mjs dist js html",
+    "hash:svg": "scripts/hash-and-update-files.mjs dist svg css,js,html",
     "legal:robots": "scripts/add-legal-notice-to-robots.sh",
     "lint": "npx --no eslint -- --cache .",
     "lint:fix": "npx --no eslint -- --cache --fix .",
@@ -44,6 +45,7 @@
     "minify:json": "scripts/minify-json.sh",
     "minify:json-tags": " node scripts/minify-json-tags.mjs dist/index.html",
     "minify:robots": "scripts/minify-robots.sh",
+    "minify:svg": "scripts/minify-svg.sh",
     "minify:xml": "scripts/minify-xml.sh",
     "prettier": "scripts/format.sh",
     "prettier:check": "scripts/format-check.sh"

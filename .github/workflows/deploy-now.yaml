@@ -72,6 +72,12 @@ jobs:
       - name: Hash importmap
         working-directory: hp
         run: npm run hash:importmap
+      - name: Minify SVG
+        working-directory: hp
+        run: npm run minify:svg
+      - name: Hash SVG
+        working-directory: hp
+        run: npm run hash:svg
       - name: Minify XML
         working-directory: hp
         run: npm run minify:xml

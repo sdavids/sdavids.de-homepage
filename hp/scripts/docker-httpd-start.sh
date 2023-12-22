@@ -54,6 +54,8 @@ if [ "${skip_build}" != '--skip-build' ]; then
   npm run minify:html
   npm run create:htaccess
   npm run hash:importmap
+  npm run minify:svg
+  npm run hash:svg
   npm run minify:xml
   npm run minify:json
   npm run minify:robots
