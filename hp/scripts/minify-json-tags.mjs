@@ -27,16 +27,16 @@ import { findAll, findOne, replaceElement, textContent } from 'domutils';
 import { readFile, writeFile } from 'fs/promises';
 import { render } from 'dom-serializer';
 
-if (process.argv.length < 3) {
-  process.exit(1);
-}
+/**
+ * @param {ChildNode} node
+ * @return {boolean}
+ */
+const isElement = (node) => node.nodeType === 1;
 
-const file = process.argv[2];
-
-const html = await readFile(file, 'utf8');
-
-const dom = htmlparser2.parseDocument(html);
-
+/**
+ * @param {Element} elem
+ * @return {boolean}
+ */
 const findJsonStructuredScriptTags = (elem) => {
   if (elem.name !== 'script') {
     return false;
@@ -51,7 +51,20 @@ const findJsonStructuredScriptTags = (elem) => {
   return false;
 };
 
-const jsonTags = findAll(findJsonStructuredScriptTags, dom.children);
+if (process.argv.length < 3) {
+  process.exit(1);
+}
+
+const file = process.argv[2];
+
+const html = await readFile(file, 'utf8');
+
+const dom = htmlparser2.parseDocument(html);
+
+const jsonTags = findAll(
+  findJsonStructuredScriptTags,
+  dom.children.filter(isElement),
+);
 
 if (jsonTags.length === 0) {
   process.exit();
