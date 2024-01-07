@@ -73,6 +73,7 @@ docker network inspect "${network_name}" > /dev/null 2>&1 \
        --label "de.sdavids.docker.group=${group}"> /dev/null
 
 docker run \
+  --init \
   --detach \
   --interactive \
   --tty \
