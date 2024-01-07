@@ -42,14 +42,10 @@
   }
 
   body {
-    margin: 0;
+    line-height: inherit;
   }
 
-  a {
-    color: inherit;
-    text-decoration: inherit;
-  }
-
+  body,
   h1,
   h2,
   p {
@@ -64,6 +60,15 @@
 
   svg {
     display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  :-moz-focusring {
+    outline: auto;
   }
 }
 
