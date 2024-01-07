@@ -48,7 +48,8 @@
   body,
   h1,
   h2,
-  p {
+  p,
+  ul {
     margin: 0;
   }
 
@@ -56,6 +57,11 @@
   h2 {
     font-size: inherit;
     font-weight: inherit;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
   }
 
   svg {
