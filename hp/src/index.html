@@ -126,6 +126,64 @@
                 ><span class="after:content-['_']">8DCD</span><span>F19F</span>
               </span>
             </div>
+            <details
+              class="mt-1 text-gray-700 dark:text-gray-300 hidden lg:block"
+            >
+              <summary class="mb-1">
+                <h3 class="text-sm font-medium">Usage</h3>
+              </summary>
+              <div
+                class="py-2 px-3 text-sm rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
+              >
+                <ol class="list-decimal ml-4">
+                  <li>
+                    Import public key:
+                    <p class="mt-2">
+                      <code class="text-sm"
+                        >curl https://sdavids.de/sdavids.gpg | gpg
+                        --import</code
+                      >
+                    </p>
+                  </li>
+                  <li class="mt-2">
+                    Verify fingerprint:
+                    <p class="mt-2">
+                      <code class="text-sm"
+                        >gpg --fingerprint
+                        <span
+                          class="sd-gpg-key-id"
+                          data-u="&#115;&#100;&#105;&#118;&#97;&#100;&#115;"
+                          data-h="&#120;&#109;&#103;"
+                          data-d="&#101;&#100;"
+                        ></span
+                        >&nbsp;</code
+                      >
+                    </p>
+                    <p class="mt-2">⇓</p>
+                    <p class="mt-2">
+                      <code class="text-sm"
+                        >3B051F8EAA0B63D17220168C99A97C778DCDF19F</code
+                      >
+                    </p>
+                  </li>
+                  <li class="mt-2">
+                    Encrypt file:
+                    <p class="mt-2">
+                      <code class="text-sm"
+                        >gpg -esar
+                        <span
+                          class="sd-gpg-key-id"
+                          data-u="&#115;&#100;&#105;&#118;&#97;&#100;&#115;"
+                          data-h="&#120;&#109;&#103;"
+                          data-d="&#101;&#100;"
+                        ></span>
+                        -o out.txt.asc in.txt</code
+                      >
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </details>
           </section>
           <section>
             <h2 class="text-md font-medium text-gray-700 dark:text-gray-300">
@@ -134,6 +192,21 @@
             <div class="mt-1 text-sm text-gray-900 dark:text-gray-300">
               <a href="sdavids.keys" title="SSH public key">Public key</a>
             </div>
+            <details
+              class="mt-1 text-gray-700 dark:text-gray-300 hidden lg:block"
+            >
+              <summary class="mb-1">
+                <h3 class="text-sm font-medium">Usage</h3>
+              </summary>
+              <p
+                class="py-2 px-3 rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
+              >
+                <code class="text-sm">
+                  curl https://sdavids.de/sdavids.keys | age -R - in.txt >
+                  out.txt.ssh.age
+                </code>
+              </p>
+            </details>
           </section>
           <section>
             <h2 class="text-md font-medium text-gray-700 dark:text-gray-300">
@@ -142,23 +215,48 @@
             <div class="mt-1 text-sm text-gray-900 dark:text-gray-300">
               <a href="sdavids.age" title="age public key">Public key</a>
             </div>
+            <details
+              class="mt-1 text-gray-700 dark:text-gray-300 hidden lg:block"
+            >
+              <summary class="mb-1">
+                <h3 class="text-sm font-medium">Usage</h3>
+              </summary>
+              <p
+                class="py-2 px-3 rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
+              >
+                <code class="text-sm">
+                  curl https://sdavids.de/sdavids.age | age -R - in.txt >
+                  out.txt.age
+                </code>
+              </p>
+            </details>
           </section>
           <section>
             <h2 class="text-md font-medium text-gray-700 dark:text-gray-300">
-              <a
-                href="https://support.apple.com/en-us/HT213465#verify"
-                rel="external noopener noreferrer"
-                target="_blank"
-                class="external"
-              >
-                iMessage
-              </a>
+              iMessage
             </h2>
             <div
               class="mt-1 text-sm text-gray-900 dark:text-gray-300 font-mono"
             >
               APKTIDVw2zk8ZQeSkpWLUD9UGI<wbr />hH00TtYdMRkryMUZUtBJRxeCSA
             </div>
+            <details class="mt-1 text-gray-700 dark:text-gray-300">
+              <summary class="mb-1">
+                <h3 class="text-sm font-medium">Usage</h3>
+              </summary>
+              <p
+                class="text-sm py-2 px-3 rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
+              >
+                <a
+                  href="https://support.apple.com/en-us/HT213465#verify"
+                  rel="external noopener noreferrer"
+                  target="_blank"
+                  class="external"
+                >
+                  Manual iMessage contact key verification
+                </a>
+              </p>
+            </details>
           </section>
         </div>
       </article>
