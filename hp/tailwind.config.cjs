@@ -9,6 +9,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      future: {
+        hoverOnlyWhenSupported: true,
+      },
       screens: {
         smh: { raw: '(max-height: 550px)' },
       },
