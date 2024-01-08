@@ -59,29 +59,29 @@
   <body
     class="h-svh flex flex-col bg-gray-200 dark:from-gray-800 dark:to-black dark:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]"
   >
-    <main class="grid grow place-items-center smh:mt-3 landscape:mt-3">
+    <main class="grid grow place-items-center">
       <article
-        class="overflow-hidden bg-white dark:bg-zinc-800 sm:mx-8 sm:rounded-lg shadow-md"
+        class="mt-2 shadow-md bg-white sm:mx-8 sm:rounded-lg md:mt-6 md:landscape:mt-6 dark:bg-zinc-800"
         aria-labelledby="main-header"
       >
-        <header class="px-4 py-5 sm:px-6">
+        <header
+          class="px-3 py-4 border-b border-gray-200 md:px-6 dark:border-zinc-700"
+        >
           <h1
             id="main-header"
-            class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-300"
+            class="font-medium leading-6 text-lg text-gray-900 dark:text-gray-200"
           >
             Sebastian Davids
           </h1>
         </header>
-        <div
-          class="border-t border-gray-200 px-4 py-5 dark:border-zinc-700 sm:px-6 md:p-6 grid gap-y-6"
-        >
+        <div class="px-3 md:px-6 py-6 grid gap-y-6">
           <section>
-            <h2 class="text-md font-medium text-gray-700 dark:text-gray-300">
+            <h2 class="font-medium text-md text-gray-700 dark:text-gray-200">
               Email address
             </h2>
             <div
               data-nosnippet
-              class="mt-1 text-sm text-gray-900 dark:text-gray-300"
+              class="text-sm text-gray-900 dark:text-gray-200"
             >
               <a
                 href="#"
@@ -99,21 +99,19 @@
               </a>
             </div>
           </section>
-          <section>
-            <h2 class="text-md font-medium text-gray-700 dark:text-gray-300">
+          <section class="grid gap-2">
+            <h2 class="font-medium text-md text-gray-700 dark:text-gray-200">
               iMessage
             </h2>
-            <div
-              class="mt-1 text-sm text-gray-900 dark:text-gray-300 font-mono"
-            >
+            <div class="font-mono text-sm text-gray-900 dark:text-gray-200">
               APKTIDVw2zk8ZQeSkpWLUD9UGI<wbr />hH00TtYdMRkryMUZUtBJRxeCSA
             </div>
-            <details class="mt-1 text-gray-700 dark:text-gray-300">
-                <h3 class="text-sm font-medium">Usage</h3>
+            <details class="text-gray-700 dark:text-gray-200">
               <summary class="mb-2 hover:text-sky-700 dark:hover:text-sky-300">
+                <h3 class="font-medium text-sm">Usage</h3>
               </summary>
               <p
-                class="text-sm py-2 px-3 rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
+                class="px-3 py-2 rounded-md shadow-inner text-sm bg-gray-200 dark:bg-zinc-900"
               >
                 <a
                   href="https://support.apple.com/en-us/HT213465#verify"
@@ -126,12 +124,12 @@
               </p>
             </details>
           </section>
-          <section>
-            <h2 class="text-md font-medium text-gray-700 dark:text-gray-300">
+          <section class="grid gap-2">
+            <h2 class="font-medium text-md text-gray-700 dark:text-gray-200">
               GPG
             </h2>
             <div
-              class="grid grid-cols-1 gap-y-4 mt-1 text-sm text-gray-900 dark:text-gray-300"
+              class="grid grid-cols-1 gap-y-4 text-sm text-gray-900 dark:text-gray-200"
             >
               <a
                 href="sdavids.gpg"
@@ -160,16 +158,14 @@
                 ><span class="after:content-['_']">8DCD</span><span>F19F</span>
               </span>
             </div>
-            <details
-              class="mt-1 text-gray-700 dark:text-gray-300 hidden lg:block"
-            >
-                <h3 class="text-sm font-medium">Usage</h3>
+            <details class="hidden text-gray-700 sm:block dark:text-gray-200">
               <summary class="mb-2 hover:text-sky-700 dark:hover:text-sky-300">
+                <h3 class="font-medium text-sm">Usage</h3>
               </summary>
               <div
-                class="py-2 px-3 text-sm rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
+                class="px-3 py-2 rounded-md shadow-inner text-sm bg-gray-200 dark:bg-zinc-900"
               >
-                <ol class="list-decimal ml-4">
+                <ol class="ml-4 list-decimal space-y-2">
                   <li>
                     Import public key:
                     <p class="mt-2">
@@ -179,7 +175,7 @@
                       >
                     </p>
                   </li>
-                  <li class="mt-2">
+                  <li class="space-y-2">
                     Verify fingerprint:
                     <p class="mt-2">
                       <code class="text-sm"
@@ -193,14 +189,14 @@
                         >&nbsp;</code
                       >
                     </p>
-                    <p class="mt-2">⇓</p>
-                    <p class="mt-2">
+                    <p>⇓</p>
+                    <p>
                       <code class="text-sm"
                         >3B051F8EAA0B63D17220168C99A97C778DCDF19F</code
                       >
                     </p>
                   </li>
-                  <li class="mt-2">
+                  <li>
                     Encrypt file:
                     <p class="mt-2">
                       <code class="text-sm"
@@ -219,11 +215,11 @@
               </div>
             </details>
           </section>
-          <section>
-            <h2 class="text-md font-medium text-gray-700 dark:text-gray-300">
+          <section class="grid gap-2">
+            <h2 class="font-medium text-md text-gray-700 dark:text-gray-200">
               age
             </h2>
-            <div class="mt-1 text-sm text-gray-900 dark:text-gray-300">
+            <div class="text-sm text-gray-900 dark:text-gray-200">
               <a
                 href="sdavids.age"
                 title="age public key"
@@ -231,14 +227,12 @@
                 >Public key</a
               >
             </div>
-            <details
-              class="mt-1 text-gray-700 dark:text-gray-300 hidden lg:block"
-            >
-                <h3 class="text-sm font-medium">Usage</h3>
+            <details class="text-gray-700 dark:text-gray-200 hidden sm:block">
               <summary class="mb-2 hover:text-sky-700 dark:hover:text-sky-300">
+                <h3 class="font-medium text-sm">Usage</h3>
               </summary>
               <p
-                class="py-2 px-3 rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
+                class="px-3 py-2 rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
               >
                 <code class="text-sm">
                   curl https://sdavids.de/sdavids.age | age -R - in.txt >
@@ -247,11 +241,11 @@
               </p>
             </details>
           </section>
-          <section>
-            <h2 class="text-md font-medium text-gray-700 dark:text-gray-300">
+          <section class="grid gap-2">
+            <h2 class="font-medium text-md text-gray-700 dark:text-gray-200">
               SSH
             </h2>
-            <div class="mt-1 text-sm text-gray-900 dark:text-gray-300">
+            <div class="text-sm text-gray-900 dark:text-gray-200">
               <a
                 href="sdavids.keys"
                 title="SSH public key"
@@ -259,14 +253,12 @@
                 >Public key</a
               >
             </div>
-            <details
-              class="mt-1 text-gray-700 dark:text-gray-300 hidden lg:block"
-            >
-                <h3 class="text-sm font-medium">Usage</h3>
+            <details class="hidden text-gray-700 sm:block dark:text-gray-200">
               <summary class="mb-2 hover:text-sky-700 dark:hover:text-sky-300">
+                <h3 class="font-medium text-sm">Usage</h3>
               </summary>
               <p
-                class="py-2 px-3 rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
+                class="px-3 py-2 rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
               >
                 <code class="text-sm">
                   curl https://sdavids.de/sdavids.keys | age -R - in.txt >
@@ -279,16 +271,14 @@
       </article>
     </main>
     <footer class="flex-none">
-      <div
-        class="flex mx-auto max-w-7xl px-4 py-12 sm:px-6 md:flex md:items-center md:justify-between lg:px-8 text-sm sm:text-base"
-      >
+      <div class="flex max-w-7xl mx-auto px-3 py-4 text-sm sm:text-base md:p-6">
         <nav>
           <ul class="flex gap-x-2">
             <li>
               <a
                 href="https://github.com/sdavids"
                 rel="external noopener noreferrer"
-                class="text-gray-600 hover:text-sky-700 dark:text-gray-300 dark:hover:text-sky-300"
+                class="text-gray-600 hover:text-sky-700 dark:text-gray-200 dark:hover:text-sky-300"
               >
                 <span class="sr-only">GitHub</span>
                 <svg
@@ -308,7 +298,7 @@
               <a
                 href="https://gravatar.com/sebastiandavids"
                 rel="external noopener noreferrer"
-                class="text-gray-600 hover:text-sky-700 dark:text-gray-300 dark:hover:text-sky-300"
+                class="text-gray-600 hover:text-sky-700 dark:text-gray-200 dark:hover:text-sky-300"
               >
                 <span class="sr-only">Gravatar</span>
                 <svg
@@ -329,7 +319,7 @@
         </nav>
         <div class="flex flex-grow">
           <p
-            class="flex-grow self-end text-end text-gray-700 dark:text-gray-300"
+            class="flex-grow self-end text-end text-gray-700 dark:text-gray-200"
           >
             ©&nbsp;2022-2024 Sebastian&nbsp;Davids
           </p>
