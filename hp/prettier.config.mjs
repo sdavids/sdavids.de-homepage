@@ -1,8 +1,8 @@
 // https://prettier.io/docs/en/options.html
 
-'use strict';
-
-module.exports = {
+// noinspection JSUnusedGlobalSymbols
+/** @type {import('prettier').Config} */
+export default {
   singleQuote: true,
   // https://github.com/prettier/plugin-xml#configuration
   xmlQuoteAttributes: 'double',
