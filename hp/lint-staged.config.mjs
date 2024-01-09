@@ -1,8 +1,7 @@
 // https://github.com/okonet/lint-staged#configuration
 
-'use strict';
-
-module.exports = {
+// noinspection JSUnusedGlobalSymbols
+export default {
   '*.{cjs,js,mjs}': ['eslint'],
   '../**/*.{cjs,css,html,js,json,mjs,webmanifest}': ['prettier --check'],
   '../**/*.{svg,xml}': ['prettier --plugin=@prettier/plugin-xml --check'],
