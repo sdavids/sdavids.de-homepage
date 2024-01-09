@@ -1,10 +1,8 @@
 // https://tailwindcss.com/docs/configuration
 
-
-'use strict';
-
+// noinspection JSUnusedGlobalSymbols
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ['./src/**/*.{html,js}'],
   corePlugins: {
     preflight: false,
