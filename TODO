@@ -17,7 +17,7 @@ remove 'Enable Corepack' step in setup-node-and-install-dependencies/action.yaml
 +
 https://github.com/actions/setup-node/issues/531
 
-* remove body-max-line-length in .commitlintrc.cjs
+* remove body-max-line-length in commitlint.config.mjs
 +
 https://github.com/conventional-changelog/commitlint/issues/2112
 

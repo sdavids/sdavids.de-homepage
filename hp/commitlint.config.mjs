@@ -1,8 +1,7 @@
 // https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md
 
-'use strict';
-
-module.exports = {
+// noinspection JSUnusedGlobalSymbols
+export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
     'subject-case': [0, 'never'],
