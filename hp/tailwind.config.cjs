@@ -1,7 +1,9 @@
-/** @type {import('tailwindcss').Config} */
+// https://tailwindcss.com/docs/configuration
+
 
 'use strict';
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,js}'],
   corePlugins: {
