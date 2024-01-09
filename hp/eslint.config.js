@@ -3,6 +3,7 @@
 import globals from 'globals';
 import js from '@eslint/js';
 
+// noinspection JSUnusedGlobalSymbols
 export default [
   {
     ignores: ['dist/*'],
