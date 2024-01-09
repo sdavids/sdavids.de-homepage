@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-set -Eeuo pipefail
+set -Eeu -o pipefail -o posix
 
 if [ -z "$*" ]; then
   echo "Usage: $0 FILE"

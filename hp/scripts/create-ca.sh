@@ -22,7 +22,7 @@
 # https://github.com/OpenVPN/easy-rsa/blob/master/doc/EasyRSA-Advanced.md
 # https://gist.github.com/powerman/060a6e10d3c901fa5c4085c166a51c03
 
-set -eu
+set -Eeu -o pipefail -o posix
 
 config_dir="${HOME}/.easyrsa"
 

@@ -18,7 +18,7 @@
 
 # script needs to be invoked from the hp root directory
 
-set -Eeuo pipefail
+set -Eeu -o pipefail -o posix
 
 readonly dist_dir="dist"
 
