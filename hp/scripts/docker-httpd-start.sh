@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2023, Sebastian Davids
+# Copyright (c) 2023-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ readonly https_port='8443'
 
 # needs entry in /etc/hosts to work:
 # 127.0.0.1 localhost httpd.local
-readonly host_name="httpd.local"
+readonly host_name='httpd.local'
 
 readonly site_dir="${PWD}/dist"
 
@@ -81,7 +81,7 @@ docker run \
   --user www-data \
   --read-only \
   --tmpfs /tmp:rw,noexec,nosuid \
-  --security-opt="no-new-privileges=true" \
+  --security-opt='no-new-privileges=true' \
   --cap-add net_bind_service \
   --cap-drop=all \
   --network="${network_name}" \
@@ -95,4 +95,4 @@ docker run \
   "${container_name}:${version}" \
   httpd-foreground -C 'PidFile /tmp/httpd.pid' > /dev/null
 
-printf "\nLocal: https://%s\n" "${host_name}:${https_port}"
+printf '\nLocal: https://%s\n' "${host_name}:${https_port}"

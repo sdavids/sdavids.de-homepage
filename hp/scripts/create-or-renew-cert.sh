@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2023, Sebastian Davids
+# Copyright (c) 2023-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -42,12 +42,12 @@ fi
 readonly pki_dir="${config_dir}/pki"
 
 if [ ! -d "${pki_dir}" ]; then
-  printf "CA has not been created and imported.\n\nExecute scripts/create-ca.sh\n"
+  printf 'CA has not been created and imported.\n\nExecute scripts/create-ca.sh\n'
 
   exit 1
 fi
 
-readonly server_name="httpd.local"
+readonly server_name='httpd.local'
 
 readonly easyrsa_key="${pki_dir}/private/${server_name}.key"
 readonly easyrsa_cert="${pki_dir}/issued/${server_name}.crt"
@@ -58,7 +58,7 @@ export EASYRSA_PKI="${pki_dir}"
 if [ ! -f "${easyrsa_key}" ]; then
   easyrsa --sbatch --silent-ssl --days=180 build-server-full "${server_name}" nopass
 
-  printf "\nPlease add %s to your /etc/hosts:\n\n127.0.0.1 localhost %s\n" "${server_name}" "${server_name}"
+  printf '\nPlease add %s to your /etc/hosts:\n\n127.0.0.1 localhost %s\n' "${server_name}" "${server_name}"
 else
   if [ -f "${easyrsa_renew_cert}" ]; then
     rm -f "${easyrsa_renew_cert}"

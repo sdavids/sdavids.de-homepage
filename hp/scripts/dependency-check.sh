@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2023, Sebastian Davids
+# Copyright (c) 2023-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ readonly base_dir="${1:-$PWD}"
 
 cd "${base_dir}"
 
-if [ ! -d "node_modules" ]; then
+if [ ! -d 'node_modules' ]; then
   npm ci --ignore-scripts=false --fund=false
 fi
 

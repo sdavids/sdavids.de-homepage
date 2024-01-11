@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# Copyright (c) 2023, Sebastian Davids
+# Copyright (c) 2023-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 
 set -Eeu -o pipefail -o posix
 
-readonly dist_dir="dist"
+readonly dist_dir='dist'
 
 readonly htaccess_file="${dist_dir}/.htaccess"
 
