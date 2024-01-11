@@ -25,6 +25,7 @@ ifdef::env-browser[:outfilesuffix: .adoc]
 
 ifdef::env-github[]
 :outfilesuffix: .adoc
+:note-caption: :information_source:
 :badges:
 endif::[]
 
@@ -58,22 +59,88 @@ For more information, please see link:CODE_OF_CONDUCT{outfilesuffix}[].
 
 == Development Environment Setup
 
-=== Docker
+=== Installation
+
+==== Docker
 
 Install {docker-install-url}[Docker].
 
-=== Node Version Manager
+==== Node Version Manager
 
-Install {nvm-install-url}[NVM] or {fnm-install-url}[fnm].
+Install {fnm-install-url}[fnm] or {nvm-install-url}[NVM].
 
-=== husky
-
+[NOTE]
+====
 This repository uses https://typicode.github.io/husky/[husky] for git hooks.
 
 More information:
 https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - Command not found]
+====
+
+==== fnm
+
+https://github.com/Schniz/fnm
+
+.~/.zprofile
+[source,shell]
+----
+if type fnm > /dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd)"
+fi
+----
+
+.~/.huskyrc
+[source,shell]
+----
+#!/usr/bin/env sh
+
+# vim:ft=zsh
+
+# shellcheck shell=sh disable=SC1091
+
+set -eu
+
+[ -e /etc/zshenv ] && . /etc/zshenv
+[ -e "${ZDOTDIR:=${HOME}}/.zshenv" ] && . "${ZDOTDIR:=${HOME}}/.zshenv"
+[ -e /etc/zprofile ] && . /etc/zprofile
+[ -e "${ZDOTDIR:=${HOME}}/.zprofile" ] && . "${ZDOTDIR:=${HOME}}/.zprofile"
+[ -e /etc/zlogin ] && . /etc/zlogin
+[ -e "${ZDOTDIR:=${HOME}}/.zlogin" ] && . "${ZDOTDIR:=${HOME}}/.zlogin"
+----
 
 ==== nvm
+
+https://github.com/nvm-sh/nvm
+
+.~/.zshrc
+[source,shell]
+----
+export NVM_DIR="${HOME}/.nvm"
+
+[ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh"
+[ -s "${NVM_DIR}/bash_completion" ] && . "${NVM_DIR}/bash_completion"
+
+if type nvm > /dev/null 2>&1; then
+  autoload -U add-zsh-hook
+  load-nvmrc() {
+    local nvmrc_path="$(nvm_find_nvmrc)"
+    if [ -n "${nvmrc_path}" ]; then
+      local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+      if [ "${nvmrc_node_version}" = "N/A" ]; then
+        nvm install
+      elif [ "${nvmrc_node_version}" != "$(nvm version)" ]; then
+        nvm use
+      fi
+    elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+      echo "Reverting to nvm default version"
+      nvm use default
+    fi
+  }
+
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
+fi
+----
 
 .~/.huskyrc
 [source,shell]
@@ -104,161 +171,132 @@ if [ -f "${NVM_DIR}/nvm.sh" ]; then
 fi
 ----
 
-==== fnm
+==== jq
 
-.~/.zprofile
-[source,shell]
-----
-if type fnm > /dev/null 2>&1; then
-  eval "$(fnm env --use-on-cd)"
-fi
-----
-
-.~/.huskyrc
-[source,shell]
-----
-#!/usr/bin/env sh
-
-# vim:ft=zsh
-
-# shellcheck shell=sh disable=SC1091
-
-set -eu
-
-[ -e /etc/zshenv ] && . /etc/zshenv
-[ -e "${ZDOTDIR:=${HOME}}/.zshenv" ] && . "${ZDOTDIR:=${HOME}}/.zshenv"
-[ -e /etc/zprofile ] && . /etc/zprofile
-[ -e "${ZDOTDIR:=${HOME}}/.zprofile" ] && . "${ZDOTDIR:=${HOME}}/.zprofile"
-[ -e /etc/zlogin ] && . /etc/zlogin
-[ -e "${ZDOTDIR:=${HOME}}/.zlogin" ] && . "${ZDOTDIR:=${HOME}}/.zlogin"
-----
-
-=== jq
-
-==== Linux
+===== Linux
 
 [source,shell]
 ----
 $ sudo apt-get install jq
 ----
 
-==== Mac
+===== Mac
 
 [source,shell]
 ----
 $ brew install jq
 ----
 
-=== brotli
+==== brotli
 
-==== Linux
+===== Linux
 
 [source,shell]
 ----
 $ sudo apt-get install brotli
 ----
 
-==== Mac
+===== Mac
 
 [source,shell]
 ----
 $ brew install brotli
 ----
 
-=== zstd
+==== zstd
 
-==== Linux
+===== Linux
 
 [source,shell]
 ----
 $ sudosudo apt install zstd
 ----
 
-==== Mac
+===== Mac
 
 [source,shell]
 ----
 $ brew install zstd
 ----
 
-=== shellcheck
+==== shellcheck
 
-==== Linux
+===== Linux
 
 [source,shell]
 ----
 $ sudo apt-get install shellcheck
 ----
 
-==== Mac
+===== Mac
 
 [source,shell]
 ----
 $ brew install shellcheck
 ----
 
-=== yamllint
+==== yamllint
 
-==== Linux
+===== Linux
 
 [source,shell]
 ----
 $ sudo apt-get install yamllint
 ----
 
-==== Mac
+===== Mac
 
 [source,shell]
 ----
 $ brew install yamllint
 ----
 
-=== hadolint
+==== hadolint
 
-==== Linux
+===== Linux
 
 [source,shell]
 ----
 $ sudo apt-get install hadolint
 ----
 
-==== Mac
+===== Mac
 
 [source,shell]
 ----
 $ brew install hadolint
 ----
 
-=== gpg
+==== gpg
 
-==== Linux
+===== Linux
 
 [source,shell]
 ----
 $ sudo apt-get install gpg
 ----
 
-==== Mac
+===== Mac
 
 Install https://gpgtools.org[GPG Suite].
 
-=== easyrsa
+==== easyrsa
 
-==== Linux
+===== Linux
 
 [source,shell]
 ----
 $ sudo apt-get install easy-rsa
 ----
 
-==== Mac
+===== Mac
 
 [source,shell]
 ----
 $ brew install easy-rsa
 ----
 
-== Local Dev
+=== Local Development
 
 [source,shell]
 ----
@@ -266,14 +304,14 @@ $ cd hp
 $ npm i
 ----
 
-=== Shell 1
+==== Shell 1
 
 [source,shell]
 ----
 $ npm run dev:css
 ----
 
-=== Shell 2
+==== Shell 2
 
 [source,shell]
 ----
@@ -282,9 +320,9 @@ $ npm run dev
 
 => http://localhost:3000
 
-== Local Deployment
+=== Local Deployment
 
-=== Build And Start Apache HTTPD
+==== Build And Start Apache HTTPD
 [source,shell]
 ----
 $ cd hp
@@ -293,7 +331,7 @@ $ npm run docker:http:start:with-build
 
 => http://localhost:8080
 
-=== Start Apache HTTPD Without a Build
+==== Start Apache HTTPD Without a Build
 [source,shell]
 ----
 $ cd hp
@@ -302,7 +340,7 @@ $ npm run docker:http:start
 
 => http://localhost:8080
 
-=== Stop Apache HTTPD
+==== Stop Apache HTTPD
 [source,shell]
 ----
 $ cd hp
