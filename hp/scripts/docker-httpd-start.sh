@@ -95,4 +95,4 @@ docker run \
   "${container_name}:${version}" \
   httpd-foreground -C 'PidFile /tmp/httpd.pid' > /dev/null
 
-printf '\nLocal: https://%s\n' "${host_name}:${https_port}"
+printf '\nListen local: https://%s\n' "${host_name}:${https_port}"

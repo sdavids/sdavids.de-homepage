@@ -18,3 +18,7 @@ https://github.com/conventional-changelog/commitlint/issues/2112
 * remove explicit lightningcss-cli step in build-css.sh and add -m to tailwind-cli call
 +
 https://github.com/tailwindlabs/tailwindcss/issues/12564#issuecomment-1849016135
+
+* remove ci.assert.assertions.total-byte-weight from hp/lighthouserc.yaml
++
+https://github.com/GoogleChrome/lighthouse-ci/issues/1001

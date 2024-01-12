@@ -12,3 +12,6 @@ src/s/app.css
 
 ### easyrsa ###
 certs/
+
+### Lighthouse CI
+.lighthouseci

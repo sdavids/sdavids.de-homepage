@@ -135,6 +135,9 @@ jobs:
         name: Create timestamp file
         run: npm run create:timestamp-file dist/.deploy-timestamp
       - if: steps.changes.outputs.hp == 'true'
+        name: Run Lighthouse CI
+        run: npm run lighthouseci
+      - if: steps.changes.outputs.hp == 'true'
         name: Fetch project data
         uses: ionos-deploy-now/retrieve-project-info-action@v1
         id: project

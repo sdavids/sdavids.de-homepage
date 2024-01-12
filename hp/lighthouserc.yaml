@@ -1,0 +1,19 @@
+---
+# https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md
+# https://github.com/GoogleChrome/lighthouse/blob/main/docs/configuration.md#lighthouse-configuration
+ci:
+  upload:
+    target: temporary-public-storage
+  collect:
+    #    startServerCommand: npm run docker:httpd:start:with-build
+    staticDistDir: dist
+    url:
+      #      - https://httpd.local:8443/index.html
+      - http://localhost/index.html
+    numberOfRuns: 1
+  assert:
+    preset: lighthouse:recommended
+    assertions:
+      # the CSP header is set via .htaccess
+      csp-xss: 'off'
+      total-byte-weight: 'off'
