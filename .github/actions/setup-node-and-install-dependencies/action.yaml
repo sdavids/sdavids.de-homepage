@@ -39,10 +39,6 @@ runs:
         node-version-file: ${{ inputs.node-version-file }}
         cache-dependency-path: ${{ inputs.dependencies-lock-file }}
         cache: npm
-    - name: Enable Corepack
-      shell: bash
-      working-directory: ${{ inputs.working-directory }}
-      run: corepack enable npm
     - name: Install dependencies
       shell: bash
       working-directory: ${{ inputs.working-directory }}
