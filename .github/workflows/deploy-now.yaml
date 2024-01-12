@@ -33,7 +33,7 @@ jobs:
           no-color: true
       - name: Check formatting
         working-directory: hp
-        run: npm run prettier:check
+        run: npm run format:check
       - name: Lint project files
         working-directory: hp
         run: npm run lint

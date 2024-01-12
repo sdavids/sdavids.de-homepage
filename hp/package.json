@@ -47,8 +47,8 @@
     "minify:robots": "scripts/minify-robots.sh",
     "minify:svg": "scripts/minify-svg.sh",
     "minify:xml": "scripts/minify-xml.sh",
-    "prettier": "scripts/format.sh",
-    "prettier:check": "scripts/format-check.sh"
+    "format": "scripts/format.sh",
+    "format:check": "scripts/format-check.sh"
   },
   "packageManager": "npm@10.2.5",
   "engines": {
