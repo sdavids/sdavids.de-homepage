@@ -1,114 +1,151 @@
 ---
-name: ci
+#
+# Copyright (c) 2022-2024, Sebastian Davids
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 # https://docs.ionos.space/docs/github-actions-customization/
 # https://docs.ionos.space/docs/git-integration/#v1-projects-created-until-112022
 
+name: ci
 on: # yamllint disable-line rule:truthy
   push:
     branches:
       - main
   workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 permissions: {}
 jobs:
-  lint:
+  # unfortunately each job is billed for at least 1 minute in GH Actions
+  # so use one big one to save GH Action minutes
+  # https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions
+  lint-build-deploy:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
+    defaults:
+      run:
+        working-directory: hp
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup node and install dependencies
-        uses: ./.github/actions/setup-node-and-install-dependencies
+      - name: Classify changes
+        uses: dorny/paths-filter@v2
+        id: changes
         with:
-          working-directory: hp
-          node-version-file: hp/.nvmrc
-          dependencies-lock-file: hp/package-lock.json
-      - name: Lint shell scripts
+          filters: |
+            sh:
+              - '**.sh'
+            yaml:
+              - '**.yaml'
+            Dockerfile:
+              - '**/Dockerfile'
+            hp:
+              - 'hp/**'
+            js:
+              - 'hp/**/*.js'
+              - 'hp/**/*.mjs'
+      - if: steps.changes.outputs.sh == 'true'
+        name: Lint shell scripts
+        working-directory: .
         run: scripts/shellscript-check.sh
-      - name: Lint YAML files
+      - if: steps.changes.outputs.yaml == 'true'
+        name: Lint YAML files
+        working-directory: .
         run: yamllint --strict .
-      - uses: hadolint/hadolint-action@v3.1.0
+      - if: steps.changes.outputs.Dockerfile == 'true'
+        name: Lint httpd Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: httpd/Dockerfile
           no-color: true
-      - name: Check formatting
-        working-directory: hp
-        run: npm run format:check
-      - name: Lint project files
-        working-directory: hp
-        run: npm run lint
-  deploy-now:
-    needs:
-      - lint
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup node and install dependencies
+      - if: steps.changes.outputs.hp == 'true'
+        name: Setup node and install dependencies
         uses: ./.github/actions/setup-node-and-install-dependencies
         with:
           working-directory: hp
           node-version-file: hp/.nvmrc
           dependencies-lock-file: hp/package-lock.json
-      - name: Build project
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Check formatting
+        run: npm run format:check
+      - if: steps.changes.outputs.js == 'true'
+        name: Lint project files
+        run: npm run lint
+      - if: steps.changes.outputs.hp == 'true'
+        name: Build project
         run: npm run build
-      - name: Hash CSS
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Hash CSS
         run: npm run hash:css
-      - name: Hash JS
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Hash JS
         run: npm run hash:js
-      - name: Minify JSON-structured script tags
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Minify JSON-structured script tags
         run: npm run minify:json-tags
-      - name: Minify HTML
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Minify HTML
         run: npm run minify:html
-      - name: Create .htaccess file
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Create .htaccess file
         run: npm run create:htaccess
-      - name: Hash importmap
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Hash importmap
         run: npm run hash:importmap
-      - name: Minify SVG
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Minify SVG
         run: npm run minify:svg
-      - name: Hash SVG
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Hash SVG
         run: npm run hash:svg
-      - name: Minify XML
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Minify XML
         run: npm run minify:xml
-      - name: Minify JSON
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Minify JSON
         run: npm run minify:json
-      - name: Minify robots.txt
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Minify robots.txt
         run: npm run minify:robots
-      - name: Add legal notice to robots.txt
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Add legal notice to robots.txt
         run: npm run legal:robots
-      - name: Compress files
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Compress files
         run: npm run compress:files
-      - name: Create Google Verification file
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Create Google Verification file
         run: npm run create:google-verification-file
-      - name: Create timestamp file
-        working-directory: hp
+      - if: steps.changes.outputs.hp == 'true'
+        name: Create timestamp file
         run: npm run create:timestamp-file dist/.deploy-timestamp
-      - name: Fetch project data
+      - if: steps.changes.outputs.hp == 'true'
+        name: Fetch project data
         uses: ionos-deploy-now/retrieve-project-info-action@v1
         id: project
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           project: ${{ secrets.IONOS_PROJECT_ID }}
           service-host: api-eu.ionos.space
-      - name: Deploy build
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+      - if: |
+          steps.changes.outputs.hp == 'true' &&
+          steps.project.outputs.deployment-enabled == 'true'
+        name: Deploy build
         uses: ionos-deploy-now/deploy-to-ionos-action@v1
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
