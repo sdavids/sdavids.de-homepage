@@ -43,6 +43,7 @@ export default [
       'prefer-destructuring': ['error', { object: true, array: false }],
       'sort-imports': ['error', { ignoreDeclarationSort: true }],
       'sort-vars': 'off',
+      radix: 'off',
     },
   },
 ];
