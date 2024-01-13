@@ -18,6 +18,11 @@ Sebastian Davids <sdavids@gmx.de>
 :uri-conventional-commits: https://www.conventionalcommits.org/en/v1.0.0/
 
 
+ifdef::env-github[]
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+endif::[]
+
 == Contributor License Agreement
 
 *Project License:* Apache License, Version 2.0 (link:LICENSE[] or
