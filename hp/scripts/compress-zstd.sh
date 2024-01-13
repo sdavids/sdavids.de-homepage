@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2022-2023, Sebastian Davids
+# Copyright (c) 2022-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -36,4 +36,6 @@ if [ ! -f "$1" ]; then
 fi
 
 zstd "$1" --ultra -22 -foq "$1.zst"
+
+# set the creation/modification time to the original file's
 touch -c -r "$1" "$1.zst"
