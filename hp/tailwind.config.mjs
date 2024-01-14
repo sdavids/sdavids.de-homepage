@@ -14,6 +14,7 @@ export default {
       },
       screens: {
         smh: { raw: '(max-height: 550px)' },
+        noscript: { raw: '(scripting: none)' },
       },
     },
   },
