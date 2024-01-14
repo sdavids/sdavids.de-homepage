@@ -98,17 +98,3 @@
 
 @tailwind components;
 @tailwind utilities;
-
-span.sd-contact::before {
-  content: attr(data-d) '.' attr(data-h) '@' attr(data-u);
-  unicode-bidi: bidi-override;
-  direction: rtl;
-}
-
-span.sd-gpg-key-id::before {
-  /* local dev will show 2 spaces; minified production build will have 1 */
-  content: ' ' attr(data-d) '.' attr(data-h) '@' attr(data-u) ' ';
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  white-space: pre;
-}
