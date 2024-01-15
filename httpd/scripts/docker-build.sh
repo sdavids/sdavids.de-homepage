@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2023, Sebastian Davids
+# Copyright (c) 2023-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,4 +46,4 @@ docker buildx build \
 
 echo
 
-docker inspect -f '{{json .Config.Labels}}' "${container_name}:${tag} "
+docker inspect -f '{{json .Config.Labels}}' "${container_name}:${tag}"
