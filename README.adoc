@@ -119,8 +119,6 @@ https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - 
 
 ==== fnm
 
-https://github.com/Schniz/fnm
-
 .~/.zprofile
 [source,shell]
 ----
@@ -149,8 +147,6 @@ set -eu
 ----
 
 ==== nvm
-
-https://github.com/nvm-sh/nvm
 
 .~/.zshrc
 [source,shell]
