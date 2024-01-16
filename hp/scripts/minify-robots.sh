@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2022-2023, Sebastian Davids
+# Copyright (c) 2022-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,15 +16,20 @@
 # limitations under the License.
 #
 
-# script needs to be invoked from the hp root directory
-
 set -eu
 
-readonly dir='dist'
-readonly file="${dir}/robots.txt"
+readonly base_dir="${1:-$PWD}"
+
+readonly file="${base_dir}/robots.txt"
 
 if [ "$(uname)" = 'Darwin' ]; then
+  # commented lines
   sed -i '' '/^[@#]/ d' "${file}"
+  # empty lines
+  sed -i '' '/^[[:space:]]*$/d' "${file}"
 else
+  # commented lines
   sed -i '/^[@#]/ d' "${file}"
+  # empty lines
+  sed -i '/^[[:space:]]*$/d' "${file}"
 fi

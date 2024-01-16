@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2022-2023, Sebastian Davids
+# Copyright (c) 2022-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@
 
 set -eu
 
-if npx --no is-ci ; then
+if npx --yes --quiet is-ci ; then
   exit 0
 fi
 
-cd .. && npx --no husky install hp/.husky
+cd .. && npx --yes --quiet husky install hp/.husky

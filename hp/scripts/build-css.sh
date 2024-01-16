@@ -20,9 +20,8 @@
 
 set -eu
 
-npx --no tailwindcss -- -c tailwind.config.mjs -i src/s/app.src.css -o src/s/app.css.tw
+npx --yes --quiet tailwindcss -c tailwind.config.mjs -i src/s/app.src.css -o src/s/app.css.tw
 
-npx --no lightningcss -- --browserslist --minify src/s/app.css.tw > src/s/app.css
+npx --yes --quiet lightningcss --browserslist --minify src/s/app.css.tw --output-file src/s/app.css
 
 rm src/s/app.css.tw
-

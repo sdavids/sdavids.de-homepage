@@ -59,7 +59,8 @@ if [ "${skip_build}" != '--skip-build' ]; then
   npm run minify:svg
   npm run hash:svg
   npm run minify:xml
-  npm run minify:json
+  npm run minify:webmanifest
+  npm run minify:traffic-advice
   npm run minify:robots
   npm run legal:robots
   npm run compress:files

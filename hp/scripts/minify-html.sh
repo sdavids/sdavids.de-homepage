@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2022-2023, Sebastian Davids
+# Copyright (c) 2022-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,14 +16,15 @@
 # limitations under the License.
 #
 
-# script needs to be invoked from the hp root directory
+# npx needs to be in $PATH
 
 set -eu
 
-readonly dir='dist'
+readonly base_dir="${1:-$PWD}"
 
-find "${dir}" -type f -name '*.html' -exec \
-  npx --no html-minifier-terser -- "{}" \
+# https://www.npmjs.com/package/html-minifier-terser#options-quick-reference
+find "${base_dir}" -type f -name '*.html' -exec \
+  npx --yes --quiet html-minifier-terser "{}" \
     --collapse-boolean-attributes \
     --collapse-whitespace \
     --collapse-inline-tag-whitespace \
@@ -40,4 +41,8 @@ find "${dir}" -type f -name '*.html' -exec \
     --use-short-doctype \
     -o "{}.min" \;
 
-find "${dir}" -type f -name '*.html.min' -exec sh -c 'f="$1"; mv -- "$f" "${f%.html.min}.html"' shell {} \;
+# rename *.html.min to *.html
+find "${base_dir}" \
+  -type f \
+  -name '*.html.min' \
+  -exec sh -c 'f="$1"; mv -- "$f" "${f%.html.min}.html"' shell {} \;

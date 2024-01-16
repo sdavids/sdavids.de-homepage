@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- Copyright (c) 2023, Sebastian Davids
+ Copyright (c) 2023-2024, Sebastian Davids
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,9 +18,6 @@
 
 // Prerequisite:
 //   npm i --save-dev htmlparser2 domutils
-
-// Usage:
-//   node scripts/update-importmap-hash-in-htaccess.mjs index.html .htaccess
 
 import * as htmlparser2 from 'htmlparser2';
 import { findOne, textContent } from 'domutils';

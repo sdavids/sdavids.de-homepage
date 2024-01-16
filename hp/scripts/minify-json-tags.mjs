@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- Copyright (c) 2023, Sebastian Davids
+ Copyright (c) 2024, Sebastian Davids
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,14 +17,13 @@
  */
 
 // Prerequisite:
-//   npm i --save-dev htmlparser2 domutils dom-serializer
-
-// Usage:
-//   node scripts/minify-json-tags.mjs index.html
+//   npm i --save-dev domutils dom-serializer htmlparser2
 
 import * as htmlparser2 from 'htmlparser2';
 import { findAll, findOne, replaceElement, textContent } from 'domutils';
-import { readFile, writeFile } from 'fs/promises';
+import { access, readFile, writeFile } from 'fs/promises';
+import { relative } from 'node:path';
+import { cwd } from 'node:process';
 import { render } from 'dom-serializer';
 
 /**
@@ -52,10 +51,20 @@ const findJsonStructuredScriptTags = (elem) => {
 };
 
 if (process.argv.length < 3) {
+  // eslint-disable-next-line no-console
+  console.error(`Usage: ${relative(cwd(), import.meta.filename)} FILE`);
   process.exit(1);
 }
 
 const file = process.argv[2];
+
+try {
+  await access(file);
+} catch {
+  // eslint-disable-next-line no-console
+  console.error(`${file} does not exist`);
+  process.exit(2);
+}
 
 const html = await readFile(file, 'utf8');
 

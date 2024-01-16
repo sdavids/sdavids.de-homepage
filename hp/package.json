@@ -39,15 +39,16 @@
     "hash:js": "scripts/hash-and-update-files.mjs dist js html",
     "hash:svg": "scripts/hash-and-update-files.mjs dist svg css,js,html",
     "legal:robots": "scripts/add-legal-notice-to-robots.sh",
-    "lint": "npx --no eslint -- --cache .",
-    "lint:fix": "npx --no eslint -- --cache --fix .",
-    "lighthouseci": "npx --no lhci -- autorun",
-    "minify:html": "scripts/minify-html.sh",
-    "minify:json": "scripts/minify-json.sh",
-    "minify:json-tags": " node scripts/minify-json-tags.mjs dist/index.html",
-    "minify:robots": "scripts/minify-robots.sh",
-    "minify:svg": "scripts/minify-svg.sh",
-    "minify:xml": "scripts/minify-xml.sh",
+    "lint": "npx eslint --cache .",
+    "lint:fix": "npx eslint --cache --fix .",
+    "lighthouseci": "npx lhci autorun",
+    "minify:html": "scripts/minify-html.sh dist",
+    "minify:json-tags": "scripts/minify-json-tags.mjs dist/index.html",
+    "minify:robots": "scripts/minify-robots.sh dist",
+    "minify:svg": "scripts/minify-svg.sh dist",
+    "minify:traffic-advice": "scripts/minify-traffic-advice.sh dist/.well-known/traffic-advice",
+    "minify:webmanifest": "scripts/minify-webmanifest.sh dist/site.webmanifest",
+    "minify:xml": "scripts/minify-xml.sh dist",
     "format": "scripts/format.sh",
     "format:check": "scripts/format-check.sh"
   },
@@ -76,6 +77,7 @@
     "minify-xml": "4.3.0",
     "prettier": "3.2.4",
     "prettier-plugin-tailwindcss": "0.5.11",
+    "svgo": "3.2.0",
     "tailwindcss": "3.4.1"
   }
 }

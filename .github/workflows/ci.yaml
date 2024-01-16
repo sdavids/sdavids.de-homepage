@@ -117,8 +117,11 @@ jobs:
         name: Minify XML
         run: npm run minify:xml
       - if: steps.changes.outputs.hp == 'true'
-        name: Minify JSON
-        run: npm run minify:json
+        name: Minify webmanifest
+        run: npm run minify:webmanifest
+      - if: steps.changes.outputs.hp == 'true'
+        name: Minify traffic-advice
+        run: npm run minify:traffic-advice
       - if: steps.changes.outputs.hp == 'true'
         name: Minify robots.txt
         run: npm run minify:robots

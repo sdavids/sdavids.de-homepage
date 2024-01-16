@@ -19,7 +19,7 @@
 set -Eeu -o pipefail -o posix
 
 if [ -z "$*" ]; then
-  echo "Usage: $0 FILE"
+  echo "Usage: $0 FILE" >&2
   exit 1
 fi
 
@@ -27,7 +27,7 @@ readonly file="$1"
 readonly echo="${2:-}"
 
 if [ ! -f "${file}" ]; then
-  echo "${file} does not exist"
+  echo "'${file}' does not exist" >&2
   exit 2
 fi
 

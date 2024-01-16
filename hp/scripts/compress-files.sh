@@ -21,12 +21,12 @@
 set -eu
 
 if [ -z "$*" ]; then
-  echo "Usage: $0 DIRECTORY"
+  echo "Usage: $0 DIRECTORY" >&2
   exit 1
 fi
 
 if [ ! -d "$1" ]; then
-  echo "$1 does not exist or is not a directory"
+  echo "'$1' does not exist or is not a directory" >&2
   exit 2
 fi
 

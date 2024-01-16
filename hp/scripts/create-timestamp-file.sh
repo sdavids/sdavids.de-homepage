@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2022-2023, Sebastian Davids
+# Copyright (c) 2022-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,10 +19,10 @@
 set -eu
 
 if [ -z "$*" ]; then
-  echo "Usage: $0 FILE"
+  echo "Usage: $0 FILE" >&2
   exit 1
 fi
 
 readonly file="$1"
 
-printf '%s\n' "$(date -Iseconds -u | sed -e 's/+00:00$/Z/')" > "${file}"
+printf '%s' "$(date -Iseconds -u | sed -e 's/+00:00$/Z/')" > "${file}"

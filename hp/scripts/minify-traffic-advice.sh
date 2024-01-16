@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2022-2023, Sebastian Davids
+# Copyright (c) 2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,8 +16,6 @@
 # limitations under the License.
 #
 
-# script needs to be invoked from the hp root directory
-
 # jq needs to be in $PATH
 #   Mac:
 #     brew install jq
@@ -26,18 +24,20 @@
 
 set -eu
 
-readonly dir='dist'
+if [ -z "$*" ]; then
+  echo "Usage: $0 FILE" >&2
+  exit 1
+fi
 
-readonly traffic_advice_file="${dir}/.well-known/traffic-advice"
-readonly traffic_advice_tmp_file="${traffic_advice_file}.tmp"
+readonly file="$1"
 
-mv "${traffic_advice_file}" "${traffic_advice_tmp_file}"
-jq -c . "${traffic_advice_tmp_file}" > "${traffic_advice_file}"
-rm "${traffic_advice_tmp_file}"
+if [ ! -f "${file}" ]; then
+  echo "'${file}' does not exist" >&2
+  exit 2
+fi
 
-readonly webmanifest_file="${dir}/site.webmanifest"
-readonly webmanifest_tmp_file="${traffic_advice_file}.tmp"
+readonly tmp_file="${file}.tmp"
 
-mv "${webmanifest_file}" "${webmanifest_tmp_file}"
-jq -c . "${webmanifest_tmp_file}" > "${webmanifest_file}"
-rm "${webmanifest_tmp_file}"
+mv "${file}" "${tmp_file}"
+jq -c . "${tmp_file}" > "${file}"
+rm "${tmp_file}"

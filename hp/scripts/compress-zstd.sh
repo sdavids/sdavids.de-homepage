@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2022-2024, Sebastian Davids
+# Copyright (c) 2023-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,15 +26,16 @@
 set -eu
 
 if [ -z "$*" ]; then
-  echo "Usage: $0 FILE"
+  echo "Usage: $0 FILE" >&2
   exit 1
 fi
 
 if [ ! -f "$1" ]; then
-  echo "$1 does not exist"
+  echo "'$1' does not exist" >&2
   exit 2
 fi
 
+# https://man.archlinux.org/man/zstd.1
 zstd "$1" --ultra -22 -foq "$1.zst"
 
 # set the creation/modification time to the original file's

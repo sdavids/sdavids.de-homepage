@@ -20,4 +20,4 @@
 
 set -eu
 
-npx --no tailwindcss -- -c tailwind.config.mjs -i src/s/app.src.css -o src/s/app.css -w
+npx --yes --quiet tailwindcss -c tailwind.config.mjs -i src/s/app.src.css -o src/s/app.css -w

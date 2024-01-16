@@ -27,15 +27,16 @@
 set -eu
 
 if [ -z "$*" ]; then
-  echo "Usage: $0 FILE"
+  echo "Usage: $0 FILE" >&2
   exit 1
 fi
 
 if [ ! -f "$1" ]; then
-  echo "$1 does not exist"
+  echo "'$1' does not exist" >&2
   exit 2
 fi
 
+# https://man.archlinux.org/man/brotli.1
 brotli "$1" -fo "$1.br"
 
 # set the creation/modification time to the original file's
