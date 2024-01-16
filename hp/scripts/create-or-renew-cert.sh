@@ -47,7 +47,9 @@ if [ ! -d "${pki_dir}" ]; then
   exit 1
 fi
 
+# tag::server-name[]
 readonly server_name='httpd.local'
+# end::server-name[]
 
 readonly easyrsa_key="${pki_dir}/private/${server_name}.key"
 readonly easyrsa_cert="${pki_dir}/issued/${server_name}.crt"

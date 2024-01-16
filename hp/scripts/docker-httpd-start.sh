@@ -35,7 +35,9 @@ readonly https_port='8443'
 
 # needs entry in /etc/hosts to work:
 # 127.0.0.1 localhost httpd.local
+# tag::server-name[]
 readonly host_name='httpd.local'
+# end::server-name[]
 
 readonly site_dir="${PWD}/dist"
 
