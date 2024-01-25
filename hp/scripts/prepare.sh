@@ -24,4 +24,4 @@ if npx --yes --quiet is-ci ; then
   exit 0
 fi
 
-cd .. && npx --yes --quiet husky install hp/.husky
+cd .. && npx --yes --quiet husky hp/.husky

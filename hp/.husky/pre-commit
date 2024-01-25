@@ -3,7 +3,7 @@
 # shellcheck shell=sh disable=SC1091
 
 #
-# Copyright (c) 2022-2023, Sebastian Davids
+# Copyright (c) 2022-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,12 +18,8 @@
 # limitations under the License.
 #
 
-set -e
-
-. "$(dirname -- "$0")/_/husky.sh"
-
-set -u
+set -eu
 
 cd hp || exit 1
 
-npx --no lint-staged >&2
+npx --yes --quiet lint-staged >&2
