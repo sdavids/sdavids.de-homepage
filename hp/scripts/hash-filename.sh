@@ -32,18 +32,24 @@ if [ ! -f "${file}" ]; then
 fi
 
 sha="$(sha1sum "${file}")"
+readonly sha
+
 hash="$(echo "${sha}" | cut -c 1-7)"
+readonly hash
+
 filename="$(rev <<< "${file}" | cut -d '.' -f2- | rev)"
+readonly filename
 
 readonly extension="${1##*.}"
 
 if [ "${filename}" = "${extension}" ]; then
   filename_hashed="${filename}.${hash[0]}"
-  mv "${file}" "${filename_hashed}"
 else
   filename_hashed="${filename}.${hash[0]}.${extension}"
-  mv "${file}" "${filename_hashed}"
 fi
+readonly filename_hashed
+
+mv "${file}" "${filename_hashed}"
 
 if [ "${echo}" = '-e' ]; then
   echo "${filename_hashed}"
