@@ -32,6 +32,6 @@ fi
 
 readonly dir="${PWD}/$1"
 
-find "${dir}" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.js' -o -name '*.mjs' -o -name '*.keys' -o -name '*.svg' -type f \) -exec scripts/compress-zstd.sh {} ';'
-find "${dir}" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.js' -o -name '*.mjs' -o -name '*.keys' -o -name '*.svg' -type f \) -exec scripts/compress-brotli.sh {} ';'
-find "${dir}" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.js' -o -name '*.mjs' -o -name '*.keys' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress-gzip.sh {} ';'
+find "${dir}" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.js' -o -name '*.mjs' -o -name '*.keys' -o -name 'site.webmanifest' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress-zstd.sh {} ';'
+find "${dir}" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.js' -o -name '*.mjs' -o -name '*.keys' -o -name 'site.webmanifest' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress-brotli.sh {} ';'
+find "${dir}" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.js' -o -name '*.mjs' -o -name '*.keys' -o -name 'site.webmanifest' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress-gzip.sh {} ';'
