@@ -51,8 +51,7 @@ See link:CONTRIBUTING{outfilesuffix}[].
 
 == Code of Conduct
 
-We abide by the {uri-contributor-covenant}[Contributor Covenant, Version 2.1]
-and ask that you do as well.
+We abide by the {uri-contributor-covenant}[Contributor Covenant, Version 2.1] and ask that you do as well.
 
 For more information, please see link:CODE_OF_CONDUCT{outfilesuffix}[].
 
@@ -74,7 +73,6 @@ Add `httpd.local` to your `/etc/hosts`:
 [NOTE]
 ====
 If you want to change this entry you need to also change:
-
 
 .httpd/httpd.conf
 [source]
@@ -111,7 +109,7 @@ Install {fnm-install-url}[fnm] or {nvm-install-url}[NVM].
 
 [NOTE]
 ====
-This repository uses https://typicode.github.io/husky/[husky] for git hooks.
+This repository uses https://typicode.github.io/husky/[husky] for Git hooks.
 
 More information:
 https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - Command not found]
