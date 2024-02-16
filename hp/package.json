@@ -33,6 +33,8 @@
     "docker:httpd:start": "scripts/docker-httpd-start.sh --skip-build",
     "docker:httpd:start:with-build": "scripts/create-or-renew-cert.sh && scripts/docker-httpd-start.sh",
     "docker:httpd:stop": "scripts/docker-httpd-stop.sh",
+    "format": "scripts/format.sh",
+    "format:check": "scripts/format-check.sh",
     "hash:css": "scripts/hash-and-update-files.mjs dist css html",
     "hash:filename": "scripts/hash-filename.sh",
     "hash:importmap": "scripts/update-importmap-hash-in-htaccess.mjs dist/index.html dist/.htaccess",
@@ -48,9 +50,7 @@
     "minify:svg": "scripts/minify-svg.sh dist",
     "minify:traffic-advice": "scripts/minify-traffic-advice.sh dist/.well-known/traffic-advice",
     "minify:webmanifest": "scripts/minify-webmanifest.sh dist/site.webmanifest",
-    "minify:xml": "scripts/minify-xml.sh dist",
-    "format": "scripts/format.sh",
-    "format:check": "scripts/format-check.sh"
+    "minify:xml": "scripts/minify-xml.sh dist"
   },
   "engines": {
     "node": ">=20.11"
