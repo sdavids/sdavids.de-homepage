@@ -45,7 +45,8 @@ jobs:
         # https://github.com/actions/checkout/releases
         uses: actions/checkout@v4.1.1
       - name: Classify changes
-        uses: dorny/paths-filter@v2
+        # https://github.com/dorny/paths-filter/releases
+        uses: dorny/paths-filter@v3.0.1
         id: changes
         with:
           filters: |
