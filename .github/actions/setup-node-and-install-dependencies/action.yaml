@@ -17,6 +17,7 @@
 
 name: Setup node and install dependencies
 description: Setup node and install dependencies
+author: Sebastian Davids
 inputs:
   working-directory:
     description: the working directory
