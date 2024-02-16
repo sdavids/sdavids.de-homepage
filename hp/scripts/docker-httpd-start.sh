@@ -98,4 +98,5 @@ docker run \
   "${container_name}:${version}" \
   httpd-foreground -C 'PidFile /tmp/httpd.pid' > /dev/null
 
+# https://googlechrome.github.io/lighthouse-ci/docs/configuration.html#startserverreadypattern
 printf '\nListen local: https://%s\n' "${host_name}:${https_port}"
