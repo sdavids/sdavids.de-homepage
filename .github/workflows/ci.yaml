@@ -144,7 +144,8 @@ jobs:
         run: npm run lighthouseci
       - if: steps.changes.outputs.hp == 'true'
         name: Fetch project data
-        uses: ionos-deploy-now/retrieve-project-info-action@v1
+        # https://github.com/ionos-deploy-now/retrieve-project-info-action/releases
+        uses: ionos-deploy-now/retrieve-project-info-action@v1.4.0
         id: project
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
