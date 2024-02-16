@@ -115,7 +115,7 @@ More information:
 https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - Command not found]
 ====
 
-==== fnm
+===== fnm
 
 .~/.zprofile
 [source,shell]
@@ -144,7 +144,7 @@ set -eu
 [ -e "${ZDOTDIR:=${HOME}}/.zlogin" ] && . "${ZDOTDIR:=${HOME}}/.zlogin"
 ----
 
-==== nvm
+===== nvm
 
 .~/.zshrc
 [source,shell]
