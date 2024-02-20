@@ -20,6 +20,6 @@ set -eu
 
 readonly name='sdavids.de-homepage'
 
-docker logs \
+docker container logs \
   --follow \
   "${name}"

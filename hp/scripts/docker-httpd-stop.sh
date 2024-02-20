@@ -20,7 +20,7 @@ set -eu
 
 readonly name='sdavids.de-homepage'
 
-container_id="$(docker ps --all --quiet --filter="name=^/${name}$")"
+container_id="$(docker container ls --all --quiet --filter="name=^/${name}$")"
 
 if [ -n "${container_id}" ]; then
   docker stop "${container_id}" > /dev/null

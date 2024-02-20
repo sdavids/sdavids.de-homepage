@@ -75,7 +75,7 @@ docker network inspect "${network_name}" > /dev/null 2>&1 \
        --driver bridge "${network_name}" \
        --label "de.sdavids.docker.group=${group}"> /dev/null
 
-docker run \
+docker container run \
   --init \
   --detach \
   --interactive \
