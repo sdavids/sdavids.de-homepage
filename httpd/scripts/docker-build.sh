@@ -29,15 +29,19 @@ readonly container_name="${group}/${artifact}"
 
 if [ -n "${GITHUB_SHA:-}" ]; then
   # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
-  readonly commit="${GITHUB_SHA}"
+  commit="${GITHUB_SHA}"
 else
-  commit="$(git rev-parse --verify HEAD)"
-  if [ -n "$(git status --porcelain=v1 2>/dev/null)" ]; then
-    commit="${commit}-next"
+  if [ -z "$(git status --porcelain=v1 2>/dev/null)" ]; then
+    ext=''
+  else
+    ext='-next'
   fi
+  readonly ext
+  commit="$(git rev-parse --verify HEAD)${ext}"
 fi
+readonly commit
 
-docker buildx build \
+docker build \
   --compress \
   --tag "${container_name}:latest" \
   --tag "${container_name}:${tag}" \
