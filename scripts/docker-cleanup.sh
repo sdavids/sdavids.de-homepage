@@ -20,7 +20,9 @@ set -eu
 
 readonly group='sdavids.de-homepage'
 
-readonly label="de.sdavids.docker.group=${group}"
+readonly label_group='de.sdavids.docker.group'
+
+readonly label="${label_group}=${group}"
 
 docker container prune --force --filter="label=${label}"
 

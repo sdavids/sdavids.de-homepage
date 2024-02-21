@@ -24,7 +24,7 @@ readonly base_dir="${1:-$PWD}"
 
 # https://www.npmjs.com/package/html-minifier-terser#options-quick-reference
 find "${base_dir}" -type f -name '*.html' -exec \
-  npx --yes --quiet html-minifier-terser "{}" \
+  npx --yes --quiet html-minifier-terser {} \
     --collapse-boolean-attributes \
     --collapse-whitespace \
     --collapse-inline-tag-whitespace \

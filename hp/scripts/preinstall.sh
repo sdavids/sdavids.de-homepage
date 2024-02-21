@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2023, Sebastian Davids
+# Copyright (c) 2023-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,12 +16,15 @@
 # limitations under the License.
 #
 
-# script needs to be invoked from the hp root directory
+# script needs to be invoked from the hp directory
 
 set -eu
 
 if [ "$(uname)" = 'Darwin' ]; then
   if [ -d node_modules ]; then
+    # https://apple.stackexchange.com/questions/25779/on-os-x-what-files-are-excluded-by-rule-from-a-time-machine-backup
     xattr -w com.apple.metadata:com_apple_backup_excludeItem com.apple.backupd node_modules
+    # https://apple.stackexchange.com/a/258791
+    touch node_modules/.metadata_never_index
   fi
 fi

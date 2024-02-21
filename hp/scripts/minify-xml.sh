@@ -24,6 +24,6 @@ readonly base_dir="${1:-$PWD}"
 
 # https://www.npmjs.com/package/minify-xml#options
 find "${base_dir}" -type f -name '*.xml' -exec \
-  npx --yes --quiet minify-xml "{}" \
+  npx --yes --quiet minify-xml {} \
       --remove-schema-location-attributes \
       --in-place \;

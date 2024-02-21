@@ -25,7 +25,7 @@ readonly base_dir="${1:-$PWD}"
 # https://github.com/svg/svgo
 # https://github.com/svg/svgo/blob/main/lib/svgo/coa.js
 find "${base_dir}" -type f -name '*.svg' -exec \
-  npx --yes --quiet svgo "{}" \
+  npx --yes --quiet svgo {} \
     --eol lf \
     --multipass \
     --no-color \

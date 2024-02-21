@@ -20,4 +20,4 @@
 
 set -eu
 
-npx --yes --quiet browser-sync src -f src -b 'chrome' --no-notify --no-ghost-mode
+npx --yes --quiet browser-sync src -f src -b 'google chrome' --no-notify --no-ghost-mode

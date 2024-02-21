@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2022-2023, Sebastian Davids
+# Copyright (c) 2022-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,6 +30,6 @@ if [ ! -d "$1" ]; then
   exit 2
 fi
 
-readonly dir="${PWD}/$1"
+readonly dir="$PWD/$1"
 
 printf 'google-site-verification: google1f621af14435aa51.html' > "${dir}/google1f621af14435aa51.html"

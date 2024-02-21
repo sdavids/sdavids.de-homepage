@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2023, Sebastian Davids
+# Copyright (c) 2023-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
 
 set -eu
 
-readonly name='sdavids.de-homepage'
+readonly container_name='sdavids.de-homepage'
 
-container_id="$(docker container ls --all --quiet --filter="name=^/${name}$")"
+container_id="$(docker container ls --all --quiet --filter="name=^/${container_name}$")"
 
 if [ -n "${container_id}" ]; then
   docker stop "${container_id}" > /dev/null

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2023-2024, Sebastian Davids
+# Copyright (c) 2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,6 +20,8 @@ set -eu
 
 readonly container_name='sdavids.de-homepage'
 
-docker container logs \
-  --follow \
-  "${container_name}"
+docker exec \
+  --interactive \
+  --tty \
+  "${container_name}" \
+  sh

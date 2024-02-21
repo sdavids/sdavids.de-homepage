@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 #
 # Copyright (c) 2023-2024, Sebastian Davids
@@ -18,7 +18,7 @@
 
 # script needs to be invoked from the hp root directory
 
-set -eu
+set -Eeu -o pipefail -o posix
 
 readonly skip_build="${1:-}"
 
@@ -39,9 +39,20 @@ readonly https_port='8443'
 readonly host_name='httpd.local'
 # end::server-name[]
 
+# https://man.archlinux.org/man/grep.1
+if [ "$(grep -E -i -c "127\.0\.0\.1\s+localhost.+${host_name//\./\.}" /etc/hosts)" -eq 0 ]; then
+    echo "/etc/hosts does not have an entry for '127.0.0.1 localhost ${host_name}'" >&2
+    exit 1
+fi
+
 readonly site_dir="${PWD}/dist"
 
 readonly certs_dir="${PWD}/certs"
+
+if [ ! -d "${certs_dir}" ]; then
+  printf "certificate directory '%s' does not exist\n" "${certs_dir}" >&2
+  exit 2
+fi
 
 export CI=true
 

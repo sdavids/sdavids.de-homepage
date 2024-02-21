@@ -30,18 +30,20 @@ readonly container_name="${group}/${artifact}"
 if [ -n "${GITHUB_SHA:-}" ]; then
   # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
   commit="${GITHUB_SHA}"
+elif [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ]; then
+  commit='N/A'
 else
   if [ -z "$(git status --porcelain=v1 2>/dev/null)" ]; then
     ext=''
   else
     ext='-next'
   fi
-  readonly ext
   commit="$(git rev-parse --verify HEAD)${ext}"
+  unset ext
 fi
 readonly commit
 
-docker build \
+docker image build \
   --compress \
   --tag "${container_name}:latest" \
   --tag "${container_name}:${tag}" \
@@ -50,4 +52,4 @@ docker build \
 
 echo
 
-docker inspect -f '{{json .Config.Labels}}' "${container_name}:${tag}"
+docker image inspect -f '{{json .Config.Labels}}' "${container_name}:${tag}"

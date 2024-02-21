@@ -30,6 +30,7 @@
     "dev": "scripts/dev.sh",
     "dev:css": "scripts/dev-css.sh",
     "docker:httpd:logs": "scripts/docker-httpd-logs.sh",
+    "docker:httpd:sh": "scripts/docker-httpd-sh.sh",
     "docker:httpd:start": "scripts/docker-httpd-start.sh --skip-build",
     "docker:httpd:start:with-build": "scripts/create-or-renew-cert.sh && scripts/docker-httpd-start.sh",
     "docker:httpd:stop": "scripts/docker-httpd-stop.sh",
