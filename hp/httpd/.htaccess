@@ -140,14 +140,14 @@ FileETag None
   RewriteCond "%{REQUEST_FILENAME}.br" -s
   RewriteRule "^(.*)\.(age|css|gpg|html|js|mjs|keys|svg)$" "/$1.$2.br" [QSA]
 
-  RewriteRule "\.age\.br$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.age\.br$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.css\.br$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.gpg\.br$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.gpg\.br$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.html\.br$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.js\.br$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.mjs\.br$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.keys\.br$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:,E=no-zstd:1]
-  RewriteRule "\.svg\.br$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.keys\.br$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:,E=no-zstd:1]
+  RewriteRule "\.svg\.br$" "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
 
   <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.mjs|\.keys|\.svg)\.br$">
     Header append Content-Encoding br
@@ -158,14 +158,14 @@ FileETag None
   RewriteCond "%{REQUEST_FILENAME}.gz" -s
   RewriteRule "^(.*)\.(age|css|gpg|html|js|mjs|keys|svg)$" "/$1.$2.gz" [QSA]
 
-  RewriteRule "\.age\.gz$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.age\.gz$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.gpg\.gz$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.gpg\.gz$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.js\.gz$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.mjs\.gz$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.keys\.gz$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.svg\.gz$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.keys\.gz$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.svg\.gz$" "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
 
   <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.mjs|\.keys|\.svg)\.gz$">
     Header append Content-Encoding gzip
@@ -176,14 +176,14 @@ FileETag None
   RewriteCond "%{REQUEST_FILENAME}.zst" -s
   RewriteRule "^(.*)\.(age|css|gpg|html|js|mjs|keys|svg)$" "/$1.$2.zst" [QSA]
 
-  RewriteRule "\.age\.zst$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.age\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.css\.zst$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.gpg\.zst$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.gpg\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.html\.zst$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.js\.zst$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.mjs\.zst$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.keys\.zst$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.svg\.zst$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.keys\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.svg\.zst$" "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
 
   <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.mjs|\.keys|\.svg)\.zst$">
     Header append Content-Encoding zstd
