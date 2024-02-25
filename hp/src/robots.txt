@@ -1,27 +1,73 @@
 # https://www.robotstxt.org
+# https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt
 
-# https://platform.openai.com/docs/gptbot/disallowing-gptbot
-User-agent: GPTBot
+# Verify via:
+# git clone https://github.com/google/robotstxt.git
+# bazel build :robots_main
+# bazel run robots_main -- robots.txt Amazonbot https://sdavids.de/index.html
+# bazel run robots_main -- robots.txt googlebot https://sdavids.de/index.html
+# bazel run robots_main -- robots.txt unknown https://sdavids.de/index.html
+
+# https://darkvisitors.com/agents/amazonbot
+User-agent: Amazonbot
 Disallow: /
 
-# https://platform.openai.com/docs/plugins/bot
-User-agent: ChatGPT-User
+# https://darkvisitors.com/agents/anthropic-ai
+User-agent: anthropic-ai
 Disallow: /
 
-# https://commoncrawl.org/faq
+# https://darkvisitors.com/agents/applebot
+User-agent: Applebot
+Disallow: /
+
+# https://darkvisitors.com/agents/bytespider
+User-agent: Bytespider
+Disallow: /
+
+# https://darkvisitors.com/agents/ccbot
 User-agent: CCBot
 Disallow: /
 
-# https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers#google-extended
+# https://darkvisitors.com/agents/chatgpt-user
+User-agent: ChatGPT-User
+Disallow: /
+
+# https://darkvisitors.com/agents/cohere-ai
+User-agent: cohere-ai
+Disallow: /
+
+# https://darkvisitors.com/agents/facebookbot
+User-agent: FacebookBot
+Disallow: /
+
+# https://darkvisitors.com/agents/google-extended
 User-agent: Google-Extended
 Disallow: /
 
-# https://80legs.com/the-80legs-web-crawler/
-User-agent: voltron
+# https://darkvisitors.com/agents/gptbot
+User-agent: GPTBot
 Disallow: /
 
-# https://yoast.com/ultimate-guide-robots-txt/#disallow-directive
-User-agent: *
-Disallow:
+# https://darkvisitors.com/agents/omgili
+User-agent: omgili
+Disallow: /
 
+# https://darkvisitors.com/agents/perplexitybot
+User-agent: PerplexityBot
+Disallow: /
+
+# https://darkvisitors.com/agents/youbot
+User-agent: YouBot
+Disallow: /
+
+User-agent: Googlebot
+User-agent: bingbot
+User-agent: Yandex
+User-agent: Qwantify
+User-agent: DuckDuckBot
+Crawl-delay: 2
+Sitemap: https://sdavids.de/sitemap.xml
+
+User-agent: *
+Crawl-delay: 42
 Sitemap: https://sdavids.de/sitemap.xml
