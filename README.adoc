@@ -41,6 +41,8 @@ endif::[]
 
 toc::[]
 
+{description}
+
 == License
 
 Apache License, Version 2.0 (link:LICENSE[] or {uri-apache-license}).
