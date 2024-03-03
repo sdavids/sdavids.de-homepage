@@ -22,15 +22,20 @@ set -eu
 
 readonly tag="${1:-local}"
 
-readonly group='sdavids.de-homepage'
-readonly artifact='sdavids-httpd'
+# https://docs.docker.com/reference/cli/docker/image/tag/#description
+readonly namespace='sdavids.de-homepage'
+readonly repository='sdavids-httpd'
 
-readonly container_name="${group}/${artifact}"
+readonly label_group='de.sdavids.docker.group'
+
+readonly label="${label_group}=${namespace}"
+
+readonly image_name="${namespace}/${repository}"
 
 if [ -n "${GITHUB_SHA:-}" ]; then
   # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
   commit="${GITHUB_SHA}"
-elif [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ]; then
+elif [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != 'true' ]; then
   commit='N/A'
 else
   if [ -z "$(git status --porcelain=v1 2>/dev/null)" ]; then
@@ -43,13 +48,16 @@ else
 fi
 readonly commit
 
+# to ensure ${label} is set, we use --label "${label}"
+# which might overwrite the LABEL ${label_group} of the Dockerfile
 docker image build \
   --compress \
-  --tag "${container_name}:latest" \
-  --tag "${container_name}:${tag}" \
+  --tag "${image_name}:latest" \
+  --tag "${image_name}:${tag}" \
   --build-arg "git_commit=${commit}" \
+  --label "${label}" \
   .
 
 echo
 
-docker image inspect -f '{{json .Config.Labels}}' "${container_name}:${tag}"
+docker image inspect -f '{{json .Config.Labels}}' "${image_name}:${tag}"
