@@ -30,9 +30,11 @@ COPY --chown=www-data:www-data ./httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY --chown=www-data:www-data ./httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 
 ARG git_commit
+ARG created_at
 
 # https://github.com/opencontainers/image-spec/blob/master/annotations.md
 LABEL org.opencontainers.image.revision="${git_commit}" \
+      org.opencontainers.image.created="${created_at}" \
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.vendor="Sebastian Davids" \
       org.opencontainers.image.title="sdavids.de-homepage-httpd" \
