@@ -22,16 +22,22 @@ set -Eeu -o pipefail -o posix
 
 readonly skip_build="${1:-}"
 
-readonly group='sdavids.de-homepage'
-readonly artifact='sdavids-httpd'
-readonly version='local'
-
-readonly container_name="${group}/${artifact}"
-
-readonly name='sdavids.de-homepage'
-
 readonly http_port='8080'
 readonly https_port='8443'
+
+readonly tag='local'
+
+# https://docs.docker.com/reference/cli/docker/image/tag/#description
+readonly namespace='sdavids.de-homepage'
+readonly repository='sdavids-httpd'
+
+readonly label_group='de.sdavids.docker.group'
+
+readonly label="${label_group}=${namespace}"
+
+readonly image_name="${namespace}/${repository}"
+
+readonly container_name="sdavids.de-homepage"
 
 # needs entry in /etc/hosts to work:
 # 127.0.0.1 localhost httpd.local
@@ -44,6 +50,8 @@ if [ "$(grep -E -i -c "127\.0\.0\.1\s+localhost.+${host_name//\./\.}" /etc/hosts
     echo "/etc/hosts does not have an entry for '127.0.0.1 localhost ${host_name}'" >&2
     exit 1
 fi
+
+readonly network_name='sdavids.de-homepage'
 
 readonly site_dir="${PWD}/dist"
 
@@ -79,13 +87,13 @@ if [ "${skip_build}" != '--skip-build' ]; then
   npm run create:timestamp-file dist/.deploy-timestamp
 fi
 
-readonly network_name='sdavids.de-homepage'
-
 docker network inspect "${network_name}" > /dev/null 2>&1 \
   || docker network create \
        --driver bridge "${network_name}" \
-       --label "de.sdavids.docker.group=${group}"> /dev/null
+       --label "${label_group}=${namespace}"> /dev/null
 
+# to ensure ${label} is set, we use --label "${label}"
+# which might overwrite the label ${label_group} of the image
 docker container run \
   --init \
   --detach \
@@ -105,8 +113,9 @@ docker container run \
   --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
   --mount "type=bind,source=${certs_dir}/server.crt,target=/usr/local/apache2/conf/server.crt,readonly" \
   --mount "type=bind,source=${certs_dir}/server.key,target=/usr/local/apache2/conf/server.key,readonly" \
-  --name "${name}" \
-  "${container_name}:${version}" \
+  --name "${container_name}" \
+  --label "${label}" \
+  "${image_name}:${tag}" \
   httpd-foreground -C 'PidFile /tmp/httpd.pid' > /dev/null
 
 # https://googlechrome.github.io/lighthouse-ci/docs/configuration.html#startserverreadypattern
