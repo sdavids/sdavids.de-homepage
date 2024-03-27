@@ -28,11 +28,9 @@ fi
 git clean -fdx \
   -e .fleet \
   -e .idea \
-  -e .settings \
   -e .vscode \
   -e hp/.fleet \
   -e hp/.idea \
-  -e hp/.settings \
   -e hp/.vscode \
   .
 
