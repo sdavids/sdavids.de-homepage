@@ -54,7 +54,7 @@
     "minify:xml": "scripts/minify-xml.sh dist"
   },
   "engines": {
-    "node": ">=20.11"
+    "node": ">=20.12"
   },
   "devDependencies": {
     "@commitlint/cli": "19.2.1",
