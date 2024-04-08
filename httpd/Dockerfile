@@ -19,14 +19,14 @@
 # https://docs.docker.com/engine/reference/builder/
 
 # https://hub.docker.com/_/httpd/
-FROM httpd:2.4.58-alpine3.19
+FROM httpd:2.4.59-alpine3.19
 
 EXPOSE 443
 
-# docker run --rm httpd:2.4.58-alpine3.19 cat /usr/local/apache2/conf/httpd.conf > httpd.conf
+# docker run --rm httpd:2.4.59-alpine3.19 cat /usr/local/apache2/conf/httpd.conf > httpd.conf
 COPY --chown=www-data:www-data ./httpd.conf /usr/local/apache2/conf/httpd.conf
 
-# docker run --rm httpd:2.4.58-alpine3.19 cat /usr/local/apache2/conf/extra/httpd-ssl.conf > httpd-ssl.conf
+# docker run --rm httpd:2.4.59-alpine3.19 cat /usr/local/apache2/conf/extra/httpd-ssl.conf > httpd-ssl.conf
 COPY --chown=www-data:www-data ./httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 
 ARG git_commit
