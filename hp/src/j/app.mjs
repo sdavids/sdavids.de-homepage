@@ -32,7 +32,7 @@ const writeClipboardText = async (id) => {
       btn.querySelector('g').classList.remove('opacity-0');
       clearTimeout(copiedTimeout);
       copiedTimeout = setTimeout(() => addOpacity0(btn), 500);
-    } catch (error) {
+    } catch {
       // ignore
     }
   }
