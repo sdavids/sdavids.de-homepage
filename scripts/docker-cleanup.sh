@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #
-# Copyright (c) 2023, Sebastian Davids
+# Copyright (c) 2023-2024, Sebastian Davids
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,11 +18,11 @@
 
 set -eu
 
-readonly group='sdavids.de-homepage'
+readonly repository='sdavids.de-homepage'
 
 readonly label_group='de.sdavids.docker.group'
 
-readonly label="${label_group}=${group}"
+readonly label="${label_group}=${repository}"
 
 docker container prune --force --filter="label=${label}"
 

@@ -28,12 +28,12 @@ readonly https_port='8443'
 readonly tag='local'
 
 # https://docs.docker.com/reference/cli/docker/image/tag/#description
-readonly namespace='sdavids.de-homepage'
-readonly repository='sdavids-httpd'
+readonly namespace='sdavids.de'
+readonly repository='sdavids.de-homepage'
 
 readonly label_group='de.sdavids.docker.group'
 
-readonly label="${label_group}=${namespace}"
+readonly label="${label_group}=${repository}"
 
 readonly image_name="${namespace}/${repository}"
 
