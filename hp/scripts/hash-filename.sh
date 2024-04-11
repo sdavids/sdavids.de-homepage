@@ -18,12 +18,7 @@
 
 set -Eeu -o pipefail -o posix
 
-if [ -z "$*" ]; then
-  echo "Usage: $0 FILE" >&2
-  exit 1
-fi
-
-readonly file="$1"
+readonly file="${1:?FILE is required}"
 readonly echo="${2:-}"
 
 if [ ! -f "${file}" ]; then
