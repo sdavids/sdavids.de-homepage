@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 #
 # Copyright (c) 2023-2024, Sebastian Davids
@@ -18,9 +18,24 @@
 
 # script needs to be invoked from httpd root directory
 
-set -eu
+set -Eeu -o pipefail -o posix
 
-readonly tag="${1:-local}"
+while getopts ':nt:' opt; do
+  case "${opt}" in
+    n) no_cache='--no-cache'
+      ;;
+    t) tag="${OPTARG}"
+      ;;
+    ?)
+      echo "Usage: $0 [-d Dockerfile] [-n] [-t tag]" >&2
+      exit 1
+      ;;
+  esac
+done
+
+readonly no_cache="${no_cache:-}"
+
+readonly tag="${tag:-local}"
 
 # https://docs.docker.com/reference/cli/docker/image/tag/#description
 readonly namespace='sdavids.de'
@@ -67,7 +82,9 @@ readonly commit
 
 # to ensure ${label} is set, we use --label "${label}"
 # which might overwrite the LABEL ${label_group} of the Dockerfile
+# shellcheck disable=SC2086
 docker image build \
+  ${no_cache} \
   --compress \
   --tag "${image_name}:latest" \
   --tag "${image_name}:${tag}" \
