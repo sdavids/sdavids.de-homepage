@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: © 2023 Sebastian Davids <sdavids@gmx.de>
+// SPDX-License-Identifier: Apache-2.0
+
 // https://eslint.org/docs/latest/use/configure/configuration-files
 
 import globals from 'globals';

@@ -1,0 +1,44 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: sdavids.de-homepage
+Upstream-Contact: Sebastian Davids <sdavids@gmx.de>
+Source: https://github.com/sdavids/sdavids.de-homepage
+
+Files: */*.png
+Copyright: © 2022 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0
+
+Files: design/logo.afdesign
+Copyright: © 2022 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0
+
+Files: httpd/httpd.conf httpd/httpd-ssl.conf
+Copyright: © 2022 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0
+
+Files: hp/package.json hp/package-lock.json
+Copyright: © 2022 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0
+
+Files: hp/.nvmrc
+Copyright: © 2022 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0
+
+Files: hp/src/favicon.ico
+Copyright: © 2022 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0
+
+Files: hp/src/favicon.svg
+Copyright: © 2023 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0
+
+Files: hp/src/sdavids.age hp/src/sdavids.gpg hp/src/sdavids.keys
+Copyright: © 2023 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0
+
+Files: hp/src/.well-known/traffic-advice hp/src/site.webmanifest
+Copyright: © 2022 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0
+
+Files: hp/src/.well-known/security.txt
+Copyright: © 2023 Sebastian Davids <sdavids@gmx.de>
+License: Apache-2.0

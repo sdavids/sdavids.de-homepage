@@ -1,4 +1,7 @@
 ---
+# SPDX-FileCopyrightText: © 2024 Sebastian Davids <sdavids@gmx.de>
+# SPDX-License-Identifier: Apache-2.0
+
 # https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md
 # https://github.com/GoogleChrome/lighthouse/blob/main/docs/configuration.md#lighthouse-configuration
 ci:
