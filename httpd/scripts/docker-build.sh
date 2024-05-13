@@ -9,7 +9,7 @@ set -Eeu -o pipefail -o posix
 
 while getopts ':nt:' opt; do
   case "${opt}" in
-    n) no_cache='--no-cache'
+    n) no_cache='--pull --no-cache'
       ;;
     t) tag="${OPTARG}"
       ;;
