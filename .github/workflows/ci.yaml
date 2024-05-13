@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Checkout
         # https://github.com/actions/checkout/releases
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.1.5
       - name: Classify changes
         # https://github.com/dorny/paths-filter/releases
         uses: dorny/paths-filter@v3.0.2
