@@ -138,6 +138,23 @@ FileETag None
 
 # serve pre-compressed brotli, gzip and zstd files
 <IfModule mod_headers.c>
+  RewriteCond "%{HTTP:Accept-encoding}" "zstd"
+  RewriteCond "%{REQUEST_FILENAME}.zst" -s
+  RewriteRule "^(.*)\.(age|css|gpg|html|mjs|keys|svg)$" "/$1.$2.zst" [QSA]
+
+  RewriteRule "\.age\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.css\.zst$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.gpg\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.html\.zst$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.mjs\.zst$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.keys\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.svg\.zst$" "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+
+  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.mjs|\.keys|\.svg)\.zst$">
+    Header append Content-Encoding zstd
+    Header append Vary Accept-Encoding
+  </FilesMatch>
+
   RewriteCond "%{HTTP:Accept-encoding}" "br"
   RewriteCond "%{REQUEST_FILENAME}.br" -s
   RewriteRule "^(.*)\.(age|css|gpg|html|mjs|keys|svg)$" "/$1.$2.br" [QSA]
@@ -169,23 +186,6 @@ FileETag None
 
   <FilesMatch "(\.age|\.css|\.gpg|\.html|\.mjs|\.keys|\.svg)\.gz$">
     Header append Content-Encoding gzip
-    Header append Vary Accept-Encoding
-  </FilesMatch>
-
-  RewriteCond "%{HTTP:Accept-encoding}" "zstd"
-  RewriteCond "%{REQUEST_FILENAME}.zst" -s
-  RewriteRule "^(.*)\.(age|css|gpg|html|mjs|keys|svg)$" "/$1.$2.zst" [QSA]
-
-  RewriteRule "\.age\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.css\.zst$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.gpg\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.html\.zst$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.mjs\.zst$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.keys\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.svg\.zst$" "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-
-  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.mjs|\.keys|\.svg)\.zst$">
-    Header append Content-Encoding zstd
     Header append Vary Accept-Encoding
   </FilesMatch>
 </IfModule>
