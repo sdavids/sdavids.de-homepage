@@ -36,7 +36,6 @@ export default [
       'max-lines-per-function': 'off',
       'max-params': 'off',
       'max-statements': 'off',
-      'multiline-comment-style': 'off',
       'no-continue': 'off',
       'no-magic-numbers': 'off',
       'no-param-reassign': 'off',
