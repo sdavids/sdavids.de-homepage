@@ -5,9 +5,10 @@
 
 /* eslint-disable no-console */
 
-import { readFile, readdir, rename, writeFile } from 'node:fs/promises';
-import { parse, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
+import { readFile, readdir, rename, writeFile } from 'node:fs/promises';
+import { parse, relative, resolve } from 'node:path';
+import { cwd } from 'node:process';
 
 /**
  * @param {string} path
@@ -66,7 +67,9 @@ const updateFile = async (path, replacements) => {
 };
 
 if (process.argv.length < 4) {
-  console.error('You need to supply the path and extension');
+  console.error(
+    `Usage: ${relative(cwd(), import.meta.filename)} DIR TO_HASH_EXTENSION TO_UPDATE_EXTENSIONS`,
+  );
   process.exit(1);
 }
 
