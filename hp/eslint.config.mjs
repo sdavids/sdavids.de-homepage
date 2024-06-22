@@ -5,6 +5,7 @@
 
 import globals from 'globals';
 import js from '@eslint/js';
+import json from 'eslint-plugin-json';
 
 // noinspection JSUnusedGlobalSymbols
 export default [
@@ -53,5 +54,10 @@ export default [
       'sort-vars': 'off',
       radix: 'off',
     },
+  },
+  {
+    files: ['**/*.json'],
+    name: 'eslint/json/recommended',
+    ...json.configs.recommended,
   },
 ];

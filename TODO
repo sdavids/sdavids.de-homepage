@@ -7,12 +7,6 @@ Sebastian Davids <sdavids@gmx.de>
 +
 https://github.com/amilajack/eslint-plugin-compat/issues/603
 
-* add eslint plugin:json/recommended
-+
-+ add json to eslint pattern in lint-staged.config.mjs
-+
-https://github.com/azeemba/eslint-plugin-json/issues/80
-
 * remove body-max-line-length in commitlint.config.mjs
 +
 https://github.com/conventional-changelog/commitlint/issues/2112
