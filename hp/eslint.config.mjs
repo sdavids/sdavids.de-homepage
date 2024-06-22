@@ -10,10 +10,16 @@ import js from '@eslint/js';
 export default [
   {
     ignores: ['dist/*'],
+    name: 'global/ignores',
   },
-  js.configs.all,
   {
-    name: 'sdavids.de-homepage',
+    files: ['**/*.mjs'],
+    name: 'eslint/js/all',
+    ...js.configs.all,
+  },
+  {
+    files: ['**/*.mjs'],
+    name: 'sdavids/defaults/js',
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -31,7 +37,6 @@ export default [
       'capitalized-comments': 'off',
       'func-names': ['error', 'always', { generators: 'as-needed' }],
       'id-length': 'off',
-      'sort-keys': 'off',
       'max-lines': 'off',
       'max-lines-per-function': 'off',
       'max-params': 'off',
@@ -43,6 +48,7 @@ export default [
       'no-ternary': 'off',
       'one-var': 'off',
       'prefer-destructuring': ['error', { object: true, array: false }],
+      'sort-keys': 'off',
       'sort-imports': ['error', { ignoreDeclarationSort: true }],
       'sort-vars': 'off',
       radix: 'off',
