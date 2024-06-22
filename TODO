@@ -21,9 +21,5 @@ https://github.com/conventional-changelog/commitlint/issues/2112
 +
 https://github.com/tailwindlabs/tailwindcss/issues/12564#issuecomment-1849016135
 
-* remove ci.assert.assertions.total-byte-weight from hp/lighthouserc.yaml
-+
-https://github.com/GoogleChrome/lighthouse-ci/issues/1001
-
 * remove noscript from tailwind.config.mjs and noscript:hidden from index.html
 + https://github.com/tailwindlabs/tailwindcss/pull/11929

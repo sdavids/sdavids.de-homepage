@@ -16,7 +16,3 @@ ci:
     numberOfRuns: 1
   assert:
     preset: lighthouse:recommended
-    assertions:
-      # the CSP header is set via .htaccess
-      csp-xss: 'off'
-      total-byte-weight: 'off'
