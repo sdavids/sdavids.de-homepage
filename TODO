@@ -5,15 +5,16 @@ Sebastian Davids <sdavids@gmx.de>
 
 * add eslint plugin:compat/recommended
 +
-https://github.com/amilajack/eslint-plugin-compat/issues/603
+https://github.com/amilajack/eslint-plugin-compat/issues/614
 
 * remove body-max-line-length in commitlint.config.mjs
 +
 https://github.com/conventional-changelog/commitlint/issues/2112
 
-* remove explicit lightningcss-cli step in build-css.sh and add -m to tailwind-cli call
+* tailwindcss >= 4
 +
-https://github.com/tailwindlabs/tailwindcss/issues/12564#issuecomment-1849016135
+remove explicit lightningcss-cli step in build-css.sh, remove lightningcss-cli in package.json,
+and add `-m` to the tailwind-cli call
 
 * remove noscript from tailwind.config.mjs and noscript:hidden from index.html
 + https://github.com/tailwindlabs/tailwindcss/pull/11929
