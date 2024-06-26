@@ -7,7 +7,7 @@
 
 set -eu
 
-readonly esbuild_target="${1:-es2020}"
+readonly esbuild_target="${1:-es2021}"
 readonly dir='dist'
 
 npm run build:css
