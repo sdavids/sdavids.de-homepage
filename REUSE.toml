@@ -1,0 +1,67 @@
+# SPDX-FileCopyrightText: © 2024 Sebastian Davids <sdavids@gmx.de>
+# SPDX-License-Identifier: Apache-2.0
+
+version = 1
+SPDX-PackageName = "sdavids.de-homepage"
+SPDX-PackageSupplier = "Sebastian Davids <sdavids@gmx.de>"
+SPDX-PackageDownloadLocation = "https://github.com/sdavids/sdavids.de-homepage"
+
+[[annotations]]
+path = "**/**.png"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "design/logo.afdesign"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["httpd/httpd.conf", "httpd/httpd-ssl.conf"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["hp/package.json", "hp/package-lock.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "hp/.nvmrc"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "hp/src/favicon.ico"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "hp/src/favicon.svg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2023 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["hp/src/sdavids.age", "hp/src/sdavids.gpg", "hp/src/sdavids.keys"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2023 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["hp/src/.well-known/traffic-advice", "hp/src/site.webmanifest"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "hp/src/.well-known/security.txt"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "© 2023 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
