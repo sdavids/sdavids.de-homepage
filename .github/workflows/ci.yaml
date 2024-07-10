@@ -42,6 +42,7 @@ jobs:
             yaml:
               - '**.yaml'
             Dockerfile:
+              - '.hadolint.yaml'
               - '**/Dockerfile'
             hp:
               - 'hp/**'
