@@ -23,16 +23,11 @@ export default [
     name: 'sdavids/defaults/js',
     languageOptions: {
       globals: {
+        // hp/src
         ...globals.browser,
+        // hp/scripts
         ...globals.node,
       },
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-      },
-    },
-    linterOptions: {
-      reportUnusedDisableDirectives: true,
     },
     rules: {
       'capitalized-comments': 'off',
