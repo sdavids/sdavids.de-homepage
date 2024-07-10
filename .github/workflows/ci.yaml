@@ -46,8 +46,6 @@ jobs:
               - '**/Dockerfile'
             hp:
               - 'hp/**'
-            js:
-              - 'hp/**/*.mjs'
       - if: steps.changes.outputs.sh == 'true'
         name: Lint shell scripts
         working-directory: .
@@ -73,7 +71,7 @@ jobs:
       - if: steps.changes.outputs.hp == 'true'
         name: Check formatting
         run: npm run format:check
-      - if: steps.changes.outputs.js == 'true'
+      - if: steps.changes.outputs.hp == 'true'
         name: Lint project files
         run: npm run lint
       - if: steps.changes.outputs.hp == 'true'
