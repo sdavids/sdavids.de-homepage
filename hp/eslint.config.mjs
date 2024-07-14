@@ -21,14 +21,6 @@ export default [
   {
     files: ['**/*.mjs'],
     name: 'sdavids/defaults/js',
-    languageOptions: {
-      globals: {
-        // hp/src
-        ...globals.browser,
-        // hp/scripts
-        ...globals.node,
-      },
-    },
     rules: {
       'capitalized-comments': 'off',
       'func-names': ['error', 'always', { generators: 'as-needed' }],
@@ -51,7 +43,30 @@ export default [
     },
   },
   {
+    files: ['src/j/**/*.mjs'],
+    name: 'sdavids/js/web',
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
+      parserOptions: {
+        // align with esbuild_target in build.sh
+        ecmaVersion: 2021,
+      },
+    },
+  },
+  {
+    files: ['scripts/*.mjs'],
+    name: 'sdavids/js/nodejs',
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
     files: ['**/*.json'],
+    ignores: ['package-lock.json'],
     name: 'eslint/json/recommended',
     ...json.configs.recommended,
   },

@@ -7,6 +7,7 @@
 
 set -eu
 
+# align with parserOptions.ecmaVersion in eslint.config.mjs
 readonly esbuild_target="${1:-es2021}"
 readonly dir='dist'
 
