@@ -6,6 +6,7 @@
 import globals from 'globals';
 import js from '@eslint/js';
 import json from 'eslint-plugin-json';
+import compat from 'eslint-plugin-compat';
 
 // noinspection JSUnusedGlobalSymbols
 export default [
@@ -45,6 +46,7 @@ export default [
   {
     files: ['src/j/**/*.mjs'],
     name: 'sdavids/js/web',
+    ...compat.configs['flat/recommended'],
     languageOptions: {
       globals: {
         ...globals.browser,
