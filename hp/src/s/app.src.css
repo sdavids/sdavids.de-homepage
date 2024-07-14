@@ -22,6 +22,15 @@ SPDX-License-Identifier: Apache-2.0
     --tw-content: '';
   }
 
+  /* https://dev.to/colingourlay/how-to-support-apple-s-dynamic-text-in-your-web-content-with-css-40c0 */
+  @supports (font: -apple-system-body) {
+    @media screen and (max-width: 719px) {
+      html {
+        font: -apple-system-body !important;
+      }
+    }
+  }
+
   html,
   :host {
     line-height: 1.5;
