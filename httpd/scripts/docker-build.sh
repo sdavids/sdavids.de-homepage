@@ -30,8 +30,6 @@ readonly repository='sdavids.de-homepage'
 
 readonly label_group='de.sdavids.docker.group'
 
-readonly label="${label_group}=${repository}"
-
 readonly image_name="${namespace}/${repository}"
 
 # https://reproducible-builds.org/docs/source-date-epoch/
@@ -67,17 +65,16 @@ else
 fi
 readonly commit
 
-# to ensure ${label} is set, we use --label "${label}"
-# which might overwrite the LABEL ${label_group} of the Dockerfile
+# https://github.com/opencontainers/image-spec/blob/master/annotations.md
 # shellcheck disable=SC2086
 docker image build \
   ${no_cache} \
   --compress \
   --tag "${image_name}:latest" \
   --tag "${image_name}:${tag}" \
-  --build-arg "git_commit=${commit}" \
-  --build-arg "created_at=${created_at}" \
-  --label "${label}" \
+  --label "${label_group}=${repository}" \
+  --label "org.opencontainers.image.revision=${commit}" \
+  --label "org.opencontainers.image.created=${created_at}" \
   .
 
 echo
