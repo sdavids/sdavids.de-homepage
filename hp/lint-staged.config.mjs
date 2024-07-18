@@ -10,5 +10,5 @@ export default {
   '../**/*.{svg,xml}': ['prettier --plugin=@prettier/plugin-xml --check'],
   '../**/*.yaml': ['prettier --check', 'yamllint --strict'],
   '../**/*.sh': ['shellcheck'],
-  '../**/Dockerfile': ['hadolint --no-color'],
+  '../**/Dockerfile': ['hadolint --no-color -c ../.hadolint.yaml'],
 };
