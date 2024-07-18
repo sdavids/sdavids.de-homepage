@@ -10,10 +10,10 @@ FROM httpd:2.4.61-alpine3.20
 
 EXPOSE 443
 
-# docker run --rm httpd:2.4.59-alpine3.19 cat /usr/local/apache2/conf/httpd.conf > httpd.conf
+# docker run --rm httpd:2.4.61-alpine3.20 cat /usr/local/apache2/conf/httpd.conf > httpd.conf
 COPY --chown=www-data:www-data ./httpd.conf /usr/local/apache2/conf/httpd.conf
 
-# docker run --rm httpd:2.4.59-alpine3.19 cat /usr/local/apache2/conf/extra/httpd-ssl.conf > httpd-ssl.conf
+# docker run --rm httpd:2.4.61-alpine3.20 cat /usr/local/apache2/conf/extra/httpd-ssl.conf > httpd-ssl.conf
 COPY --chown=www-data:www-data ./httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 
 ARG git_commit
