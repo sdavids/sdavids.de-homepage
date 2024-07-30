@@ -104,15 +104,23 @@ FileETag None
 # configure caching
 <IfModule mod_headers.c>
   <FilesMatch "\.(ico|png|webmanifest)$">
+    # 10 minutes
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 
   <FilesMatch "\.(age|gpg|keys)(\.br|\.gz|\.zst)?$">
+    # 10 minutes
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 
   <FilesMatch "\.[0-9a-f]{7}\.(css(\.br|\.gz|\.zst)?|js(\.br|\.gz|\.zst)?|mjs(\.br|\.gz|\.zst)?|png|svg(\.br|\.gz|\.zst)?)$">
+    # 1 year
     Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "favicon\.ico$">
+    # 1 day
+    Header set Cache-Control "public, max-age=86400, stale-while-revalidate=60"
   </FilesMatch>
 
   <FilesMatch "robots\.txt$">
@@ -123,15 +131,23 @@ FileETag None
     Header set Cache-Control "private, no-store"
   </FilesMatch>
 
+  <FilesMatch "site\.webmanifest$">
+    # 1 minute
+    Header set Cache-Control "public, max-age=60"
+  </FilesMatch>
+
   <Files "traffic-advice">
+    # 10 minutes
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </Files>
 
   <Files "security.txt">
+    # 10 minutes
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </Files>
 
   <FilesMatch "index\.html(\.br|\.gz|\.zst)?$">
+    # 10 minutes
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 </IfModule>
