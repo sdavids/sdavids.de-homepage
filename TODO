@@ -3,10 +3,6 @@
 = sdavids.de-homepage
 Sebastian Davids <sdavids@gmx.de>
 
-* add eslint plugin:compat/recommended
-+
-https://github.com/amilajack/eslint-plugin-compat/issues/614
-
 * remove body-max-line-length in commitlint.config.mjs
 +
 https://github.com/conventional-changelog/commitlint/issues/2112
