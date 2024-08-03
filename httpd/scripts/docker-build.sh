@@ -33,7 +33,7 @@ readonly label_group='de.sdavids.docker.group'
 readonly image_name="${namespace}/${repository}"
 
 # https://reproducible-builds.org/docs/source-date-epoch/
-if [ -z "${SOURCE_DATE_EPOCH:-}" ]; then
+if [ -z "${SOURCE_DATE_EPOCH+x}" ]; then
   if [ -z "$(git status --porcelain=v1 2>/dev/null)" ]; then
     SOURCE_DATE_EPOCH="$(git log --max-count=1 --pretty=format:%ct)"
   else
@@ -49,7 +49,7 @@ else
 fi
 readonly created_at
 
-if [ -n "${GITHUB_SHA:-}" ]; then
+if [ -n "${GITHUB_SHA+x}" ]; then
   # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
   commit="${GITHUB_SHA}"
 elif [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != 'true' ]; then
