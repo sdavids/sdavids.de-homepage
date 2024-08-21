@@ -375,7 +375,16 @@ $ npm run cert:ca:create
 $ npm run cert:create
 ----
 
+==== Create Base Docker Image
+
+[source,shell]
+----
+$ cd httpd
+$ scripts/docker-build.sh
+----
+
 ==== Build And Start Apache HTTPD
+
 [source,shell]
 ----
 $ cd hp
@@ -385,6 +394,7 @@ $ npm run docker:http:start:with-build
 => http://localhost:8080
 
 ==== Start Apache HTTPD Without a Build
+
 [source,shell]
 ----
 $ cd hp
@@ -394,6 +404,7 @@ $ npm run docker:http:start
 => http://localhost:8080
 
 ==== Stop Apache HTTPD
+
 [source,shell]
 ----
 $ cd hp
