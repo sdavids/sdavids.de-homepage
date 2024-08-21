@@ -90,16 +90,25 @@ include::httpd/httpd.conf[tags=server-name]
 include::httpd/httpd-ssl.conf[tags=server-name]
 ----
 
-.hp/scripts/create-or-renew-cert.sh
-[source,shell]
-----
-include::hp/scripts/create-or-renew-cert.sh[tags=server-name]
-----
-
 .hp/scripts/docker-httpd-start.sh
 [source,shell]
 ----
 include::hp/scripts/docker-httpd-start.sh[tags=server-name]
+----
+
+.hp/package.json
+[source,shell]
+----
+…
+  "scripts": {
+…
+    "cert:copy": "scripts/copy-ca-based-cert.sh certs httpd.local",
+    "cert:create": "scripts/create-ca-based-cert.sh certs 30 httpd.local",
+    "cert:delete": "scripts/delete-ca-based-cert.sh certs httpd.local",
+    "cert:renew": "scripts/renew-ca-based-cert.sh certs 30 httpd.local",
+…
+  },
+…
 ----
 ====
 
@@ -356,6 +365,15 @@ $ npm run dev
 => http://localhost:3000
 
 === Local Deployment
+
+==== Create CA and Certificate
+
+[source,shell]
+----
+$ cd hp
+$ npm run cert:ca:create
+$ npm run cert:create
+----
 
 ==== Build And Start Apache HTTPD
 [source,shell]

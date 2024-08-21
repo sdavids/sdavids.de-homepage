@@ -98,8 +98,8 @@ docker container run \
   --publish "${https_port}:443/tcp" \
   --hostname="${host_name}" \
   --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
-  --mount "type=bind,source=${certs_dir}/server.crt,target=/usr/local/apache2/conf/server.crt,readonly" \
-  --mount "type=bind,source=${certs_dir}/server.key,target=/usr/local/apache2/conf/server.key,readonly" \
+  --mount "type=bind,source=${certs_dir}/cert.pem,target=/usr/local/apache2/conf/server.crt,readonly" \
+  --mount "type=bind,source=${certs_dir}/key.pem,target=/usr/local/apache2/conf/server.key,readonly" \
   --name "${container_name}" \
   --label "${label}" \
   "${image_name}:${tag}" \
