@@ -17,9 +17,9 @@ readonly security_txt_file='src/.well-known/security.txt'
 readonly tmp_file="${security_txt_file}.tmp"
 
 if [ "$(uname)" = 'Darwin' ]; then
-    expires="$(date -Iseconds -u -v +365d | sed -e 's/+00:00$/Z/')"
+  expires="$(date -Iseconds -u -v +365d | sed -e 's/+00:00$/Z/')"
 else
-    expires="$(date -Iseconds -u -d '+365 days' | sed -e 's/+00:00$/Z/')"
+  expires="$(date -Iseconds -u -d '+365 days' | sed -e 's/+00:00$/Z/')"
 fi
 
 printf '%s\n%s\n%s\n%s\n%s\n' \

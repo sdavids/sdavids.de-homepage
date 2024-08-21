@@ -11,12 +11,12 @@ readonly file="${base_dir}/robots.txt"
 
 if [ "$(uname)" = 'Darwin' ]; then
   # commented lines
-  sed -i '' '/^[@#]/ d' "${file}"
+  sed -i '' '/^[@#]/d' "${file}"
   # empty lines
   sed -i '' '/^[[:space:]]*$/d' "${file}"
 else
   # commented lines
-  sed -i '/^[@#]/ d' "${file}"
+  sed -i '/^[@#]/d' "${file}"
   # empty lines
   sed -i '/^[[:space:]]*$/d' "${file}"
 fi

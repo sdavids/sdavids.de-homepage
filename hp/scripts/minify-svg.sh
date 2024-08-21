@@ -19,7 +19,7 @@ find "${base_dir}" -type f -name '*.svg' -exec \
     --quiet \
     --output "{}.min" \;
 
-## rename *.svg.min to *.svg
+# rename *.svg.min to *.svg
 find "${base_dir}" \
   -type f \
   -name '*.svg.min' \

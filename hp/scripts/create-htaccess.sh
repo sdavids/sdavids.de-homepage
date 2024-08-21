@@ -14,6 +14,7 @@ readonly htaccess_file="${dist_dir}/.htaccess"
 cp httpd/.htaccess "${htaccess_file}"
 
 js_filename="$( find "${dist_dir}" -name 'app*.mjs' -type f -exec basename {} \; )"
+readonly js_filename
 
 if [ -z "${js_filename}" ]; then
   echo 'app.*.mjs not found'
@@ -21,6 +22,7 @@ if [ -z "${js_filename}" ]; then
 fi
 
 css_filename="$( find "${dist_dir}" -name 'app*.css' -type f -exec basename {} \; )"
+readonly css_filename
 
 if [ -z "${css_filename}" ]; then
   echo 'app.*.css not found'

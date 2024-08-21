@@ -10,7 +10,7 @@ readonly echo="${2:-}"
 
 if [ ! -f "${file}" ]; then
   echo "'${file}' does not exist" >&2
-  exit 2
+  exit 1
 fi
 
 sha="$(sha1sum "${file}")"

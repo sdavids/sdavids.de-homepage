@@ -47,7 +47,7 @@
     "lint:fix": "npx eslint --cache --fix .",
     "lighthouseci": "npx lhci autorun",
     "minify:html": "scripts/minify-html.sh dist",
-    "minify:json-tags": "scripts/minify-json-tags.mjs dist/index.html",
+    "minify:json-tags": "node scripts/minify-json-tags.mjs dist/index.html",
     "minify:robots": "scripts/minify-robots.sh dist",
     "minify:svg": "scripts/minify-svg.sh dist",
     "minify:traffic-advice": "scripts/minify-traffic-advice.sh dist/.well-known/traffic-advice",
