@@ -12,7 +12,22 @@ if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != 'true' ]; then
   exit 1
 fi
 
+while getopts ':n' opt; do
+  case "${opt}" in
+    n) dry_run='--dry-run'
+      ;;
+    ?)
+      echo "Usage: $0 [-n]" >&2
+      exit 1
+      ;;
+  esac
+done
+
+readonly dry_run="${dry_run:-}"
+
+# shellcheck disable=SC2086
 git clean -fdx \
+  ${dry_run} \
   -e .fleet \
   -e .idea \
   -e .vscode \
@@ -20,6 +35,10 @@ git clean -fdx \
   -e hp/.idea \
   -e hp/.vscode \
   .
+
+if [ -n "${dry_run}" ]; then
+  exit 0
+fi
 
 origin_url="$(git remote get-url origin 2> /dev/null || echo '')"
 if [ -n "${origin_url}" ]; then
