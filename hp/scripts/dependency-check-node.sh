@@ -14,4 +14,3 @@ if [ ! -d 'node_modules' ]; then
 fi
 
 npm outdated --long
-

@@ -27,6 +27,7 @@
     "create:htaccess": "scripts/create-htaccess.sh",
     "create:security-txt-file": "scripts/create-security-txt-file.sh",
     "create:timestamp-file": "scripts/create-timestamp-file.sh",
+    "dependency:updates": "scripts/dependency-check-node.sh",
     "dev": "scripts/dev.sh",
     "dev:css": "scripts/dev-css.sh",
     "docker:httpd:logs": "scripts/docker-httpd-logs.sh",
