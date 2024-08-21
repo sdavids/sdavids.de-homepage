@@ -388,7 +388,7 @@ $ scripts/docker-build.sh
 [source,shell]
 ----
 $ cd hp
-$ npm run docker:http:start:with-build
+$ npm run docker:httpd:start:with-build
 ----
 
 => http://localhost:8080
@@ -398,7 +398,7 @@ $ npm run docker:http:start:with-build
 [source,shell]
 ----
 $ cd hp
-$ npm run docker:http:start
+$ npm run docker:httpd:start
 ----
 
 => http://localhost:8080
@@ -408,5 +408,5 @@ $ npm run docker:http:start
 [source,shell]
 ----
 $ cd hp
-$ npm run docker:http:stop
+$ npm run docker:httpd:stop
 ----
