@@ -65,13 +65,13 @@ For more information, please see link:CODE_OF_CONDUCT{outfilesuffix}[].
 
 ==== DNS
 
-Add `httpd.local` to your `/etc/hosts`:
+Add `httpd.internal` to your `/etc/hosts`:
 
 ./etc/hosts
 [source,shell]
 ----
-127.0.0.1       localhost httpd.local
-::1             localhost httpd.local
+127.0.0.1       localhost httpd.internal
+::1             localhost httpd.internal
 ----
 
 [NOTE]
@@ -102,10 +102,10 @@ include::hp/scripts/docker-httpd-start.sh[tags=server-name]
 …
   "scripts": {
 …
-    "cert:copy": "scripts/copy-ca-based-cert.sh certs httpd.local",
-    "cert:create": "scripts/create-ca-based-cert.sh certs 30 httpd.local",
-    "cert:delete": "scripts/delete-ca-based-cert.sh certs httpd.local",
-    "cert:renew": "scripts/renew-ca-based-cert.sh certs 30 httpd.local",
+    "cert:copy": "scripts/copy-ca-based-cert.sh certs httpd.internal",
+    "cert:create": "scripts/create-ca-based-cert.sh certs 30 httpd.internal",
+    "cert:delete": "scripts/delete-ca-based-cert.sh certs httpd.internal",
+    "cert:renew": "scripts/renew-ca-based-cert.sh certs 30 httpd.internal",
 …
   },
 …
