@@ -19,7 +19,7 @@ readonly sha
 hash="$(echo "${sha}" | cut -c 1-7)"
 readonly hash
 
-filename="$(rev <<< "${file}" | cut -d '.' -f2- | rev)"
+filename="$(rev <<<"${file}" | cut -d '.' -f2- | rev)"
 readonly filename
 
 readonly extension="${1##*.}"

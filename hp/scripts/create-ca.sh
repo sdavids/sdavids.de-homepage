@@ -53,7 +53,7 @@ fi
 
 # https://easy-rsa.readthedocs.io/en/latest/advanced/#environmental-variables-reference
 if [ -n "${EASYRSA_CA_EXPIRE+x}" ]; then
-  readonly expire_in_days=$(( EASYRSA_CA_EXPIRE ))
+  readonly expire_in_days=$((EASYRSA_CA_EXPIRE))
 else
   # https://sslmate.com/blog/post/apples_new_ct_policy
   readonly expire_in_days=180
@@ -95,9 +95,9 @@ readonly ca_cert="${pki_dir}/ca.crt"
 
 printf 'Created certificate authority "%s"; expires on: %s; certificate:\n\n%s\n' "${EASYRSA_REQ_CN}" "${expires_on}" "${ca_cert}"
 
-if command -v sudo > /dev/null 2>&1; then
+if command -v sudo >/dev/null 2>&1; then
   set +e
-  sudo -l -U "${USER}" > /dev/null 2> /dev/null
+  sudo -l -U "${USER}" >/dev/null 2>/dev/null
   sudoer=$?
   set -e
 else

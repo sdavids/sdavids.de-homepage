@@ -25,24 +25,23 @@ readonly out_dir="${1:-$PWD}"
 
 if [ -n "${2+x}" ]; then # $2 defined
   case $2 in
-    ''|*[!0-9]*) # $2 is not a positive integer or 0
-      echo "'$2' is not a positive integer" >&2
-      exit 2
+  '' | *[!0-9]*) # $2 is not a positive integer or 0
+    echo "'$2' is not a positive integer" >&2
+    exit 2
     ;;
-    *) # $2 is a positive integer or 0
-      days="$2"
-      if [ "${days}" -lt 1 ]; then
-        echo "'$2' is not a positive integer" >&2
-        exit 3
-      fi
-      if [ "${days}" -gt 24855 ]; then
-        echo "'$2' is too big; range: [1, 24855]" >&2
-        exit 4
-      fi
-
-      if [ "${days}" -gt 180 ]; then
-        printf "ATTENTION: '%s' exceeds 180 days, the certificate will not be accepted by Apple platforms or Safari; see https://support.apple.com/en-us/103214 for more information.\n\n" "$2"
-      fi
+  *) # $2 is a positive integer or 0
+    days="$2"
+    if [ "${days}" -lt 1 ]; then
+      echo "'$2' is not a positive integer" >&2
+      exit 3
+    fi
+    if [ "${days}" -gt 24855 ]; then
+      echo "'$2' is too big; range: [1, 24855]" >&2
+      exit 4
+    fi
+    if [ "${days}" -gt 180 ]; then
+      printf "ATTENTION: '%s' exceeds 180 days, the certificate will not be accepted by Apple platforms or Safari; see https://support.apple.com/en-us/103214 for more information.\n\n" "$2"
+    fi
     ;;
   esac
 else # $2 undefined
@@ -126,25 +125,25 @@ fi
   set -e
 
   if [ $key_ignored -ne 0 ] || [ $cert_ignored -ne 0 ]; then
-      printf "\nWARNING: key.pem and/or cert.pem is not ignored in '%s'\n\n" "$PWD/.gitignore"
-      read -p "Do you want me to modify your .gitignore file (Y/N)? " -n 1 -r should_modify
+    printf "\nWARNING: key.pem and/or cert.pem is not ignored in '%s'\n\n" "$PWD/.gitignore"
+    read -p "Do you want me to modify your .gitignore file (Y/N)? " -n 1 -r should_modify
 
-      case "${should_modify}" in
-        y|Y ) printf "\n\n" ;;
-        * ) printf "\n"; exit 0;;
-      esac
+    case "${should_modify}" in
+    y | Y) printf "\n\n" ;;
+    *) printf "\n"; exit 0 ;;
+    esac
   fi
 
   if [ $key_ignored -eq 0 ]; then
     if [ $cert_ignored -eq 0 ]; then
       exit 0 # both already ignored
     fi
-    printf "cert.pem\n" >> .gitignore
+    printf "cert.pem\n" >>.gitignore
   else
     if [ $cert_ignored -eq 0 ]; then
-      printf "key.pem\n" >> .gitignore
+      printf "key.pem\n" >>.gitignore
     else
-      printf "cert.pem\nkey.pem\n" >> .gitignore
+      printf "cert.pem\nkey.pem\n" >>.gitignore
     fi
   fi
 

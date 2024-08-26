@@ -13,7 +13,7 @@ readonly htaccess_file="${dist_dir}/.htaccess"
 
 cp httpd/.htaccess "${htaccess_file}"
 
-js_filename="$( find "${dist_dir}" -name 'app*.mjs' -type f -exec basename {} \; )"
+js_filename="$(find "${dist_dir}" -name 'app*.mjs' -type f -exec basename {} \;)"
 readonly js_filename
 
 if [ -z "${js_filename}" ]; then
@@ -21,7 +21,7 @@ if [ -z "${js_filename}" ]; then
   exit 1
 fi
 
-css_filename="$( find "${dist_dir}" -name 'app*.css' -type f -exec basename {} \; )"
+css_filename="$(find "${dist_dir}" -name 'app*.css' -type f -exec basename {} \;)"
 readonly css_filename
 
 if [ -z "${css_filename}" ]; then

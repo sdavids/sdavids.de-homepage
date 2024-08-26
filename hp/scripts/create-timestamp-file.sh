@@ -12,4 +12,4 @@ fi
 
 readonly file="$1"
 
-printf '%s' "$(date -Iseconds -u | sed -e 's/+00:00$/Z/')" > "${file}"
+printf '%s' "$(date -Iseconds -u | sed -e 's/+00:00$/Z/')" >"${file}"

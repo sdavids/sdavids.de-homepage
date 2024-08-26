@@ -27,7 +27,7 @@ printf '%s\n%s\n%s\n%s\n%s\n' \
   'Preferred-Languages: en, de' \
   "Encryption: openpgp4fpr:${fingerprint}" \
   'Canonical: https://sdavids.de/.well-known/security.txt' \
-  "Expires: ${expires}" > "${tmp_file}"
+  "Expires: ${expires}" >"${tmp_file}"
 
 gpg --clearsign --local-user "${email}" --output "${security_txt_file}" --yes "${tmp_file}"
 

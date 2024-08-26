@@ -26,5 +26,5 @@ fi
 readonly tmp_file="${file}.tmp"
 
 mv "${file}" "${tmp_file}"
-jq -c . "${tmp_file}" > "${file}"
+jq -c . "${tmp_file}" >"${file}"
 rm "${tmp_file}"

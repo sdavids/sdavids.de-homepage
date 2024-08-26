@@ -9,14 +9,14 @@ set -Eeu -o pipefail -o posix
 
 while getopts ':nt:' opt; do
   case "${opt}" in
-    n) no_cache='--pull --no-cache'
-      ;;
-    t) tag="${OPTARG}"
-      ;;
-    ?)
-      echo "Usage: $0 [-d Dockerfile] [-n] [-t tag]" >&2
-      exit 1
-      ;;
+  n) no_cache='--pull --no-cache'
+    ;;
+  t) tag="${OPTARG}"
+    ;;
+  ?)
+    echo "Usage: $0 [-d Dockerfile] [-n] [-t tag]" >&2
+    exit 1
+    ;;
   esac
 done
 

@@ -26,13 +26,13 @@ readonly cert_path="${out_dir}/cert.pem"
 
 if [ -e "${key_path}" ]; then
   printf "The key '%s' already exists.\n" "${key_path}" >&2
-  if command -v pbcopy > /dev/null 2>&1; then
+  if command -v pbcopy >/dev/null 2>&1; then
     printf "%s" "${key_path}" | pbcopy
     printf 'The path has been copied to the clipboard.\n' >&2
-  elif command -v xclip > /dev/null 2>&1; then
+  elif command -v xclip >/dev/null 2>&1; then
     printf "%s" "${key_path}" | xclip -selection clipboard
     printf 'The path has been copied to the clipboard.\n' >&2
-  elif command -v wl-copy > /dev/null 2>&1; then
+  elif command -v wl-copy >/dev/null 2>&1; then
     printf "%s" "${key_path}" | wl-copy
     printf 'The path has been copied to the clipboard.\n' >&2
   fi
@@ -41,13 +41,13 @@ fi
 
 if [ -e "${cert_path}" ]; then
   printf "The certificate '%s' already exists.\n" "${cert_path}" >&2
-  if command -v pbcopy > /dev/null 2>&1; then
+  if command -v pbcopy >/dev/null 2>&1; then
     printf "%s" "${cert_path}" | pbcopy
     printf 'The path has been copied to the clipboard.\n' >&2
-  elif command -v xclip > /dev/null 2>&1; then
+  elif command -v xclip >/dev/null 2>&1; then
     printf "%s" "${cert_path}" | xclip -selection clipboard
     printf 'The path has been copied to the clipboard.\n' >&2
-  elif command -v wl-copy > /dev/null 2>&1; then
+  elif command -v wl-copy >/dev/null 2>&1; then
     printf "%s" "${cert_path}" | wl-copy
     printf 'The path has been copied to the clipboard.\n' >&2
   fi
@@ -93,8 +93,8 @@ if [ -f "${easyrsa_key_path}" ] && [ -f "${easyrsa_cert_path}" ]; then
 
   chmod 600 "${key_path}" "${cert_path}"
 else
-    printf "The CA has no private key and certificate for '%s'.\n\nExecute the create-ca-based-cert.sh script to create the private key and certificate.\n" "${host_name}" >&2
-    exit 5
+  printf "The CA has no private key and certificate for '%s'.\n\nExecute the create-ca-based-cert.sh script to create the private key and certificate.\n" "${host_name}" >&2
+  exit 5
 fi
 
 (
@@ -113,25 +113,25 @@ fi
   set -e
 
   if [ $key_ignored -ne 0 ] || [ $cert_ignored -ne 0 ]; then
-      printf "\nWARNING: key.pem and/or cert.pem is not ignored in '%s'\n\n" "$PWD/.gitignore"
-      read -p "Do you want me to modify your .gitignore file (Y/N)? " -n 1 -r should_modify
+    printf "\nWARNING: key.pem and/or cert.pem is not ignored in '%s'\n\n" "$PWD/.gitignore"
+    read -p "Do you want me to modify your .gitignore file (Y/N)? " -n 1 -r should_modify
 
-      case "${should_modify}" in
-        y|Y ) printf "\n\n" ;;
-        * ) printf "\n"; exit 0;;
-      esac
+    case "${should_modify}" in
+    y | Y) printf "\n\n" ;;
+    *) printf "\n"; exit 0 ;;
+    esac
   fi
 
   if [ $key_ignored -eq 0 ]; then
     if [ $cert_ignored -eq 0 ]; then
       exit 0 # both already ignored
     fi
-    printf "cert.pem\n" >> .gitignore
+    printf "cert.pem\n" >>.gitignore
   else
     if [ $cert_ignored -eq 0 ]; then
-      printf "key.pem\n" >> .gitignore
+      printf "key.pem\n" >>.gitignore
     else
-      printf "cert.pem\nkey.pem\n" >> .gitignore
+      printf "cert.pem\nkey.pem\n" >>.gitignore
     fi
   fi
 

@@ -34,8 +34,8 @@ readonly host_name='httpd.internal'
 
 # https://man.archlinux.org/man/grep.1
 if [ "$(grep -E -i -c "127\.0\.0\.1\s+localhost.+${host_name//\./\.}" /etc/hosts)" -eq 0 ]; then
-    echo "/etc/hosts does not have an entry for '127.0.0.1 localhost ${host_name}'" >&2
-    exit 1
+  echo "/etc/hosts does not have an entry for '127.0.0.1 localhost ${host_name}'" >&2
+  exit 1
 fi
 
 readonly network_name='sdavids.de-homepage'
@@ -74,10 +74,10 @@ if [ "${skip_build}" != '--skip-build' ]; then
   npm run create:timestamp-file dist/.deploy-timestamp
 fi
 
-docker network inspect "${network_name}" > /dev/null 2>&1 \
+docker network inspect "${network_name}" >/dev/null 2>&1 \
   || docker network create \
        --driver bridge "${network_name}" \
-       --label "${label_group}=${namespace}"> /dev/null
+       --label "${label_group}=${namespace}" >/dev/null
 
 # to ensure ${label} is set, we use --label "${label}"
 # which might overwrite the label ${label_group} of the image
@@ -103,7 +103,7 @@ docker container run \
   --name "${container_name}" \
   --label "${label}" \
   "${image_name}:${tag}" \
-  httpd-foreground -C 'PidFile /tmp/httpd.pid' > /dev/null
+  httpd-foreground -C 'PidFile /tmp/httpd.pid' >/dev/null
 
 # https://googlechrome.github.io/lighthouse-ci/docs/configuration.html#startserverreadypattern
 printf '\nListen local: https://%s\n' "${host_name}:${https_port}"

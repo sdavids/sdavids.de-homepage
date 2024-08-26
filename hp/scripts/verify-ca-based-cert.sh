@@ -52,7 +52,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   if [ -n "${issuer}" ]; then
     set +e
     # https://ss64.com/mac/security-find-cert.html
-    security find-certificate -c "${issuer}" 2> /dev/null
+    security find-certificate -c "${issuer}" 2>/dev/null
     # shellcheck disable=SC2181
     if [ $? -ne 0 ]; then
       echo "WARNING: CA root certificate '${issuer}' not found in the System keychain" >&2

@@ -52,7 +52,7 @@ readonly subject
 
 printf "\nWARNING: You are about to delete the CA '%s':\n\n" "${subject}"
 
-if command -v tree2 > /dev/null 2>&1; then
+if command -v tree >/dev/null 2>&1; then
   tree -F --noreport "${pki_dir}"
 else
   printf "%s/\n" "${pki_dir}"
@@ -63,8 +63,8 @@ printf "\nAll existing certificates based on this CA will become invalid.\n\n"
 read -p "Do you want me delete the CA (Y/N)? " -n 1 -r should_delete
 
 case "${should_delete}" in
-  y|Y ) printf "\n\n" ;;
-  * ) printf "\n"; exit 0;;
+y | Y) printf "\n\n" ;;
+*) printf "\n"; exit 0 ;;
 esac
 
 rm -rf "${pki_dir}"
@@ -72,7 +72,7 @@ rm -rf "${pki_dir}"
 if [ "$(uname)" = 'Darwin' ]; then
   set +e
   # https://ss64.com/mac/security-find-cert.html
-  security find-certificate -c "${subject}" 1> /dev/null 2> /dev/null
+  security find-certificate -c "${subject}" 1>/dev/null 2>/dev/null
   found=$?
   set -e
 
