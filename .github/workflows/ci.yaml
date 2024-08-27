@@ -69,6 +69,12 @@ jobs:
           node-version-file: hp/.nvmrc
           dependencies-lock-file: hp/package-lock.json
       - if: steps.changes.outputs.hp == 'true'
+        name: Post-install esbuild
+        run: node node_modules/esbuild/install.js
+      - if: steps.changes.outputs.hp == 'true'
+        name: Post-install lightningcss-cli
+        run: node node_modules/lightningcss-cli/postinstall.js
+      - if: steps.changes.outputs.hp == 'true'
         name: Check formatting
         run: npm run format:check
       - if: steps.changes.outputs.hp == 'true'

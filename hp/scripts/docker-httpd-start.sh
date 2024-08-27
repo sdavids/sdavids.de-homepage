@@ -54,7 +54,9 @@ export CI=true
 if [ "${skip_build}" != '--skip-build' ]; then
   npm run clean
   rm -rf node_modules
-  npm ci --fund=false --audit=false
+  npm ci --ignore-scripts=true --fund=false --audit=false
+  node node_modules/esbuild/install.js
+  node node_modules/lightningcss-cli/postinstall.js
   npm run build
   npm run hash:css
   npm run hash:js

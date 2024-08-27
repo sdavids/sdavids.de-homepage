@@ -18,6 +18,10 @@ inputs:
     description: the path to the dependencies lock file
     required: false
     default: package-lock.json
+  ignore-scripts:
+    description: ignore the pre-/post-install scripts
+    required: false
+    default: "true"
 runs:
   using: composite
   steps:
@@ -31,4 +35,5 @@ runs:
     - name: Install dependencies
       shell: bash
       working-directory: ${{ inputs.working-directory }}
-      run: npm ci --fund=false --audit=false
+      # yamllint disable-line
+      run: npm ci --fund=false --audit=false --ignore-scripts=${{ inputs.ignore-scripts }}
