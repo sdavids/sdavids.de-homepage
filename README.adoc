@@ -345,7 +345,7 @@ $ brew install easy-rsa
 [source,shell]
 ----
 $ cd hp
-$ npm i
+$ npm install --no-ignore-scripts
 ----
 
 ==== Shell 1

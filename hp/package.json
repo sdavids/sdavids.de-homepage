@@ -15,7 +15,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "preinstall": "scripts/preinstall.sh",
+    "preinstall": "scripts/macos–node-modules-fix.sh",
     "prepare": "scripts/prepare.sh",
     "build": "scripts/build.sh",
     "build:css": "scripts/build-css.sh",
