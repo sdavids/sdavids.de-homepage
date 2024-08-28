@@ -28,9 +28,7 @@ readonly container_name="sdavids.de-homepage"
 
 # needs entry in /etc/hosts to work:
 # 127.0.0.1 localhost httpd.internal
-# tag::server-name[]
 readonly host_name='httpd.internal'
-# end::server-name[]
 
 # https://man.archlinux.org/man/grep.1
 if [ "$(grep -E -i -c "127\.0\.0\.1\s+localhost.+${host_name//\./\.}" /etc/hosts)" -eq 0 ]; then

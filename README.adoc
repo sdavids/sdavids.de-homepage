@@ -79,19 +79,19 @@ If you want to change this entry you need to also change:
 .httpd/httpd.conf
 [source]
 ----
-include::httpd/httpd.conf[tags=server-name]
+ServerName httpd.internal:80
 ----
 
 .httpd/httpd-ssl.conf
 [source]
 ----
-include::httpd/httpd-ssl.conf[tags=server-name]
+ServerName httpd.internal:443
 ----
 
 .hp/scripts/docker-httpd-start.sh
 [source,shell]
 ----
-include::hp/scripts/docker-httpd-start.sh[tags=server-name]
+readonly host_name='httpd.internal'
 ----
 
 .hp/package.json
