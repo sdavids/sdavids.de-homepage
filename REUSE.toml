@@ -8,6 +8,11 @@ SPDX-PackageSupplier = "Sebastian Davids <sdavids@gmx.de>"
 SPDX-PackageDownloadLocation = "https://github.com/sdavids/sdavids.de-homepage"
 
 [[annotations]]
+path = "OSSMETADATA"
+SPDX-FileCopyrightText = "© 2024 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
 path = "**/**.png"
 SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"
