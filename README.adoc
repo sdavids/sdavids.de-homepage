@@ -22,6 +22,7 @@ Sebastian Davids <sdavids@gmx.de>
 :easyrsa-install-url: https://easy-rsa.readthedocs.io/en/latest/#obtaining-and-using-easy-rsa
 :nvm-install-url: https://github.com/nvm-sh/nvm#installing-and-updating
 :fnm-install-url: https://github.com/Schniz/fnm#installation
+:gh-actions-url: https://github.com/sdavids/sdavids.de-homepage/actions
 
 ifdef::env-browser[:outfilesuffix: .adoc]
 
@@ -41,7 +42,88 @@ endif::[]
 
 toc::[]
 
-{description}
+== Development
+
+[source,shell]
+----
+$ cd hp
+$ npm install --no-ignore-scripts
+----
+
+==== Shell 1 - Tailwind CSS CLI build process
+
+[source,shell]
+----
+$ cd hp
+$ npm run dev:css
+----
+
+==== Shell 2 - Browsersync process
+
+[source,shell]
+----
+$ cd hp
+$ npm run dev
+----
+
+=> http://localhost:3000[http://localhost:3000]
+
+== Deployment
+
+=== Local Deployment
+
+==== Create CA and Certificate
+
+[source,shell]
+----
+$ cd hp
+$ npm run cert:ca:create
+$ npm run cert:create
+----
+
+==== Create Base Docker Image
+
+[source,shell]
+----
+$ cd httpd
+$ scripts/docker-build.sh
+----
+
+==== Build And Start Apache HTTPD
+
+[source,shell]
+----
+$ cd hp
+$ npm run docker:httpd:start:with-build
+----
+
+=> https://httpd.internal:8443[https://httpd.internal:8443]
+
+==== Start Apache HTTPD Without a Build
+
+[source,shell]
+----
+$ cd hp
+$ npm run docker:httpd:start
+----
+
+=> https://httpd.internal:8443[https://httpd.internal:8443]
+
+==== Stop Apache HTTPD
+
+[source,shell]
+----
+$ cd hp
+$ npm run docker:httpd:stop
+----
+
+=== Deployment to sdavids.de
+
+Deployed website:: https://sdavids.de.
+
+GitHub Action Workflow:: link:.github/workflows/ci.yaml[]
+
+GitHub Action Runs:: {gh-actions-url}
 
 == License
 
@@ -348,75 +430,4 @@ $ curl -L https://github.com/OpenVPN/easy-rsa/releases/download/v3.1.7/EasyRSA-3
 $ tar -xzf ~/Downloads/easy-rsa.tgz -C ~/.local/share
 $ mv  ~/.local/share/EasyRSA-3.1.7 ~/.local/share/easyrsa
 $ ln -s ~/.local/share/easyrsa/easyrsa ~/.local/bin/easyrsa
-----
-
-=== Local Development
-
-[source,shell]
-----
-$ cd hp
-$ npm install --no-ignore-scripts
-----
-
-==== Shell 1
-
-[source,shell]
-----
-$ npm run dev:css
-----
-
-==== Shell 2
-
-[source,shell]
-----
-$ npm run dev
-----
-
-=> http://localhost:3000
-
-=== Local Deployment
-
-==== Create CA and Certificate
-
-[source,shell]
-----
-$ cd hp
-$ npm run cert:ca:create
-$ npm run cert:create
-----
-
-==== Create Base Docker Image
-
-[source,shell]
-----
-$ cd httpd
-$ scripts/docker-build.sh
-----
-
-==== Build And Start Apache HTTPD
-
-[source,shell]
-----
-$ cd hp
-$ npm run docker:httpd:start:with-build
-----
-
-=> http://localhost:8080
-
-==== Start Apache HTTPD Without a Build
-
-[source,shell]
-----
-$ cd hp
-$ npm run docker:httpd:start
-----
-
-=> http://localhost:8080
-
-==== Stop Apache HTTPD
-
-[source,shell]
-----
-$ cd hp
-$ npm run docker:httpd:stop
 ----
