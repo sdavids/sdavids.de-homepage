@@ -35,7 +35,7 @@ This means that if you are employed you have received the necessary permissions 
 
 == Code of Conduct
 
-All contributors are expected to follow our link:CODE_OF_CONDUCT{outfilesuffix}[Code of Conduct].
+All contributors are expected to follow our link:CODE_OF_CONDUCT.md[Code of Conduct].
 
 == Developing Features and Fixing Bugs
 
