@@ -5,6 +5,7 @@
 
 ### Temporary ###
 *~
+*.tmp
 
 ### vim ###
 *.sw[a-p]

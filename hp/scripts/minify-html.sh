@@ -26,10 +26,10 @@ find "${base_dir}" -type f -name '*.html' -exec \
     --sort-attributes \
     --sort-class-name \
     --use-short-doctype \
-    -o "{}.min" \;
+    -o "{}.tmp" \;
 
-# rename *.html.min to *.html
+# rename *.html.tmp to *.html
 find "${base_dir}" \
   -type f \
-  -name '*.html.min' \
-  -exec sh -c 'f="$1"; mv -- "$f" "${f%.html.min}.html"' shell {} \;
+  -name '*.html.tmp' \
+  -exec sh -c 'f="$1"; mv -- "$f" "${f%.html.tmp}.html"' shell {} \;

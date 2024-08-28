@@ -17,10 +17,10 @@ find "${base_dir}" -type f -name '*.svg' -exec \
     --multipass \
     --no-color \
     --quiet \
-    --output "{}.min" \;
+    --output "{}.tmp" \;
 
-# rename *.svg.min to *.svg
+# rename *.svg.tmp to *.svg
 find "${base_dir}" \
   -type f \
-  -name '*.svg.min' \
-  -exec sh -c 'f="$1"; mv -- "$f" "${f%.svg.min}.svg"' shell {} \;
+  -name '*.svg.tmp' \
+  -exec sh -c 'f="$1"; mv -- "$f" "${f%.svg.tmp}.svg"' shell {} \;

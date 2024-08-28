@@ -7,8 +7,8 @@
 
 set -eu
 
-npx --yes --quiet tailwindcss -c tailwind.config.mjs -i src/s/app.src.css -o src/s/app.css.tw
+npx --yes --quiet tailwindcss -c tailwind.config.mjs -i src/s/app.src.css -o src/s/app.css.tmp
 
-npx --yes --quiet lightningcss --browserslist --minify src/s/app.css.tw --output-file src/s/app.css
+npx --yes --quiet lightningcss --browserslist --minify src/s/app.css.tmp --output-file src/s/app.css
 
-rm src/s/app.css.tw
+rm src/s/app.css.tmp
