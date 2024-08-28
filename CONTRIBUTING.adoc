@@ -26,7 +26,7 @@ toc::[]
 
 == Contributor License Agreement
 
-*Project License:* Apache License, Version 2.0 (link:LICENSE[] or {uri-apache-license})
+*Project License:* Apache License, Version 2.0 (link:LICENSES/Apache-2.0.txt[Apache-2.0.txt] or {uri-apache-license})
 
 * You will only submit contributions where you have authored 100% of the content.
 * You will only submit contributions to which you have the necessary rights.
