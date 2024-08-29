@@ -53,7 +53,7 @@ readonly subject
 printf "\nWARNING: You are about to delete the CA '%s':\n\n" "${subject}"
 
 if command -v tree >/dev/null 2>&1; then
-  tree -F --noreport "${pki_dir}"
+  tree --noreport -F "${pki_dir}"
 else
   printf "%s/\n" "${pki_dir}"
   ls -F -A -1 "${pki_dir}"

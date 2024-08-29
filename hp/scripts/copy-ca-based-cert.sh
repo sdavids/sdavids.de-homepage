@@ -36,7 +36,7 @@ if [ -e "${key_path}" ]; then
     printf "%s" "${key_path}" | wl-copy
     printf 'The path has been copied to the clipboard.\n' >&2
   fi
-  exit 1
+  exit 2
 fi
 
 if [ -e "${cert_path}" ]; then
@@ -51,14 +51,14 @@ if [ -e "${cert_path}" ]; then
     printf "%s" "${cert_path}" | wl-copy
     printf 'The path has been copied to the clipboard.\n' >&2
   fi
-  exit 2
+  exit 3
 fi
 
 readonly host_name="${2:-localhost}"
 
 if [ "${host_name}" = 'ca' ]; then
   echo "'ca' is not allowed due to it being the name of the certificate authority" >&2
-  exit 3
+  exit 4
 fi
 
 # https://easy-rsa.readthedocs.io/en/latest/advanced/#openssl-config
@@ -79,7 +79,7 @@ fi
 
 if [ ! -d "${pki_dir}" ]; then
   printf "The PKI directory '%s' does not exist; therefore the CA has not been created yet.\n\nExecute the create-ca.sh script to create the CA.\n" "${pki_dir}" >&2
-  exit 4
+  exit 5
 fi
 
 readonly easyrsa_key_path="${pki_dir}/private/${host_name}.key"
@@ -94,7 +94,7 @@ if [ -f "${easyrsa_key_path}" ] && [ -f "${easyrsa_cert_path}" ]; then
   chmod 600 "${key_path}" "${cert_path}"
 else
   printf "The CA has no private key and certificate for '%s'.\n\nExecute the create-ca-based-cert.sh script to create the private key and certificate.\n" "${host_name}" >&2
-  exit 5
+  exit 6
 fi
 
 (

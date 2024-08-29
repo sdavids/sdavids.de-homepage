@@ -98,8 +98,9 @@ fi
 
 # delete empty certs dir if not $PWD
 if [ -d "${base_dir}" ] && \
-   [ "${base_dir}" != "$PWD" ] && \
-   [ -z "$(ls -A "${base_dir}")" ]; then
+  [ "${base_dir}" != "$PWD" ] && \
+  [ "${base_dir}" != '.' ] && \
+  [ -z "$(ls -A "${base_dir}")" ]; then
 
   rmdir "${base_dir}"
 fi

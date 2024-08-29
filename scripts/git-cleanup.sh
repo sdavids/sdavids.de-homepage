@@ -5,7 +5,7 @@
 
 set -eu
 
-while getopts 'd:e::n' opt; do
+while getopts ':d:e:n' opt; do
   case "${opt}" in
   d) base_dir="${OPTARG}"
     ;;
