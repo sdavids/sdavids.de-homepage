@@ -68,6 +68,22 @@ $ npm run dev
 
 => http://localhost:3000[http://localhost:3000]
 
+=== Format Source Code
+
+[source,shell]
+----
+$ cd hp
+$ npm run format
+----
+
+=== Lint Source Code
+
+[source,shell]
+----
+$ cd hp
+$ npm run lint
+----
+
 == Deployment
 
 === Local Deployment
