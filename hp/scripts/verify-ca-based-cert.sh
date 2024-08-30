@@ -24,22 +24,22 @@ readonly key_path="${base_dir}/key.pem"
 
 if [ "$(uname)" = 'Darwin' ]; then
   if [ "$(stat -f '%A' "${cert_path}")" != '600' ]; then
-    printf '\nWARNING: cert.pem does not have the correct permissions. You can change then via:\n\n\tchmod 600 %s\n' "${cert_path}"
+    printf '\nWARNING: cert.pem does not have the correct permissions. You can change them via:\n\n\tchmod 600 %s\n' "${cert_path}"
     exit 2
   fi
 
   if [ "$(stat -f '%A' "${key_path}")" != '600' ]; then
-    printf '\nWARNING: key.pem does not have the correct permissions. You can change then via:\n\n\tchmod 600 %s\n' "${key_path}"
+    printf '\nWARNING: key.pem does not have the correct permissions. You can change them via:\n\n\tchmod 600 %s\n' "${key_path}"
     exit 3
   fi
 else
   if [ "$(stat -c '%a' "${cert_path}")" != '600' ]; then
-    printf '\nWARNING: cert.pem does not have the correct permissions. You can change then via:\n\n\tchmod 600 %s\n' "${cert_path}"
+    printf '\nWARNING: cert.pem does not have the correct permissions. You can change them via:\n\n\tchmod 600 %s\n' "${cert_path}"
     exit 4
   fi
 
   if [ "$(stat -c '%a' "${key_path}")" != '600' ]; then
-    printf '\nWARNING: key.pem does not have the correct permissions. You can change then via:\n\n\tchmod 600 %s\n' "${key_path}"
+    printf '\nWARNING: key.pem does not have the correct permissions. You can change them via:\n\n\tchmod 600 %s\n' "${key_path}"
     exit 5
   fi
 fi
