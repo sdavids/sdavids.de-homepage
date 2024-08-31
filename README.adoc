@@ -145,7 +145,7 @@ GitHub Action Runs:: {gh-actions-url}
 
 Apache License, Version 2.0 (link:LICENSES/Apache-2.0.txt[Apache-2.0.txt] or {uri-apache-license}).
 
-=== Contribution
+== Contribution
 
 See link:CONTRIBUTING{outfilesuffix}[].
 
