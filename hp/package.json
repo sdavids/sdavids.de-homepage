@@ -26,7 +26,7 @@
     "cert:renew": "scripts/renew-ca-based-cert.sh certs 30 httpd.internal",
     "cert:verify": "scripts/verify-ca-based-cert.sh certs",
     "clean": "scripts/clean.sh",
-    "clean:node": "rm -rf node_modules package-lock.json",
+    "clean:node": "scripts/clean-node.sh",
     "compress:files": "scripts/compress-files.sh dist",
     "create:google-verification-file": "scripts/create-google-verification-file.sh dist",
     "create:htaccess": "scripts/create-htaccess.sh",
