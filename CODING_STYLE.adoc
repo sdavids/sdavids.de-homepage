@@ -24,11 +24,11 @@ JavaScript:: https://prettier.io[prettier]
 
 Install and enable the following plugins:
 
-* https://plugins.jetbrains.com/plugin/7391-asciidoc[AsciiDoc]
-* https://plugins.jetbrains.com/plugin/10456-prettier[prettier]
-* https://plugins.jetbrains.com/plugin/8527-google-java-format[google-java-format]
 * https://plugins.jetbrains.com/plugin/7495--ignore[.ignore]
-* https://plugins.jetbrains.com/plugin/6834-apache-config--htaccess-[Apache config ​(.​htaccess)​]
+* https://plugins.jetbrains.com/plugin/7391-asciidoc[AsciiDoc]
+* https://plugins.jetbrains.com/plugin/6834-apache-config--htaccess-[Apache config (.htaccess)]
+* https://plugins.jetbrains.com/plugin/8527-google-java-format[google-java-format]
+* https://plugins.jetbrains.com/plugin/10456-prettier[prettier]
 
 https://www.jetbrains.com/help/idea/settings-code-style.html#scheme[Import] and enable the following code style scheme:
 
