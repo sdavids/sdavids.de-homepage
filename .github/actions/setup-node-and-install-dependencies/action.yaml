@@ -21,7 +21,7 @@ inputs:
   ignore-scripts:
     description: ignore the pre-/post-install scripts
     required: false
-    default: 'true'
+    default: "true"
 runs:
   using: composite
   steps:
