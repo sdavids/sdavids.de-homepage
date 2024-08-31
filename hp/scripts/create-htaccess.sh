@@ -7,11 +7,13 @@
 
 set -Eeu -o pipefail -o posix
 
-readonly dist_dir='dist'
+readonly base_dir="${1:-$PWD}"
+
+readonly dist_dir="${base_dir}/dist"
 
 readonly htaccess_file="${dist_dir}/.htaccess"
 
-cp httpd/.htaccess "${htaccess_file}"
+cp "${base_dir}/httpd/.htaccess" "${htaccess_file}"
 
 js_filename="$(find "${dist_dir}" -name 'app*.mjs' -type f -exec basename {} \;)"
 readonly js_filename

@@ -11,9 +11,13 @@
 #   Linux:
 #     sudo apt-get install gpg
 
+set -eu
+
+readonly base_dir="${1:-$PWD/src/.well-known}"
+
 readonly email='security@sdavids.de'
 readonly fingerprint='3B051F8EAA0B63D17220168C99A97C778DCDF19F'
-readonly security_txt_file='src/.well-known/security.txt'
+readonly security_txt_file="${base_dir}/security.txt"
 readonly tmp_file="${security_txt_file}.tmp"
 
 if [ "$(uname)" = 'Darwin' ]; then
