@@ -157,6 +157,16 @@ For more information, please see link:CODE_OF_CONDUCT.md[Code of Conduct].
 
 == Development Environment Setup
 
+[IMPORTANT]
+====
+After initializing this repository you need to configure the https://git-scm.com/docs/git-config#Documentation/git-config.txt-blameignoreRevsFile[ignore-revs-file]:
+
+[source,shell]
+----
+git config blame.ignoreRevsFile .git-blame-ignore-revs
+----
+====
+
 === Installation
 
 ==== DNS
