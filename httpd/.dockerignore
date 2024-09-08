@@ -3,4 +3,9 @@
 
 # https://docs.docker.com/build/building/context/#dockerignore-files
 
+*.swp
+.DS_Store
+.dockerignore
+Dockerfile
+Thumbs.db
 scripts/
