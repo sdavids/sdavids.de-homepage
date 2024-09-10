@@ -14,3 +14,9 @@ and add `-m` to the tailwind-cli call
 
 * remove noscript from tailwind.config.mjs and noscript:hidden from index.html
 + https://github.com/tailwindlabs/tailwindcss/pull/11929
+
+* browserslist
++
+remove explict query and replace with 'baseline'
++
+https://github.com/browserslist/browserslist/issues/771
