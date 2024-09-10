@@ -28,6 +28,7 @@ ifdef::env-browser[:outfilesuffix: .adoc]
 
 ifdef::env-github[]
 :outfilesuffix: .adoc
+:important-caption: :heavy_exclamation_mark:
 :note-caption: :information_source:
 :badges:
 endif::[]
