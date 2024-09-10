@@ -9,9 +9,9 @@ while getopts ':d:gu' opt; do
   case "${opt}" in
   d) base_dir="${OPTARG}"
     ;;
-  g) group="true"
+  g) group='true'
     ;;
-  u) mask="true"
+  u) mask='true'
     ;;
   ?)
     echo "Usage: $0 -d <directory> [-g] [-u]" >&2
@@ -24,16 +24,16 @@ readonly base_dir="${base_dir:?DIRECTORY is required}"
 readonly group="${group:-false}"
 readonly mask="${mask:-false}"
 
-if [ "${group}" = "true" ] && [ "${mask}" = "true" ]; then
+if [ "${group}" = 'true' ] && [ "${mask}" = 'true' ]; then
   echo "options '-g' and '-u' are exclusive" >&2
   exit 2
-elif [ "${group}" = "true" ]; then
+elif [ "${group}" = 'true' ]; then
   dir_perm=770
   file_perm=660
   sh_perm=770
-elif [ "${mask}" = "true" ]; then
+elif [ "${mask}" = 'true' ]; then
   dir_perm="$(umask -S)"
-  file_perm="$(umask -S | awk '{ gsub(/x/, ""); print }')"
+  file_perm="$(umask -S | awk '{gsub(/x/, "");print}')"
   sh_perm="$(umask -S)"
 else
   dir_perm=700
@@ -54,7 +54,7 @@ readonly sh_perm
     realpath() {
       if [ -h "$1" ]; then
         # shellcheck disable=SC2012
-        ls -ld "$1" | awk '{ print $11 }'
+        ls -ld "$1" | awk '{print $11}'
       else
         echo "$(cd "$(dirname -- "$1")" >/dev/null; pwd -P)/$(basename -- "$1")"
       fi
@@ -63,17 +63,19 @@ readonly sh_perm
   fi
 
   hooks_exclusion=''
-  if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = 'true' ]; then
-    set +e
-    hooks_path="$(git config get core.hooksPath)"
-    set -e
-    if [ -n "${hooks_path}" ]; then
-      if [ "$(echo "${hooks_path}" | grep -c '\.husky/_')" -eq 1 ]; then
-        # remove trailing /_
-        hooks_path="$(echo "${hooks_path}" | rev | cut -c 3- | rev)"
+  if command -v git >/dev/null 2>&1; then
+    if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = 'true' ]; then
+      set +e
+      hooks_path="$(git config get core.hooksPath)"
+      set -e
+      if [ -n "${hooks_path}" ]; then
+        if [ "$(echo "${hooks_path}" | grep -c '\.husky/_')" -eq 1 ]; then
+          # remove trailing /_
+          hooks_path="$(echo "${hooks_path}" | rev | cut -c 3- | rev)"
+        fi
+        readonly hooks_path
+        hooks_exclusion="-not -path ${base_dir}/${hooks_path}/*"
       fi
-      readonly hooks_path
-      hooks_exclusion="-not -path ${base_dir}/${hooks_path}/*"
     fi
   fi
   readonly hooks_exclusion
@@ -87,7 +89,7 @@ readonly sh_perm
   printf "\nWARNING: The permissions in the directory '%s' will be fixed.\n" "$(realpath "${base_dir}")"
 
   if [ -n "${node_exclusions}" ]; then
-    printf "\nThe following directories will be ignored:\n\n"
+    printf '\nThe following directories will be ignored:\n\n'
     if [ -n "${hooks_exclusion}" ]; then
       realpath "${base_dir}/${hooks_path:-}"
     fi
@@ -96,12 +98,12 @@ readonly sh_perm
     printf "\nThe directory '%s' will be excluded.\n" "$(realpath "${base_dir}/${hooks_path:-}")"
   fi
 
-  printf "\n"
-  read -p "Do you really want to irreversibly fix the permissions (Y/N)? " -n 1 -r should_fix
+  printf '\n'
+  read -p 'Do you really want to irreversibly fix the permissions (Y/N)? ' -n 1 -r should_fix
 
   case "${should_fix}" in
-  y | Y) printf "\n" ;;
-  *) printf "\n"; exit 0 ;;
+  y | Y) printf '\n' ;;
+  *) printf '\n'; exit 0 ;;
   esac
 
   find "${base_dir}" -type d -exec chmod "${dir_perm}" {} +

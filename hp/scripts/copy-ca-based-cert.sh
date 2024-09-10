@@ -14,7 +14,7 @@
 set -Eeu -o pipefail -o posix
 
 # shellcheck disable=SC2143
-if [ "$(easyrsa --version | grep -E -c "Version:\s+3.1")" -ne 1 ]; then
+if [ "$(easyrsa --version | grep -E -c 'Version:\s+3.1')" -ne 1 ]; then
   echo 'only version 3.1 of easyRSA supported' >&2
   exit 1
 fi
@@ -27,13 +27,13 @@ readonly cert_path="${out_dir}/cert.pem"
 if [ -e "${key_path}" ]; then
   printf "The key '%s' already exists.\n" "${key_path}" >&2
   if command -v pbcopy >/dev/null 2>&1; then
-    printf "%s" "${key_path}" | pbcopy
+    printf '%s' "${key_path}" | pbcopy
     printf 'The path has been copied to the clipboard.\n' >&2
   elif command -v xclip >/dev/null 2>&1; then
-    printf "%s" "${key_path}" | xclip -selection clipboard
+    printf '%s' "${key_path}" | xclip -selection clipboard
     printf 'The path has been copied to the clipboard.\n' >&2
   elif command -v wl-copy >/dev/null 2>&1; then
-    printf "%s" "${key_path}" | wl-copy
+    printf '%s' "${key_path}" | wl-copy
     printf 'The path has been copied to the clipboard.\n' >&2
   fi
   exit 2
@@ -42,13 +42,13 @@ fi
 if [ -e "${cert_path}" ]; then
   printf "The certificate '%s' already exists.\n" "${cert_path}" >&2
   if command -v pbcopy >/dev/null 2>&1; then
-    printf "%s" "${cert_path}" | pbcopy
+    printf '%s' "${cert_path}" | pbcopy
     printf 'The path has been copied to the clipboard.\n' >&2
   elif command -v xclip >/dev/null 2>&1; then
-    printf "%s" "${cert_path}" | xclip -selection clipboard
+    printf '%s' "${cert_path}" | xclip -selection clipboard
     printf 'The path has been copied to the clipboard.\n' >&2
   elif command -v wl-copy >/dev/null 2>&1; then
-    printf "%s" "${cert_path}" | wl-copy
+    printf '%s' "${cert_path}" | wl-copy
     printf 'The path has been copied to the clipboard.\n' >&2
   fi
   exit 3
@@ -100,7 +100,7 @@ fi
 (
   cd "${out_dir}"
 
-  if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ]; then
+  if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != 'true' ]; then
     exit 0 # ${out_dir} not a git repository
   fi
 
@@ -114,11 +114,11 @@ fi
 
   if [ $key_ignored -ne 0 ] || [ $cert_ignored -ne 0 ]; then
     printf "\nWARNING: key.pem and/or cert.pem is not ignored in '%s'\n\n" "$PWD/.gitignore"
-    read -p "Do you want me to modify your .gitignore file (Y/N)? " -n 1 -r should_modify
+    read -p 'Do you want me to modify your .gitignore file (Y/N)? ' -n 1 -r should_modify
 
     case "${should_modify}" in
-    y | Y) printf "\n\n" ;;
-    *) printf "\n"; exit 0 ;;
+    y | Y) printf '\n\n' ;;
+    *) printf '\n'; exit 0 ;;
     esac
   fi
 
@@ -126,12 +126,12 @@ fi
     if [ $cert_ignored -eq 0 ]; then
       exit 0 # both already ignored
     fi
-    printf "cert.pem\n" >>.gitignore
+    printf 'cert.pem\n' >>.gitignore
   else
     if [ $cert_ignored -eq 0 ]; then
-      printf "key.pem\n" >>.gitignore
+      printf 'key.pem\n' >>.gitignore
     else
-      printf "cert.pem\nkey.pem\n" >>.gitignore
+      printf 'cert.pem\nkey.pem\n' >>.gitignore
     fi
   fi
 

@@ -12,7 +12,7 @@
 set -eu
 
 # shellcheck disable=SC2143
-if [ "$(easyrsa --version | grep -E -c "Version:\s+3.1")" -ne 1 ]; then
+if [ "$(easyrsa --version | grep -E -c 'Version:\s+3.1')" -ne 1 ]; then
   echo 'only version 3.1 of easyRSA supported' >&2
   exit 1
 fi

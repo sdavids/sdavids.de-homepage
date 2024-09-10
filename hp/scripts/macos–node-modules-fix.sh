@@ -14,7 +14,7 @@ fi
 command -v realpath >/dev/null 2>&1 || realpath() {
   if [ -h "$1" ]; then
     # shellcheck disable=SC2012
-    ls -ld "$1" | awk '{ print $11 }'
+    ls -ld "$1" | awk '{print $11}'
   else
     echo "$(cd "$(dirname -- "$1")" >/dev/null; pwd -P)/$(basename -- "$1")"
   fi

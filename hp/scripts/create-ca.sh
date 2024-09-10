@@ -16,7 +16,7 @@
 set -Eeu -o pipefail -o posix
 
 # shellcheck disable=SC2143
-if [ "$(easyrsa --version | grep -E -c "Version:\s+3.1")" -ne 1 ]; then
+if [ "$(easyrsa --version | grep -E -c 'Version:\s+3.1')" -ne 1 ]; then
   echo 'only version 3.1 of easyRSA supported' >&2
   exit 1
 fi
@@ -93,7 +93,7 @@ readonly expires_on
 
 readonly ca_cert="${pki_dir}/ca.crt"
 
-printf 'Created certificate authority "%s"; expires on: %s; certificate:\n\n%s\n' "${EASYRSA_REQ_CN}" "${expires_on}" "${ca_cert}"
+printf "Created certificate authority '%s'; expires on: %s; certificate:\n\n%s\n" "${EASYRSA_REQ_CN}" "${expires_on}" "${ca_cert}"
 
 if command -v sudo >/dev/null 2>&1; then
   set +e
@@ -109,7 +109,7 @@ readonly sudoer
 if [ "$(uname)" = 'Darwin' ]; then
   if [ "${sudoer}" = 0 ]; then # sudoer
     {
-      printf "\nThe CA root certificate will now be imported into Keychain Access--you will be asked for a login password.\n\nPress a key to start the import...\n\n"
+      printf '\nThe CA root certificate will now be imported into Keychain Access--you will be asked for a login password.\n\nPress any key to start the import...\n\n'
       read -r -s -n 1
     } 1>&2
 
@@ -126,9 +126,9 @@ if [ "$(uname)" = 'Darwin' ]; then
     chmod 644 /tmp/easyrsa.crt
 
     printf '\nNow import the certificate into Keychain Access:\n\n'
-    printf '1. Import /tmp/easyrsa.crt to the "System" keychain and double click on "%s" afterwards.\n' "${EASYRSA_REQ_CN}"
-    printf '2. Under "When using this certificate" select "Always trust".\n'
-    printf '3. Verify that it was added to the "System" and not the "Login" keychain.\n\n'
+    printf "1. Import /tmp/easyrsa.crt to the 'System' keychain and double click on '%s' afterward.\n" "${EASYRSA_REQ_CN}"
+    printf "2. Under 'When using this certificate' select 'Always trust'.\n"
+    printf "3. Verify that it was added to the 'System' and not the 'Login' keychain.\n\n"
 
     open /tmp
     open -a 'Keychain Access'
@@ -138,11 +138,11 @@ if [ "$(uname)" = 'Darwin' ]; then
 elif [ "$(grep -E -i 'debian|buntu|mint' /etc/*release)" ]; then
   if [ "${sudoer}" = 0 ]; then # sudoer
     {
-      printf "\nThe CA root certificate will now be imported into your system.\n\nPress a key to start the import...\n\n"
+      printf '\nThe CA root certificate will now be imported into your system.\n\nPress any key to start the import...\n\n'
       read -r -s -n 1
     } 1>&2
 
-    ca_dir="/usr/local/share/ca-certificates/easy-rsa"
+    ca_dir='/usr/local/share/ca-certificates/easy-rsa'
 
     if [ -d "${ca_dir}" ]; then
       printf "The directory '%s' already exists; therefore the root CA certificate has already been added to the system previously. Consult your system documentation on how to update an existing certificate.\n" "${ca_dir}" >&2
@@ -167,14 +167,14 @@ elif [ "$(grep -E -i 'debian|buntu|mint' /etc/*release)" ]; then
 elif [ "$(grep -E -i 'centos|fedora|redhat' /etc/*release)" ]; then
   if [ "${sudoer}" = 0 ]; then # sudoer
     {
-      printf "\nThe CA root certificate will now be imported into your system.\n\nPress a key to start the import...\n\n"
+      printf '\nThe CA root certificate will now be imported into your system.\n\nPress any key to start the import...\n\n'
       read -r -s -n 1
     } 1>&2
 
     # prevent privilege escalation by ensuring fresh password
     sudo --reset-timestamp
 
-    copied_cert="/etc/pki/ca-trust/source/anchors/easyrsa.crt"
+    copied_cert='/etc/pki/ca-trust/source/anchors/easyrsa.crt'
     sudo cp "${ca_cert}" "${copied_cert}"
     sudo chmod 644 "${copied_cert}"
     sudo chown root:root "${copied_cert}"

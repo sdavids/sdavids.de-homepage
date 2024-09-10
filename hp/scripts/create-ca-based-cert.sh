@@ -16,7 +16,7 @@
 set -Eeu -o pipefail -o posix
 
 # shellcheck disable=SC2143
-if [ "$(easyrsa --version | grep -E -c "Version:\s+3.1")" -ne 1 ]; then
+if [ "$(easyrsa --version | grep -E -c 'Version:\s+3.1')" -ne 1 ]; then
   echo 'only version 3.1 of easyRSA supported' >&2
   exit 1
 fi
@@ -112,7 +112,7 @@ fi
 (
   cd "${out_dir}"
 
-  if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ]; then
+  if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != 'true' ]; then
     exit 0 # ${out_dir} not a git repository
   fi
 
@@ -126,11 +126,11 @@ fi
 
   if [ $key_ignored -ne 0 ] || [ $cert_ignored -ne 0 ]; then
     printf "\nWARNING: key.pem and/or cert.pem is not ignored in '%s'\n\n" "$PWD/.gitignore"
-    read -p "Do you want me to modify your .gitignore file (Y/N)? " -n 1 -r should_modify
+    read -p 'Do you want me to modify your .gitignore file (Y/N)? ' -n 1 -r should_modify
 
     case "${should_modify}" in
-    y | Y) printf "\n\n" ;;
-    *) printf "\n"; exit 0 ;;
+    y | Y) printf '\n\n' ;;
+    *) printf '\n'; exit 0 ;;
     esac
   fi
 
@@ -138,12 +138,12 @@ fi
     if [ $cert_ignored -eq 0 ]; then
       exit 0 # both already ignored
     fi
-    printf "cert.pem\n" >>.gitignore
+    printf 'cert.pem\n' >>.gitignore
   else
     if [ $cert_ignored -eq 0 ]; then
-      printf "key.pem\n" >>.gitignore
+      printf 'key.pem\n' >>.gitignore
     else
-      printf "cert.pem\nkey.pem\n" >>.gitignore
+      printf 'cert.pem\nkey.pem\n' >>.gitignore
     fi
   fi
 
@@ -152,7 +152,7 @@ fi
 
 if [ "${host_name}" = 'localhost' ]; then
   # https://man.archlinux.org/man/grep.1
-  if [ "$(grep -E -i -c "127\.0\.0\.1\s+localhost" /etc/hosts)" -eq 0 ]; then
+  if [ "$(grep -E -i -c '127\.0\.0\.1\s+localhost' /etc/hosts)" -eq 0 ]; then
     printf "\nWARNING: /etc/hosts does not have an entry for '127.0.0.1 localhost'\n" >&2
   fi
 else

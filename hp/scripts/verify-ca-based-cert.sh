@@ -12,7 +12,7 @@
 set -Eeu -o pipefail -o posix
 
 # shellcheck disable=SC2143
-if [ "$(easyrsa --version | grep -E -c "Version:\s+3.1")" -ne 1 ]; then
+if [ "$(easyrsa --version | grep -E -c 'Version:\s+3.1')" -ne 1 ]; then
   echo 'only version 3.1 of easyRSA supported' >&2
   exit 1
 fi
@@ -67,10 +67,10 @@ printf '\n%s\n' "${cert_path}"
 
 openssl x509 -text -noout -in "${cert_path}"
 
-host_name="$(openssl x509 -ext subjectAltName -noout -in cert.pem | grep "DNS:" | sed 's/DNS:\(.*\)/\1/' | awk '{$1=$1};1')"
+host_name="$(openssl x509 -ext subjectAltName -noout -in cert.pem | grep 'DNS:' | sed 's/DNS:\(.*\)/\1/' | awk '{$1=$1};1')"
 if [ "${host_name}" = 'localhost' ]; then
   # https://man.archlinux.org/man/grep.1
-  if [ "$(grep -E -i -c "127\.0\.0\.1\s+localhost" /etc/hosts)" -eq 0 ]; then
+  if [ "$(grep -E -i -c '127\.0\.0\.1\s+localhost' /etc/hosts)" -eq 0 ]; then
     echo "WARNING: /etc/hosts does not have an entry for '127.0.0.1 localhost'" >&2
   fi
 else

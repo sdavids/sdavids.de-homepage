@@ -14,7 +14,7 @@
 set -Eeu -o pipefail -o posix
 
 # shellcheck disable=SC2143
-if [ "$(easyrsa --version | grep -E -c "Version:\s+3.1")" -ne 1 ]; then
+if [ "$(easyrsa --version | grep -E -c 'Version:\s+3.1')" -ne 1 ]; then
   echo 'only version 3.1 of easyRSA supported' >&2
   exit 1
 fi
@@ -55,16 +55,16 @@ printf "\nWARNING: You are about to delete the CA '%s':\n\n" "${subject}"
 if command -v tree >/dev/null 2>&1; then
   tree --noreport -F "${pki_dir}"
 else
-  printf "%s/\n" "${pki_dir}"
+  printf '%s/\n' "${pki_dir}"
   ls -F -A -1 "${pki_dir}"
 fi
 
-printf "\nAll existing certificates based on this CA will become invalid.\n\n"
-read -p "Do you really want to irreversibly delete the CA (Y/N)? " -n 1 -r should_delete
+printf '\nAll existing certificates based on this CA will become invalid.\n\n'
+read -p 'Do you really want to irreversibly delete the CA (Y/N)? ' -n 1 -r should_delete
 
 case "${should_delete}" in
-y | Y) printf "\n\n" ;;
-*) printf "\n"; exit 0 ;;
+y | Y) printf '\n\n' ;;
+*) printf '\n'; exit 0 ;;
 esac
 
 rm -rf "${pki_dir}"
@@ -79,7 +79,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   if [ "${found}" = 0 ]; then
     printf "Please delete the '%s' certificate from your System keychain.\n\n" "${subject}"
     printf "Also, please consult your browser's documentation on how to remove the CA certificate.\n"
-    open -a "Keychain Access"
+    open -a 'Keychain Access'
   fi
 else
   printf "Please consult your distribution's and browser's documentation on how to remove the CA certificate '%s'.\n" "${subject}"

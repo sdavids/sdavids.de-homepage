@@ -9,4 +9,5 @@ readonly container_name='sdavids.de-homepage'
 
 docker container logs \
   --follow \
+  --timestamps \
   "${container_name}"
