@@ -14,7 +14,7 @@ while getopts ':d:e:n' opt; do
   n) dry_run='--dry-run'
     ;;
   ?)
-    echo "Usage: $0 [-e <date>] [-n]" >&2
+    echo "Usage: $0 [-d <git repo dir>] [-e <date>] [-n]" >&2
     exit 1
     ;;
   esac
