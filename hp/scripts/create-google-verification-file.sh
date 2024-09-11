@@ -3,8 +3,6 @@
 # SPDX-FileCopyrightText: © 2022 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
-# script needs to be invoked from the hp root directory
-
 set -eu
 
 if [ -z "$*" ]; then
@@ -17,6 +15,4 @@ if [ ! -d "$1" ]; then
   exit 2
 fi
 
-readonly dir="$PWD/$1"
-
-printf 'google-site-verification: google1f621af14435aa51.html' >"${dir}/google1f621af14435aa51.html"
+printf 'google-site-verification: google1f621af14435aa51.html' >"$1/google1f621af14435aa51.html"
