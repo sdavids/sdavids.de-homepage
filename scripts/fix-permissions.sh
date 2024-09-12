@@ -73,8 +73,12 @@ readonly sh_perm
           # remove trailing /_
           hooks_path="$(echo "${hooks_path}" | rev | cut -c 3- | rev)"
         fi
+        if [ -d "${base_dir}/${hooks_path}" ]; then
+          hooks_exclusion="-not -path ${base_dir}/${hooks_path}/*"
+        else
+          hooks_path=''
+        fi
         readonly hooks_path
-        hooks_exclusion="-not -path ${base_dir}/${hooks_path}/*"
       fi
     fi
   fi
