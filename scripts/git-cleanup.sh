@@ -7,16 +7,19 @@ set -eu
 
 while getopts ':d:e:n' opt; do
   case "${opt}" in
-  d) base_dir="${OPTARG}"
-    ;;
-  e) expire="${OPTARG}"
-    ;;
-  n) dry_run='--dry-run'
-    ;;
-  ?)
-    echo "Usage: $0 [-d <git repo dir>] [-e <date>] [-n]" >&2
-    exit 1
-    ;;
+    d)
+      base_dir="${OPTARG}"
+      ;;
+    e)
+      expire="${OPTARG}"
+      ;;
+    n)
+      dry_run='--dry-run'
+      ;;
+    ?)
+      echo "Usage: $0 [-d <git repo dir>] [-e <date>] [-n]" >&2
+      exit 1
+      ;;
   esac
 done
 

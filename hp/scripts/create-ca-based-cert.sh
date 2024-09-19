@@ -25,24 +25,24 @@ readonly out_dir="${1:-$PWD}"
 
 if [ -n "${2+x}" ]; then # $2 defined
   case $2 in
-  '' | *[!0-9]*) # $2 is not a positive integer or 0
-    echo "'$2' is not a positive integer" >&2
-    exit 2
-    ;;
-  *) # $2 is a positive integer or 0
-    days="$2"
-    if [ "${days}" -lt 1 ]; then
+    '' | *[!0-9]*) # $2 is not a positive integer or 0
       echo "'$2' is not a positive integer" >&2
-      exit 3
-    fi
-    if [ "${days}" -gt 24855 ]; then
-      echo "'$2' is too big; range: [1, 24855]" >&2
-      exit 4
-    fi
-    if [ "${days}" -gt 180 ]; then
-      printf "ATTENTION: '%s' exceeds 180 days, the certificate will not be accepted by Apple platforms or Safari; see https://support.apple.com/en-us/103214 for more information.\n\n" "$2"
-    fi
-    ;;
+      exit 2
+      ;;
+    *) # $2 is a positive integer or 0
+      days="$2"
+      if [ "${days}" -lt 1 ]; then
+        echo "'$2' is not a positive integer" >&2
+        exit 3
+      fi
+      if [ "${days}" -gt 24855 ]; then
+        echo "'$2' is too big; range: [1, 24855]" >&2
+        exit 4
+      fi
+      if [ "${days}" -gt 180 ]; then
+        printf "ATTENTION: '%s' exceeds 180 days, the certificate will not be accepted by Apple platforms or Safari; see https://support.apple.com/en-us/103214 for more information.\n\n" "$2"
+      fi
+      ;;
   esac
 else # $2 undefined
   days=30
@@ -129,8 +129,11 @@ fi
     read -p 'Do you want me to modify your .gitignore file (Y/N)? ' -n 1 -r should_modify
 
     case "${should_modify}" in
-    y | Y) printf '\n\n' ;;
-    *) printf '\n'; exit 0 ;;
+      y | Y) printf '\n\n' ;;
+      *)
+        printf '\n'
+        exit 0
+        ;;
     esac
   fi
 

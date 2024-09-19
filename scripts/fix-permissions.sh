@@ -7,16 +7,19 @@ set -Eeu -o pipefail -o posix
 
 while getopts ':d:gu' opt; do
   case "${opt}" in
-  d) base_dir="${OPTARG}"
-    ;;
-  g) group='true'
-    ;;
-  u) mask='true'
-    ;;
-  ?)
-    echo "Usage: $0 -d <directory> [-g] [-u]" >&2
-    exit 1
-    ;;
+    d)
+      base_dir="${OPTARG}"
+      ;;
+    g)
+      group='true'
+      ;;
+    u)
+      mask='true'
+      ;;
+    ?)
+      echo "Usage: $0 -d <directory> [-g] [-u]" >&2
+      exit 1
+      ;;
   esac
 done
 
@@ -56,7 +59,10 @@ readonly sh_perm
         # shellcheck disable=SC2012
         ls -ld "$1" | awk '{print $11}'
       else
-        echo "$(cd "$(dirname -- "$1")" >/dev/null; pwd -P)/$(basename -- "$1")"
+        echo "$(
+          cd "$(dirname -- "$1")" >/dev/null
+          pwd -P
+        )/$(basename -- "$1")"
       fi
     }
     export -f realpath
@@ -106,8 +112,11 @@ readonly sh_perm
   read -p 'Do you really want to irreversibly fix the permissions (Y/N)? ' -n 1 -r should_fix
 
   case "${should_fix}" in
-  y | Y) printf '\n' ;;
-  *) printf '\n'; exit 0 ;;
+    y | Y) printf '\n' ;;
+    *)
+      printf '\n'
+      exit 0
+      ;;
   esac
 
   find "${base_dir}" -type d -exec chmod "${dir_perm}" {} +

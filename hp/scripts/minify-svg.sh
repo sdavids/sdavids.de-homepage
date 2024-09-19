@@ -13,11 +13,11 @@ readonly base_dir="${1:-$PWD}"
 # https://github.com/svg/svgo/blob/main/lib/svgo/coa.js
 find "${base_dir}" -type f -name '*.svg' -exec \
   npx --yes --quiet svgo {} \
-    --eol lf \
-    --multipass \
-    --no-color \
-    --quiet \
-    --output "{}.tmp" \;
+  --eol lf \
+  --multipass \
+  --no-color \
+  --quiet \
+  --output "{}.tmp" \;
 
 # rename *.svg.tmp to *.svg
 find "${base_dir}" \

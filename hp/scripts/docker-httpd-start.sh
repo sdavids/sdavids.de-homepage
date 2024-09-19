@@ -76,8 +76,8 @@ fi
 
 docker network inspect "${network_name}" >/dev/null 2>&1 \
   || docker network create \
-       --driver bridge "${network_name}" \
-       --label "${label_group}=${namespace}" >/dev/null
+    --driver bridge "${network_name}" \
+    --label "${label_group}=${namespace}" >/dev/null
 
 # to ensure ${label} is set, we use --label "${label}"
 # which might overwrite the label ${label_group} of the image

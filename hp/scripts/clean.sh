@@ -14,7 +14,7 @@ readonly generated_app_css_file="${base_dir}/src/s/app.css"
 readonly lighthouseci_dir="${base_dir}/.lighthouseci"
 
 rm -rf "${build_dir}" \
-       "${eslint_cache_file}" \
-       "${prettier_cache_file}" \
-       "${generated_app_css_file}" \
-       "${lighthouseci_dir}"
+  "${eslint_cache_file}" \
+  "${prettier_cache_file}" \
+  "${generated_app_css_file}" \
+  "${lighthouseci_dir}"

@@ -63,8 +63,11 @@ printf '\nAll existing certificates based on this CA will become invalid.\n\n'
 read -p 'Do you really want to irreversibly delete the CA (Y/N)? ' -n 1 -r should_delete
 
 case "${should_delete}" in
-y | Y) printf '\n\n' ;;
-*) printf '\n'; exit 0 ;;
+  y | Y) printf '\n\n' ;;
+  *)
+    printf '\n'
+    exit 0
+    ;;
 esac
 
 rm -rf "${pki_dir}"

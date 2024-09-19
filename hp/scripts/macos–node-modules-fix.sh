@@ -16,7 +16,10 @@ command -v realpath >/dev/null 2>&1 || realpath() {
     # shellcheck disable=SC2012
     ls -ld "$1" | awk '{print $11}'
   else
-    echo "$(cd "$(dirname -- "$1")" >/dev/null; pwd -P)/$(basename -- "$1")"
+    echo "$(
+      cd "$(dirname -- "$1")" >/dev/null
+      pwd -P
+    )/$(basename -- "$1")"
   fi
 }
 

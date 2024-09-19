@@ -89,8 +89,11 @@ chmod 600 "${root_cert_path}"
     read -p 'Do you want me to modify your .gitignore file (Y/N)? ' -n 1 -r should_modify
 
     case "${should_modify}" in
-    y | Y) printf '\n\n' ;;
-    *) printf '\n'; exit 0 ;;
+      y | Y) printf '\n\n' ;;
+      *)
+        printf '\n'
+        exit 0
+        ;;
     esac
 
     printf 'ca.crt\n' >>.gitignore

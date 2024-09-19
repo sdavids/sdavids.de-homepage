@@ -7,7 +7,7 @@
 
 set -eu
 
-if npx --yes --quiet is-ci ; then
+if npx --yes --quiet is-ci; then
   exit 0
 fi
 

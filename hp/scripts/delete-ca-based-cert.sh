@@ -97,10 +97,10 @@ if [ -f "${easyrsa_serial_path}" ]; then
 fi
 
 # delete empty certs dir if not $PWD
-if [ -d "${base_dir}" ] && \
-  [ "${base_dir}" != "$PWD" ] && \
-  [ "${base_dir}" != '.' ] && \
-  [ -z "$(ls -A "${base_dir}")" ]; then
+if [ -d "${base_dir}" ] \
+  && [ "${base_dir}" != "$PWD" ] \
+  && [ "${base_dir}" != '.' ] \
+  && [ -z "$(ls -A "${base_dir}")" ]; then
 
   rmdir "${base_dir}"
 fi
