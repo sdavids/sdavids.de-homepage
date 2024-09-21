@@ -164,7 +164,7 @@ After initializing this repository you need to configure the https://git-scm.com
 
 [source,shell]
 ----
-git config blame.ignoreRevsFile .git-blame-ignore-revs
+$ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ----
 ====
 
