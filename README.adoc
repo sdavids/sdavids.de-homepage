@@ -103,7 +103,7 @@ $ npm run cert:create
 [source,shell]
 ----
 $ cd httpd
-$ scripts/docker-build.sh
+$ scripts/docker_build.sh
 ----
 
 ==== Build And Start Apache HTTPD
@@ -197,7 +197,7 @@ ServerName httpd.internal:80
 ServerName httpd.internal:443
 ----
 
-.hp/scripts/docker-httpd-start.sh
+.hp/scripts/docker_httpd_start.sh
 [source,shell]
 ----
 readonly host_name='httpd.internal'
@@ -209,10 +209,11 @@ readonly host_name='httpd.internal'
 …
   "scripts": {
 …
-    "cert:copy": "scripts/copy-ca-based-cert.sh certs httpd.internal",
-    "cert:create": "scripts/create-ca-based-cert.sh certs 30 httpd.internal",
-    "cert:delete": "scripts/delete-ca-based-cert.sh certs httpd.internal",
-    "cert:renew": "scripts/renew-ca-based-cert.sh certs 30 httpd.internal",
+    "cert:copy": "scripts/copy_ca_based_cert.sh certs httpd.internal",
+    "cert:create": "scripts/create_ca-based_cert.sh certs 30 httpd.internal",
+    "cert:delete": "scripts/delete_ca_based_cert.sh certs httpd.internal",
+    "cert:renew": "scripts/renew_ca_based_cert.sh certs 30 httpd.internal",
+    "cert:verify": "scripts/verify_ca-based_cert.sh certs 30 httpd.internal",
 …
   },
 …

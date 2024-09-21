@@ -78,7 +78,7 @@ else
 fi
 
 if [ ! -d "${pki_dir}" ]; then
-  printf "The PKI directory '%s' does not exist; therefore the CA has not been created yet.\n\nExecute the create-ca.sh script to create the CA.\n" "${pki_dir}" >&2
+  printf "The PKI directory '%s' does not exist; therefore the CA has not been created yet.\n\nExecute the create_ca.sh script to create the CA.\n" "${pki_dir}" >&2
   exit 5
 fi
 
@@ -93,7 +93,7 @@ if [ -f "${easyrsa_key_path}" ] && [ -f "${easyrsa_cert_path}" ]; then
 
   chmod 600 "${key_path}" "${cert_path}"
 else
-  printf "The CA has no private key and certificate for '%s'.\n\nExecute the create-ca-based-cert.sh script to create the private key and certificate.\n" "${host_name}" >&2
+  printf "The CA has no private key and certificate for '%s'.\n\nExecute the create_ca_based_cert.sh script to create the private key and certificate.\n" "${host_name}" >&2
   exit 6
 fi
 

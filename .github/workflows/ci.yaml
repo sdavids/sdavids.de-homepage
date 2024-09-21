@@ -49,7 +49,7 @@ jobs:
       - if: steps.changes.outputs.sh == 'true'
         name: Lint shell scripts
         working-directory: .
-        run: scripts/shellscript-check.sh
+        run: scripts/shellscript_check.sh
       - if: steps.changes.outputs.yaml == 'true'
         name: Lint YAML files
         working-directory: .

@@ -9,4 +9,4 @@ set -eu
 
 readonly base_dir="${PWD}"
 
-hp/scripts/dependency-check-node.sh "${base_dir}/hp"
+hp/scripts/dependency_check_node.sh "${base_dir}/hp"

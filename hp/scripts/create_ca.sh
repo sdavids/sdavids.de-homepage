@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# SPDX-FileCopyrightText: © 2023 Sebastian Davids <sdavids@gmx.de>
+# SPDX-FileCopyrightText: © 2024 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
 #  easyrsa needs to be in $PATH

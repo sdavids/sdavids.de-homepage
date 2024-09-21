@@ -9,7 +9,7 @@ https://github.com/conventional-changelog/commitlint/issues/2112
 
 * tailwindcss >= 4
 +
-remove explicit lightningcss-cli step in build-css.sh, remove lightningcss-cli in package.json, and add `-m` to the tailwind-cli call
+remove explicit lightningcss-cli step in build_css.sh, remove lightningcss-cli in package.json, and add `-m` to the tailwind-cli call
 
 * remove noscript from tailwind.config.mjs and noscript:hidden from index.html
 +

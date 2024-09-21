@@ -73,12 +73,12 @@ else
 fi
 
 if [ ! -d "${pki_dir}" ]; then
-  printf "The PKI directory '%s' does not exist; therefore the CA has not been created yet.\n\nExecute the create-ca.sh script to create the CA.\n" "${pki_dir}" >&2
+  printf "The PKI directory '%s' does not exist; therefore the CA has not been created yet.\n\nExecute the create_ca.sh script to create the CA.\n" "${pki_dir}" >&2
   exit 6
 fi
 
 if [ -f "${pki_dir}/reqs/${host_name}.req" ]; then
-  printf "A certificate for '%s' already exists.\n\nExecute the copy-ca-based-cert.sh script to copy it to a new location.\n" "${host_name}" >&2
+  printf "A certificate for '%s' already exists.\n\nExecute the copy_ca_based_cert.sh script to copy it to a new location.\n" "${host_name}" >&2
   exit 7
 fi
 

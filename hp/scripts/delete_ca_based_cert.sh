@@ -43,7 +43,7 @@ else
 fi
 
 if [ ! -d "${pki_dir}" ]; then
-  printf "The PKI directory '%s' does not exist; therefore the CA has not been created yet.\n\nExecute the create-ca.sh script to create the CA.\n" "${pki_dir}" >&2
+  printf "The PKI directory '%s' does not exist; therefore the CA has not been created yet.\n\nExecute the create_ca.sh script to create the CA.\n" "${pki_dir}" >&2
   exit 3
 fi
 
