@@ -50,7 +50,7 @@
     "hash:js": "node scripts/hash_and_update_files.mjs dist js html",
     "hash:svg": "node scripts/hash_and_update_files.mjs dist svg css,js,html",
     "legal:robots": "scripts/add_legal_notice_to_robots.sh",
-    "lint": "npx eslint --cache .",
+    "lint": "scripts/lint.sh",
     "lint:fix": "npx eslint --cache --fix .",
     "lighthouseci": "npx lhci autorun",
     "minify:html": "scripts/minify_html.sh dist",
