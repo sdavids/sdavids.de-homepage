@@ -37,6 +37,7 @@
     "dev": "scripts/dev.sh",
     "dev:css": "scripts/dev_css.sh",
     "docker:httpd:logs": "scripts/docker_httpd_logs.sh",
+    "docker:httpd:remove": "scripts/docker_httpd_remove.sh",
     "docker:httpd:sh": "scripts/docker_httpd_sh.sh",
     "docker:httpd:start": "scripts/docker_httpd_start.sh --skip-build",
     "docker:httpd:start:with-build": "scripts/docker_httpd_start.sh",
