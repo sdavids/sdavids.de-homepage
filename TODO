@@ -20,3 +20,7 @@ https://github.com/tailwindlabs/tailwindcss/pull/11929
 remove explicit query and replace with 'baseline'
 +
 https://github.com/browserslist/browserslist/issues/771
+
+* use `devEngine` instead of `engine` in `hp/package.json`
++
+https://github.com/openjs-foundation/package-metadata-interoperability-collab-space/issues/15
