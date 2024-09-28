@@ -3,6 +3,12 @@
 # SPDX-FileCopyrightText: © 2022 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
+# gzip needs to be in $PATH
+#   Mac:
+#     brew install gzip
+#   Linux:
+#     sudo apt-get install gzip
+
 set -eu
 
 if [ -z "$*" ]; then
