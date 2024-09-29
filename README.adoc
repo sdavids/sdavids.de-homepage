@@ -364,7 +364,7 @@ $ brew install brotli
 
 [source,shell]
 ----
-$ sudo apt install zstd
+$ sudo apt-get install zstd
 ----
 
 ===== Mac

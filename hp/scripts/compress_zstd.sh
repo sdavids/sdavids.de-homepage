@@ -8,7 +8,7 @@
 #   Mac:
 #     brew install zstd
 #   Linux:
-#     sudo apt install zstd
+#     sudo apt-get install zstd
 
 set -eu
 
