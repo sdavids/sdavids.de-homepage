@@ -9,6 +9,10 @@
 #   Linux:
 #     https://easy-rsa.readthedocs.io/en/latest/#obtaining-and-using-easy-rsa
 
+# openssl needs to be in $PATH
+#   Linux:
+#     sudo apt-get install openssl
+
 set -Eeu -o pipefail -o posix
 
 # shellcheck disable=SC2143

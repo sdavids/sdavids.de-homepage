@@ -9,6 +9,10 @@
 #   Linux:
 #     https://easy-rsa.readthedocs.io/en/latest/#obtaining-and-using-easy-rsa
 
+# openssl needs to be in $PATH
+#   Linux:
+#     sudo apt-get install openssl
+
 # https://github.com/OpenVPN/easy-rsa/blob/master/doc/EasyRSA-Readme.md
 
 set -Eeu -o pipefail -o posix
