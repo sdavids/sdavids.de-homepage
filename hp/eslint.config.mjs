@@ -6,6 +6,7 @@
 import globals from 'globals';
 import js from '@eslint/js';
 import json from '@eslint/json';
+import markdown from '@eslint/markdown';
 import compat from 'eslint-plugin-compat';
 
 // noinspection JSUnusedGlobalSymbols
@@ -75,5 +76,13 @@ export default [
     },
     name: 'eslint/json/recommended',
     ...json.configs.recommended,
+  },
+  {
+    files: ['**/*.md'],
+    language: 'markdown/gfm',
+    plugins: {
+      markdown,
+    },
+    name: 'eslint/markdown/recommended',
   },
 ];
