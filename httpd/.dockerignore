@@ -8,4 +8,5 @@
 .dockerignore
 Dockerfile
 Thumbs.db
+desktop.ini
 scripts/
