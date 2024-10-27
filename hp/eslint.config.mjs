@@ -5,7 +5,7 @@
 
 import globals from 'globals';
 import js from '@eslint/js';
-import json from 'eslint-plugin-json';
+import json from '@eslint/json';
 import compat from 'eslint-plugin-compat';
 
 // noinspection JSUnusedGlobalSymbols
@@ -69,6 +69,10 @@ export default [
   {
     files: ['**/*.json'],
     ignores: ['package-lock.json'],
+    language: 'json/json',
+    plugins: {
+      json,
+    },
     name: 'eslint/json/recommended',
     ...json.configs.recommended,
   },
