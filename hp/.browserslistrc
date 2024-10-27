@@ -5,4 +5,4 @@
 
 # use 'baseline' once it becomes available
 # https://github.com/browserslist/browserslist/issues/771
-chrome > 0 and last 2.5 years, edge > 0 and last 2.5 years, safari > 0 and last 2.5 years, firefox > 0 and last 2.5 years, and_chr > 0 and last 2.5 years, and_ff > 0 and last 2.5 years, ios > 0 and last 2.5 years
+chrome > 0 and last 2.5 years, edge > 0 and last 2.5 years, safari > 0 and last 2.5 years, firefox > 0 and last 2.5 years, and_chr > 0 and last 2.5 years, and_ff > 0 and last 2.5 years, ios > 0 and last 2.5 years, not dead
