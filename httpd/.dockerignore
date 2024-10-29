@@ -3,10 +3,14 @@
 
 # https://docs.docker.com/build/building/context/#dockerignore-files
 
-*.swp
+*~
+*.orig
+*.sw[a-p]
+*.tmp
 .DS_Store
+[Dd]esktop.ini
+Thumbs.db
+
 .dockerignore
 Dockerfile
-Thumbs.db
-desktop.ini
 scripts/
