@@ -326,6 +326,25 @@ if [ -f "${NVM_DIR}/nvm.sh" ]; then
 fi
 ----
 
+==== Certificates
+
+=====  New Certificate
+
+[source,shell]
+----
+$ cd hp
+$ node --run cert:ca:create
+$ node --run cert:create
+----
+
+=====  Existing Certificate
+
+[source,shell]
+----
+$ cd hp
+$ node --run cert:copy
+----
+
 ==== jq
 
 ===== Linux
