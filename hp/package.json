@@ -92,7 +92,7 @@
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": ">= 20.18",
+      "version": ">= 22.11",
       "onFail": "error"
     },
     "packageManager": {
