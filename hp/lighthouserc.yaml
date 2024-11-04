@@ -8,7 +8,7 @@ ci:
   upload:
     target: temporary-public-storage
   collect:
-    #    startServerCommand: npm run docker:httpd:start:with-build
+    #    startServerCommand: node --run docker:httpd:start:with-build
     staticDistDir: dist
     url:
       #      - https://httpd.internal:8443/index.html

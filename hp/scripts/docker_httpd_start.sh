@@ -50,28 +50,28 @@ fi
 export CI=true
 
 if [ "${skip_build}" != '--skip-build' ]; then
-  npm run clean
+  node --run clean
   rm -rf node_modules
   npm ci --ignore-scripts=true --fund=false --audit=false
   node node_modules/esbuild/install.js
   node node_modules/lightningcss-cli/postinstall.js
-  npm run build
-  npm run hash:css
-  npm run hash:js
-  npm run minify:json-tags
-  npm run minify:html
-  npm run create:htaccess
-  npm run hash:importmap
-  npm run minify:svg
-  npm run hash:svg
-  npm run minify:xml
-  npm run minify:webmanifest
-  npm run minify:traffic-advice
-  npm run minify:robots
-  npm run legal:robots
-  npm run compress:files
-  npm run create:google-verification-file
-  npm run create:timestamp-file dist/.deploy-timestamp
+  node --run build
+  node --run hash:css
+  node --run hash:js
+  node --run minify:json-tags
+  node --run minify:html
+  node --run create:htaccess
+  node --run hash:importmap
+  node --run minify:svg
+  node --run hash:svg
+  node --run minify:xml
+  node --run minify:webmanifest
+  node --run minify:traffic-advice
+  node --run minify:robots
+  node --run legal:robots
+  node --run compress:files
+  node --run create:google-verification-file
+  node --run create:timestamp-file -- dist/.deploy-timestamp
 fi
 
 docker network inspect "${network_name}" >/dev/null 2>&1 \

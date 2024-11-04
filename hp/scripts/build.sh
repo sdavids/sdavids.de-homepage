@@ -17,7 +17,7 @@ fi
 readonly esbuild_target="${1:-es2021}"
 readonly dir='dist'
 
-npm run build:css
+node --run build:css
 
 rm -rf "${dir}"
 cp -rp src "${dir}"
