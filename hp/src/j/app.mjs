@@ -6,17 +6,36 @@ let copiedTimeout;
 
 const writeClipboardText = async (id) => {
   if (window.isSecureContext && navigator.clipboard) {
-    const addOpacity0 = (e) => e.querySelector('g').classList.add('opacity-0');
+    const addOpacity0 = (element) => {
+      const svgG = element.querySelector('g');
+      if (svgG === null) {
+        return;
+      }
+      svgG.classList.add('opacity-0');
+    };
+    const removeOpacity0 = (element) => {
+      const svgG = element.querySelector('g');
+      if (svgG === null) {
+        return;
+      }
+      svgG.classList.remove('opacity-0');
+    };
 
     document.querySelectorAll('button.sd-copy').forEach(addOpacity0);
 
     const code = document.getElementById(`${id}-code`);
+    if (code === null) {
+      return;
+    }
     try {
       await navigator.clipboard.writeText(
         code.textContent.trim().replace(/\s+/gu, ' '),
       );
       const btn = document.getElementById(`${id}-btn`);
-      btn.querySelector('g').classList.remove('opacity-0');
+      if (btn === null) {
+        return;
+      }
+      removeOpacity0(btn);
       clearTimeout(copiedTimeout);
       copiedTimeout = setTimeout(() => addOpacity0(btn), 500);
     } catch {
