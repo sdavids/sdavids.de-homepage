@@ -26,10 +26,10 @@ const writeClipboardText = async (id) => {
 };
 
 for (const id of [
-  'import-gpg',
-  'fingerprint-gpg',
-  'encrypt-gpg',
   'encrypt-age',
+  'encrypt-gpg',
+  'fingerprint-gpg',
+  'import-gpg',
 ]) {
   document
     .getElementById(`${id}-btn`)
