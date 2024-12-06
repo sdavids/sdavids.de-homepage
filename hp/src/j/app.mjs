@@ -31,7 +31,15 @@ for (const id of [
   'fingerprint-gpg',
   'import-gpg',
 ]) {
-  document
-    .getElementById(`${id}-btn`)
-    .addEventListener('click', () => writeClipboardText(id));
+  /** @type HTMLButtonElement */
+  const btn = document.getElementById(`${id}-btn`);
+  if (btn === null) {
+    continue;
+  }
+  if (window.isSecureContext && navigator.clipboard) {
+    btn.addEventListener('click', () => writeClipboardText(id));
+  } else {
+    btn.disabled = true;
+    btn.classList.add('opacity-0');
+  }
 }
