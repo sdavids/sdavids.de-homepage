@@ -48,7 +48,7 @@ SPDX-FileCopyrightText = "© 2023 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = ["hp/src/sdavids.age", "hp/src/sdavids.gpg", "hp/src/sdavids.keys"]
+path = ["hp/src/sdavids.age", "hp/src/sdavids.gpg"]
 SPDX-FileCopyrightText = "© 2023 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"
 

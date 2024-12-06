@@ -30,7 +30,6 @@ for (const id of [
   'fingerprint-gpg',
   'encrypt-gpg',
   'encrypt-age',
-  'encrypt-ssh',
 ]) {
   document
     .getElementById(`${id}-btn`)

@@ -24,12 +24,6 @@ You can use my public keys to send me an encrypted and/or signed message.
 $ curl https://sdavids.de/sdavids.age | age -R - -a in.txt > out.txt.age
 ```
 
-### SSH
-
-```shell
-$ curl https://sdavids.de/sdavids.keys | age -R - -a in.txt > out.txt.ssh.age
-```
-
 ### GPG
 
 ```shell

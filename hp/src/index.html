@@ -357,65 +357,6 @@ SPDX-License-Identifier: Apache-2.0
               </div>
             </details>
           </section>
-          <section class="grid gap-2">
-            <h2 class="font-medium text-md text-gray-700 dark:text-gray-200">
-              SSH
-            </h2>
-            <div class="text-sm text-gray-900 dark:text-gray-200">
-              <a
-                href="sdavids.keys"
-                title="SSH public key"
-                class="hover:after:content-['_⤓'] [@media(hover:none)]:after:content-['_⤓'] hover:text-sky-700 dark:hover:text-sky-300"
-                aria-label="SSH public key"
-                >Public key</a
-              >
-            </div>
-            <details class="hidden text-gray-700 sm:block dark:text-gray-200">
-              <summary class="mb-2 hover:text-sky-700 dark:hover:text-sky-300">
-                <h3 class="font-medium text-sm">Usage</h3>
-              </summary>
-              <div
-                class="flex flex-col gap-2 px-3 py-2 rounded-md shadow-inner bg-gray-200 dark:bg-zinc-900"
-              >
-                <button
-                  id="encrypt-ssh-btn"
-                  title="Copy to Clipboard"
-                  class="sd-copy noscript:hidden self-end p-0 bg-gray-200 border-solid border-2 rounded-md border-gray-400 dark:bg-zinc-900 dark:border-zinc-800"
-                >
-                  <span class="sr-only">Copy to Clipboard</span>
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 32 32"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M12.9975 10.7499L11.7475 10.7499C10.6429 10.7499 9.74747 11.6453 9.74747 12.7499L9.74747 21.2499C9.74747 22.3544 10.6429 23.2499 11.7475 23.2499L20.2475 23.2499C21.352 23.2499 22.2475 22.3544 22.2475 21.2499L22.2475 12.7499C22.2475 11.6453 21.352 10.7499 20.2475 10.7499L18.9975 10.7499"
-                    ></path>
-                    <path
-                      d="M17.9975 12.2499L13.9975 12.2499C13.4452 12.2499 12.9975 11.8022 12.9975 11.2499L12.9975 9.74988C12.9975 9.19759 13.4452 8.74988 13.9975 8.74988L17.9975 8.74988C18.5498 8.74988 18.9975 9.19759 18.9975 9.74988L18.9975 11.2499C18.9975 11.8022 18.5498 12.2499 17.9975 12.2499Z"
-                    ></path>
-                    <path d="M13.7475 16.2499L18.2475 16.2499"></path>
-                    <path d="M13.7475 19.2499L18.2475 19.2499"></path>
-                    <g class="opacity-0">
-                      <path d="M15.9975 5.99988L15.9975 3.99988"></path>
-                      <path d="M19.9975 5.99988L20.9975 4.99988"></path>
-                      <path d="M11.9975 5.99988L10.9975 4.99988"></path>
-                    </g>
-                  </svg>
-                </button>
-                <code id="encrypt-ssh-code" class="text-sm">
-                  curl https://sdavids.de/sdavids.keys | age -R - -a in.txt >
-                  out.txt.ssh.age
-                </code>
-              </div>
-            </details>
-          </section>
         </div>
       </article>
     </main>
