@@ -76,7 +76,7 @@
     "esbuild": "0.24.0",
     "eslint": "9.17.0",
     "eslint-plugin-compat": "6.0.2",
-    "globals": "15.13.0",
+    "globals": "15.14.0",
     "html-minifier-terser": "7.2.0",
     "htmlparser2": "10.0.0",
     "husky": "9.1.7",
