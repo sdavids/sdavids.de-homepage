@@ -92,12 +92,12 @@
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": ">= 22.12",
+      "version": ">= 22.13",
       "onFail": "error"
     },
     "packageManager": {
       "name": "npm",
-      "version": "10.9.0",
+      "version": ">= 10.9.2",
       "onFail": "download"
     }
   }
