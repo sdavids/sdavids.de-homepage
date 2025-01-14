@@ -44,16 +44,11 @@ const writeClipboardText = async (id) => {
   }
 };
 
-for (const id of [
-  'encrypt-age',
-  'encrypt-gpg',
-  'fingerprint-gpg',
-  'import-gpg',
-]) {
+const configureCopyButton = (id) => {
   /** @type HTMLButtonElement */
   const btn = document.getElementById(`${id}-btn`);
   if (btn === null) {
-    continue;
+    return;
   }
   if (window.isSecureContext && navigator.clipboard) {
     btn.addEventListener('click', () => writeClipboardText(id));
@@ -61,4 +56,13 @@ for (const id of [
     btn.disabled = true;
     btn.classList.add('opacity-0');
   }
+};
+
+for (const id of [
+  'encrypt-age',
+  'encrypt-gpg',
+  'fingerprint-gpg',
+  'import-gpg',
+]) {
+  configureCopyButton(id);
 }
