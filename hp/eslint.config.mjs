@@ -16,12 +16,12 @@ export default [
     name: 'global/ignores',
   },
   {
-    files: ['**/*.mjs'],
+    files: ['**/*.{js,mjs}'],
     name: 'eslint/js/all',
     ...js.configs.all,
   },
   {
-    files: ['**/*.mjs'],
+    files: ['**/*.{js,mjs}'],
     name: 'sdavids/defaults/js',
     rules: {
       'capitalized-comments': 'off',
@@ -45,9 +45,9 @@ export default [
     },
   },
   {
-    files: ['src/j/**/*.mjs'],
-    name: 'sdavids/js/web',
+    files: ['src/j/*.js', 'src/j/**/*.js'],
     ...compat.configs['flat/recommended'],
+    name: 'sdavids/js/web',
     languageOptions: {
       globals: {
         ...globals.browser,

@@ -15,6 +15,6 @@ if [ ! -d "$1" ]; then
   exit 2
 fi
 
-find "$1" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.mjs' -o -name '*.keys' -o -name 'site.webmanifest' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress_zstd.sh {} \;
-find "$1" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.mjs' -o -name '*.keys' -o -name 'site.webmanifest' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress_brotli.sh {} \;
-find "$1" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.mjs' -o -name '*.keys' -o -name 'site.webmanifest' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress_gzip.sh {} \;
+find "$1" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.js' -o -name '*.keys' -o -name 'site.webmanifest' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress_zstd.sh {} \;
+find "$1" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.js' -o -name '*.keys' -o -name 'site.webmanifest' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress_brotli.sh {} \;
+find "$1" \( -name '*.age' -o -name '*.css' -o -name '*.gpg' -o -name '*.html' -o -name '*.js' -o -name '*.keys' -o -name 'site.webmanifest' -o -name 'sitemap.xml' -o -name '*.svg' -type f \) -exec scripts/compress_gzip.sh {} \;

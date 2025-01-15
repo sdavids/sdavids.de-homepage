@@ -9,7 +9,7 @@ max_line_length = 80
 [*.css]
 max_line_length = 80
 
-[*.mjs]
+[*.{js,mjs}]
 max_line_length = 80
 
 [*.{json,webmanifest}]
