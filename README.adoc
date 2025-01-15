@@ -69,6 +69,47 @@ $ npm run dev
 
 => http://localhost:3000[http://localhost:3000]
 
+=== Local Build
+
+[source,shell]
+----
+$ cd hp
+$ npm run build
+----
+
+=> `hp/dist`
+
+[NOTE]
+====
+[source,shell]
+
+----
+.../sdavids.de-homepage/hp/node_modules/.bin/lightningcss: line 1: This: command not found
+----
+
+This build relies on https://esbuild.github.io[esbuild] and https://lightningcss.dev[lightningcss].
+
+You either need to not ignore the https://docs.npmjs.com/cli/v10/using-npm/config#ignore-scripts[ pre- or post-scripts] when installing this project's dependencies:
+
+[source,shell]
+
+----
+$ cd hp
+$ rm -rf node_modules
+$ npm install --no-ignore-scripts
+----
+
+Or invoke esbuild's and lightningcss' post-install scripts explicitly:
+
+[source,shell]
+
+----
+$ cd hp
+$ node node_modules/esbuild/install.js
+$ node node_modules/lightningcss-cli/postinstall.js
+----
+====
+
 === Format Source Code
 
 [source,shell]
