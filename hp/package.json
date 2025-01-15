@@ -59,7 +59,10 @@
     "minify:svg": "scripts/minify_svg.sh dist",
     "minify:traffic-advice": "scripts/minify_traffic_advice.sh dist/.well-known/traffic-advice",
     "minify:webmanifest": "scripts/minify_webmanifest.sh dist/site.webmanifest",
-    "minify:xml": "scripts/minify_xml.sh dist"
+    "minify:xml": "scripts/minify_xml.sh dist",
+    "test": "vitest run",
+    "test:verbose": "vitest run --reporter verbose",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@commitlint/cli": "19.6.1",
@@ -77,6 +80,7 @@
     "eslint": "9.18.0",
     "eslint-plugin-compat": "6.0.2",
     "globals": "15.14.0",
+    "happy-dom": "16.6.0",
     "html-minifier-terser": "7.2.0",
     "htmlparser2": "10.0.0",
     "husky": "9.1.7",
@@ -87,7 +91,8 @@
     "prettier": "3.4.2",
     "prettier-plugin-tailwindcss": "0.6.10",
     "svgo": "3.3.2",
-    "tailwindcss": "3.4.17"
+    "tailwindcss": "3.4.17",
+    "vitest": "2.1.8"
   },
   "devEngines": {
     "runtime": {

@@ -89,4 +89,19 @@ export default [
     },
     name: 'sdavids/js/node',
   },
+  {
+    files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+    rules: {
+      'init-declarations': 'off',
+      'no-shadow': 'off',
+      'no-undefined': 'off',
+    },
+    name: 'sdavids/js/vitest',
+  },
 ];

@@ -81,6 +81,11 @@ jobs:
         name: Lint project files
         run: npm run lint
       - if: steps.changes.outputs.hp == 'true'
+        name: Run unit tests
+        run: npm run test
+        env:
+          VITEST_SKIP_INSTALL_CHECKS: 1
+      - if: steps.changes.outputs.hp == 'true'
         name: Build project
         run: npm run build
       - if: steps.changes.outputs.hp == 'true'
