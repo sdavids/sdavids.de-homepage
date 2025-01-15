@@ -17,8 +17,8 @@ export default [
   },
   {
     files: ['**/*.{js,mjs}'],
-    name: 'eslint/js/all',
     ...js.configs.all,
+    name: 'eslint/js/all',
   },
   {
     files: ['**/*.{js,mjs}'],
@@ -74,8 +74,8 @@ export default [
     plugins: {
       json,
     },
-    name: 'eslint/json/recommended',
     ...json.configs.recommended,
+    name: 'eslint/json/recommended',
   },
   {
     files: ['**/*.md'],
