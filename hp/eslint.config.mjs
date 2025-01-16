@@ -8,6 +8,7 @@ import js from '@eslint/js';
 import json from '@eslint/json';
 import markdown from '@eslint/markdown';
 import compat from 'eslint-plugin-compat';
+import vitest from '@vitest/eslint-plugin';
 
 // noinspection JSUnusedGlobalSymbols
 export default [
@@ -42,6 +43,16 @@ export default [
     files: ['src/j/*.js', 'src/j/**/*.js'],
     ...compat.configs['flat/recommended'],
     name: 'eslint/browser-compat',
+  },
+  {
+    files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
+    plugins: {
+      vitest,
+    },
+    rules: {
+      ...vitest.configs.recommended.rules,
+    },
+    name: 'eslint/vitest',
   },
   {
     files: ['**/*.{js,mjs}'],
