@@ -21,8 +21,30 @@ export default [
     name: 'eslint/js/all',
   },
   {
+    files: ['**/*.json'],
+    ignores: ['package-lock.json'],
+    language: 'json/json',
+    plugins: {
+      json,
+    },
+    ...json.configs.recommended,
+    name: 'eslint/json/recommended',
+  },
+  {
+    files: ['**/*.md'],
+    language: 'markdown/gfm',
+    plugins: {
+      markdown,
+    },
+    name: 'eslint/markdown/recommended',
+  },
+  {
+    files: ['src/j/*.js', 'src/j/**/*.js'],
+    ...compat.configs['flat/recommended'],
+    name: 'eslint/browser-compat',
+  },
+  {
     files: ['**/*.{js,mjs}'],
-    name: 'sdavids/defaults/js',
     rules: {
       'capitalized-comments': 'off',
       'func-names': ['error', 'always', { generators: 'as-needed' }],
@@ -43,11 +65,10 @@ export default [
       'sort-vars': 'off',
       radix: 'off',
     },
+    name: 'sdavids/js/defaults',
   },
   {
     files: ['src/j/*.js', 'src/j/**/*.js'],
-    ...compat.configs['flat/recommended'],
-    name: 'sdavids/js/web',
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -57,32 +78,15 @@ export default [
         ecmaVersion: 2021,
       },
     },
+    name: 'sdavids/js/browser',
   },
   {
     files: ['scripts/*.mjs'],
-    name: 'sdavids/js/nodejs',
     languageOptions: {
       globals: {
         ...globals.node,
       },
     },
-  },
-  {
-    files: ['**/*.json'],
-    ignores: ['package-lock.json'],
-    language: 'json/json',
-    plugins: {
-      json,
-    },
-    ...json.configs.recommended,
-    name: 'eslint/json/recommended',
-  },
-  {
-    files: ['**/*.md'],
-    language: 'markdown/gfm',
-    plugins: {
-      markdown,
-    },
-    name: 'eslint/markdown/recommended',
+    name: 'sdavids/js/node',
   },
 ];
