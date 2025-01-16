@@ -9,6 +9,7 @@ import json from '@eslint/json';
 import markdown from '@eslint/markdown';
 import compat from 'eslint-plugin-compat';
 import vitest from '@vitest/eslint-plugin';
+import testingLibrary from 'eslint-plugin-testing-library';
 
 // noinspection JSUnusedGlobalSymbols
 export default [
@@ -53,6 +54,11 @@ export default [
       ...vitest.configs.recommended.rules,
     },
     name: 'eslint/vitest',
+  },
+  {
+    files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
+    ...testingLibrary.configs['flat/dom'],
+    name: 'eslint/testing-library',
   },
   {
     files: ['**/*.{js,mjs}'],
