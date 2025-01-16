@@ -10,6 +10,7 @@ import markdown from '@eslint/markdown';
 import compat from 'eslint-plugin-compat';
 import vitest from '@vitest/eslint-plugin';
 import testingLibrary from 'eslint-plugin-testing-library';
+import jestDom from 'eslint-plugin-jest-dom';
 
 // noinspection JSUnusedGlobalSymbols
 export default [
@@ -59,6 +60,11 @@ export default [
     files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
     ...testingLibrary.configs['flat/dom'],
     name: 'eslint/testing-library',
+  },
+  {
+    files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
+    ...jestDom.configs['flat/all'],
+    name: 'eslint/jest-dom',
   },
   {
     files: ['**/*.{js,mjs}'],
