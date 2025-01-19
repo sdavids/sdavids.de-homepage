@@ -45,7 +45,7 @@ toc::[]
 
 == Development
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm install --no-ignore-scripts
@@ -55,7 +55,7 @@ $ npm install --no-ignore-scripts
 
 ==== Shell 1 - Tailwind CSS CLI build process
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm run dev:css
@@ -63,7 +63,7 @@ $ npm run dev:css
 
 ==== Shell 2 - Browsersync process
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm run dev
@@ -73,7 +73,7 @@ $ npm run dev
 
 === Local Build
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm run build
@@ -83,7 +83,7 @@ $ npm run build
 
 [NOTE]
 ====
-[source,shell]
+[,shell]
 
 ----
 .../sdavids.de-homepage/hp/node_modules/.bin/lightningcss: line 1: This: command not found
@@ -93,7 +93,7 @@ This build relies on https://esbuild.github.io[esbuild] and https://lightningcss
 
 You either need to not ignore the https://docs.npmjs.com/cli/v10/using-npm/config#ignore-scripts[ pre- or post-scripts] when installing this project's dependencies:
 
-[source,shell]
+[,shell]
 
 ----
 $ cd hp
@@ -103,7 +103,7 @@ $ npm install --no-ignore-scripts
 
 Or invoke esbuild's and lightningcss' post-install scripts explicitly:
 
-[source,shell]
+[,shell]
 
 ----
 $ cd hp
@@ -114,7 +114,7 @@ $ node node_modules/lightningcss-cli/postinstall.js
 
 === Format Source Code
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm run format
@@ -122,7 +122,7 @@ $ npm run format
 
 === Lint Source Code
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm run lint
@@ -134,7 +134,7 @@ $ npm run lint
 
 ==== Create CA and Certificate
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm run cert:ca:create
@@ -148,7 +148,7 @@ Ensure that you have modified your <<_dns>> settings to include `httpd.internal`
 
 ==== Create Base Docker Image
 
-[source,shell]
+[,shell]
 ----
 $ cd httpd
 $ scripts/docker_build.sh
@@ -156,7 +156,7 @@ $ scripts/docker_build.sh
 
 ==== Build And Start Apache HTTPD
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm run docker:httpd:start:with-build
@@ -166,7 +166,7 @@ $ npm run docker:httpd:start:with-build
 
 ==== Start Apache HTTPD Without a Build
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm run docker:httpd:start
@@ -176,7 +176,7 @@ $ npm run docker:httpd:start
 
 ==== Stop Apache HTTPD
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ npm run docker:httpd:stop
@@ -210,7 +210,7 @@ For more information, please see link:CODE_OF_CONDUCT.md[Code of Conduct].
 ====
 After initializing this repository you need to configure the https://git-scm.com/docs/git-config#Documentation/git-config.txt-blameignoreRevsFile[ignore-revs-file]:
 
-[source,shell]
+[,shell]
 ----
 $ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ----
@@ -223,7 +223,7 @@ $ git config blame.ignoreRevsFile .git-blame-ignore-revs
 Add `httpd.internal` to your `/etc/hosts`:
 
 ./etc/hosts
-[source,shell]
+[,shell]
 ----
 127.0.0.1       localhost httpd.internal
 ::1             localhost httpd.internal
@@ -246,13 +246,13 @@ ServerName httpd.internal:443
 ----
 
 .hp/scripts/docker_httpd_start.sh
-[source,shell]
+[,shell]
 ----
 readonly host_name='httpd.internal'
 ----
 
 .hp/package.json
-[source,shell]
+[,shell]
 ----
 …
   "scripts": {
@@ -287,7 +287,7 @@ https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - 
 ===== fnm
 
 .~/.zprofile
-[source,shell]
+[,shell]
 ----
 if command -v fnm >/dev/null 2>&1; then
   eval "$(fnm env --use-on-cd)"
@@ -295,7 +295,7 @@ fi
 ----
 
 .~/.config/husky/init.sh
-[source,shell]
+[,shell]
 ----
 #!/usr/bin/env sh
 
@@ -316,7 +316,7 @@ set -eu
 ===== nvm
 
 .~/.zshrc
-[source,shell]
+[,shell]
 ----
 export NVM_DIR="${HOME}/.nvm"
 
@@ -346,7 +346,7 @@ fi
 ----
 
 .~/.config/husky/init.sh
-[source,shell]
+[,shell]
 ----
 #!/usr/bin/env sh
 
@@ -378,7 +378,7 @@ fi
 
 =====  New Certificate
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ node --run cert:ca:create
@@ -387,7 +387,7 @@ $ node --run cert:create
 
 =====  Existing Certificate
 
-[source,shell]
+[,shell]
 ----
 $ cd hp
 $ node --run cert:copy
@@ -397,14 +397,14 @@ $ node --run cert:copy
 
 ===== Linux
 
-[source,shell]
+[,shell]
 ----
 $ sudo apt-get install jq
 ----
 
 ===== Mac
 
-[source,shell]
+[,shell]
 ----
 $ brew install jq
 ----
@@ -413,14 +413,14 @@ $ brew install jq
 
 ===== Linux
 
-[source,shell]
+[,shell]
 ----
 $ sudo apt-get install brotli
 ----
 
 ===== Mac
 
-[source,shell]
+[,shell]
 ----
 $ brew install brotli
 ----
@@ -429,14 +429,14 @@ $ brew install brotli
 
 ===== Linux
 
-[source,shell]
+[,shell]
 ----
 $ sudo apt-get install zstd
 ----
 
 ===== Mac
 
-[source,shell]
+[,shell]
 ----
 $ brew install zstd
 ----
@@ -445,14 +445,14 @@ $ brew install zstd
 
 ===== Linux
 
-[source,shell]
+[,shell]
 ----
 $ sudo apt-get install shellcheck
 ----
 
 ===== Mac
 
-[source,shell]
+[,shell]
 ----
 $ brew install shellcheck
 ----
@@ -461,14 +461,14 @@ $ brew install shellcheck
 
 ===== Linux
 
-[source,shell]
+[,shell]
 ----
 $ sudo apt-get install shfmt
 ----
 
 ===== Mac
 
-[source,shell]
+[,shell]
 ----
 $ brew install shfmt
 ----
@@ -477,14 +477,14 @@ $ brew install shfmt
 
 ===== Linux
 
-[source,shell]
+[,shell]
 ----
 $ sudo apt-get install yamllint
 ----
 
 ===== Mac
 
-[source,shell]
+[,shell]
 ----
 $ brew install yamllint
 ----
@@ -497,7 +497,7 @@ Install https://github.com/hadolint/hadolint?tab=readme-ov-file#install[hadolint
 
 ===== Mac
 
-[source,shell]
+[,shell]
 ----
 $ brew install hadolint
 ----
@@ -506,7 +506,7 @@ $ brew install hadolint
 
 ===== Linux
 
-[source,shell]
+[,shell]
 ----
 $ sudo apt-get install gpg
 ----
@@ -535,7 +535,7 @@ Install {easyrsa-install-url}[easyrsa].
 Unfortunately, homebrew provides `easy-rsa` version `3.2.0` at this point in time (August 2024).
 ====
 
-[source,shell]
+[,shell]
 ----
 $ curl -L https://github.com/OpenVPN/easy-rsa/releases/download/v3.1.7/EasyRSA-3.1.7.tgz -o ~/Downloads/easy-rsa.tgz
 $ tar -xzf ~/Downloads/easy-rsa.tgz -C ~/.local/share
