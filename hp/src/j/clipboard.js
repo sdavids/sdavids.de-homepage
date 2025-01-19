@@ -21,12 +21,13 @@ export const writeClipboardText = async (id) => {
       svgG.classList.remove('opacity-0');
     };
 
-    document.querySelectorAll('[data-type="copy-button"]').forEach(addOpacity0);
-
     const code = document.getElementById(`${id}-code`);
     if (code === null) {
       return;
     }
+
+    document.querySelectorAll('[data-type="copy-button"]').forEach(addOpacity0);
+
     try {
       await navigator.clipboard.writeText(
         code.textContent.trim().replace(/\s+/gu, ' '),
