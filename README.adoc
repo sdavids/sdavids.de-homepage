@@ -151,7 +151,7 @@ $ npm run cert:create
 
 [IMPORTANT]
 ====
-Ensure that you have modified your <<_dns>> settings to include `httpd.internal`.
+Ensure that you have modified your <<dns>> settings to include `httpd.internal`.
 ====
 
 ==== Create Base Docker Image
@@ -226,6 +226,7 @@ $ git config blame.ignoreRevsFile .git-blame-ignore-revs
 
 === Installation
 
+[#dns]
 ==== DNS
 
 Add `httpd.internal` to your `/etc/hosts`:
