@@ -21,7 +21,7 @@ const writeClipboardText = async (id) => {
       svgG.classList.remove('opacity-0');
     };
 
-    document.querySelectorAll('button.sd-copy').forEach(addOpacity0);
+    document.querySelectorAll('[data-type="copy-button"]').forEach(addOpacity0);
 
     const code = document.getElementById(`${id}-code`);
     if (code === null) {
