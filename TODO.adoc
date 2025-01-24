@@ -3,11 +3,7 @@
 = sdavids.de-homepage
 Sebastian Davids <sdavids@gmx.de>
 
-* tailwindcss >= 4
-+
-remove explicit lightningcss-cli step in build_css.sh, remove lightningcss-cli in package.json, and add `-m` to the tailwind-cli call
-
-* remove noscript from tailwind.config.mjs and noscript:hidden from index.html
+* TW 4.1: remove noscript from tailwind.config.mjs and noscript:hidden from index.html
 +
 https://github.com/tailwindlabs/tailwindcss/pull/11929
 
@@ -16,3 +12,13 @@ https://github.com/tailwindlabs/tailwindcss/pull/11929
 remove explicit query and replace with 'baseline widely available'
 +
 https://github.com/browserslist/browserslist/issues/771
+
+* Safari reports TW4 colors differently:
++
+[,console]
+----
+   Expected: "oklch(0.274 0.006 286.033)"
+   Received: "oklch(0.274 0.006 286.03299)"
+----
++
+enable e2e for Safari again once it has been fixed: hp/playwright.config.mjs

@@ -73,9 +73,6 @@ jobs:
         name: Post-install esbuild
         run: node node_modules/esbuild/install.js
       - if: steps.changes.outputs.hp == 'true'
-        name: Post-install lightningcss-cli
-        run: node node_modules/lightningcss-cli/postinstall.js
-      - if: steps.changes.outputs.hp == 'true'
         name: Check formatting
         run: node --run format:check
       - if: steps.changes.outputs.hp == 'true'
