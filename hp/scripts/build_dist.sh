@@ -30,7 +30,6 @@ else
   rm -rf node_modules
   npm ci --ignore-scripts=true --fund=false --audit=false
   node node_modules/esbuild/install.js
-  node node_modules/lightningcss-cli/postinstall.js
 fi
 
 node --run build
