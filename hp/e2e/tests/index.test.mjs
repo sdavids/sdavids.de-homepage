@@ -102,7 +102,7 @@ test.describe('homepage - light mode', () => {
   test('should have dark heading', async ({ page }) => {
     await expect(
       page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('rgb(17, 24, 39)');
+    ).toHaveColor('oklch(0.21 0.034 264.665)');
   });
 
   test('should have light background', async ({ page }) => {
@@ -122,12 +122,12 @@ test.describe('homepage - dark mode', () => {
   test('should have light heading', async ({ page }) => {
     await expect(
       page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('rgb(229, 231, 235)');
+    ).toHaveColor('oklch(0.928 0.006 264.531)');
   });
 
   test('should have dark background', async ({ page }) => {
     await expect(
       page.getByRole('article', { name: 'Sebastian Davids' }),
-    ).toHaveBackgroundColor('rgb(39, 39, 42)');
+    ).toHaveBackgroundColor('oklch(0.274 0.006 286.033)');
   });
 });
