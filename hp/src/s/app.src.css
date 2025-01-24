@@ -3,7 +3,11 @@ SPDX-FileCopyrightText: © 2022 Sebastian Davids <sdavids@gmx.de>
 SPDX-License-Identifier: Apache-2.0
 */
 
-@tailwind base;
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@config '../../tailwind.config.mjs';
 
 /* https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css */
 
@@ -14,7 +18,7 @@ SPDX-License-Identifier: Apache-2.0
     box-sizing: border-box;
     border-width: 0;
     border-style: solid;
-    border-color: theme('borderColor.DEFAULT', currentColor);
+    border-color: var(--color-gray-200, currentColor);
   }
 
   ::before,
@@ -94,6 +98,3 @@ SPDX-License-Identifier: Apache-2.0
     outline: auto;
   }
 }
-
-@tailwind components;
-@tailwind utilities;
