@@ -7,10 +7,6 @@ Sebastian Davids <sdavids@gmx.de>
 +
 https://github.com/conventional-changelog/commitlint/issues/2112
 
-* tailwindcss >= 4
-+
-remove explicit lightningcss-cli step in build_css.sh, remove lightningcss-cli in package.json, and add `-m` to the tailwind-cli call
-
 * remove noscript from tailwind.config.mjs and noscript:hidden from index.html
 +
 https://github.com/tailwindlabs/tailwindcss/pull/11929
@@ -24,3 +20,9 @@ https://github.com/browserslist/browserslist/issues/771
 * ES2022
 + update: hp/eslint.config.mjs, hp/jsconfig.json, and hp/scripts/build.sh
 + update hp/jsconfig.json: compilerOptions.module to ES2022
+
+* Safari reports TW4 colors differently:
++   Expected: "oklch(0.274 0.006 286.033)"
++   Received: "oklch(0.274 0.006 286.03299)"
++
++ enable e2e for Safari again once it has been fixed: hp/playwright.config.mjs

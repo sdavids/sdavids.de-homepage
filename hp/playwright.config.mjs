@@ -31,7 +31,10 @@ if (os.platform() === 'darwin') {
   const release = os.release();
   let major = release.split(/\./u, 1)[0];
   if (major !== release) {
-    major = Number(major);
+// TODO disable testing Safari for now:
+//     major = Number(major);
+    major = NaN
+//
     if (!isNaN(major) && major >= lastSupportedMacOsVersion) {
       projects.push({
         name: 'safari',
