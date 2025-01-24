@@ -16,7 +16,6 @@ export default {
         hoverOnlyWhenSupported: true,
       },
       screens: {
-        smh: { raw: '(max-height: 550px)' },
         noscript: { raw: '(scripting: none)' },
       },
     },
