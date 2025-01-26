@@ -81,6 +81,7 @@ export default [
       'no-param-reassign': 'off',
       'no-plusplus': 'off',
       'no-ternary': 'off',
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_$' }],
       'one-var': 'off',
       'prefer-destructuring': ['error', { object: true, array: false }],
       'sort-keys': 'off',
