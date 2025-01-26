@@ -13,4 +13,4 @@ if [ ! -d 'node_modules' ]; then
   npm ci --ignore-scripts=false --fund=false
 fi
 
-npx eslint --cache .
+npx eslint --report-unused-inline-configs error --cache .
