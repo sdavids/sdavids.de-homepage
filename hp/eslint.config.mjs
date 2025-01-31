@@ -11,6 +11,7 @@ import compat from 'eslint-plugin-compat';
 import vitest from '@vitest/eslint-plugin';
 import testingLibrary from 'eslint-plugin-testing-library';
 import jestDom from 'eslint-plugin-jest-dom';
+import playwright from 'eslint-plugin-playwright';
 
 // noinspection JSUnusedGlobalSymbols
 export default [
@@ -65,6 +66,14 @@ export default [
     files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
     ...jestDom.configs['flat/all'],
     name: 'eslint/jest-dom',
+  },
+  {
+    ...playwright.configs['flat/recommended'],
+    files: ['e2e-tests/*.test.mjs', 'e2e-tests/**/*.test.mjs'],
+    rules: {
+      ...playwright.configs['flat/recommended'].rules,
+    },
+    name: 'eslint/playwright',
   },
   {
     files: ['**/*.{js,mjs}'],

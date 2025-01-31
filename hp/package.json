@@ -90,6 +90,7 @@
     "eslint": "9.19.0",
     "eslint-plugin-compat": "6.0.2",
     "eslint-plugin-jest-dom": "5.5.0",
+    "eslint-plugin-playwright": "2.2.0",
     "eslint-plugin-testing-library": "7.1.1",
     "globals": "15.14.0",
     "happy-dom": "16.8.1",
