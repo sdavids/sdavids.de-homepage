@@ -27,6 +27,7 @@ jobs:
     defaults:
       run:
         working-directory: hp
+    timeout-minutes: 10
     steps:
       - name: Checkout
         # https://github.com/actions/checkout/releases
@@ -163,3 +164,13 @@ jobs:
           remote-host: ${{ steps.project.outputs.remote-host }}
           service-host: api-eu.ionos.space
           storage-quota: ${{ steps.project.outputs.storage-quota }}
+      - if: |
+          steps.changes.outputs.hp == 'true' &&
+          steps.project.outputs.deployment-enabled == 'true'
+        name: Install Playwright
+        run: npx playwright install --with-deps chromium-headless-shell
+      - if: |
+          steps.changes.outputs.hp == 'true' &&
+          steps.project.outputs.deployment-enabled == 'true'
+        name: Run e2e Smoke Tests
+        run: node --run e2e:smoke

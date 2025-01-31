@@ -51,6 +51,7 @@ $ cd hp
 $ npm install --no-ignore-scripts
 ----
 
+[#dev-server]
 === Development Server
 
 ==== Shell 1 - Tailwind CSS CLI build process
@@ -134,6 +135,43 @@ $ node --run lint
 ----
 $ cd hp
 $ node --run test
+----
+
+=== Run End-to-End Unit Tests
+
+[NOTE]
+====
+Ensure Playwright has been <<playwright,installed>>.
+====
+
+==== Running in Headless Mode
+
+Start a <<dev-server,development server>>; in a new shell:
+
+[,shell]
+----
+$ cd hp
+$ npm run e2e
+----
+
+==== Running in Headless Mode With Tracing
+
+Start a <<dev-server,development server>>; in a new shell:
+
+[,shell]
+----
+$ cd hp
+$ npm run e2e:trace
+----
+
+==== Running in UI Mode
+
+Start a <<dev-server,development server>>; in a new shell:
+
+[,shell]
+----
+$ cd hp
+$ npm run e2e:ui
 ----
 
 == Deployment
@@ -551,3 +589,23 @@ $ tar -xzf ~/Downloads/easy-rsa.tgz -C ~/.local/share
 $ mv  ~/.local/share/EasyRSA-3.1.7 ~/.local/share/easyrsa
 $ ln -s ~/.local/share/easyrsa/easyrsa ~/.local/bin/easyrsa
 ----
+
+[#playwright]
+==== Playwright
+
+[,shell]
+----
+$ cp hp
+$ npx playwright install --with-deps --no-shell
+----
+
+[NOTE]
+====
+You can delete all downloaded binaries via:
+
+[,shell]
+----
+$ npx playwright uninstall --all
+----
+====
+

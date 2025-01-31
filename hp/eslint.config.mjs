@@ -128,4 +128,16 @@ export default [
     },
     name: 'sdavids/js/vitest',
   },
+  {
+    files: ['playwright.config.mjs'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      'no-undefined': 'off',
+    },
+    name: 'sdavids/js/playwright',
+  },
 ];
