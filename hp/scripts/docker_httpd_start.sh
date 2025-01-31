@@ -7,7 +7,23 @@
 
 set -Eeu -o pipefail -o posix
 
-readonly skip_build="${1:-}"
+while getopts ':ds' opt; do
+  case "${opt}" in
+    d)
+      daemon='true'
+      ;;
+    s)
+      skip_build='true'
+      ;;
+    ?)
+      echo "Usage: $0 [-d] [-s]" >&2
+      exit 1
+      ;;
+  esac
+done
+
+readonly skip_build="${skip_build:-false}"
+readonly daemon="${daemon:-}"
 
 readonly http_port='8080'
 readonly https_port='8443'
@@ -33,7 +49,7 @@ readonly host_name='httpd.internal'
 # https://man.archlinux.org/man/grep.1
 if [ "$(grep -E -i -c "127\.0\.0\.1\s+localhost.+${host_name//\./\.}" /etc/hosts)" -eq 0 ]; then
   echo "/etc/hosts does not have an entry for '127.0.0.1 localhost ${host_name}'" >&2
-  exit 1
+  exit 2
 fi
 
 readonly network_name='sdavids.de-homepage'
@@ -44,12 +60,12 @@ readonly certs_dir="${PWD}/certs"
 
 if [ ! -d "${certs_dir}" ]; then
   printf "certificate directory '%s' does not exist\n" "${certs_dir}" >&2
-  exit 2
+  exit 3
 fi
 
 export CI=true
 
-if [ "${skip_build}" != '--skip-build' ]; then
+if [ "${skip_build}" = 'false' ]; then
   node --run clean
   rm -rf node_modules
   npm ci --ignore-scripts=true --fund=false --audit=false
@@ -79,31 +95,58 @@ docker network inspect "${network_name}" >/dev/null 2>&1 \
     --driver bridge "${network_name}" \
     --label "${label_group}=${namespace}" >/dev/null
 
-# to ensure ${label} is set, we use --label "${label}"
-# which might overwrite the label ${label_group} of the image
-docker container run \
-  --init \
-  --detach \
-  --interactive \
-  --tty \
-  --rm \
-  --user www-data \
-  --read-only \
-  --tmpfs /tmp:rw,noexec,nosuid \
-  --security-opt='no-new-privileges=true' \
-  --cap-add net_bind_service \
-  --cap-drop=all \
-  --network="${network_name}" \
-  --publish "${http_port}:80/tcp" \
-  --publish "${https_port}:443/tcp" \
-  --hostname="${host_name}" \
-  --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
-  --mount "type=bind,source=${certs_dir}/cert.pem,target=/usr/local/apache2/conf/server.crt,readonly" \
-  --mount "type=bind,source=${certs_dir}/key.pem,target=/usr/local/apache2/conf/server.key,readonly" \
-  --name "${container_name}" \
-  --label "${label}" \
-  "${image_name}:${tag}" \
-  httpd-foreground -C 'PidFile /tmp/httpd.pid' >/dev/null
+if [ "${daemon}" = 'true' ]; then
+  # to ensure ${label} is set, we use --label "${label}"
+  # which might overwrite the label ${label_group} of the image
+  docker container run \
+    --init \
+    --detach \
+    --interactive \
+    --tty \
+    --rm \
+    --user www-data \
+    --read-only \
+    --tmpfs /tmp:rw,noexec,nosuid \
+    --security-opt='no-new-privileges=true' \
+    --cap-add net_bind_service \
+    --cap-drop=all \
+    --network="${network_name}" \
+    --publish "${http_port}:80/tcp" \
+    --publish "${https_port}:443/tcp" \
+    --hostname="${host_name}" \
+    --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
+    --mount "type=bind,source=${certs_dir}/cert.pem,target=/usr/local/apache2/conf/server.crt,readonly" \
+    --mount "type=bind,source=${certs_dir}/key.pem,target=/usr/local/apache2/conf/server.key,readonly" \
+    --name "${container_name}" \
+    --label "${label}" \
+    "${image_name}:${tag}" \
+    httpd-foreground -C 'PidFile /tmp/httpd.pid' >/dev/null
 
-# https://googlechrome.github.io/lighthouse-ci/docs/configuration.html#startserverreadypattern
-printf '\nListen local: https://%s\n' "${host_name}:${https_port}"
+  # https://googlechrome.github.io/lighthouse-ci/docs/configuration.html#startserverreadypattern
+  printf '\nListen local: https://%s\n' "${host_name}:${https_port}"
+else
+  # to ensure ${label} is set, we use --label "${label}"
+  # which might overwrite the label ${label_group} of the image
+  docker container run \
+    --init \
+    --interactive \
+    --tty \
+    --rm \
+    --user www-data \
+    --read-only \
+    --tmpfs /tmp:rw,noexec,nosuid \
+    --security-opt='no-new-privileges=true' \
+    --cap-add net_bind_service \
+    --cap-drop=all \
+    --network="${network_name}" \
+    --publish "${http_port}:80/tcp" \
+    --publish "${https_port}:443/tcp" \
+    --hostname="${host_name}" \
+    --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
+    --mount "type=bind,source=${certs_dir}/cert.pem,target=/usr/local/apache2/conf/server.crt,readonly" \
+    --mount "type=bind,source=${certs_dir}/key.pem,target=/usr/local/apache2/conf/server.key,readonly" \
+    --name "${container_name}" \
+    --label "${label}" \
+    "${image_name}:${tag}" \
+    httpd-foreground -C 'PidFile /tmp/httpd.pid'
+fi
