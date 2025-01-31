@@ -87,7 +87,7 @@ if [ "${skip_build}" = 'false' ]; then
   node --run legal:robots
   node --run compress:files
   node --run create:google-verification-file
-  node --run create:timestamp-file -- dist/.deploy-timestamp
+  node --run create:timestamp-file
 fi
 
 docker network inspect "${network_name}" >/dev/null 2>&1 \

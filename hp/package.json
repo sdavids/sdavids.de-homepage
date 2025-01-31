@@ -32,7 +32,7 @@
     "create:google-verification-file": "scripts/create_google_verification_file.sh dist",
     "create:htaccess": "scripts/create_htaccess.sh",
     "create:security-txt-file": "scripts/create_security_txt_file.sh",
-    "create:timestamp-file": "scripts/create_timestamp_file.sh",
+    "create:timestamp-file": "scripts/create_timestamp_file.sh dist/.deploy-timestamp",
     "dependency:updates": "scripts/dependency_check_node.sh",
     "dev": "scripts/dev.sh",
     "dev:css": "scripts/dev_css.sh",

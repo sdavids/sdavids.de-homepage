@@ -58,7 +58,7 @@ $ npm install --no-ignore-scripts
 [,shell]
 ----
 $ cd hp
-$ npm run dev:css
+$ node --run dev:css
 ----
 
 ==== Shell 2 - Browsersync process
@@ -66,7 +66,7 @@ $ npm run dev:css
 [,shell]
 ----
 $ cd hp
-$ npm run dev
+$ node --run dev
 ----
 
 => http://localhost:3000[http://localhost:3000]
@@ -76,7 +76,7 @@ $ npm run dev
 [,shell]
 ----
 $ cd hp
-$ npm run build
+$ node --run build
 ----
 
 => `hp/dist`
@@ -117,7 +117,7 @@ $ node node_modules/lightningcss-cli/postinstall.js
 [,shell]
 ----
 $ cd hp
-$ npm run format
+$ node --run format
 ----
 
 === Lint Source Code
@@ -125,7 +125,7 @@ $ npm run format
 [,shell]
 ----
 $ cd hp
-$ npm run lint
+$ node --run lint
 ----
 
 === Run Unit Tests
@@ -133,7 +133,7 @@ $ npm run lint
 [,shell]
 ----
 $ cd hp
-$ npm run test
+$ node --run test
 ----
 
 == Deployment
@@ -145,8 +145,8 @@ $ npm run test
 [,shell]
 ----
 $ cd hp
-$ npm run cert:ca:create
-$ npm run cert:create
+$ node --run cert:ca:create
+$ node --run cert:create
 ----
 
 [IMPORTANT]
@@ -167,7 +167,7 @@ $ scripts/docker_build.sh
 [,shell]
 ----
 $ cd hp
-$ npm run docker:httpd:start:with-build
+$ node --run docker:httpd:start:with-build
 ----
 
 => https://httpd.internal:8443[https://httpd.internal:8443]
@@ -177,7 +177,7 @@ $ npm run docker:httpd:start:with-build
 [,shell]
 ----
 $ cd hp
-$ npm run docker:httpd:start
+$ node --run docker:httpd:start
 ----
 
 => https://httpd.internal:8443[https://httpd.internal:8443]
@@ -187,7 +187,7 @@ $ npm run docker:httpd:start
 [,shell]
 ----
 $ cd hp
-$ npm run docker:httpd:stop
+$ node --run docker:httpd:stop
 ----
 
 === Deployment to sdavids.de

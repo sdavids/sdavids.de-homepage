@@ -76,69 +76,69 @@ jobs:
         run: node node_modules/lightningcss-cli/postinstall.js
       - if: steps.changes.outputs.hp == 'true'
         name: Check formatting
-        run: npm run format:check
+        run: node --run format:check
       - if: steps.changes.outputs.hp == 'true'
         name: Lint project files
-        run: npm run lint
+        run: node --run lint
       - if: steps.changes.outputs.hp == 'true'
         name: Run unit tests
-        run: npm run test
+        run: node --run test
         env:
           VITEST_SKIP_INSTALL_CHECKS: 1
       - if: steps.changes.outputs.hp == 'true'
         name: Build project
-        run: npm run build
+        run: node --run build
       - if: steps.changes.outputs.hp == 'true'
         name: Hash CSS
-        run: npm run hash:css
+        run: node --run hash:css
       - if: steps.changes.outputs.hp == 'true'
         name: Hash JS
-        run: npm run hash:js
+        run: node --run hash:js
       - if: steps.changes.outputs.hp == 'true'
         name: Minify JSON-structured script tags
-        run: npm run minify:json-tags
+        run: node --run minify:json-tags
       - if: steps.changes.outputs.hp == 'true'
         name: Minify HTML
-        run: npm run minify:html
+        run: node --run minify:html
       - if: steps.changes.outputs.hp == 'true'
         name: Create .htaccess file
-        run: npm run create:htaccess
+        run: node --run create:htaccess
       - if: steps.changes.outputs.hp == 'true'
         name: Hash importmap
-        run: npm run hash:importmap
+        run: node --run hash:importmap
       - if: steps.changes.outputs.hp == 'true'
         name: Minify SVG
-        run: npm run minify:svg
+        run: node --run minify:svg
       - if: steps.changes.outputs.hp == 'true'
         name: Hash SVG
-        run: npm run hash:svg
+        run: node --run hash:svg
       - if: steps.changes.outputs.hp == 'true'
         name: Minify XML
-        run: npm run minify:xml
+        run: node --run minify:xml
       - if: steps.changes.outputs.hp == 'true'
         name: Minify webmanifest
-        run: npm run minify:webmanifest
+        run: node --run minify:webmanifest
       - if: steps.changes.outputs.hp == 'true'
         name: Minify traffic-advice
-        run: npm run minify:traffic-advice
+        run: node --run minify:traffic-advice
       - if: steps.changes.outputs.hp == 'true'
         name: Minify robots.txt
-        run: npm run minify:robots
+        run: node --run minify:robots
       - if: steps.changes.outputs.hp == 'true'
         name: Add legal notice to robots.txt
-        run: npm run legal:robots
+        run: node --run legal:robots
       - if: steps.changes.outputs.hp == 'true'
         name: Compress files
-        run: npm run compress:files
+        run: node --run compress:files
       - if: steps.changes.outputs.hp == 'true'
         name: Create Google Verification file
-        run: npm run create:google-verification-file
+        run: node --run create:google-verification-file
       - if: steps.changes.outputs.hp == 'true'
         name: Create timestamp file
-        run: npm run create:timestamp-file dist/.deploy-timestamp
+        run: node --run create:timestamp-file
       - if: steps.changes.outputs.hp == 'true'
         name: Run Lighthouse CI
-        run: npm run lighthouseci
+        run: node --run lighthouseci
       - if: steps.changes.outputs.hp == 'true'
         name: Fetch project data
         # https://github.com/ionos-deploy-now/retrieve-project-info-action/releases
