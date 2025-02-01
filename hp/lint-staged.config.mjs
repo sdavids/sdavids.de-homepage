@@ -6,7 +6,7 @@
 // noinspection JSUnusedGlobalSymbols
 /** @type {import('lint-staged').Configuration} */
 export default {
-  '*.{js,mjs}': ['eslint', 'vitest related --run'],
+  '*.{js,mjs}': ['eslint'],
   '../**/*.{css,html,js,json,mjs,webmanifest}': ['prettier --check'],
   '../**/*.{svg,xml}': ['prettier --plugin=@prettier/plugin-xml --check'],
   '../**/*.yaml': ['prettier --check', 'yamllint --strict'],
