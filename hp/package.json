@@ -68,6 +68,7 @@
     "minify:traffic-advice": "scripts/minify_traffic_advice.sh dist/.well-known/traffic-advice",
     "minify:webmanifest": "scripts/minify_webmanifest.sh dist/site.webmanifest",
     "minify:xml": "scripts/minify_xml.sh dist",
+    "start": "npx http-server dist --port 3000 --gzip --brotli --cors --utc --no-dotfiles",
     "test": "vitest run",
     "test:verbose": "vitest run --reporter verbose",
     "test:watch": "vitest"
@@ -100,6 +101,7 @@
     "happy-dom": "16.8.1",
     "html-minifier-terser": "7.2.0",
     "htmlparser2": "10.0.0",
+    "http-server": "14.1.1",
     "husky": "9.1.7",
     "is-ci": "4.1.0",
     "lightningcss-cli": "1.29.1",
