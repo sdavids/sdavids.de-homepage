@@ -37,13 +37,15 @@ let config = {
   ],
 };
 
-if (process.env.CI) {
+const shouldStartWebServer = process.env.CI || process.env.GIT_PUSH_HOOK;
+
+if (shouldStartWebServer) {
   config = {
     ...config,
     webServer: {
       command: 'node --run start',
       url: 'http://127.0.0.1:3000',
-      reuseExistingServer: !process.env.CI,
+      reuseExistingServer: !shouldStartWebServer,
     },
   };
 }

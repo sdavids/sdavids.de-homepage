@@ -4,3 +4,7 @@
 cd hp || exit 1
 
 node --run test >&2
+
+node --run build:dist:skip-install
+
+GIT_PUSH_HOOK=true node --run e2e
