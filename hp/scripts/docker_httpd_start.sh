@@ -63,31 +63,8 @@ if [ ! -d "${certs_dir}" ]; then
   exit 3
 fi
 
-export CI=true
-
 if [ "${skip_build}" = 'false' ]; then
-  node --run clean
-  rm -rf node_modules
-  npm ci --ignore-scripts=true --fund=false --audit=false
-  node node_modules/esbuild/install.js
-  node node_modules/lightningcss-cli/postinstall.js
-  node --run build
-  node --run hash:css
-  node --run hash:js
-  node --run minify:json-tags
-  node --run minify:html
-  node --run create:htaccess
-  node --run hash:importmap
-  node --run minify:svg
-  node --run hash:svg
-  node --run minify:xml
-  node --run minify:webmanifest
-  node --run minify:traffic-advice
-  node --run minify:robots
-  node --run legal:robots
-  node --run compress:files
-  node --run create:google-verification-file
-  node --run create:timestamp-file
+  node --run build:dist
 fi
 
 docker network inspect "${network_name}" >/dev/null 2>&1 \
