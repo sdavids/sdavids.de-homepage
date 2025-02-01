@@ -5,7 +5,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 // https://playwright.dev/docs/test-configuration
 
-const baseUrl = process.env.CI ? 'https://sdavids.de' : 'http://localhost:3000';
+const baseUrl = process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:3000';
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({

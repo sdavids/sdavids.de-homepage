@@ -172,5 +172,7 @@ jobs:
       - if: |
           steps.changes.outputs.hp == 'true' &&
           steps.project.outputs.deployment-enabled == 'true'
-        name: Run e2e Smoke Tests
+        name: Run Smoke Tests on Deployed Site
         run: node --run e2e:smoke
+        env:
+          PLAYWRIGHT_BASE_URL: https://sdavids.de
