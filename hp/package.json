@@ -43,6 +43,7 @@
     "docker:httpd:start:with-build": "scripts/docker_httpd_start.sh -d",
     "docker:httpd:stop": "scripts/docker_httpd_stop.sh",
     "e2e": "npx playwright test",
+    "e2e:failed": "npx playwright test --last-failed --trace on",
     "e2e:smoke": "npx playwright test --project smoke",
     "e2e:snapshots:update": "npx playwright test --update-snapshots",
     "e2e:trace": "npx playwright test --trace on",
