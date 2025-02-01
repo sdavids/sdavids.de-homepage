@@ -5,7 +5,7 @@ import { test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { expect } from '../util/colors.mjs';
 
-test.describe('homepage', () => {
+test.describe('homepage -  a11y', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
@@ -56,7 +56,7 @@ test.describe('homepage', () => {
   });
 });
 
-test.describe('homepage in light mode', () => {
+test.describe('homepage - light mode', () => {
   test.use({ colorScheme: 'light' });
 
   test.beforeEach(async ({ page }) => {
@@ -76,7 +76,7 @@ test.describe('homepage in light mode', () => {
   });
 });
 
-test.describe('homepage in dark mode', () => {
+test.describe('homepage - dark mode', () => {
   test.use({ colorScheme: 'dark' });
 
   test.beforeEach(async ({ page }) => {
