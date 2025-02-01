@@ -3,12 +3,10 @@
 
 import { defineConfig, devices } from '@playwright/test';
 
-// https://playwright.dev/docs/test-configuration
-
 const baseUrl = process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:3000';
 
-// noinspection JSUnusedGlobalSymbols
-export default defineConfig({
+// https://playwright.dev/docs/test-configuration
+let config = {
   testDir: 'e2e/tests',
   reporter: process.env.CI ? 'github' : 'html',
   forbidOnly: Boolean(process.env.CI),
@@ -23,12 +21,11 @@ export default defineConfig({
   projects: [
     {
       name: 'smoke',
+      use: { ...devices['Desktop Chrome'], channel: 'chromium' },
       testMatch: '**/*.smoke.test.mjs',
     },
-    // https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
     {
       name: 'chromium',
-      // https://playwright.dev/docs/browsers#chromium-new-headless-mode
       use: { ...devices['Desktop Chrome'], channel: 'chromium' },
       testIgnore: '**/*.smoke.test.mjs',
     },
@@ -38,4 +35,18 @@ export default defineConfig({
       testIgnore: '**/*.smoke.test.mjs',
     },
   ],
-});
+};
+
+if (process.env.CI) {
+  config = {
+    ...config,
+    webServer: {
+      command: 'node --run start',
+      url: 'http://127.0.0.1:3000',
+      reuseExistingServer: !process.env.CI,
+    },
+  };
+}
+
+// noinspection JSUnusedGlobalSymbols
+export default defineConfig(config);
