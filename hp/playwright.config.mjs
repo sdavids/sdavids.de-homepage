@@ -9,7 +9,7 @@ const baseUrl = process.env.CI ? 'https://sdavids.de' : 'http://localhost:3000';
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({
-  testDir: './e2e-tests',
+  testDir: 'e2e/tests',
   reporter: process.env.CI ? 'github' : 'html',
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,

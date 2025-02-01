@@ -69,7 +69,7 @@ export default [
   },
   {
     ...playwright.configs['flat/recommended'],
-    files: ['e2e-tests/*.test.mjs', 'e2e-tests/**/*.test.mjs'],
+    files: ['e2e/**/*.mjs'],
     rules: {
       ...playwright.configs['flat/recommended'].rules,
     },
@@ -138,7 +138,7 @@ export default [
     name: 'sdavids/js/vitest',
   },
   {
-    files: ['playwright.config.mjs'],
+    files: ['e2e/**/*.mjs', 'playwright.config.mjs'],
     languageOptions: {
       globals: {
         ...globals.node,
