@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { expect } from '../util/colors.mjs';
 
 test.describe('homepage', () => {
   test.beforeEach(async ({ page }) => {
@@ -52,5 +53,45 @@ test.describe('homepage', () => {
               - link "Gravatar"
         - paragraph: /© \\d+-\\d+ Sebastian Davids/
     `);
+  });
+});
+
+test.describe('homepage in light mode', () => {
+  test.use({ colorScheme: 'light' });
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
+  test('should have dark heading', async ({ page }) => {
+    await expect(
+      page.getByRole('heading', { name: 'Sebastian Davids' }),
+    ).toHaveColor('111827');
+  });
+
+  test('should have light background', async ({ page }) => {
+    await expect(
+      page.getByRole('article', { name: 'Sebastian Davids' }),
+    ).toHaveBackgroundColor('ffffff');
+  });
+});
+
+test.describe('homepage in dark mode', () => {
+  test.use({ colorScheme: 'dark' });
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
+  test('should have light heading', async ({ page }) => {
+    await expect(
+      page.getByRole('heading', { name: 'Sebastian Davids' }),
+    ).toHaveColor('e5e7eb');
+  });
+
+  test('should have dark background', async ({ page }) => {
+    await expect(
+      page.getByRole('article', { name: 'Sebastian Davids' }),
+    ).toHaveBackgroundColor('27272a');
   });
 });
