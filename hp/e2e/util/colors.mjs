@@ -3,33 +3,13 @@
 
 import { expect as baseExpect } from '@playwright/test';
 
-/**
- * @param {string} hex `#RRGGBB` or `RRGGBB`
- * @return {{red: number, green: number, blue: number}}
- */
-const convertHexToRGB = (hex) => {
-  hex = hex.replace(/^#/u, '');
-  const red = parseInt(hex.substring(0, 2), 16);
-  const green = parseInt(hex.substring(2, 4), 16);
-  const blue = parseInt(hex.substring(4, 6), 16);
-  return { red, green, blue };
-};
-
 export const expect = baseExpect.extend({
   /**
    * @param {import('@playwright/test').Locator} locator
-   * @param {string | {red: number, green: number, blue: number, alpha?: number}} expected
+   * @param {string} expected
    * @param {{ timeout?: number }} [options]
    */
   async toHaveColor(locator, expected, options) {
-    if (typeof expected === 'string') {
-      expected = convertHexToRGB(expected);
-    }
-    expected =
-      // eslint-disable-next-line eqeqeq,no-eq-null
-      expected.alpha == null
-        ? `rgb(${expected.red}, ${expected.green}, ${expected.blue})`
-        : `rgba(${expected.red}, ${expected.green}, ${expected.blue}, ${expected.alpha})`;
     const assertionName = 'toHaveColor';
     let pass = false;
     let matcherResult = null;
@@ -59,18 +39,10 @@ export const expect = baseExpect.extend({
   },
   /**
    * @param {import('@playwright/test').Locator} locator
-   * @param {string | {red: number, green: number, blue: number, alpha?: number}} expected
+   * @param {string} expected
    * @param {{ timeout?: number }} [options]
    */
   async toHaveBackgroundColor(locator, expected, options) {
-    if (typeof expected === 'string') {
-      expected = convertHexToRGB(expected);
-    }
-    expected =
-      // eslint-disable-next-line eqeqeq,no-eq-null
-      expected.alpha == null
-        ? `rgb(${expected.red}, ${expected.green}, ${expected.blue})`
-        : `rgba(${expected.red}, ${expected.green}, ${expected.blue}, ${expected.alpha})`;
     const assertionName = 'toHaveBackgroundColor';
     let pass = false;
     let matcherResult = null;

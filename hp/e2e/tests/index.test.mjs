@@ -66,13 +66,13 @@ test.describe('homepage - light mode', () => {
   test('should have dark heading', async ({ page }) => {
     await expect(
       page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('111827');
+    ).toHaveColor('rgb(17, 24, 39)');
   });
 
   test('should have light background', async ({ page }) => {
     await expect(
       page.getByRole('article', { name: 'Sebastian Davids' }),
-    ).toHaveBackgroundColor('ffffff');
+    ).toHaveBackgroundColor('rgb(255, 255, 255)');
   });
 });
 
@@ -86,12 +86,12 @@ test.describe('homepage - dark mode', () => {
   test('should have light heading', async ({ page }) => {
     await expect(
       page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('e5e7eb');
+    ).toHaveColor('rgb(229, 231, 235)');
   });
 
   test('should have dark background', async ({ page }) => {
     await expect(
       page.getByRole('article', { name: 'Sebastian Davids' }),
-    ).toHaveBackgroundColor('27272a');
+    ).toHaveBackgroundColor('rgb(39, 39, 42)');
   });
 });
