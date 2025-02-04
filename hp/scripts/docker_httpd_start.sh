@@ -54,9 +54,9 @@ fi
 
 readonly network_name='sdavids.de-homepage'
 
-readonly site_dir="${PWD}/dist"
+readonly site_dir="$PWD/dist"
 
-readonly certs_dir="${PWD}/certs"
+readonly certs_dir="$PWD/certs"
 
 if [ ! -d "${certs_dir}" ]; then
   printf "certificate directory '%s' does not exist\n" "${certs_dir}" >&2

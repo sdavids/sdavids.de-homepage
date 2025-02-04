@@ -7,6 +7,6 @@
 
 set -eu
 
-readonly base_dir="${PWD}"
+readonly base_dir="$PWD"
 
 hp/scripts/dependency_check_node.sh "${base_dir}/hp"
