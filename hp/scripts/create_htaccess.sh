@@ -11,6 +11,11 @@ readonly dist_dir="${base_dir}/dist"
 
 readonly htaccess_file="${dist_dir}/.htaccess"
 
+if [ ! -d "${base_dir}" ]; then
+  printf "The directory '%s' does not exist.\n" "${base_dir}" >&2
+  exit 1
+fi
+
 cp "${base_dir}/httpd/.htaccess" "${htaccess_file}"
 
 js_filename="$(find "${dist_dir}" -name 'app*.js' -type f -exec basename {} \;)"
@@ -18,7 +23,7 @@ readonly js_filename
 
 if [ -z "${js_filename}" ]; then
   echo 'app.*.js not found'
-  exit 1
+  exit 2
 fi
 
 css_filename="$(find "${dist_dir}" -name 'app*.css' -type f -exec basename {} \;)"
@@ -26,7 +31,7 @@ readonly css_filename
 
 if [ -z "${css_filename}" ]; then
   echo 'app.*.css not found'
-  exit 2
+  exit 3
 fi
 
 if [ "$(uname)" = 'Darwin' ]; then

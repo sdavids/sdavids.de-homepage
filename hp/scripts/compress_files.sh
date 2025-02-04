@@ -11,7 +11,7 @@ if [ -z "$*" ]; then
 fi
 
 if [ ! -d "$1" ]; then
-  echo "'$1' does not exist or is not a directory" >&2
+  printf "The directory '%s' does not exist.\n" "$1" >&2
   exit 2
 fi
 

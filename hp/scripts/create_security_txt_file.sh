@@ -13,6 +13,11 @@ set -eu
 
 readonly base_dir="${1:-$PWD/src/.well-known}"
 
+if [ ! -d "${base_dir}" ]; then
+  printf "The directory '%s' does not exist.\n" "${base_dir}" >&2
+  exit 1
+fi
+
 readonly email='security@sdavids.de'
 readonly fingerprint='3B051F8EAA0B63D17220168C99A97C778DCDF19F'
 readonly security_txt_file="${base_dir}/security.txt"
