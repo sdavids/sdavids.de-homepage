@@ -71,7 +71,6 @@ readonly commit
 # shellcheck disable=SC2086
 docker image build \
   ${no_cache} \
-  --compress \
   --tag "${image_name}:latest" \
   --tag "${image_name}:${tag}" \
   --label "${label_group}=${repository}" \
