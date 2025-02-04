@@ -7,7 +7,7 @@ set -eu
 
 readonly container_name='sdavids.de-homepage'
 
-docker exec \
+docker container exec \
   --interactive \
   --tty \
   "${container_name}" \
