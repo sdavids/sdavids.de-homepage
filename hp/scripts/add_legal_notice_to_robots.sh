@@ -9,5 +9,10 @@ readonly base_dir="${1:-$PWD/dist}"
 
 readonly file="${base_dir}/robots.txt"
 
+if [ ! -f "${file}" ]; then
+  printf "'%s' does not exist.\n" "${file}" >&2
+  exit 1
+fi
+
 printf '\n# Legal notice: sdavids.de expressly reserves the right to use its content for commercial text and data mining (§ 44b Urheberrechtsgesetz).\n# The use of robots or other automated means to access sdavids.de or collect or mine data without the express permission of sdavids.de is strictly prohibited.\n# sdavids.de may, in its discretion, permit certain automated access to certain sdavids.de pages,\n# if you would like to apply for permission to crawl sdavids.de, collect or use data, please email info@sdavids.de\n' \
   >>"${file}"
