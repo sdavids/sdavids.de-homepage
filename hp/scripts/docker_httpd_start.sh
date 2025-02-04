@@ -67,6 +67,11 @@ if [ "${skip_build}" = 'false' ]; then
   node --run build:dist
 fi
 
+if [ ! -d "${site_dir}" ]; then
+  printf "site directory '%s' does not exist; run this command again without '-s'.\n" "${site_dir}" >&2
+  exit 4
+fi
+
 docker network inspect "${network_name}" >/dev/null 2>&1 \
   || docker network create \
     --driver bridge "${network_name}" \
@@ -99,8 +104,21 @@ if [ "${daemon}" = 'true' ]; then
     "${image_name}:${tag}" \
     httpd-foreground -C 'PidFile /tmp/httpd.pid' >/dev/null
 
+  readonly url="https://${host_name}:${https_port}"
+
   # https://googlechrome.github.io/lighthouse-ci/docs/configuration.html#startserverreadypattern
-  printf '\nListen local: https://%s\n' "${host_name}:${https_port}"
+  printf '\nListen local: %s\n' "${url}"
+
+  if command -v pbcopy >/dev/null 2>&1; then
+    printf '%s' "${url}" | pbcopy
+    printf '\nThe URL has been copied to the clipboard.\n'
+  elif command -v xclip >/dev/null 2>&1; then
+    printf '%s' "${url}" | xclip -selection clipboard
+    printf '\nThe URL has been copied to the clipboard.\n'
+  elif command -v wl-copy >/dev/null 2>&1; then
+    printf '%s' "${url}" | wl-copy
+    printf '\nThe URL has been copied to the clipboard.\n'
+  fi
 else
   # to ensure ${label} is set, we use --label "${label}"
   # which might overwrite the label ${label_group} of the image
