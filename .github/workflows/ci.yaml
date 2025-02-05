@@ -138,6 +138,14 @@ jobs:
         name: Create timestamp file
         run: node --run create:timestamp-file
       - if: steps.changes.outputs.hp == 'true'
+        name: Check Links
+        # https://github.com/lycheeverse/lychee-action
+        uses: lycheeverse/lychee-action@v2.3.0
+        with:
+          # https://github.com/lycheeverse/lychee/releases
+          lycheeVersion: v0.18.0
+          args: --no-progress --require-https 'hp/dist/**/*.html'
+      - if: steps.changes.outputs.hp == 'true'
         name: Run Lighthouse CI
         run: node --run lighthouseci
       - if: steps.changes.outputs.hp == 'true'
