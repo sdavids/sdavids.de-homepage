@@ -30,7 +30,7 @@ export const writeClipboardText = async (id) => {
 
     try {
       await navigator.clipboard.writeText(
-        code.textContent.trim().replace(/\s+/gu, ' '),
+        code.textContent?.trim().replace(/\s+/gu, ' ') ?? '',
       );
       const btn = document.getElementById(`${id}-btn`);
       if (btn === null) {
