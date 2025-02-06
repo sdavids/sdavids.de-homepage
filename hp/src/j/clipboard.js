@@ -2,18 +2,18 @@
 // SPDX-License-Identifier: Apache-2.0
 
 // eslint-disable-next-line init-declarations
-let copiedTimeout;
+/** @type {number}*/ let copiedTimeout;
 
-export const writeClipboardText = async (id) => {
+export const writeClipboardText = async (/** @type {string}*/ id) => {
   if (window.isSecureContext && navigator.clipboard) {
-    const addOpacity0 = (element) => {
+    const addOpacity0 = (/** @type {Element}*/ element) => {
       const svgG = element.querySelector('g');
       if (svgG === null) {
         return;
       }
       svgG.classList.add('opacity-0');
     };
-    const removeOpacity0 = (element) => {
+    const removeOpacity0 = (/** @type {Element}*/ element) => {
       const svgG = element.querySelector('g');
       if (svgG === null) {
         return;

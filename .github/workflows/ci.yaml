@@ -82,6 +82,9 @@ jobs:
         name: Lint project files
         run: node --run lint
       - if: steps.changes.outputs.hp == 'true'
+        name: Typecheck project files
+        run: node --run check:types
+      - if: steps.changes.outputs.hp == 'true'
         name: Run unit tests
         run: node --run test
         env:

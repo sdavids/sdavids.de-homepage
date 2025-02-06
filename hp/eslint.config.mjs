@@ -86,6 +86,7 @@ export default [
       'max-params': 'off',
       'max-statements': 'off',
       'no-continue': 'off',
+      'no-inline-comments': 'off',
       'no-magic-numbers': 'off',
       'no-param-reassign': 'off',
       'no-plusplus': 'off',
@@ -107,7 +108,8 @@ export default [
         ...globals.browser,
       },
       parserOptions: {
-        // align with esbuild_target in build.sh
+        // align with esbuild_target in build.sh and
+        // compilerOptions.target in jsconfig.json
         ecmaVersion: 2021,
       },
     },

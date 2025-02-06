@@ -20,6 +20,7 @@
     "build:css": "scripts/build_css.sh",
     "build:dist": "scripts/build_dist.sh",
     "build:dist:skip-install": "scripts/build_dist.sh -s",
+    "check:types": "tsc --project jsconfig.json",
     "cert:ca:copy-root": "scripts/copy_ca_root_cert.sh",
     "cert:ca:create": "scripts/create_ca.sh",
     "cert:ca:delete": "scripts/delete_ca.sh",
@@ -112,6 +113,7 @@
     "prettier-plugin-tailwindcss": "0.6.11",
     "svgo": "3.3.2",
     "tailwindcss": "3.4.17",
+    "typescript": "5.7.3",
     "vitest": "3.0.5"
   },
   "devEngines": {

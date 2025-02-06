@@ -3,9 +3,10 @@
 
 import { writeClipboardText } from './clipboard.js';
 
-export const configureCopyButton = (id) => {
-  /** @type HTMLButtonElement */
-  const btn = document.getElementById(`${id}-btn`);
+export const configureCopyButton = (/** @type {string}*/ id) => {
+  const btn = /** @type {HTMLButtonElement} */ (
+    document.getElementById(`${id}-btn`)
+  );
   if (btn === null) {
     return;
   }

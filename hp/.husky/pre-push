@@ -3,6 +3,8 @@
 
 cd hp || exit 1
 
+node --run check:types >&2
+
 node --run test >&2
 
 node --run build:dist:skip-install

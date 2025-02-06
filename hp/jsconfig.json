@@ -1,0 +1,18 @@
+{
+  "include": ["src/j"],
+  "compilerOptions": {
+    "checkJs": true,
+    "target": "ES2021",
+    "module": "ES2020",
+    "types": [],
+    "strict": true,
+    "noEmit": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildcache",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
+  }
+}

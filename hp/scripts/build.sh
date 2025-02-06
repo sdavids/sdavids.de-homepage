@@ -18,7 +18,8 @@ if [ ! -d 'node_modules' ]; then
   npm ci --ignore-scripts=false --fund=false
 fi
 
-# align with parserOptions.ecmaVersion in eslint.config.mjs
+# align with parserOptions.ecmaVersion in eslint.config.mjs and
+# compilerOptions.target in jsconfig.json
 readonly esbuild_target="${1:-es2021}"
 readonly dir='dist'
 

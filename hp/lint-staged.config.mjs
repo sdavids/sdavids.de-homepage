@@ -7,6 +7,7 @@
 /** @type {import('lint-staged').Configuration} */
 export default {
   '*.{js,mjs}': ['eslint'],
+  'src/j/**/*.js': [() => 'tsc --project jsconfig.json'],
   '../**/*.{css,html,js,json,mjs,webmanifest}': ['prettier --check'],
   '../**/*.{svg,xml}': ['prettier --plugin=@prettier/plugin-xml --check'],
   '../**/*.yaml': ['prettier --check', 'yamllint --strict'],
