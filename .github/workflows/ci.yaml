@@ -21,7 +21,7 @@ jobs:
   # so use one big one to save GH Action minutes
   # https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions
   lint-build-deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     defaults:
