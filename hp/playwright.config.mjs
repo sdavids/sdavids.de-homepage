@@ -34,6 +34,11 @@ let config = {
       use: { ...devices['Desktop Firefox'] },
       testIgnore: '**/*.smoke.test.mjs',
     },
+    {
+      name: 'safari',
+      use: { ...devices['Desktop Safari'] },
+      testIgnore: '**/*.smoke.test.mjs',
+    },
   ],
 };
 
