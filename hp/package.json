@@ -88,7 +88,7 @@
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.6.3",
     "@types/node": "22.13.1",
-    "@vitest/eslint-plugin": "1.1.25",
+    "@vitest/eslint-plugin": "1.1.28",
     "browser-sync": "3.0.3",
     "browserslist": "4.24.4",
     "dom-serializer": "2.0.0",
