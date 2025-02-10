@@ -18,7 +18,7 @@ if [ ! -d 'node_modules' ]; then
   npm ci --ignore-scripts=false --fund=false
 fi
 
-npx --yes --quiet tailwindcss -c tailwind.config.mjs -i src/s/app.src.css -o src/s/app.css.tmp
+npx --yes --quiet tailwindcss --config tailwind.config.mjs --input src/s/app.src.css --output src/s/app.css.tmp
 
 npx --yes --quiet lightningcss --browserslist --minify src/s/app.css.tmp --output-file src/s/app.css
 
