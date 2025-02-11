@@ -1,11 +1,47 @@
 // SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
+import os from 'node:os';
 import { defineConfig, devices } from '@playwright/test';
 
 const baseUrl = process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:3000';
 
 // https://playwright.dev/docs/test-configuration
+const projects = [
+  {
+    name: 'smoke',
+    use: { ...devices['Desktop Chrome'], channel: 'chromium' },
+    testMatch: '**/*.smoke.test.mjs',
+  },
+  {
+    name: 'chromium',
+    use: { ...devices['Desktop Chrome'], channel: 'chromium' },
+    testIgnore: '**/*.smoke.test.mjs',
+  },
+  {
+    name: 'firefox',
+    use: { ...devices['Desktop Firefox'] },
+    testIgnore: '**/*.smoke.test.mjs',
+  },
+];
+
+// https://endoflife.date/macos
+const lastSupportedMacOsVersion = 22;
+if (os.platform() === 'darwin') {
+  const release = os.release();
+  let major = release.split(/\./u, 1)[0];
+  if (major !== release) {
+    major = Number(major);
+    if (!isNaN(major) && major >= lastSupportedMacOsVersion) {
+      projects.push({
+        name: 'safari',
+        use: { ...devices['Desktop Safari'] },
+        testIgnore: '**/*.smoke.test.mjs',
+      });
+    }
+  }
+}
+
 let config = {
   testDir: 'e2e/tests',
   reporter: process.env.CI ? 'github' : 'html',
@@ -18,28 +54,7 @@ let config = {
     timezoneId: 'Europe/Berlin',
     trace: 'on-first-retry',
   },
-  projects: [
-    {
-      name: 'smoke',
-      use: { ...devices['Desktop Chrome'], channel: 'chromium' },
-      testMatch: '**/*.smoke.test.mjs',
-    },
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'], channel: 'chromium' },
-      testIgnore: '**/*.smoke.test.mjs',
-    },
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-      testIgnore: '**/*.smoke.test.mjs',
-    },
-    {
-      name: 'safari',
-      use: { ...devices['Desktop Safari'] },
-      testIgnore: '**/*.smoke.test.mjs',
-    },
-  ],
+  projects,
 };
 
 const shouldStartWebServer = process.env.CI || process.env.GIT_PUSH_HOOK;
