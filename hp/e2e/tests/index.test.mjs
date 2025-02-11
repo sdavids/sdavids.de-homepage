@@ -27,7 +27,7 @@ test.describe('homepage -  a11y', () => {
             - link "sebastian@sdavids.de"
           - region "iMessage":
             - heading "iMessage" [level=2]
-            - text: APKTIDVw2zk8ZQeSkpWLUD9UGI hH00TtYdMRkryMUZUtBJRxeCSA
+            - text: APKTIDVw2zk8ZQeSkpWLUD9UGIhH00TtYdMRkryMUZUtBJRxeCSA
             - group:
               - heading "Usage" [level=3]
           - region "GPG":
