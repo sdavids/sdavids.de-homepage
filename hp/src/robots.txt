@@ -15,6 +15,10 @@
 User-agent: AhrefsBot
 Disallow: /
 
+# https://darkvisitors.com/agents/ai2bot
+User-agent: AI2Bot
+Disallow: /
+
 # https://darkvisitors.com/agents/anthropic-ai
 User-agent: anthropic-ai
 Disallow: /
@@ -49,6 +53,10 @@ Disallow: /
 
 # https://darkvisitors.com/agents/cohere-ai
 User-agent: cohere-ai
+Disallow: /
+
+# https://darkvisitors.com/agents/cohere-training-data-crawler
+User-agent: cohere-training-data-crawler
 Disallow: /
 
 # https://darkvisitors.com/agents/dataforseobot
@@ -97,6 +105,14 @@ Disallow: /
 
 # https://darkvisitors.com/agents/omgilibot
 User-agent: omgilibot
+Disallow: /
+
+# https://darkvisitors.com/agents/pangubot
+User-agent: PanguBot
+Disallow: /
+
+# https://darkvisitors.com/agents/kangaroo-bot
+User-agent: Kangaroo Bot
 Disallow: /
 
 # https://darkvisitors.com/agents/semrushbot
