@@ -6,6 +6,8 @@
 import globals from 'globals';
 import js from '@eslint/js';
 import json from '@eslint/json';
+import css from '@eslint/css';
+import { tailwindSyntax } from '@eslint/css/syntax';
 import markdown from '@eslint/markdown';
 import compat from 'eslint-plugin-compat';
 import vitest from '@vitest/eslint-plugin';
@@ -33,6 +35,19 @@ export default [
     },
     ...json.configs.recommended,
     name: 'eslint/json/recommended',
+  },
+  {
+    files: ['**/*.css'],
+    ignores: ['src/s/app.css', 'src/s/app.css.tmp'],
+    plugins: {
+      css,
+    },
+    language: 'css/css',
+    languageOptions: {
+      customSyntax: tailwindSyntax,
+    },
+    ...css.configs.recommended,
+    name: 'eslint/css/recommended',
   },
   {
     files: ['**/*.md'],
