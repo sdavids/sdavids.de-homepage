@@ -18,4 +18,4 @@ if [ ! -d 'node_modules' ]; then
   npm ci --ignore-scripts=false --fund=false
 fi
 
-npx --yes --quiet tailwindcss --config tailwind.config.mjs --input src/s/app.src.css --output src/s/app.css -w
+npx --yes --quiet tailwindcss --config tailwind.config.mjs --input src/s/app.src.css --output src/s/app.css --watch
