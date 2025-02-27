@@ -9,17 +9,13 @@ SPDX-License-Identifier: Apache-2.0
 
 @layer base {
   *,
-  ::before,
-  ::after {
+  ::after,
+  ::before {
     box-sizing: border-box;
-    border-width: 0;
-    border-style: solid;
-    border-color: theme('borderColor.DEFAULT', currentColor);
-  }
-
-  ::before,
-  ::after {
-    --tw-content: '';
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+    border-color: var(--color-gray-200, currentColor);
   }
 
   /* https://dev.to/colingourlay/how-to-support-apple-s-dynamic-text-in-your-web-content-with-css-40c0 */
@@ -36,24 +32,14 @@ SPDX-License-Identifier: Apache-2.0
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     font-family:
-      ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue',
-      'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji',
-      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+      ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial,
+      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+      'Noto Color Emoji';
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
     line-height: inherit;
-  }
-
-  body,
-  h1,
-  h2,
-  h3,
-  ol,
-  p,
-  ul {
-    margin: 0;
   }
 
   h1,
@@ -62,21 +48,16 @@ SPDX-License-Identifier: Apache-2.0
     font-weight: inherit;
   }
 
-  ol,
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  svg {
-    display: block;
+  a {
+    color: inherit;
+    text-decoration: inherit;
   }
 
   code {
     font-family:
       ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
       'Courier New', monospace;
-    font-size: 1rem;
+    font-size: 1em;
   }
 
   summary {
@@ -87,13 +68,13 @@ SPDX-License-Identifier: Apache-2.0
     display: inline;
   }
 
-  a {
-    color: inherit;
-    text-decoration: inherit;
+  ol,
+  ul {
+    list-style: none;
   }
 
-  :-moz-focusring {
-    outline: auto;
+  svg {
+    display: block;
   }
 }
 
