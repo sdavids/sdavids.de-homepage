@@ -84,7 +84,7 @@
     "@eslint/json": "0.10.0",
     "@eslint/markdown": "6.3.0",
     "@lhci/cli": "0.14.0",
-    "@playwright/test": "1.50.1",
+    "@playwright/test": "1.51.0",
     "@prettier/plugin-xml": "3.4.1",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.6.3",
