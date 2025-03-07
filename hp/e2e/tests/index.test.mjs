@@ -17,7 +17,8 @@ test.describe('homepage -  a11y', () => {
     expect(accessibilityScanResults.violations).toEqual([]);
   });
 
-  test('should have stable aria tree', async ({ page }) => {
+  test('should have stable aria tree - desktop', async ({ page, isMobile }) => {
+    test.skip(isMobile);
     await expect(page.getByRole('main')).toMatchAriaSnapshot(`
       - main:
         - article "Sebastian Davids":
@@ -42,6 +43,41 @@ test.describe('homepage -  a11y', () => {
             - link "age public key"
             - group:
               - heading "Usage" [level=3]
+    `);
+    await expect(page.getByRole('contentinfo')).toMatchAriaSnapshot(`
+      - contentinfo:
+        - navigation "social links":
+          - list:
+            - listitem:
+              - link "GitHub"
+            - listitem:
+              - link "Gravatar"
+        - paragraph: /© \\d+-\\d+ Sebastian Davids/
+    `);
+  });
+
+  test('should have stable aria tree - mobile', async ({ page, isMobile }) => {
+    test.skip(!isMobile);
+    await expect(page.getByRole('main')).toMatchAriaSnapshot(`
+      - main:
+        - article "Sebastian Davids":
+          - heading "Sebastian Davids" [level=1]
+          - region "Email address":
+            - heading "Email address" [level=2]
+            - link "sebastian@sdavids.de"
+          - region "iMessage":
+            - heading "iMessage" [level=2]
+            - text: APKTIDVw2zk8ZQeSkpWLUD9UGIhH00TtYdMRkryMUZUtBJRxeCSA
+            - group:
+              - heading "Usage" [level=3]
+          - region "GPG":
+            - heading "GPG" [level=2]
+            - link "GPG public key": Public key
+            - link "keys.openpgp.org"
+            - text: 3B05 1F8E AA0B 63D1 7220\\a 168C 99A9 7C77 8DCD F19F
+          - region "age":
+            - heading "age" [level=2]
+            - link "age public key": Public key
     `);
     await expect(page.getByRole('contentinfo')).toMatchAriaSnapshot(`
       - contentinfo:

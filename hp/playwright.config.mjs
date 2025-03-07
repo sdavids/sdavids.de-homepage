@@ -19,6 +19,18 @@ const projects = [
     testIgnore: '**/*.smoke.test.mjs',
   },
   {
+    name: 'chromium-mobile',
+    // https://endoflife.date/pixel
+    use: { ...devices['Pixel 7'], channel: 'chromium' },
+    testIgnore: '**/*.smoke.test.mjs',
+  },
+  {
+    name: 'chromium-mobile-landscape',
+    // https://endoflife.date/pixel
+    use: { ...devices['Pixel 7 landscape'], channel: 'chromium' },
+    testIgnore: '**/*.smoke.test.mjs',
+  },
+  {
     name: 'firefox',
     use: { ...devices['Desktop Firefox'] },
     testIgnore: '**/*.smoke.test.mjs',
@@ -36,6 +48,18 @@ if (os.platform() === 'darwin') {
       projects.push({
         name: 'safari',
         use: { ...devices['Desktop Safari'] },
+        testIgnore: '**/*.smoke.test.mjs',
+      });
+      projects.push({
+        name: 'safari-mobile',
+        // https://endoflife.date/iphone
+        use: { ...devices['iPhone 11'] },
+        testIgnore: '**/*.smoke.test.mjs',
+      });
+      projects.push({
+        name: 'safari-mobile-landscape',
+        // https://endoflife.date/iphone
+        use: { ...devices['iPhone 11 landscape'] },
         testIgnore: '**/*.smoke.test.mjs',
       });
     }
