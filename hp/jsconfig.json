@@ -8,7 +8,7 @@
     "strict": true,
     "noEmit": true,
     "incremental": true,
-    "tsBuildInfoFile": ".tsbuildcache",
+    "tsBuildInfoFile": "node_modules/.tmp/tsc/.tsbuildcache",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noPropertyAccessFromIndexSignature": true,

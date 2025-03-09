@@ -14,7 +14,6 @@ readonly generated_app_css_file="${base_dir}/src/s/app.css"
 readonly lighthouseci_dir="${base_dir}/.lighthouseci"
 readonly playwright_test_results_dir="${base_dir}/test-results"
 readonly playwright_reports_dir="${base_dir}/playwright-report"
-readonly typescript_build_cache_file="${base_dir}/.tsbuildcache"
 
 rm -rf "${build_dir}" \
   "${eslint_cache_file}" \
@@ -22,5 +21,4 @@ rm -rf "${build_dir}" \
   "${generated_app_css_file}" \
   "${lighthouseci_dir}" \
   "${playwright_test_results_dir}" \
-  "${playwright_reports_dir}" \
-  "${typescript_build_cache_file}"
+  "${playwright_reports_dir}"
