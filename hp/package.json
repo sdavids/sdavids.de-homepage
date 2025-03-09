@@ -20,7 +20,7 @@
     "build:css": "scripts/build_css.sh",
     "build:dist": "scripts/build_dist.sh",
     "build:dist:skip-install": "scripts/build_dist.sh -s",
-    "check:types": "tsc --project jsconfig.json",
+    "check:types": "tsc --project jsconfig.prod.json",
     "cert:ca:copy-root": "scripts/copy_ca_root_cert.sh",
     "cert:ca:create": "scripts/create_ca.sh",
     "cert:ca:delete": "scripts/delete_ca.sh",

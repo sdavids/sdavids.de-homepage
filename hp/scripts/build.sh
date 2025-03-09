@@ -19,7 +19,7 @@ if [ ! -d 'node_modules' ]; then
 fi
 
 # align with parserOptions.ecmaVersion in eslint.config.mjs and
-# compilerOptions.target in jsconfig.json
+# compilerOptions.target and .lib in jsconfig.json
 readonly esbuild_target="${1:-es2021}"
 readonly dir='dist'
 

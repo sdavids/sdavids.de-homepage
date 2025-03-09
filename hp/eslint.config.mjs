@@ -124,7 +124,7 @@ export default [
       },
       parserOptions: {
         // align with esbuild_target in build.sh and
-        // compilerOptions.target in jsconfig.json
+        // compilerOptions.target and .lib in jsconfig.json
         ecmaVersion: 2021,
       },
     },
