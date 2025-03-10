@@ -87,6 +87,12 @@ export default [
     files: ['e2e/**/*.mjs'],
     rules: {
       ...playwright.configs['flat/recommended'].rules,
+      'playwright/no-skipped-test': [
+        'error',
+        {
+          allowConditional: true,
+        },
+      ],
     },
     name: 'eslint/playwright',
   },
@@ -96,17 +102,21 @@ export default [
       'capitalized-comments': 'off',
       'func-names': ['error', 'always', { generators: 'as-needed' }],
       'id-length': 'off',
+      'line-comment-position': 'off',
       'max-lines': 'off',
       'max-lines-per-function': 'off',
       'max-params': 'off',
       'max-statements': 'off',
+      'multiline-comment-style': 'off',
       'no-continue': 'off',
       'no-inline-comments': 'off',
       'no-magic-numbers': 'off',
       'no-param-reassign': 'off',
       'no-plusplus': 'off',
+      'no-shadow': 'off',
       'no-ternary': 'off',
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_$' }],
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      'no-warning-comments': 'off',
       'one-var': 'off',
       'prefer-destructuring': ['error', { object: true, array: false }],
       'sort-keys': 'off',
@@ -131,10 +141,14 @@ export default [
     name: 'sdavids/js/browser',
   },
   {
-    files: ['scripts/*.mjs'],
+    files: ['*.mjs', 'scripts/*.mjs'],
     languageOptions: {
       globals: {
         ...globals.node,
+      },
+      parserOptions: {
+        // https://node.green/#ES2024
+        ecmaVersion: 2024,
       },
     },
     name: 'sdavids/js/node',
