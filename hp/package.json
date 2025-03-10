@@ -120,13 +120,11 @@
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": ">= 22.13",
-      "onFail": "error"
+      "version": ">= 22.13"
     },
     "packageManager": {
       "name": "npm",
-      "version": ">= 10.9",
-      "onFail": "download"
+      "version": ">= 10.9"
     }
   }
 }
