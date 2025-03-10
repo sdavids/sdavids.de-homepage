@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { defineConfig } from 'vitest/config';
 
+// noinspection JSUnusedGlobalSymbols
 export default defineConfig({
   test: {
     include: ['vitest/**/*.test.mjs'],
