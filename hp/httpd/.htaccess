@@ -3,9 +3,13 @@
 
 ServerSignature Off
 
-ErrorDocument 300 /e/404.html
-ErrorDocument 403 /e/403.html
-ErrorDocument 404 /e/404.html
+SetEnvIf Host ^ suppress-error-charset
+
+ErrorDocument 300 '<!doctype html><html lang=en><meta charset=utf-8><title>Not Found</title><meta content="width=device-width,initial-scale=1" name=viewport><meta content="light dark" name=color-scheme><style>html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}body{text-align:center;background-color:#e5e7eb;flex-direction:column;min-height:100vh;display:flex}main{flex-grow:1;place-items:center;display:grid}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}@media (prefers-color-scheme:dark){body{background-color:#000}}</style><main><div><h1>Not Found</h1><p><a href="/"><span aria-hidden="true">← </span>Back to home</a></p></div></main>'
+ErrorDocument 403 '<!doctype html><html lang=en><meta charset=utf-8><title>Forbidden</title><meta content="width=device-width,initial-scale=1" name=viewport><meta content="light dark" name=color-scheme><style>html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}body{text-align:center;background-color:#e5e7eb;flex-direction:column;min-height:100vh;display:flex}main{flex-grow:1;place-items:center;display:grid}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}@media (prefers-color-scheme:dark){body{background-color:#000}}</style><main><div><h1>Forbidden</h1><p><a href="/"><span aria-hidden="true">← </span>Back to home</a></p></div></main>'
+ErrorDocument 404 '<!doctype html><html lang=en><meta charset=utf-8><title>Not Found</title><meta content="width=device-width,initial-scale=1" name=viewport><meta content="light dark" name=color-scheme><style>html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}body{text-align:center;background-color:#e5e7eb;flex-direction:column;min-height:100vh;display:flex}main{flex-grow:1;place-items:center;display:grid}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}@media (prefers-color-scheme:dark){body{background-color:#000}}</style><main><div><h1>Not Found</h1><p><a href="/"><span aria-hidden="true">← </span>Back to home</a></p></div></main>'
+ErrorDocument 405 '<!doctype html><html lang=en><meta charset=utf-8><title>Not Allowed</title><meta content="width=device-width,initial-scale=1" name=viewport><meta content="light dark" name=color-scheme><style>html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}body{text-align:center;background-color:#e5e7eb;flex-direction:column;min-height:100vh;display:flex}main{flex-grow:1;place-items:center;display:grid}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}@media (prefers-color-scheme:dark){body{background-color:#000}}</style><main><div><h1>Not Allowed</h1><p><a href="/"><span aria-hidden="true">← </span>Back to home</a></p></div></main>'
+ErrorDocument 500 '<!doctype html><html lang=en><meta charset=utf-8><title>Internal Server Error</title><meta content="width=device-width,initial-scale=1" name=viewport><meta content="light dark" name=color-scheme><style>html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif}body{text-align:center;background-color:#e5e7eb;flex-direction:column;min-height:100vh;display:flex}main{flex-grow:1;place-items:center;display:grid}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}@media (prefers-color-scheme:dark){body{background-color:#000}}</style><main><div><h1>Internal Server Error</h1><p><a href="/"><span aria-hidden="true">← </span>Back to home</a></p></div></main>'
 
 # https://httpd.apache.org/docs/current/content-negotiation.html#multiviews
 Options -MultiViews
@@ -86,7 +90,7 @@ Options -MultiViews
 
   # https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#CSP_in_workers
-  Header always set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; img-src 'self'; style-src 'self' 'sha256-omIoWAVxmExQ8FBZ7HqCd6yP4Umgtcw9Xf75ytNImX8='; manifest-src 'self'; upgrade-insecure-requests; trusted-types; require-trusted-types-for 'script'" "expr=%{CONTENT_TYPE} =~ m#text\/(html|javascript)|application\/xml#i"
+  Header always set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; img-src 'self'; style-src 'self' 'sha256-OuM9gLThnBHigmG4TMLjbrC0zN0+hFfoxvXKO91fvTI='; manifest-src 'self'; upgrade-insecure-requests; trusted-types; require-trusted-types-for 'script'" "expr=%{CONTENT_TYPE} =~ m#text\/(html|javascript)|application\/xml#i"
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#referrer-policy
   Header always set Referrer-Policy "strict-origin-when-cross-origin" "expr=%{CONTENT_TYPE} =~ m#text\/(css|html|javascript)|application\/xml#i"
