@@ -86,7 +86,7 @@ Options -MultiViews
 
   # https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#CSP_in_workers
-  Header always set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; img-src 'self'; style-src 'self' 'sha256-trVRtkVk3GwYmc6psEtC5FRCKCnEbOQvoMBBU40z8SY='; manifest-src 'self'; upgrade-insecure-requests; trusted-types; require-trusted-types-for 'script'" "expr=%{CONTENT_TYPE} =~ m#text\/(html|javascript)|application\/xml#i"
+  Header always set Content-Security-Policy "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; img-src 'self'; style-src 'self' 'sha256-omIoWAVxmExQ8FBZ7HqCd6yP4Umgtcw9Xf75ytNImX8='; manifest-src 'self'; upgrade-insecure-requests; trusted-types; require-trusted-types-for 'script'" "expr=%{CONTENT_TYPE} =~ m#text\/(html|javascript)|application\/xml#i"
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#referrer-policy
   Header always set Referrer-Policy "strict-origin-when-cross-origin" "expr=%{CONTENT_TYPE} =~ m#text\/(css|html|javascript)|application\/xml#i"

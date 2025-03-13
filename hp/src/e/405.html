@@ -3,17 +3,17 @@
 SPDX-FileCopyrightText: © 2023 Sebastian Davids <sdavids@gmx.de>
 SPDX-License-Identifier: Apache-2.0
 -->
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="you may not access the requested page" />
     <title>Not Allowed</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
     <style>
       html {
         -webkit-text-size-adjust: 100%;
         -webkit-tap-highlight-color: transparent;
         font-family: ui-sans-serif, system-ui, sans-serif;
-        line-height: 1.5;
       }
 
       body {
@@ -21,7 +21,6 @@ SPDX-License-Identifier: Apache-2.0
         background-color: #e5e7eb;
         flex-direction: column;
         min-height: 100vh;
-        margin: 0;
         display: flex;
       }
 
@@ -31,114 +30,27 @@ SPDX-License-Identifier: Apache-2.0
         display: grid;
       }
 
-      footer {
-        padding: 3rem;
-      }
-
       a {
         color: inherit;
         -webkit-text-decoration: inherit;
         text-decoration: inherit;
       }
 
-      h1 {
-        letter-spacing: -0.025em;
-        margin: 1rem 0 0;
-        font-size: 1.875rem;
-        font-weight: 700;
-        line-height: 2.25rem;
-      }
-
-      p {
-        margin: 0;
-        padding: 0 1rem;
-      }
-
-      .mt-10 {
-        margin-top: 2.5rem;
-      }
-
-      .mt-6 {
-        margin-top: 1.5rem;
-      }
-
-      .text-sm {
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-      }
-
-      .font-semibold {
-        font-weight: 600;
-      }
-
-      .text-gray-700 {
-        color: #374151;
-      }
-
-      @media (min-width: 640px) {
-        h1 {
-          font-size: 3rem;
-          line-height: 1;
-        }
-
-        .sm\:text-base {
-          font-size: 1rem;
-          line-height: 1.5rem;
-        }
-      }
-
       @media (prefers-color-scheme: dark) {
         body {
           background-color: #000;
         }
-
-        .dark\:text-gray-300 {
-          color: #d1d5db;
-        }
       }
     </style>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: light)"
-      content="#fff"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#000"
-    />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta name="robots" content="noindex" />
-    <link rel="icon" href="../favicon.ico" sizes="any" />
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
-    <link
-      rel="apple-touch-icon"
-      href="../apple-touch-icon.png"
-      sizes="180x180"
-    />
-    <meta name="rating" content="general" />
   </head>
   <body>
     <main>
       <div>
-        <p class="font-semibold">405</p>
         <h1>Not Allowed</h1>
-        <p class="mt-6 text-gray-700 dark:text-gray-300">
-          Sorry, you may not access the requested page.
+        <p>
+          <a href="/"><span aria-hidden="true">← </span>Back to home</a>
         </p>
-        <div class="mt-10">
-          <a href="https://sdavids.de" class="text-sm font-semibold"
-            ><span aria-hidden="true">←</span> Back to home</a
-          >
-        </div>
       </div>
     </main>
-    <footer>
-      <p class="text-sm sm:text-base">
-        ©&nbsp;2022-2025 Sebastian&nbsp;Davids
-      </p>
-    </footer>
   </body>
 </html>
