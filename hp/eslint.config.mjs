@@ -47,6 +47,17 @@ export default [
       customSyntax: tailwindSyntax,
     },
     ...css.configs.recommended,
+    rules: {
+      'css/require-baseline': [
+        'error',
+        {
+          // align with js config below and
+          // esbuild_target in build.sh and
+          // compilerOptions.target and .lib in jsconfig.json
+          available: 2022,
+        },
+      ],
+    },
     name: 'eslint/css/recommended',
   },
   {
@@ -133,9 +144,10 @@ export default [
         ...globals.browser,
       },
       parserOptions: {
-        // align with esbuild_target in build.sh and
+        // align with css config above and
+        // esbuild_target in build.sh and
         // compilerOptions.target and .lib in jsconfig.json
-        ecmaVersion: 2021,
+        ecmaVersion: 2022,
       },
     },
     name: 'sdavids/js/browser',

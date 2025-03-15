@@ -18,9 +18,9 @@ if [ ! -d 'node_modules' ]; then
   npm ci --ignore-scripts=false --fund=false
 fi
 
-# align with parserOptions.ecmaVersion in eslint.config.mjs and
-# compilerOptions.target and .lib in jsconfig.json
-readonly esbuild_target="${1:-es2021}"
+# align with css/require-baseline and parserOptions.ecmaVersion in
+# eslint.config.mjs and compilerOptions.target and .lib in jsconfig.json
+readonly esbuild_target="${1:-es2022}"
 readonly dir='dist'
 
 node --run build:css
