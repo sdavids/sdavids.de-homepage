@@ -126,6 +126,9 @@ jobs:
         name: Minify traffic-advice
         run: node --run minify:traffic-advice
       - if: steps.changes.outputs.hp == 'true'
+        name: Minify JSON
+        run: node --run minify:json
+      - if: steps.changes.outputs.hp == 'true'
         name: Minify robots.txt
         run: node --run minify:robots
       - if: steps.changes.outputs.hp == 'true'

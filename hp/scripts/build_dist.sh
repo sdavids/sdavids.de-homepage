@@ -45,6 +45,7 @@ node --run hash:svg
 node --run minify:xml
 node --run minify:webmanifest
 node --run minify:traffic-advice
+node --run minify:json
 node --run minify:robots
 node --run legal:robots
 node --run compress:files
