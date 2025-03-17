@@ -11,6 +11,9 @@ export default {
   '../**/*.{css,html,js,json,mjs,webmanifest}': ['prettier --check'],
   '../**/*.{svg,xml}': ['prettier --plugin=@prettier/plugin-xml --check'],
   '../**/*.yaml': ['prettier --check', 'yamllint --strict'],
-  '../**/*.sh': ['shellcheck'],
+  '../**/*.sh': [
+    'shellcheck',
+    'shfmt --diff --indent 2 --case-indent --binary-next-line --simplify',
+  ],
   '../**/Dockerfile': ['hadolint --no-color -c ../.hadolint.yaml'],
 };
