@@ -108,7 +108,7 @@
     "http-server": "14.1.1",
     "husky": "9.1.7",
     "is-ci": "4.1.0",
-    "lightningcss-cli": "1.29.2",
+    "lightningcss-cli": "1.29.3",
     "lint-staged": "15.5.0",
     "minify-xml": "4.5.2",
     "prettier": "3.5.3",
