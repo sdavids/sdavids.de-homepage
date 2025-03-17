@@ -1,7 +1,33 @@
 # SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
+set -u
+
+git_root="$(git rev-parse --show-toplevel)"
+cd "${git_root}" || exit 1
+unset git_root
+
+diff="$(find . -type f -name '*.sh' -not -path '*/node_modules/*' -not -path '*/.husky/_/*' -print0 | xargs -0 shfmt --diff --indent 2 --case-indent --binary-next-line --simplify)"
+if [ -n "${diff}" ]; then
+  printf '%s\n' "${diff}" >&2
+  exit 1
+fi
+unset diff
+
+set -e
+
+find . -type f -name '*.sh' -not -path '*/node_modules/*' -not -path '*/.husky/_/*' -print0 | xargs -0 shellcheck
+
+yamllint --strict .
+
+# https://github.com/hadolint/hadolint#cli
+hadolint --no-color httpd/Dockerfile
+
 cd hp || exit 1
+
+node --run format:check >&2
+
+node --run lint >&2
 
 node --run check:types >&2
 
