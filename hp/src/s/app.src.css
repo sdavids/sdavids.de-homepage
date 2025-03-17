@@ -44,9 +44,15 @@ SPDX-License-Identifier: Apache-2.0
   }
 
   h1,
-  h2 {
+  h2,
+  h3 {
     font-size: inherit;
     font-weight: inherit;
+    scroll-margin-top: 1rem;
+  }
+
+  code {
+    scroll-margin-top: 2.5rem;
   }
 
   a {
