@@ -3,6 +3,8 @@
 # SPDX-FileCopyrightText: © 2022 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
-cd hp || exit 1
+set -eu
+
+cd "$(git rev-parse --show-toplevel)/hp" || exit 1
 
 lint-staged >&2
