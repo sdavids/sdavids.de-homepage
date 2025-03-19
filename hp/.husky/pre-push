@@ -3,6 +3,34 @@
 # SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
+# hadolint needs to be in $PATH
+# https://github.com/hadolint/hadolint
+#   Mac:
+#     brew install hadolint
+#   Linux:
+#     sudo apt-get install hadolint
+
+# _shellcheck needs to be in $PATH
+# https://www.shellcheck.net
+#   Mac:
+#     brew install shellcheck
+#   Linux:
+#     sudo apt-get install shellcheck
+
+# shfmt needs to be in $PATH
+# https://github.com/mvdan/sh
+#   Mac:
+#     brew install shfmt
+#   Linux:
+#     sudo apt-get install shfmt
+
+# yamllint needs to be in $PATH
+# https://yamllint.readthedocs.io/en/stable/
+#   Mac:
+#     brew install yamllint
+#   Linux:
+#     sudo apt-get install yamllint
+
 set -u
 
 git_root="$(git rev-parse --show-toplevel)"
