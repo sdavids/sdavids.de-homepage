@@ -18,12 +18,12 @@ unset diff
 
 set -e
 
-find . -type f -name '*.sh' -not -path '*/node_modules/*' -not -path '*/.husky/_/*' -print0 | xargs -0 shellcheck
+{ find . -type f -name '*.sh' -not -path '*/node_modules/*' -not -path '*/.husky/_/*' -print0 | xargs -0 shellcheck; } >&2
 
-yamllint --strict .
+yamllint --strict . >&2
 
 # https://github.com/hadolint/hadolint#cli
-hadolint --no-color httpd/Dockerfile
+hadolint --no-color httpd/Dockerfile >&2
 
 cd hp || exit 1
 
@@ -35,6 +35,6 @@ node --run check:types >&2
 
 node --run test >&2
 
-node --run build:dist:skip-install
+node --run build:dist:skip-install >&2
 
-GIT_PUSH_HOOK=true node --run e2e
+GIT_PUSH_HOOK=true node --run e2e >&2
