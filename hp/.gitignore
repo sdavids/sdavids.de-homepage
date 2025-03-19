@@ -9,6 +9,9 @@
 ### ESLint ###
 /.eslintcache
 
+### husky ###
+/.husky/_/
+
 ### Build ###
 /dist/
 /src/s/app.css
