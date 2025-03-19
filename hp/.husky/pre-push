@@ -33,6 +33,11 @@
 
 set -u
 
+if [ -n "$(git status --porcelain=v1)" ]; then
+  echo 'Git workspace is not clean: commit, stash, or reset your changes' >&2
+  exit 1
+fi
+
 git_root="$(git rev-parse --show-toplevel)"
 cd "${git_root}" || exit 1
 unset git_root
