@@ -30,12 +30,6 @@ ifdef::env-github[]
 :outfilesuffix: .adoc
 :important-caption: :heavy_exclamation_mark:
 :note-caption: :information_source:
-:badges:
-endif::[]
-
-ifdef::badges[]
-image:https://img.shields.io/maintenance/yes/2025[Maintenance]
-image:https://img.shields.io/github/last-commit/sdavids/sdavids.de-homepage[GitHub last commit]
 endif::[]
 
 toc::[]
