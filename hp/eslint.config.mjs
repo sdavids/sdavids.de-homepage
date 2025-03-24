@@ -8,7 +8,6 @@ import js from '@eslint/js';
 import json from '@eslint/json';
 import css from '@eslint/css';
 import { tailwindSyntax } from '@eslint/css/syntax';
-import markdown from '@eslint/markdown';
 import compat from 'eslint-plugin-compat';
 import vitest from '@vitest/eslint-plugin';
 import testingLibrary from 'eslint-plugin-testing-library';
@@ -59,14 +58,6 @@ export default [
       ],
     },
     name: 'eslint/css/recommended',
-  },
-  {
-    files: ['**/*.md'],
-    language: 'markdown/gfm',
-    plugins: {
-      markdown,
-    },
-    name: 'eslint/markdown/recommended',
   },
   {
     files: ['src/j/*.js', 'src/j/**/*.js'],
