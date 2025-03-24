@@ -233,10 +233,6 @@ GitHub Action Workflow:: link:.github/workflows/ci.yaml[]
 
 GitHub Action Runs:: {gh-actions-url}
 
-== License
-
-Apache License, Version 2.0 (link:LICENSES/Apache-2.0.txt[Apache-2.0.txt] or {uri-apache-license}).
-
 == Contribution
 
 See link:CONTRIBUTING{outfilesuffix}[].
