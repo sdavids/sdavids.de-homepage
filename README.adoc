@@ -541,9 +541,7 @@ Install https://gpgtools.org[GPG Suite].
 
 [IMPORTANT]
 ====
-Ensure that you install version `3.1.7` and not `3.2.0`!
-
-Version `3.2.0` is an incompatible https://github.com/OpenVPN/easy-rsa/releases/tag/v3.2.0[development snapshot release].
+Ensure that you install version `3.1.7` and not `3.2.x`!
 ====
 
 ===== Linux
@@ -554,7 +552,7 @@ Install {easyrsa-install-url}[easyrsa].
 
 [WARNING]
 ====
-Unfortunately, homebrew provides `easy-rsa` version `3.2.0` at this point in time (August 2024).
+Unfortunately, homebrew provides `easy-rsa` version `3.2.x` .
 ====
 
 [,console]
@@ -563,6 +561,7 @@ $ curl -L https://github.com/OpenVPN/easy-rsa/releases/download/v3.1.7/EasyRSA-3
 $ tar -xzf ~/Downloads/easy-rsa.tgz -C ~/.local/share
 $ mv  ~/.local/share/EasyRSA-3.1.7 ~/.local/share/easyrsa
 $ ln -s ~/.local/share/easyrsa/easyrsa ~/.local/bin/easyrsa
+$ rm ~/Downloads/easy-rsa.tgz
 ----
 
 [#playwright]
