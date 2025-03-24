@@ -15,9 +15,6 @@ Sebastian Davids <sdavids@gmx.de>
 :source-highlighter: rouge
 :rouge-style: github
 // Refs:
-:uri-contributor-covenant: https://www.contributor-covenant.org
-:uri-apache-license: https://www.apache.org/licenses/LICENSE-2.0
-:uri-google-style: https://github.com/google/gts
 :docker-install-url: https://docs.docker.com/install/
 :easyrsa-install-url: https://easy-rsa.readthedocs.io/en/latest/#obtaining-and-using-easy-rsa
 :nvm-install-url: https://github.com/nvm-sh/nvm#installing-and-updating
