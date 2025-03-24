@@ -233,10 +233,6 @@ GitHub Action Workflow:: link:.github/workflows/ci.yaml[]
 
 GitHub Action Runs:: {gh-actions-url}
 
-== Contribution
-
-See link:CONTRIBUTING{outfilesuffix}[].
-
 == Code of Conduct
 
 We abide by the {uri-contributor-covenant}[Contributor Covenant, Version 2.1] and ask that you do as well.
