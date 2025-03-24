@@ -17,6 +17,6 @@ https://github.com/tailwindlabs/tailwindcss/pull/11929
 
 * browserslist
 +
-remove explicit query and replace with 'baseline'
+remove explicit query and replace with 'baseline widely available'
 +
 https://github.com/browserslist/browserslist/issues/771

@@ -3,6 +3,6 @@
 
 # https://github.com/browserslist/browserslist?tab=readme-ov-file#browserslistrc
 
-# use 'baseline' once it becomes available
+# use 'baseline widely available' once it becomes available
 # https://github.com/browserslist/browserslist/issues/771
-chrome > 0 and last 2.5 years, edge > 0 and last 2.5 years, safari > 0 and last 2.5 years, firefox > 0 and last 2.5 years, and_chr > 0 and last 2.5 years, and_ff > 0 and last 2.5 years, ios > 0 and last 2.5 years, not dead
+chrome >= 105, and_chr >= 105, edge >= 105, firefox >= 104, and_ff >= 104, safari >= 16.4, ios_saf >= 16.4
