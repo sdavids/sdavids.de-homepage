@@ -3,10 +3,6 @@
 = sdavids.de-homepage
 Sebastian Davids <sdavids@gmx.de>
 
-* remove body-max-line-length in commitlint.config.mjs
-+
-https://github.com/conventional-changelog/commitlint/issues/2112
-
 * tailwindcss >= 4
 +
 remove explicit lightningcss-cli step in build_css.sh, remove lightningcss-cli in package.json, and add `-m` to the tailwind-cli call
