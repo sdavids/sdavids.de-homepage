@@ -20,7 +20,3 @@ https://github.com/tailwindlabs/tailwindcss/pull/11929
 remove explicit query and replace with 'baseline'
 +
 https://github.com/browserslist/browserslist/issues/771
-
-* ES2022
-+ update: hp/eslint.config.mjs, hp/jsconfig.json, and hp/scripts/build.sh
-+ update hp/jsconfig.json: compilerOptions.module to ES2022
