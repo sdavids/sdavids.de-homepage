@@ -47,7 +47,7 @@ export default [
     },
     ...css.configs.recommended,
     rules: {
-      'css/require-baseline': [
+      'css/use-baseline': [
         'error',
         {
           // align with js config below and
