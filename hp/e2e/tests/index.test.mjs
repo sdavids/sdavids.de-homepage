@@ -99,10 +99,27 @@ test.describe('homepage - light mode', () => {
     await page.goto('/');
   });
 
-  test('should have dark heading', async ({ page }) => {
+  test('should have dark heading - non-webkit', async ({
+    browserName,
+    page,
+  }) => {
+    test.skip(
+      browserName === 'webkit',
+      'oklch reported with less fractions on non-webkit',
+    );
     await expect(
       page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('rgb(17, 24, 39)');
+    ).toHaveColor('oklch(0.21 0.034 264.665)');
+  });
+
+  test('should have dark heading - webkit', async ({ browserName, page }) => {
+    test.skip(
+      browserName !== 'webkit',
+      'oklch reported with more fractions on webkit',
+    );
+    await expect(
+      page.getByRole('heading', { name: 'Sebastian Davids' }),
+    ).toHaveColor('oklch(0.21 0.034 264.665009)');
   });
 
   test('should have light background', async ({ page }) => {
@@ -119,15 +136,52 @@ test.describe('homepage - dark mode', () => {
     await page.goto('/');
   });
 
-  test('should have light heading', async ({ page }) => {
+  test('should have light heading - non-webkit', async ({
+    browserName,
+    page,
+  }) => {
+    test.skip(
+      browserName === 'webkit',
+      'oklch reported with less fractions on non-webkit',
+    );
     await expect(
       page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('rgb(229, 231, 235)');
+    ).toHaveColor('oklch(0.928 0.006 264.531)');
   });
 
-  test('should have dark background', async ({ page }) => {
+  test('should have light heading - webkit', async ({ browserName, page }) => {
+    test.skip(
+      browserName !== 'webkit',
+      'oklch reported with more fractions on webkit',
+    );
+    await expect(
+      page.getByRole('heading', { name: 'Sebastian Davids' }),
+    ).toHaveColor('oklch(0.928 0.006 264.531006)');
+  });
+
+  test('should have dark background - non-webkit', async ({
+    browserName,
+    page,
+  }) => {
+    test.skip(
+      browserName === 'webkit',
+      'oklch reported with less fractions on non-webkit',
+    );
     await expect(
       page.getByRole('article', { name: 'Sebastian Davids' }),
-    ).toHaveBackgroundColor('rgb(39, 39, 42)');
+    ).toHaveBackgroundColor('oklch(0.274 0.006 286.033)');
+  });
+
+  test('should have dark background - webkit', async ({
+    browserName,
+    page,
+  }) => {
+    test.skip(
+      browserName !== 'webkit',
+      'oklch reported with more fractions on webkit',
+    );
+    await expect(
+      page.getByRole('article', { name: 'Sebastian Davids' }),
+    ).toHaveBackgroundColor('oklch(0.274 0.006 286.03299)');
   });
 });

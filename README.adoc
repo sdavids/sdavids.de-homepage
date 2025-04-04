@@ -75,10 +75,10 @@ $ node --run build
 [,text]
 
 ----
-.../sdavids.de-homepage/hp/node_modules/.bin/lightningcss: line 1: This: command not found
+.../sdavids.de-homepage/hp/node_modules/.bin/eslint: line 1: This: command not found
 ----
 
-This build relies on https://esbuild.github.io[esbuild] and https://lightningcss.dev[lightningcss].
+This build relies on https://esbuild.github.io[esbuild].
 
 You either need to not ignore the https://docs.npmjs.com/cli/v10/using-npm/config#ignore-scripts[ pre- or post-scripts] when installing this project's dependencies:
 
@@ -89,13 +89,12 @@ $ rm -rf node_modules
 $ npm install --no-ignore-scripts
 ----
 
-Or invoke esbuild's and lightningcss' post-install scripts explicitly:
+Or invoke esbuild's post-install script explicitly:
 
 [,console]
 ----
 $ cd hp
 $ node node_modules/esbuild/install.js
-$ node node_modules/lightningcss-cli/postinstall.js
 ----
 ====
 
