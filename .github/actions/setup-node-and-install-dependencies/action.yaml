@@ -27,7 +27,7 @@ runs:
   steps:
     - name: Setup Node.js
       # https://github.com/actions/setup-node/releases
-      uses: actions/setup-node@v4.2.0
+      uses: actions/setup-node@v4.3.0
       with:
         node-version-file: ${{ inputs.node-version-file }}
         cache-dependency-path: ${{ inputs.dependencies-lock-file }}
