@@ -68,6 +68,7 @@ if (os.platform() === 'darwin') {
 
 let config = {
   testDir: 'e2e/tests',
+  fullyParallel: true,
   reporter: process.env.CI ? 'github' : 'html',
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
