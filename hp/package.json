@@ -48,6 +48,7 @@
     "e2e": "npx playwright test",
     "e2e:ci": "npx playwright test --project smoke --project chromium --project chromium-mobile --project chromium-mobile-landscape",
     "e2e:failed": "npx playwright test --last-failed --trace on",
+    "e2e:report": "npx playwright show-report",
     "e2e:smoke": "npx playwright test --project smoke",
     "e2e:snapshots:update": "npx playwright test --update-snapshots",
     "e2e:trace": "npx playwright test --trace on",
