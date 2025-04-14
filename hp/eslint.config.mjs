@@ -13,6 +13,7 @@ import vitest from '@vitest/eslint-plugin';
 import testingLibrary from 'eslint-plugin-testing-library';
 import jestDom from 'eslint-plugin-jest-dom';
 import playwright from 'eslint-plugin-playwright';
+import * as depend from 'eslint-plugin-depend';
 
 // noinspection JSUnusedGlobalSymbols
 export default [
@@ -183,4 +184,5 @@ export default [
     },
     name: 'sdavids/js/playwright',
   },
+  depend.configs['flat/recommended'],
 ];
