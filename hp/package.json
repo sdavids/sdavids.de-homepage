@@ -39,6 +39,8 @@
     "dependency:updates": "scripts/dependency_check_node.sh",
     "dev": "scripts/dev.sh",
     "dev:css": "scripts/dev_css.sh",
+    "disallow:ai:htaccess": "node scripts/disallow_ai_htaccess.mjs httpd/disallowed_user_agents.txt dist/.htaccess",
+    "disallow:ai:robots": "node scripts/disallow_ai_robots.mjs httpd/disallowed_user_agents.txt dist/robots.txt",
     "docker:httpd:logs": "scripts/docker_httpd_logs.sh",
     "docker:httpd:remove": "scripts/docker_httpd_remove.sh",
     "docker:httpd:sh": "scripts/docker_httpd_sh.sh",

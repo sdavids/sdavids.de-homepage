@@ -38,6 +38,7 @@ node --run hash:js
 node --run minify:json-tags
 node --run minify:html
 node --run create:htaccess
+node --run disallow:ai:htaccess
 node --run hash:importmap
 node --run minify:svg
 node --run hash:svg
@@ -45,6 +46,7 @@ node --run minify:xml
 node --run minify:webmanifest
 node --run minify:traffic-advice
 node --run minify:json
+node --run disallow:ai:robots
 node --run minify:robots
 node --run legal:robots
 node --run compress:files

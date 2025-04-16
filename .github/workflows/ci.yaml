@@ -105,6 +105,9 @@ jobs:
         name: Create .htaccess file
         run: node --run create:htaccess
       - if: steps.changes.outputs.hp == 'true'
+        name: Disallow AI agents in .htaccess file
+        run: node --run disallow:ai:htaccess
+      - if: steps.changes.outputs.hp == 'true'
         name: Hash importmap
         run: node --run hash:importmap
       - if: steps.changes.outputs.hp == 'true'
@@ -125,6 +128,9 @@ jobs:
       - if: steps.changes.outputs.hp == 'true'
         name: Minify JSON
         run: node --run minify:json
+      - if: steps.changes.outputs.hp == 'true'
+        name: Disallow AI agents in robots.txt
+        run: node --run disallow:ai:robots
       - if: steps.changes.outputs.hp == 'true'
         name: Minify robots.txt
         run: node --run minify:robots

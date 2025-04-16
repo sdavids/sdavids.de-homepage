@@ -63,9 +63,12 @@ Options -MultiViews
   RedirectMatch 404 /\.(?!well-known\/)
 </IfModule>
 
+###disallowed-user-agents###
+
 # block unknown user agent
 <IfModule mod_rewrite.c>
   RewriteEngine on
+  RewriteBase /
   RewriteCond "%{HTTP_USER_AGENT}" "^(?:\s|-)*$"
   RewriteRule "^" "-" [NC,F,L]
 </IfModule>
