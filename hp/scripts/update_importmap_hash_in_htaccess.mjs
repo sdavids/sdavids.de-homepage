@@ -4,10 +4,14 @@
 // Prerequisite:
 //   npm i --save-dev htmlparser2 domutils
 
+/* eslint-disable no-console */
+
 import * as htmlparser2 from 'htmlparser2';
 import { findOne, textContent } from 'domutils';
-import { readFile, writeFile } from 'fs/promises';
+import { access, readFile, writeFile } from 'fs/promises';
 import { createHash } from 'node:crypto';
+import { relative } from 'node:path';
+import { cwd } from 'node:process';
 
 /**
  * @param {ChildNode} node
@@ -23,11 +27,28 @@ const isImportMap = (elem) =>
   elem.name === 'script' && elem.attribs.type === 'importmap';
 
 if (process.argv.length < 4) {
+  console.error(
+    `Usage: ${relative(cwd(), import.meta.filename)} INDEX_FILE HTACCESS_FILE`,
+  );
   process.exit(1);
 }
 
 const indexFile = process.argv[2];
 const htaccessFile = process.argv[3];
+
+try {
+  await access(indexFile);
+} catch {
+  console.error(`${indexFile} does not exist`);
+  process.exit(2);
+}
+
+try {
+  await access(htaccessFile);
+} catch {
+  console.error(`${htaccessFile} does not exist`);
+  process.exit(3);
+}
 
 const html = await readFile(indexFile, 'utf8');
 
