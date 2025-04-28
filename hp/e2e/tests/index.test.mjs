@@ -26,11 +26,6 @@ test.describe('homepage -  a11y', () => {
           - region "Email address":
             - heading "Email address" [level=2]
             - link "sebastian@sdavids.de"
-          - region "iMessage":
-            - heading "iMessage" [level=2]
-            - text: APKTIDVw2zk8ZQeSkpWLUD9UGIhH00TtYdMRkryMUZUtBJRxeCSA
-            - group:
-              - heading "Usage" [level=3]
           - region "GPG":
             - heading "GPG" [level=2]
             - link "GPG public key"
@@ -41,6 +36,11 @@ test.describe('homepage -  a11y', () => {
           - region "age":
             - heading "age" [level=2]
             - link "age public key"
+            - group:
+              - heading "Usage" [level=3]
+          - region "iMessage":
+            - heading "iMessage" [level=2]
+            - text: APKTIDVw2zk8ZQeSkpWLUD9UGIhH00TtYdMRkryMUZUtBJRxeCSA
             - group:
               - heading "Usage" [level=3]
     `);
@@ -65,11 +65,6 @@ test.describe('homepage -  a11y', () => {
           - region "Email address":
             - heading "Email address" [level=2]
             - link "sebastian@sdavids.de"
-          - region "iMessage":
-            - heading "iMessage" [level=2]
-            - text: APKTIDVw2zk8ZQeSkpWLUD9UGIhH00TtYdMRkryMUZUtBJRxeCSA
-            - group:
-              - heading "Usage" [level=3]
           - region "GPG":
             - heading "GPG" [level=2]
             - link "GPG public key": Public key
@@ -78,6 +73,11 @@ test.describe('homepage -  a11y', () => {
           - region "age":
             - heading "age" [level=2]
             - link "age public key": Public key
+          - region "iMessage":
+            - heading "iMessage" [level=2]
+            - text: APKTIDVw2zk8ZQeSkpWLUD9UGIhH00TtYdMRkryMUZUtBJRxeCSA
+            - group:
+              - heading "Usage" [level=3]
     `);
     await expect(page.getByRole('contentinfo')).toMatchAriaSnapshot(`
       - contentinfo:
