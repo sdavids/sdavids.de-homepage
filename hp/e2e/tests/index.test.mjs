@@ -49,8 +49,6 @@ test.describe('homepage -  a11y', () => {
           - list:
             - listitem:
               - link "GitHub"
-            - listitem:
-              - link "Gravatar"
         - paragraph: /© \\d+-\\d+ Sebastian Davids/
     `);
   });
@@ -83,8 +81,6 @@ test.describe('homepage -  a11y', () => {
           - list:
             - listitem:
               - link "GitHub"
-            - listitem:
-              - link "Gravatar"
         - paragraph: /© \\d+-\\d+ Sebastian Davids/
     `);
   });
