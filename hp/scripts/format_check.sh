@@ -18,4 +18,4 @@ if [ ! -d 'node_modules' ]; then
   npm ci --silent --ignore-scripts=true --fund=false
 fi
 
-npx --yes --quiet prettier --log-level warn --plugin=@prettier/plugin-xml --cache --check ..
+npx --yes --quiet prettier --config prettier.config.mjs --log-level warn --plugin=@prettier/plugin-xml --cache --check ..
