@@ -103,7 +103,7 @@ Options -MultiViews
 
   # https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#permissions-policy-formerly-feature-policy
   # https://developers.google.com/privacy-sandbox/relevance/topics/developer-guide#site-opt-out
-  Header always set Permissions-Policy "camera=(),microphone=(),geolocation=(),unload=(),browsing-topics=(),join-ad-interest-group=(),run-ad-auction=()" "expr=%{CONTENT_TYPE} =~ m#text\/(html|javascript)|application\/xml#i"
+  Header always set Permissions-Policy "camera=(),microphone=(),geolocation=(),unload=(),browsing-topics=(),join-ad-interest-group=(),run-ad-auction=(),attribution-reporting=()" "expr=%{CONTENT_TYPE} =~ m#text\/(html|javascript)|application\/xml#i"
 </IfModule>
 
 FileETag None
