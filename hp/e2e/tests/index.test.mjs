@@ -29,7 +29,6 @@ test.describe('homepage -  a11y', () => {
           - region "GPG":
             - heading "GPG" [level=2]
             - link "GPG public key"
-            - link "keys.openpgp.org"
             - text: /3B05 1F8E AA0B 63D1 \\d+ 168C 99A9 7C77 8DCD F19F/
             - group:
               - heading "Usage" [level=3]
@@ -68,7 +67,6 @@ test.describe('homepage -  a11y', () => {
           - region "GPG":
             - heading "GPG" [level=2]
             - link "GPG public key": Public key
-            - link "keys.openpgp.org"
             - text: 3B05 1F8E AA0B 63D1 7220\\a 168C 99A9 7C77 8DCD F19F
           - region "age":
             - heading "age" [level=2]
