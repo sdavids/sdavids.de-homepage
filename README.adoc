@@ -36,7 +36,7 @@ toc::[]
 [,console]
 ----
 $ cd hp
-$ npm install --no-ignore-scripts
+$ npm i --no-ignore-scripts
 ----
 
 [#dev-server]
@@ -69,34 +69,6 @@ $ node --run build
 ----
 
 => `hp/dist`
-
-[NOTE]
-====
-[,text]
-
-----
-.../sdavids.de-homepage/hp/node_modules/.bin/eslint: line 1: This: command not found
-----
-
-This build relies on https://esbuild.github.io[esbuild].
-
-You either need to not ignore the https://docs.npmjs.com/cli/v10/using-npm/config#ignore-scripts[ pre- or post-scripts] when installing this project's dependencies:
-
-[,console]
-----
-$ cd hp
-$ rm -rf node_modules
-$ npm install --no-ignore-scripts
-----
-
-Or invoke esbuild's post-install script explicitly:
-
-[,console]
-----
-$ cd hp
-$ node node_modules/esbuild/install.js
-----
-====
 
 === Format Source Code
 
@@ -578,4 +550,3 @@ You can delete all downloaded binaries via:
 $ npx playwright uninstall --all
 ----
 ====
-

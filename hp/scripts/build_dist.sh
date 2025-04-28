@@ -28,8 +28,7 @@ if [ "${skip_install}" = 'true' ]; then
 else
   node --run clean
   rm -rf node_modules
-  npm ci --ignore-scripts=true --fund=false --audit=false
-  node node_modules/esbuild/install.js
+  npm ci --silent --ignore-scripts=true --fund=false
 fi
 
 node --run build
