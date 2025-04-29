@@ -42,7 +42,7 @@ $ npm i --no-ignore-scripts
 [#dev-server]
 === Development Server
 
-==== Shell 1 - Tailwind CSS CLI build process
+==== Shell 1--Tailwind CSS CLI build process
 
 [,console]
 ----
@@ -197,7 +197,7 @@ GitHub Action Runs:: {gh-actions-url}
 
 [IMPORTANT]
 ====
-After initializing this repository you need to configure the https://git-scm.com/docs/git-config#Documentation/git-config.txt-blameignoreRevsFile[ignore-revs-file]:
+After initializing this repository, you need to configure the https://git-scm.com/docs/git-config#Documentation/git-config.txt-blameignoreRevsFile[ignore-revs-file]:
 
 [,console]
 ----
@@ -221,7 +221,7 @@ Add `httpd.internal` to your `/etc/hosts`:
 
 [NOTE]
 ====
-If you want to change this entry you need to also change:
+If you want to change this entry, you need to also change:
 
 .httpd/httpd.conf
 [,text]
