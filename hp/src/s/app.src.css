@@ -56,13 +56,19 @@ SPDX-License-Identifier: Apache-2.0
   a {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: var(--color-sky-400);
+    text-decoration-color: var(--color-sky-800);
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
   }
 
   a:hover {
     text-decoration-thickness: 2px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a {
+      text-decoration-color: var(--color-sky-300);
+    }
   }
 
   code {
