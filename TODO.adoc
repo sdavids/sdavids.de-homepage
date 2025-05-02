@@ -2,9 +2,3 @@
 // SPDX-License-Identifier: Apache-2.0
 = sdavids.de-homepage
 Sebastian Davids <sdavids@gmx.de>
-
-* browserslist
-+
-remove explicit query and replace with 'baseline widely available'
-+
-https://github.com/browserslist/browserslist/issues/771

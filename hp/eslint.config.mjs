@@ -51,9 +51,10 @@ export default [
       'css/use-baseline': [
         'error',
         {
-          // align with js config below and
-          // esbuild_target in build.sh and
-          // compilerOptions.target and .lib in jsconfig.json
+          // align with js config below,
+          // esbuild_target in build.sh,
+          // browserslist in package.json,
+          // and compilerOptions.target and .lib in jsconfig.json
           available: 2022,
         },
       ],
@@ -137,8 +138,9 @@ export default [
       },
       parserOptions: {
         // align with css config above and
-        // esbuild_target in build.sh and
-        // compilerOptions.target and .lib in jsconfig.json
+        // esbuild_target in build.sh,
+        // browserslist in package.json,
+        // and compilerOptions.target and .lib in jsconfig.json
         ecmaVersion: 2022,
       },
     },
