@@ -4,24 +4,24 @@
 # https://git-scm.com/docs/gitignore
 
 ### NodeJS ###
-/node_modules/
+node_modules/
 
 ### ESLint ###
-/.eslintcache
+.eslintcache
 
 ### husky ###
-/.husky/_/
+.husky/_/
 
 ### Build ###
-/dist/
-/src/s/app.css
+dist/
+src/s/app.css
 
 ### easyrsa ###
-/certs/
+certs/
 
 ### Lighthouse CI
-/.lighthouseci/
+.lighthouseci/
 
 ### Playwright
-/test-results/
-/playwright-report/
+test-results/
+playwright-report/
