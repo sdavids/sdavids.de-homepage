@@ -54,9 +54,8 @@ fi
 
 readonly network_name='sdavids.de-homepage'
 
-readonly site_dir="$PWD/dist"
-
-readonly certs_dir="$PWD/certs"
+site_dir="$PWD/dist"
+certs_dir="$PWD/certs"
 
 if [ ! -d "${certs_dir}" ]; then
   printf "certificate directory '%s' does not exist\n" "${certs_dir}" >&2
@@ -71,6 +70,14 @@ if [ ! -d "${site_dir}" ]; then
   printf "site directory '%s' does not exist; run this command again without '-s'.\n" "${site_dir}" >&2
   exit 4
 fi
+
+# https://github.com/devcontainers/features/tree/main/src/docker-outside-of-docker#1-use-the-localworkspacefolder-as-environment-variable-in-your-code
+if [ -n "${LOCAL_WORKSPACE_FOLDER+x}" ]; then
+  site_dir="${LOCAL_WORKSPACE_FOLDER}/hp/dist"
+  certs_dir="${LOCAL_WORKSPACE_FOLDER}/hp/certs"
+fi
+readonly site_dir
+readonly certs_dir
 
 docker network inspect "${network_name}" >/dev/null 2>&1 \
   || docker network create \
