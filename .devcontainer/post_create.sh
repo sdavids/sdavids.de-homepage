@@ -3,5 +3,10 @@
 # SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
-# https://github.com/microsoft/vscode-dev-containers/issues/559
-bash -i -c 'cd hp && nvm install -b --no-progress && npm i --silent --ignore-scripts=false --fund=false --audit=false && npx playwright install --with-deps --no-shell'
+bash -i -c 'export SHELL=bash && curl -fsSL https://get.pnpm.io/install.sh | sh -'
+
+bash -i -c 'cd hp && pnpm env use --global "$(cat .nvmrc)" && rm -rf node_modules && npm i --silent --ignore-scripts=false --fund=false --audit=false && export DEBIAN_FRONTEND=noninteractive && npx playwright install --with-deps && npm cache clean --force >/dev/null 2>&1'
+
+sudo apt-get autoremove -y
+sudo apt-get clean -y
+sudo rm -rf /var/lib/apt/lists/*

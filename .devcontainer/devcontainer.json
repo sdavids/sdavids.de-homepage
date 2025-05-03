@@ -2,22 +2,23 @@
 // SPDX-License-Identifier: Apache-2.0
 {
   "name": "sdavids.de-homepage",
-  // https://mcr.microsoft.com/v2/devcontainers/javascript-node/tags/list
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:1.1.8-22-bookworm",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": ["--add-host=httpd.internal:127.0.0.1"],
   "postCreateCommand": "./.devcontainer/post_create.sh",
   "features": {
     // https://github.com/devcontainers/features/pkgs/container/features%2Fdocker-outside-of-docker
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1.6.0": {},
-    // https://github.com/devcontainers-extra/features/tree/main/src/apt-get-packages
-    "ghcr.io/devcontainers-extra/features/apt-get-packages:1.0.7": {
-      "packages": "brotli,easy-rsa,reuse,shellcheck,shfmt,yamllint,zstd"
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1.6.2": {
+      "installDockerComposeSwitch": false
     },
-    // https://github.com/dhoeric/features/blob/main/src/hadolint/README.md
+    // https://github.com/dhoeric/features/pkgs/container/features%2Fhadolint
     "ghcr.io/dhoeric/features/hadolint:1.0.0": {
       // https://github.com/hadolint/hadolint/releases
       "version": "2.12.0"
     }
   },
+  "remoteUser": "node",
   "remoteEnv": {
     // https://github.com/devcontainers/features/tree/main/src/docker-outside-of-docker#1-use-the-localworkspacefolder-as-environment-variable-in-your-code
     "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
@@ -29,8 +30,7 @@
         "ski.chrzanow.foldableprojectview",
         "org.asciidoctor.intellij.asciidoc",
         "intellij.prettierJS",
-        "mobi.hsz.idea.gitignore",
-        "com.github.aleksandrsl.intellijbrowserslist"
+        "mobi.hsz.idea.gitignore"
       ],
       "settings": {
         "com.intellij:app:EditorSettings.is_ensure_newline_at_eof": true,
@@ -49,7 +49,8 @@
         "tamasfe.even-better-toml",
         "timonwong.shellcheck",
         "foxundermoon.shell-format",
-        "webben.browserslist"
+        "vitest.explorer",
+        "ms-playwright.playwright"
       ],
       "settings": {
         "files.encoding": "utf8",
@@ -57,6 +58,7 @@
         "files.insertFinalNewline": true,
         "files.trimFinalNewlines": true,
         "files.trimTrailingWhitespace": true,
+        "shellformat.path": "/usr/bin/shfmt",
         "shellformat.flag": "--indent 2 --case-indent --binary-next-line --simplify"
       }
     }
