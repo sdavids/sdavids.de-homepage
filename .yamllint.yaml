@@ -8,6 +8,7 @@
 extends: default
 ignore: |
   node_modules
+  .pnpm-store
 rules:
   braces:
     min-spaces-inside: 0
