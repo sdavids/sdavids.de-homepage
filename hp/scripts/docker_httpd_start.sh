@@ -47,8 +47,8 @@ readonly container_name="sdavids.de-homepage"
 readonly host_name='httpd.internal'
 
 # https://man.archlinux.org/man/grep.1
-if [ "$(grep -E -i -c "127\.0\.0\.1\s+localhost.+${host_name//\./\.}" /etc/hosts)" -eq 0 ]; then
-  echo "/etc/hosts does not have an entry for '127.0.0.1 localhost ${host_name}'" >&2
+if [ "$(grep -E -i -c "127\.0\.0\.1.+${host_name//\./\.}" /etc/hosts)" -eq 0 ]; then
+  echo "/etc/hosts does not have an entry for '127.0.0.1 ${host_name}'" >&2
   exit 2
 fi
 
