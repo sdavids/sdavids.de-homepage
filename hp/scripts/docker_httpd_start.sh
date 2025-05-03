@@ -55,10 +55,10 @@ fi
 readonly network_name='sdavids.de-homepage'
 
 site_dir="$PWD/dist"
-certs_dir="$PWD/certs"
+secrets_dir="$PWD/certs"
 
-if [ ! -d "${certs_dir}" ]; then
-  printf "certificate directory '%s' does not exist\n" "${certs_dir}" >&2
+if [ ! -d "${secrets_dir}" ]; then
+  printf "secrets directory '%s' does not exist\n\nExecute 'scripts/create_ca_based_cert.sh' then execute this script again.\n" "${secrets_dir}" >&2
   exit 3
 fi
 
@@ -74,10 +74,10 @@ fi
 # https://github.com/devcontainers/features/tree/main/src/docker-outside-of-docker#1-use-the-localworkspacefolder-as-environment-variable-in-your-code
 if [ -n "${LOCAL_WORKSPACE_FOLDER+x}" ]; then
   site_dir="${LOCAL_WORKSPACE_FOLDER}/hp/dist"
-  certs_dir="${LOCAL_WORKSPACE_FOLDER}/hp/certs"
+  secrets_dir="${LOCAL_WORKSPACE_FOLDER}/hp/certs"
 fi
 readonly site_dir
-readonly certs_dir
+readonly secrets_dir
 
 docker network inspect "${network_name}" >/dev/null 2>&1 \
   || docker network create \
@@ -104,8 +104,8 @@ if [ "${daemon}" = 'true' ]; then
     --publish "${https_port}:443/tcp" \
     --hostname="${host_name}" \
     --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
-    --mount "type=bind,source=${certs_dir}/cert.pem,target=/usr/local/apache2/conf/server.crt,readonly" \
-    --mount "type=bind,source=${certs_dir}/key.pem,target=/usr/local/apache2/conf/server.key,readonly" \
+    --mount "type=bind,source=${secrets_dir}/cert.pem,target=/usr/local/apache2/conf/server.crt,readonly" \
+    --mount "type=bind,source=${secrets_dir}/key.pem,target=/usr/local/apache2/conf/server.key,readonly" \
     --name "${container_name}" \
     --label "${label}" \
     "${image_name}:${tag}" \
@@ -113,7 +113,6 @@ if [ "${daemon}" = 'true' ]; then
 
   readonly url="https://${host_name}:${https_port}"
 
-  # https://googlechrome.github.io/lighthouse-ci/docs/configuration.html#startserverreadypattern
   printf '\nListen local: %s\n' "${url}"
 
   if command -v pbcopy >/dev/null 2>&1; then
@@ -145,8 +144,8 @@ else
     --publish "${https_port}:443/tcp" \
     --hostname="${host_name}" \
     --mount "type=bind,source=${site_dir},target=/usr/local/apache2/htdocs/,readonly" \
-    --mount "type=bind,source=${certs_dir}/cert.pem,target=/usr/local/apache2/conf/server.crt,readonly" \
-    --mount "type=bind,source=${certs_dir}/key.pem,target=/usr/local/apache2/conf/server.key,readonly" \
+    --mount "type=bind,source=${secrets_dir}/cert.pem,target=/usr/local/apache2/conf/server.crt,readonly" \
+    --mount "type=bind,source=${secrets_dir}/key.pem,target=/usr/local/apache2/conf/server.key,readonly" \
     --name "${container_name}" \
     --label "${label}" \
     "${image_name}:${tag}" \
