@@ -7,7 +7,7 @@
 
 set -eu
 
-if npx --yes --quiet is-ci; then
+if [ -n "${CI+x}" ]; then
   exit 0
 fi
 
