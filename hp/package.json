@@ -97,7 +97,7 @@
     "browserslist-config-baseline": "0.4.0",
     "dom-serializer": "2.0.0",
     "domutils": "3.2.2",
-    "esbuild": "0.25.3",
+    "esbuild": "0.25.4",
     "eslint": "9.26.0",
     "eslint-plugin-compat": "6.0.2",
     "eslint-plugin-depend": "1.0.0",
