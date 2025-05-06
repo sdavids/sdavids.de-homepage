@@ -18,4 +18,4 @@ if [ ! -d 'node_modules' ]; then
   npm ci --silent --ignore-scripts=true --fund=false
 fi
 
-npx eslint --cache --fix .
+npx eslint --cache --cache-location node_modules/.cache/eslint/.eslintcache --fix .

@@ -6,9 +6,6 @@
 ### NodeJS ###
 node_modules/
 
-### ESLint ###
-.eslintcache
-
 ### husky ###
 .husky/_/
 
