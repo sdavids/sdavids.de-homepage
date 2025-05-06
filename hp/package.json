@@ -110,7 +110,7 @@
     "htmlparser2": "10.0.0",
     "http-server": "14.1.1",
     "husky": "9.1.7",
-    "lint-staged": "15.5.1",
+    "lint-staged": "15.5.2",
     "minify-xml": "4.5.2",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "0.6.11",
