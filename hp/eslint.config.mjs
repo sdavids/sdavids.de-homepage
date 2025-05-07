@@ -33,7 +33,9 @@ export default [
     plugins: {
       json,
     },
-    ...json.configs.recommended,
+    rules: {
+      ...json.configs.recommended.rules,
+    },
     name: 'eslint/json/recommended',
   },
   {
@@ -46,8 +48,8 @@ export default [
     languageOptions: {
       customSyntax: tailwindSyntax,
     },
-    ...css.configs.recommended,
     rules: {
+      ...css.configs.recommended.rules,
       'css/use-baseline': [
         'error',
         {
