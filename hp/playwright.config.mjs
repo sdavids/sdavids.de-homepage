@@ -4,7 +4,14 @@
 import os from 'node:os';
 import { defineConfig, devices } from '@playwright/test';
 
-const baseUrl = process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:3000';
+// eslint-disable-next-line dot-notation
+const baseUrl = process.env['PLAYWRIGHT_BASE_URL'] ?? 'http://localhost:3000';
+// eslint-disable-next-line dot-notation
+const isCi = Boolean(process.env['CI']);
+// eslint-disable-next-line dot-notation
+const isGitPushHook = Boolean(process.env['GIT_PUSH_HOOK']);
+// eslint-disable-next-line dot-notation
+const shouldRunBuild = Boolean(process.env['PW_RUN_BUILD']);
 
 // https://playwright.dev/docs/test-configuration
 const projects = [
@@ -41,10 +48,10 @@ const projects = [
 const lastSupportedMacOsVersion = 22;
 if (os.platform() === 'darwin') {
   const release = os.release();
-  let major = release.split(/\./u, 1)[0];
+  const major = release.split(/\./u, 1).at(0);
   if (major !== release) {
-    major = Number(major);
-    if (!isNaN(major) && major >= lastSupportedMacOsVersion) {
+    const m = Number(major);
+    if (!isNaN(m) && m >= lastSupportedMacOsVersion) {
       projects.push({
         name: 'safari',
         use: { ...devices['Desktop Safari'] },
@@ -66,13 +73,12 @@ if (os.platform() === 'darwin') {
   }
 }
 
-let config = {
+const cfg = {
   testDir: 'e2e/tests',
   fullyParallel: true,
-  reporter: process.env.CI ? 'github' : 'html',
-  forbidOnly: Boolean(process.env.CI),
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  reporter: isCi ? 'github' : 'html',
+  forbidOnly: isCi,
+  retries: isCi ? 2 : 0,
   use: {
     baseURL: baseUrl,
     locale: 'de-DE',
@@ -82,18 +88,23 @@ let config = {
   projects,
 };
 
-const shouldStartWebServer = process.env.CI || process.env.GIT_PUSH_HOOK;
+if (isCi) {
+  cfg.workers = 1;
+}
 
+const shouldStartWebServer = isCi || isGitPushHook;
 if (shouldStartWebServer) {
-  config = {
-    ...config,
-    webServer: {
-      command: 'node --run start',
-      url: 'http://127.0.0.1:3000',
-      reuseExistingServer: !shouldStartWebServer,
-    },
+  let command = 'node --run start';
+  if (shouldRunBuild) {
+    command = `node --run build:dist:skip-install &&${command}`;
+  }
+  cfg.webServer = {
+    command,
+    url: 'http://127.0.0.1:3000',
+    reuseExistingServer: false,
   };
 }
 
-// noinspection JSUnusedGlobalSymbols
-export default defineConfig(config);
+const config = defineConfig(cfg);
+
+export default config;
