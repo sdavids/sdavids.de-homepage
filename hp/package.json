@@ -100,7 +100,7 @@
     "esbuild": "0.25.4",
     "eslint": "9.26.0",
     "eslint-plugin-compat": "6.0.2",
-    "eslint-plugin-depend": "1.1.0",
+    "eslint-plugin-depend": "1.2.0",
     "eslint-plugin-jest-dom": "5.5.0",
     "eslint-plugin-playwright": "2.2.0",
     "eslint-plugin-testing-library": "7.1.1",
