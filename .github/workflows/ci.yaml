@@ -158,8 +158,8 @@ jobs:
         name: Install Playwright
         run: npx playwright install --with-deps --no-shell chromium
       - if: steps.changes.outputs.hp == 'true'
-        name: Run e2e Tests
-        run: node --run e2e:ci
+        name: Run playwright Tests
+        run: node --run playwright:ci
       - if: steps.changes.outputs.hp == 'true'
         name: Fetch project data
         # https://github.com/ionos-deploy-now/retrieve-project-info-action/releases
@@ -188,6 +188,6 @@ jobs:
           steps.changes.outputs.hp == 'true' &&
           steps.project.outputs.deployment-enabled == 'true'
         name: Run Smoke Tests on Deployed Site
-        run: node --run e2e:smoke
+        run: node --run playwright:smoke
         env:
           PLAYWRIGHT_BASE_URL: https://sdavids.de

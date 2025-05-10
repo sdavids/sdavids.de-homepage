@@ -92,7 +92,7 @@ export default [
   },
   {
     ...playwright.configs['flat/recommended'],
-    files: ['e2e/**/*.mjs'],
+    files: ['playwright/**/*.mjs'],
     rules: {
       ...playwright.configs['flat/recommended'].rules,
       'playwright/no-skipped-test': [
@@ -170,7 +170,7 @@ export default [
     name: 'sdavids/js/vitest',
   },
   {
-    files: ['e2e/**/*.mjs'],
+    files: ['playwright/**/*.mjs'],
     languageOptions: {
       globals: {
         ...globals.browser,

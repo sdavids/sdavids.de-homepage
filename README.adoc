@@ -108,7 +108,7 @@ Start a <<dev-server,development server>>; in a new shell:
 [,console]
 ----
 $ cd hp
-$ npm run e2e
+$ npm run playwright
 ----
 
 ==== Running in Headless Mode With Tracing
@@ -118,7 +118,7 @@ Start a <<dev-server,development server>>; in a new shell:
 [,console]
 ----
 $ cd hp
-$ npm run e2e:trace
+$ npm run playwright:trace
 ----
 
 ==== Running in UI Mode
@@ -128,7 +128,7 @@ Start a <<dev-server,development server>>; in a new shell:
 [,console]
 ----
 $ cd hp
-$ npm run e2e:ui
+$ npm run playwright:ui
 ----
 
 == Deployment

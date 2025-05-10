@@ -74,7 +74,7 @@ if (os.platform() === 'darwin') {
 }
 
 const cfg = {
-  testDir: 'e2e/tests',
+  testDir: 'playwright/tests',
   fullyParallel: true,
   reporter: isCi ? 'github' : 'html',
   forbidOnly: isCi,

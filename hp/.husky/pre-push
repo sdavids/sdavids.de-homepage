@@ -87,4 +87,4 @@ node --run test >&2
 
 node --run build:dist:skip-install >&2
 
-GIT_PUSH_HOOK=true node --run e2e >&2
+GIT_PUSH_HOOK=true node --run playwright >&2
