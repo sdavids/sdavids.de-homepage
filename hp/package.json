@@ -65,7 +65,8 @@
     "legal:robots": "scripts/add_legal_notice_to_robots.sh",
     "lint": "scripts/lint.sh",
     "lint:fix": "scripts/lint_fix.sh",
-    "lighthouseci": "npx lhci autorun",
+    "lhci": "lhci autorun",
+    "lhci:ci": "lhci autorun --config lighthouserc.ci.yaml",
     "minify:html": "scripts/minify_html.sh dist",
     "minify:json-tags": "node scripts/minify_json_tags.mjs dist/index.html",
     "minify:robots": "scripts/minify_robots.sh dist",
@@ -76,6 +77,7 @@
     "minify:xml": "scripts/minify_xml.sh dist",
     "start": "npx --yes --quiet http-server dist --port 3000 --gzip --brotli --cors --utc --no-dotfiles",
     "test": "vitest run",
+    "test:ci": "vitest run --reporter default --reporter json --outputFile reports/vitest/test-output.json",
     "test:verbose": "vitest run --reporter verbose",
     "test:watch": "vitest"
   },

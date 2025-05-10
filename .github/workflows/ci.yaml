@@ -80,7 +80,7 @@ jobs:
         run: node --run check:types
       - if: steps.changes.outputs.hp == 'true'
         name: Run unit tests
-        run: node --run test
+        run: node --run test:ci
         env:
           VITEST_SKIP_INSTALL_CHECKS: 1
       - if: steps.changes.outputs.hp == 'true'
@@ -153,7 +153,7 @@ jobs:
           args: --no-progress --require-https 'hp/dist/**/*.html'
       - if: steps.changes.outputs.hp == 'true'
         name: Run Lighthouse CI
-        run: node --run lighthouseci
+        run: node --run lhci:ci
       - if: steps.changes.outputs.hp == 'true'
         name: Install Playwright
         run: >

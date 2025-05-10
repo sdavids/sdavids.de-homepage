@@ -76,9 +76,12 @@ if (os.platform() === 'darwin') {
 }
 
 const cfg = {
+  outputDir: '.playwright',
   testDir: 'playwright/tests',
   fullyParallel: true,
-  reporter: isCi ? 'github' : 'html',
+  reporter: isCi
+    ? 'github'
+    : [['html', { outputFolder: 'reports/playwright' }]],
   forbidOnly: isCi,
   retries: isCi ? 2 : 0,
   use: {

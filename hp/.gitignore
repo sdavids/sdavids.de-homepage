@@ -16,9 +16,11 @@ src/s/app.css
 ### easyrsa ###
 certs/
 
+### Tests ###
+reports/
+
+### Playwright ###
+.playwright/
+
 ### Lighthouse CI
 .lighthouseci/
-
-### Playwright
-test-results/
-playwright-report/

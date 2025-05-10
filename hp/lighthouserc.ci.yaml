@@ -5,12 +5,11 @@
 # https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md
 # https://github.com/GoogleChrome/lighthouse/blob/main/docs/configuration.md#lighthouse-configuration
 ci:
-  upload:
-    target: filesystem
-    outputDir: reports/lhci
+  upload: temporary-public-storage
   collect:
+    numberOfRuns: 1
+    startServerCommand: node --run start
     url:
-      #      - https://httpd.internal:8443/index.html
-      - http://localhost:3000/index.html
+      - http://127.0.0.1:3000/index.html
   assert:
     preset: lighthouse:recommended
