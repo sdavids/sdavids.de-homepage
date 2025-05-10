@@ -5,7 +5,7 @@ import { test } from '@playwright/test';
 import { AxeBuilder } from '@axe-core/playwright';
 import { expect } from '../util/colors.mjs';
 
-test.describe('homepage -  a11y', () => {
+test.describe('index - a11y', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
@@ -17,7 +17,10 @@ test.describe('homepage -  a11y', () => {
     expect(accessibilityScanResults.violations).toEqual([]);
   });
 
-  test('should have stable aria tree - desktop', async ({ page, isMobile }) => {
+  test('should have a stable aria tree - desktop', async ({
+    page,
+    isMobile,
+  }) => {
     test.skip(isMobile);
     await expect(page.getByRole('main')).toMatchAriaSnapshot(`
       - main:
@@ -53,7 +56,10 @@ test.describe('homepage -  a11y', () => {
     `);
   });
 
-  test('should have stable aria tree - mobile', async ({ page, isMobile }) => {
+  test('should have a stable aria tree - mobile', async ({
+    page,
+    isMobile,
+  }) => {
     test.skip(!isMobile);
     await expect(page.getByRole('main')).toMatchAriaSnapshot(`
       - main:
@@ -86,14 +92,14 @@ test.describe('homepage -  a11y', () => {
   });
 });
 
-test.describe('homepage - light mode', () => {
+test.describe('index - light mode', () => {
   test.use({ colorScheme: 'light' });
 
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
 
-  test('should have dark heading - non-webkit', async ({
+  test('should have a dark heading - non-webkit', async ({
     browserName,
     page,
   }) => {
@@ -106,7 +112,7 @@ test.describe('homepage - light mode', () => {
     ).toHaveColor('oklch(0.21 0.034 264.665)');
   });
 
-  test('should have dark heading - webkit', async ({ browserName, page }) => {
+  test('should have a dark heading - webkit', async ({ browserName, page }) => {
     test.skip(
       browserName !== 'webkit',
       'oklch reported with more fractions on webkit',
@@ -116,21 +122,21 @@ test.describe('homepage - light mode', () => {
     ).toHaveColor('oklch(0.21 0.034 264.665009)');
   });
 
-  test('should have light background', async ({ page }) => {
+  test('should have a light background', async ({ page }) => {
     await expect(
       page.getByRole('article', { name: 'Sebastian Davids' }),
     ).toHaveBackgroundColor('rgb(255, 255, 255)');
   });
 });
 
-test.describe('homepage - dark mode', () => {
+test.describe('index - dark mode', () => {
   test.use({ colorScheme: 'dark' });
 
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
 
-  test('should have light heading - non-webkit', async ({
+  test('should have a light heading - non-webkit', async ({
     browserName,
     page,
   }) => {
@@ -143,7 +149,10 @@ test.describe('homepage - dark mode', () => {
     ).toHaveColor('oklch(0.928 0.006 264.531)');
   });
 
-  test('should have light heading - webkit', async ({ browserName, page }) => {
+  test('should have a light heading - webkit', async ({
+    browserName,
+    page,
+  }) => {
     test.skip(
       browserName !== 'webkit',
       'oklch reported with more fractions on webkit',
@@ -153,7 +162,7 @@ test.describe('homepage - dark mode', () => {
     ).toHaveColor('oklch(0.928 0.006 264.531006)');
   });
 
-  test('should have dark background - non-webkit', async ({
+  test('should have a dark background - non-webkit', async ({
     browserName,
     page,
   }) => {
@@ -166,7 +175,7 @@ test.describe('homepage - dark mode', () => {
     ).toHaveBackgroundColor('oklch(0.274 0.006 286.033)');
   });
 
-  test('should have dark background - webkit', async ({
+  test('should have a dark background - webkit', async ({
     browserName,
     page,
   }) => {
