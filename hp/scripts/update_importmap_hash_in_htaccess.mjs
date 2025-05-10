@@ -4,8 +4,6 @@
 // Prerequisite:
 //   npm i --save-dev htmlparser2 domutils
 
-/* eslint-disable no-console */
-
 import * as htmlparser2 from 'htmlparser2';
 import { findOne, textContent } from 'domutils';
 import { access, readFile, writeFile } from 'fs/promises';

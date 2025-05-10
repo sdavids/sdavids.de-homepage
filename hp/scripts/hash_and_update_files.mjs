@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: © 2023 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
-/* eslint-disable no-console */
-
 import { createHash } from 'node:crypto';
 import { readFile, readdir, rename, writeFile } from 'node:fs/promises';
 import { parse, relative, resolve } from 'node:path';

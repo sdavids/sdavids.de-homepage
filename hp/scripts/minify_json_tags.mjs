@@ -36,7 +36,6 @@ const findJsonStructuredScriptTags = (elem) => {
 };
 
 if (process.argv.length < 3) {
-  // eslint-disable-next-line no-console
   console.error(`Usage: ${relative(cwd(), import.meta.filename)} FILE`);
   process.exit(1);
 }
@@ -46,7 +45,6 @@ const file = process.argv[2];
 try {
   await access(file);
 } catch {
-  // eslint-disable-next-line no-console
   console.error(`${file} does not exist`);
   process.exit(2);
 }

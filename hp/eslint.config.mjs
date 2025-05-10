@@ -9,22 +9,16 @@ import json from '@eslint/json';
 import css from '@eslint/css';
 import { tailwindSyntax } from '@eslint/css/syntax';
 import compat from 'eslint-plugin-compat';
+import * as depend from 'eslint-plugin-depend';
 import vitest from '@vitest/eslint-plugin';
 import testingLibrary from 'eslint-plugin-testing-library';
 import jestDom from 'eslint-plugin-jest-dom';
 import playwright from 'eslint-plugin-playwright';
-import * as depend from 'eslint-plugin-depend';
 
-// noinspection JSUnusedGlobalSymbols
 export default [
   {
     ignores: ['dist/*'],
     name: 'global/ignores',
-  },
-  {
-    files: ['**/*.{js,mjs}'],
-    ...js.configs.all,
-    name: 'eslint/js/all',
   },
   {
     files: ['**/*.json'],
@@ -62,6 +56,11 @@ export default [
       ],
     },
     name: 'eslint/css/recommended',
+  },
+  {
+    files: ['**/*.{js,mjs}'],
+    ...js.configs.all,
+    name: 'eslint/js/all',
   },
   {
     files: ['src/j/*.js', 'src/j/**/*.js'],
@@ -102,6 +101,7 @@ export default [
     },
     name: 'eslint/playwright',
   },
+  depend.configs['flat/recommended'],
   {
     files: ['**/*.{js,mjs}'],
     rules: {
@@ -149,24 +149,14 @@ export default [
     name: 'sdavids/js/browser',
   },
   {
-    files: ['*.mjs', 'scripts/*.mjs'],
-    languageOptions: {
-      globals: {
-        ...globals.node,
-      },
-      parserOptions: {
-        // https://node.green/#ES2024
-        ecmaVersion: 2024,
-      },
-    },
-    name: 'sdavids/js/node',
-  },
-  {
-    files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
+    files: ['vitest/**/*.mjs'],
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node,
+      },
+      parserOptions: {
+        ecmaVersion: 'latest',
       },
     },
     rules: {
@@ -177,16 +167,31 @@ export default [
     name: 'sdavids/js/vitest',
   },
   {
-    files: ['e2e/**/*.mjs', 'playwright.config.mjs'],
+    files: ['e2e/**/*.mjs'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parserOptions: {
+        ecmaVersion: 'latest',
+      },
+    },
+    name: 'sdavids/js/playwright',
+  },
+  {
+    files: ['*.mjs', 'scripts/*.mjs'],
     languageOptions: {
       globals: {
         ...globals.node,
       },
+      parserOptions: {
+        ecmaVersion: 'latest',
+      },
     },
     rules: {
-      'no-undefined': 'off',
+      'no-console': 'off',
     },
-    name: 'sdavids/js/playwright',
+    name: 'sdavids/js/node',
   },
-  depend.configs['flat/recommended'],
 ];

@@ -1,8 +1,6 @@
 // SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
-/* eslint-disable no-console */
-
 import { createReadStream } from 'node:fs';
 import { createInterface } from 'node:readline';
 import { access, readFile, writeFile } from 'fs/promises';
