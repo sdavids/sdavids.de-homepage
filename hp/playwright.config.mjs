@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import os from 'node:os';
+import { resolve } from 'node:path';
+import { access } from 'fs/promises';
 import { defineConfig, devices } from '@playwright/test';
 
 // eslint-disable-next-line dot-notation
@@ -96,11 +98,21 @@ const shouldStartWebServer = isCi || isGitPushHook;
 if (shouldStartWebServer) {
   let command = 'node --run start';
   if (shouldRunBuild) {
-    command = `node --run build:dist:skip-install &&${command}`;
+    command = `node --run build:dist:skip-install && ${command}`;
+  } else {
+    const distDir = resolve(import.meta.dirname, 'dist');
+    try {
+      await access(distDir);
+    } catch {
+      console.error(
+        `${distDir} does not exist - execute 'node --run build:dist:skip-install'`,
+      );
+      process.exit(1);
+    }
   }
   cfg.webServer = {
     command,
-    url: 'http://127.0.0.1:3000',
+    url: `http://${isGitPushHook ? 'localhost' : '127.0.0.1'}:3000`,
     reuseExistingServer: false,
   };
 }
