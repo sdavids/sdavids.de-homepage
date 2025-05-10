@@ -7,9 +7,11 @@ import globals from 'globals';
 import js from '@eslint/js';
 import json from '@eslint/json';
 import css from '@eslint/css';
+// eslint-disable-next-line import-x/no-unresolved
 import { tailwindSyntax } from '@eslint/css/syntax';
 import compat from 'eslint-plugin-compat';
 import * as depend from 'eslint-plugin-depend';
+import * as pluginImportX from 'eslint-plugin-import-x';
 import vitest from '@vitest/eslint-plugin';
 import testingLibrary from 'eslint-plugin-testing-library';
 import jestDom from 'eslint-plugin-jest-dom';
@@ -57,6 +59,7 @@ export default [
     },
     name: 'eslint/css/recommended',
   },
+  pluginImportX.flatConfigs.recommended,
   {
     files: ['**/*.{js,mjs}'],
     ...js.configs.all,

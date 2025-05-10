@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { test } from '@playwright/test';
-import AxeBuilder from '@axe-core/playwright';
+import { AxeBuilder } from '@axe-core/playwright';
 import { expect } from '../util/colors.mjs';
 
 test.describe('homepage -  a11y', () => {

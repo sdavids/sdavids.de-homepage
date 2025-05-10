@@ -6,6 +6,7 @@
 /// <reference types="vitest/config" />
 
 import path from 'node:path';
+// eslint-disable-next-line import-x/no-unresolved
 import { defineConfig } from 'vitest/config';
 
 // noinspection JSUnusedGlobalSymbols
