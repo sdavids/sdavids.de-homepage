@@ -74,7 +74,7 @@
     "minify:webmanifest": "scripts/minify_webmanifest.sh dist/site.webmanifest",
     "minify:json": "scripts/minify_json.sh dist",
     "minify:xml": "scripts/minify_xml.sh dist",
-    "start": "npx http-server dist --port 3000 --gzip --brotli --cors --utc --no-dotfiles",
+    "start": "npx --yes --quiet http-server dist --port 3000 --gzip --brotli --cors --utc --no-dotfiles",
     "test": "vitest run",
     "test:verbose": "vitest run --reporter verbose",
     "test:watch": "vitest"

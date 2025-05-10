@@ -156,7 +156,8 @@ jobs:
         run: node --run lighthouseci
       - if: steps.changes.outputs.hp == 'true'
         name: Install Playwright
-        run: npx playwright install --with-deps --no-shell chromium
+        run: >
+          npx --yes --quiet playwright install --with-deps --no-shell chromium
       - if: steps.changes.outputs.hp == 'true'
         name: Run playwright Tests
         run: node --run playwright:ci
