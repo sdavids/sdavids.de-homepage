@@ -5,12 +5,10 @@
 
 /// <reference types="vitest/config" />
 
-import path from 'node:path';
 // eslint-disable-next-line import-x/no-unresolved
 import { defineConfig } from 'vitest/config';
 
-// noinspection JSUnusedGlobalSymbols
-export default defineConfig({
+const config = defineConfig({
   test: {
     include: ['vitest/**/*.test.mjs'],
     exclude: [],
@@ -23,8 +21,7 @@ export default defineConfig({
         },
       },
     },
-    alias: {
-      '@': path.resolve(import.meta.dirname, './src/j'),
-    },
   },
 });
+
+export default config;
