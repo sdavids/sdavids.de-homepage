@@ -38,7 +38,7 @@ SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = "hp/src/favicon.svg"
+path = "hp/src/icon.svg"
 SPDX-FileCopyrightText = "© 2023 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"
 
