@@ -66,3 +66,13 @@ SPDX-License-Identifier = "Apache-2.0"
 path = [".devcontainer/devcontainer-lock.json"]
 SPDX-FileCopyrightText = "© 2025 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["hp/httpd/disallowed_user_agents.txt"]
+SPDX-FileCopyrightText = "© 2025 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["hp/src/.well-known/gpc.json"]
+SPDX-FileCopyrightText = "© 2025 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
