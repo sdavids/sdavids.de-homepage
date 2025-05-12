@@ -44,7 +44,7 @@ describe('writeClipboardText', () => {
 
     await writeClipboardText(id);
 
-    expect(await navigator.clipboard.readText()).not.toBe(text);
+    await expect(navigator.clipboard.readText()).resolves.not.toBe(text);
     expect(screen.getByTestId(id)).not.toHaveClass('opacity-0');
   });
 
@@ -72,7 +72,7 @@ describe('writeClipboardText', () => {
 
     await writeClipboardText('two');
 
-    expect(await navigator.clipboard.readText()).not.toBe(text);
+    await expect(navigator.clipboard.readText()).resolves.not.toBe(text);
     expect(screen.getByTestId(id)).not.toHaveClass('opacity-0');
   });
 
@@ -84,7 +84,7 @@ describe('writeClipboardText', () => {
 
     await writeClipboardText(id);
 
-    expect(await navigator.clipboard.readText()).toBe(text);
+    await expect(navigator.clipboard.readText()).resolves.toBe(text);
   });
 
   it('should toggle opacity of svg groups', async () => {

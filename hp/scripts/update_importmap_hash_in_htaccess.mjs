@@ -4,12 +4,12 @@
 // Prerequisite:
 //   npm i --save-dev htmlparser2 domutils
 
-import * as htmlparser2 from 'htmlparser2';
-import { findOne, textContent } from 'domutils';
 import { access, readFile, writeFile } from 'fs/promises';
 import { createHash } from 'node:crypto';
 import { relative } from 'node:path';
 import { cwd } from 'node:process';
+import { findOne, textContent } from 'domutils';
+import { parseDocument } from 'htmlparser2';
 
 /**
  * @param {ChildNode} node
@@ -50,7 +50,7 @@ try {
 
 const html = await readFile(indexFile, 'utf8');
 
-const dom = htmlparser2.parseDocument(html);
+const dom = parseDocument(html);
 
 const found = findOne(isImportMap, dom.children.filter(isElement), true);
 

@@ -3,7 +3,6 @@
 
 // https://github.com/okonet/lint-staged#configuration
 
-// noinspection JSUnusedGlobalSymbols
 /** @type {import('lint-staged').Configuration} */
 export default {
   '*.{js,mjs}': ['eslint'],

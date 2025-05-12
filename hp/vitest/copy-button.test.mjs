@@ -73,7 +73,7 @@ describe('configureCopyButton', () => {
 
     configureCopyButton(id);
 
-    expect(spy).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledWith('click', expect.anything());
     expect(button).toBeEnabled();
     expect(button).not.toHaveClass('opacity-0');
   });

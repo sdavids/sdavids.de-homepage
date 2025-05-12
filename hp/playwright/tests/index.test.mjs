@@ -14,7 +14,7 @@ test.describe('index - a11y', () => {
     page,
   }) => {
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
-    expect(accessibilityScanResults.violations).toEqual([]);
+    expect(accessibilityScanResults.violations).toStrictEqual([]);
   });
 
   test('should have a stable aria tree - desktop', async ({
