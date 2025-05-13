@@ -1,28 +1,28 @@
 // SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
-import { test } from '@playwright/test';
-import { AxeBuilder } from '@axe-core/playwright';
-import { expect } from '../util/colors.mjs';
+import { test } from "@playwright/test";
+import { AxeBuilder } from "@axe-core/playwright";
+import { expect } from "../util/colors.mjs";
 
-test.describe('index - a11y', () => {
+test.describe("index - a11y", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto("/");
   });
 
-  test('should not have any automatically detectable accessibility issues', async ({
+  test("should not have any automatically detectable accessibility issues", async ({
     page,
   }) => {
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
     expect(accessibilityScanResults.violations).toStrictEqual([]);
   });
 
-  test('should have a stable aria tree - desktop', async ({
+  test("should have a stable aria tree - desktop", async ({
     page,
     isMobile,
   }) => {
     test.skip(isMobile);
-    await expect(page.getByRole('main')).toMatchAriaSnapshot(`
+    await expect(page.getByRole("main")).toMatchAriaSnapshot(`
       - main:
         - article "Sebastian Davids":
           - heading "Sebastian Davids" [level=1]
@@ -46,7 +46,7 @@ test.describe('index - a11y', () => {
             - group:
               - heading "Usage" [level=3]
     `);
-    await expect(page.getByRole('contentinfo')).toMatchAriaSnapshot(`
+    await expect(page.getByRole("contentinfo")).toMatchAriaSnapshot(`
       - contentinfo:
         - navigation "social links":
           - list:
@@ -56,12 +56,12 @@ test.describe('index - a11y', () => {
     `);
   });
 
-  test('should have a stable aria tree - mobile', async ({
+  test("should have a stable aria tree - mobile", async ({
     page,
     isMobile,
   }) => {
     test.skip(!isMobile);
-    await expect(page.getByRole('main')).toMatchAriaSnapshot(`
+    await expect(page.getByRole("main")).toMatchAriaSnapshot(`
       - main:
         - article "Sebastian Davids":
           - heading "Sebastian Davids" [level=1]
@@ -81,7 +81,7 @@ test.describe('index - a11y', () => {
             - group:
               - heading "Usage" [level=3]
     `);
-    await expect(page.getByRole('contentinfo')).toMatchAriaSnapshot(`
+    await expect(page.getByRole("contentinfo")).toMatchAriaSnapshot(`
       - contentinfo:
         - navigation "social links":
           - list:
@@ -92,99 +92,99 @@ test.describe('index - a11y', () => {
   });
 });
 
-test.describe('index - light mode', () => {
-  test.use({ colorScheme: 'light' });
+test.describe("index - light mode", () => {
+  test.use({ colorScheme: "light" });
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto("/");
   });
 
-  test('should have a dark heading - non-webkit', async ({
+  test("should have a dark heading - non-webkit", async ({
     browserName,
     page,
   }) => {
     test.skip(
-      browserName === 'webkit',
-      'oklch reported with less fractions on non-webkit',
+      browserName === "webkit",
+      "oklch reported with less fractions on non-webkit",
     );
     await expect(
-      page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('oklch(0.21 0.034 264.665)');
+      page.getByRole("heading", { name: "Sebastian Davids" }),
+    ).toHaveColor("oklch(0.21 0.034 264.665)");
   });
 
-  test('should have a dark heading - webkit', async ({ browserName, page }) => {
+  test("should have a dark heading - webkit", async ({ browserName, page }) => {
     test.skip(
-      browserName !== 'webkit',
-      'oklch reported with more fractions on webkit',
+      browserName !== "webkit",
+      "oklch reported with more fractions on webkit",
     );
     await expect(
-      page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('oklch(0.21 0.034 264.665009)');
+      page.getByRole("heading", { name: "Sebastian Davids" }),
+    ).toHaveColor("oklch(0.21 0.034 264.665009)");
   });
 
-  test('should have a light background', async ({ page }) => {
+  test("should have a light background", async ({ page }) => {
     await expect(
-      page.getByRole('article', { name: 'Sebastian Davids' }),
-    ).toHaveBackgroundColor('rgb(255, 255, 255)');
+      page.getByRole("article", { name: "Sebastian Davids" }),
+    ).toHaveBackgroundColor("rgb(255, 255, 255)");
   });
 });
 
-test.describe('index - dark mode', () => {
-  test.use({ colorScheme: 'dark' });
+test.describe("index - dark mode", () => {
+  test.use({ colorScheme: "dark" });
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto("/");
   });
 
-  test('should have a light heading - non-webkit', async ({
+  test("should have a light heading - non-webkit", async ({
     browserName,
     page,
   }) => {
     test.skip(
-      browserName === 'webkit',
-      'oklch reported with less fractions on non-webkit',
+      browserName === "webkit",
+      "oklch reported with less fractions on non-webkit",
     );
     await expect(
-      page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('oklch(0.928 0.006 264.531)');
+      page.getByRole("heading", { name: "Sebastian Davids" }),
+    ).toHaveColor("oklch(0.928 0.006 264.531)");
   });
 
-  test('should have a light heading - webkit', async ({
+  test("should have a light heading - webkit", async ({
     browserName,
     page,
   }) => {
     test.skip(
-      browserName !== 'webkit',
-      'oklch reported with more fractions on webkit',
+      browserName !== "webkit",
+      "oklch reported with more fractions on webkit",
     );
     await expect(
-      page.getByRole('heading', { name: 'Sebastian Davids' }),
-    ).toHaveColor('oklch(0.928 0.006 264.531006)');
+      page.getByRole("heading", { name: "Sebastian Davids" }),
+    ).toHaveColor("oklch(0.928 0.006 264.531006)");
   });
 
-  test('should have a dark background - non-webkit', async ({
+  test("should have a dark background - non-webkit", async ({
     browserName,
     page,
   }) => {
     test.skip(
-      browserName === 'webkit',
-      'oklch reported with less fractions on non-webkit',
+      browserName === "webkit",
+      "oklch reported with less fractions on non-webkit",
     );
     await expect(
-      page.getByRole('article', { name: 'Sebastian Davids' }),
-    ).toHaveBackgroundColor('oklch(0.274 0.006 286.033)');
+      page.getByRole("article", { name: "Sebastian Davids" }),
+    ).toHaveBackgroundColor("oklch(0.274 0.006 286.033)");
   });
 
-  test('should have a dark background - webkit', async ({
+  test("should have a dark background - webkit", async ({
     browserName,
     page,
   }) => {
     test.skip(
-      browserName !== 'webkit',
-      'oklch reported with more fractions on webkit',
+      browserName !== "webkit",
+      "oklch reported with more fractions on webkit",
     );
     await expect(
-      page.getByRole('article', { name: 'Sebastian Davids' }),
-    ).toHaveBackgroundColor('oklch(0.274 0.006 286.03299)');
+      page.getByRole("article", { name: "Sebastian Davids" }),
+    ).toHaveBackgroundColor("oklch(0.274 0.006 286.03299)");
   });
 });

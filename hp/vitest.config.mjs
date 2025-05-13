@@ -6,14 +6,14 @@
 /// <reference types="vitest/config" />
 
 // eslint-disable-next-line import-x/no-unresolved
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from "vitest/config";
 
 const config = defineConfig({
   test: {
-    include: ['vitest/**/*.test.mjs'],
+    include: ["vitest/**/*.test.mjs"],
     exclude: [],
-    environment: 'happy-dom',
-    setupFiles: ['vitest/vitest-setup.mjs'],
+    environment: "happy-dom",
+    setupFiles: ["vitest/vitest-setup.mjs"],
     deps: {
       optimizer: {
         web: {

@@ -5,9 +5,8 @@
 
 /** @type {import('prettier').Config} */
 export default {
-  singleQuote: true,
   // https://github.com/prettier/plugin-xml#configuration
-  xmlQuoteAttributes: 'double',
+  xmlQuoteAttributes: "double",
   xmlSortAttributesByKey: true,
-  xmlWhitespaceSensitivity: 'ignore',
+  xmlWhitespaceSensitivity: "ignore",
 };

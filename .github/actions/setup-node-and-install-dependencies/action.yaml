@@ -21,11 +21,11 @@ inputs:
   audit:
     description: run a security audit
     required: false
-    default: 'true'
+    default: "true"
   ignore-scripts:
     description: ignore the pre-/post-install scripts
     required: false
-    default: 'true'
+    default: "true"
 runs:
   using: composite
   steps:

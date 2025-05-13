@@ -1,12 +1,12 @@
 // SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { configureCopyButton } from '../src/j/copy-button.js';
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { configureCopyButton } from "../src/j/copy-button.js";
 
-describe('configureCopyButton', () => {
+describe("configureCopyButton", () => {
   const createButton = (id) => {
-    const button = document.createElement('button');
+    const button = document.createElement("button");
     button.id = `${id}-btn`;
     document.body.appendChild(button);
     return button;
@@ -14,7 +14,7 @@ describe('configureCopyButton', () => {
 
   beforeEach(() => {
     window.isSecureContext = true;
-    document.body.innerHTML = '';
+    document.body.innerHTML = "";
   });
 
   afterEach(() => {
@@ -22,59 +22,59 @@ describe('configureCopyButton', () => {
     vi.unstubAllGlobals();
   });
 
-  it('should ignore element not found', () => {
-    const button = createButton('one');
-    const spy = vi.spyOn(button, 'addEventListener');
+  it("should ignore element not found", () => {
+    const button = createButton("one");
+    const spy = vi.spyOn(button, "addEventListener");
 
-    configureCopyButton('two');
+    configureCopyButton("two");
 
     expect(spy).not.toHaveBeenCalled();
     expect(button).toBeEnabled();
-    expect(button).not.toHaveClass('opacity-0');
+    expect(button).not.toHaveClass("opacity-0");
   });
 
-  it('should not attach listener in non-secure context', () => {
+  it("should not attach listener in non-secure context", () => {
     window.isSecureContext = false;
 
-    const id = 'found';
+    const id = "found";
 
     const button = createButton(id);
-    const spy = vi.spyOn(button, 'addEventListener');
+    const spy = vi.spyOn(button, "addEventListener");
 
     configureCopyButton(id);
 
     expect(spy).not.toHaveBeenCalled();
     expect(button).toBeDisabled();
-    expect(button).toHaveClass('opacity-0');
+    expect(button).toHaveClass("opacity-0");
   });
 
-  it('should not attach listener if no navigator.clipboard', () => {
-    vi.stubGlobal('navigator', {
+  it("should not attach listener if no navigator.clipboard", () => {
+    vi.stubGlobal("navigator", {
       clipboard: undefined,
     });
 
-    const id = 'found';
+    const id = "found";
 
     const button = createButton(id);
-    const spy = vi.spyOn(button, 'addEventListener');
+    const spy = vi.spyOn(button, "addEventListener");
 
     configureCopyButton(id);
 
     expect(spy).not.toHaveBeenCalled();
     expect(button).toBeDisabled();
-    expect(button).toHaveClass('opacity-0');
+    expect(button).toHaveClass("opacity-0");
   });
 
-  it('should attach listener', () => {
-    const id = 'found';
+  it("should attach listener", () => {
+    const id = "found";
 
     const button = createButton(id);
-    const spy = vi.spyOn(button, 'addEventListener');
+    const spy = vi.spyOn(button, "addEventListener");
 
     configureCopyButton(id);
 
-    expect(spy).toHaveBeenCalledWith('click', expect.anything());
+    expect(spy).toHaveBeenCalledWith("click", expect.anything());
     expect(button).toBeEnabled();
-    expect(button).not.toHaveClass('opacity-0');
+    expect(button).not.toHaveClass("opacity-0");
   });
 });

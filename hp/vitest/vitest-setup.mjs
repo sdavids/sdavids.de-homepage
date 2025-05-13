@@ -4,4 +4,4 @@
 // https://vitest.dev/config/#setupfiles
 
 // eslint-disable-next-line import-x/no-unassigned-import
-import '@testing-library/jest-dom/vitest';
+import "@testing-library/jest-dom/vitest";

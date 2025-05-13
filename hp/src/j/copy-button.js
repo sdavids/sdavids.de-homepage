@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
-import { writeClipboardText } from './clipboard.js';
+import { writeClipboardText } from "./clipboard.js";
 
 export const configureCopyButton = (/** @type {string}*/ id) => {
   const btn = /** @type {HTMLButtonElement} */ (
@@ -12,9 +12,9 @@ export const configureCopyButton = (/** @type {string}*/ id) => {
   }
 
   if (window.isSecureContext && navigator.clipboard) {
-    btn.addEventListener('click', () => writeClipboardText(id));
+    btn.addEventListener("click", () => writeClipboardText(id));
   } else {
     btn.disabled = true;
-    btn.classList.add('opacity-0');
+    btn.classList.add("opacity-0");
   }
 };

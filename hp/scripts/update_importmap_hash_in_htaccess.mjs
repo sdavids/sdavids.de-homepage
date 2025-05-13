@@ -4,12 +4,12 @@
 // Prerequisite:
 //   npm i --save-dev htmlparser2 domutils
 
-import { access, readFile, writeFile } from 'fs/promises';
-import { createHash } from 'node:crypto';
-import { relative } from 'node:path';
-import { cwd } from 'node:process';
-import { findOne, textContent } from 'domutils';
-import { parseDocument } from 'htmlparser2';
+import { access, readFile, writeFile } from "fs/promises";
+import { createHash } from "node:crypto";
+import { relative } from "node:path";
+import { cwd } from "node:process";
+import { findOne, textContent } from "domutils";
+import { parseDocument } from "htmlparser2";
 
 /**
  * @param {ChildNode} node
@@ -22,7 +22,7 @@ const isElement = (node) => node.nodeType === 1;
  * @return {boolean}
  */
 const isImportMap = (elem) =>
-  elem.name === 'script' && elem.attribs.type === 'importmap';
+  elem.name === "script" && elem.attribs.type === "importmap";
 
 if (process.argv.length < 4) {
   console.error(
@@ -48,7 +48,7 @@ try {
   process.exit(3);
 }
 
-const html = await readFile(indexFile, 'utf8');
+const html = await readFile(indexFile, "utf8");
 
 const dom = parseDocument(html);
 
@@ -60,9 +60,9 @@ if (found === null) {
 
 const text = textContent(found);
 
-const hash = createHash('sha256').update(text).digest('base64');
+const hash = createHash("sha256").update(text).digest("base64");
 
-const htaccess = await readFile(htaccessFile, 'utf8');
+const htaccess = await readFile(htaccessFile, "utf8");
 
 const replaced = htaccess.replace(
   "script-src 'self';",

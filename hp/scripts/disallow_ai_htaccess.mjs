@@ -1,11 +1,11 @@
 // SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
-import { createReadStream } from 'node:fs';
-import { createInterface } from 'node:readline';
-import { access, readFile, writeFile } from 'fs/promises';
-import { relative } from 'node:path';
-import { cwd } from 'node:process';
+import { createReadStream } from "node:fs";
+import { createInterface } from "node:readline";
+import { access, readFile, writeFile } from "fs/promises";
+import { relative } from "node:path";
+import { cwd } from "node:process";
 
 if (process.argv.length < 4) {
   console.error(
@@ -40,18 +40,18 @@ for await (const l of rl) {
 }
 lines = Array.from(new Set(lines)).sort();
 
-const htaccess = await readFile(htaccessFile, 'utf8');
+const htaccess = await readFile(htaccessFile, "utf8");
 
 const disallowedUserAgents = `# block AI bots
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteBase /
-  RewriteCond "%{HTTP_USER_AGENT}" "(${lines.join('|')})"
+  RewriteCond "%{HTTP_USER_AGENT}" "(${lines.join("|")})"
   RewriteRule "^" "-" [NC,F,L]
 </IfModule>`;
 
 const replaced = htaccess.replace(
-  '###disallowed-user-agents###',
+  "###disallowed-user-agents###",
   disallowedUserAgents,
 );
 

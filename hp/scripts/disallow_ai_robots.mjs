@@ -1,11 +1,11 @@
 // SPDX-FileCopyrightText: © 2025 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
-import { createReadStream } from 'node:fs';
-import { createInterface } from 'node:readline';
-import { access, readFile, writeFile } from 'fs/promises';
-import { relative } from 'node:path';
-import { cwd } from 'node:process';
+import { createReadStream } from "node:fs";
+import { createInterface } from "node:readline";
+import { access, readFile, writeFile } from "fs/promises";
+import { relative } from "node:path";
+import { cwd } from "node:process";
 
 if (process.argv.length < 4) {
   console.error(
@@ -47,12 +47,12 @@ for (const l of lines) {
 User-agent: ${l}
 Disallow: /`);
 }
-disallowedUserAgents = disallowedUserAgents.join('\n');
+disallowedUserAgents = disallowedUserAgents.join("\n");
 
-const robots = await readFile(robotsFile, 'utf8');
+const robots = await readFile(robotsFile, "utf8");
 
 const replaced = robots.replace(
-  '###disallowed-user-agents###',
+  "###disallowed-user-agents###",
   disallowedUserAgents,
 );
 

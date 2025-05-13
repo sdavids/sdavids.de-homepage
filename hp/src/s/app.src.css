@@ -4,8 +4,8 @@ SPDX-License-Identifier: Apache-2.0
 */
 
 @layer theme, base, components, utilities;
-@import 'tailwindcss/theme.css' layer(theme);
-@import 'tailwindcss/utilities.css' layer(utilities);
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 /* https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/preflight.css */
 
@@ -35,9 +35,9 @@ SPDX-License-Identifier: Apache-2.0
     -webkit-text-size-adjust: 100%;
     font-family:
       /* eslint-disable-next-line css/use-baseline */
-      ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial,
-      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-      'Noto Color Emoji';
+      ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji";
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -74,8 +74,8 @@ SPDX-License-Identifier: Apache-2.0
   code {
     font-family:
       /* eslint-disable-next-line css/use-baseline */
-      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-      'Courier New', monospace;
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
     font-size: 1em;
     scroll-margin-top: 2.5rem;
   }

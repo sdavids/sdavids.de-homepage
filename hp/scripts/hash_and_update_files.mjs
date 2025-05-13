@@ -1,10 +1,10 @@
 // SPDX-FileCopyrightText: © 2023 Sebastian Davids <sdavids@gmx.de>
 // SPDX-License-Identifier: Apache-2.0
 
-import { createHash } from 'node:crypto';
-import { readFile, readdir, rename, writeFile } from 'node:fs/promises';
-import { parse, relative, resolve } from 'node:path';
-import { cwd } from 'node:process';
+import { createHash } from "node:crypto";
+import { readFile, readdir, rename, writeFile } from "node:fs/promises";
+import { parse, relative, resolve } from "node:path";
+import { cwd } from "node:process";
 
 /**
  * @param {string} path
@@ -12,7 +12,7 @@ import { cwd } from 'node:process';
  * @returns {Iterable<string>}
  */
 const getFilesWithExtension = async function* (path, extensions) {
-  if (typeof extensions === 'string') {
+  if (typeof extensions === "string") {
     extensions = [extensions];
   }
   const dirEntries = await readdir(path, { withFileTypes: true });
@@ -31,8 +31,8 @@ const getFilesWithExtension = async function* (path, extensions) {
  * @returns {Promise<string>}
  */
 const getFileHash = async (path) => {
-  const file = await readFile(path, 'utf8');
-  return createHash('sha1').update(file).digest('hex');
+  const file = await readFile(path, "utf8");
+  return createHash("sha1").update(file).digest("hex");
 };
 
 /**
@@ -55,7 +55,7 @@ const getFileWithHash = (file, hash) => {
  * @param {[{from:string, to: string}]} replacements
  */
 const updateFile = async (path, replacements) => {
-  let data = await readFile(path, 'utf8');
+  let data = await readFile(path, "utf8");
   for (const { from, to } of replacements) {
     data = data.replaceAll(from, to);
   }
@@ -72,7 +72,7 @@ if (process.argv.length < 4) {
 try {
   const path = process.argv[2];
   const toHash = process.argv[3];
-  const toUpdate = (process.argv[4] ?? '').split(',');
+  const toUpdate = (process.argv[4] ?? "").split(",");
 
   /** @type {[{from:string, to: string}]} */
   const renames = [];

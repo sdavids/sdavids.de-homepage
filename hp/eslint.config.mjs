@@ -3,66 +3,66 @@
 
 // https://eslint.org/docs/latest/use/configure/configuration-files
 
-import globals from 'globals';
-import js from '@eslint/js';
-import json from '@eslint/json';
-import css from '@eslint/css';
+import globals from "globals";
+import js from "@eslint/js";
+import json from "@eslint/json";
+import css from "@eslint/css";
 // eslint-disable-next-line import-x/no-unresolved
-import { tailwindSyntax } from '@eslint/css/syntax';
-import compat from 'eslint-plugin-compat';
-import { configs as dependConfigs } from 'eslint-plugin-depend';
-import { flatConfigs as importConfigs } from 'eslint-plugin-import-x';
-import vitest from '@vitest/eslint-plugin';
-import testingLibrary from 'eslint-plugin-testing-library';
-import jestDom from 'eslint-plugin-jest-dom';
-import playwright from 'eslint-plugin-playwright';
+import { tailwindSyntax } from "@eslint/css/syntax";
+import compat from "eslint-plugin-compat";
+import { configs as dependConfigs } from "eslint-plugin-depend";
+import { flatConfigs as importConfigs } from "eslint-plugin-import-x";
+import vitest from "@vitest/eslint-plugin";
+import testingLibrary from "eslint-plugin-testing-library";
+import jestDom from "eslint-plugin-jest-dom";
+import playwright from "eslint-plugin-playwright";
 
 export default [
   {
-    ignores: ['dist/*'],
-    name: 'global/ignores',
+    ignores: ["dist/*"],
+    name: "global/ignores",
   },
   {
-    files: ['**/*.json'],
+    files: ["**/*.json"],
     ignores: [
-      'package-lock.json',
-      '.devcontainer/devcontainer.json',
-      '.devcontainer/devcontainer-lock.json',
+      "package-lock.json",
+      ".devcontainer/devcontainer.json",
+      ".devcontainer/devcontainer-lock.json",
     ],
-    language: 'json/json',
+    language: "json/json",
     plugins: {
       json,
     },
     rules: {
       ...json.configs.recommended.rules,
     },
-    name: 'eslint/json/recommended',
+    name: "eslint/json/recommended",
   },
   {
-    files: ['.devcontainer/devcontainer.json'],
-    language: 'json/jsonc',
+    files: [".devcontainer/devcontainer.json"],
+    language: "json/jsonc",
     plugins: {
       json,
     },
     rules: {
       ...json.configs.recommended.rules,
     },
-    name: 'eslint/jsonc/recommended',
+    name: "eslint/jsonc/recommended",
   },
   {
-    files: ['**/*.css'],
-    ignores: ['src/s/app.css', 'src/s/app.css.tmp'],
+    files: ["**/*.css"],
+    ignores: ["src/s/app.css", "src/s/app.css.tmp"],
     plugins: {
       css,
     },
-    language: 'css/css',
+    language: "css/css",
     languageOptions: {
       customSyntax: tailwindSyntax,
     },
     rules: {
       ...css.configs.recommended.rules,
-      'css/use-baseline': [
-        'error',
+      "css/use-baseline": [
+        "error",
         {
           // align with js config below,
           // esbuild_target in build.sh,
@@ -72,133 +72,133 @@ export default [
         },
       ],
     },
-    name: 'eslint/css/recommended',
+    name: "eslint/css/recommended",
   },
   {
-    files: ['**/*.{js,mjs}'],
+    files: ["**/*.{js,mjs}"],
     ...js.configs.all,
-    name: 'eslint/js/all',
+    name: "eslint/js/all",
   },
   {
-    files: ['src/j/*.js', 'src/j/**/*.js'],
-    ...compat.configs['flat/recommended'],
-    name: 'eslint/browser-compat',
+    files: ["src/j/*.js", "src/j/**/*.js"],
+    ...compat.configs["flat/recommended"],
+    name: "eslint/browser-compat",
   },
   importConfigs.recommended,
   {
-    files: ['**/*.{js,mjs}'],
+    files: ["**/*.{js,mjs}"],
     rules: {
-      'import-x/exports-last': 'error',
-      'import-x/extensions': ['error', 'ignorePackages'],
-      'import-x/first': 'error',
-      'import-x/group-exports': 'error',
-      'import-x/newline-after-import': 'error',
-      'import-x/no-absolute-path': 'error',
-      'import-x/no-deprecated': 'error',
-      'import-x/no-empty-named-blocks': 'error',
-      'import-x/no-mutable-exports': 'error',
-      'import-x/no-named-as-default': 'error',
-      'import-x/no-named-as-default-member': 'error',
-      'import-x/no-named-default': 'error',
-      'import-x/no-namespace': 'error',
-      'import-x/no-self-import': 'error',
-      'import-x/no-unassigned-import': ['error', { allow: ['**/*.css'] }],
-      'import-x/no-useless-path-segments': 'error',
-      'import-x/order': 'error',
+      "import-x/exports-last": "error",
+      "import-x/extensions": ["error", "ignorePackages"],
+      "import-x/first": "error",
+      "import-x/group-exports": "error",
+      "import-x/newline-after-import": "error",
+      "import-x/no-absolute-path": "error",
+      "import-x/no-deprecated": "error",
+      "import-x/no-empty-named-blocks": "error",
+      "import-x/no-mutable-exports": "error",
+      "import-x/no-named-as-default": "error",
+      "import-x/no-named-as-default-member": "error",
+      "import-x/no-named-default": "error",
+      "import-x/no-namespace": "error",
+      "import-x/no-self-import": "error",
+      "import-x/no-unassigned-import": ["error", { allow: ["**/*.css"] }],
+      "import-x/no-useless-path-segments": "error",
+      "import-x/order": "error",
     },
-    name: 'eslint/js/import',
+    name: "eslint/js/import",
   },
-  dependConfigs['flat/recommended'],
+  dependConfigs["flat/recommended"],
   {
-    files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
+    files: ["vitest/*.test.mjs", "vitest/**/*.test.mjs"],
     plugins: {
       vitest,
     },
     rules: {
       ...vitest.configs.all.rules,
       ...vitest.configs.recommended.rules,
-      'import-x/no-unresolved': [
-        'error',
+      "import-x/no-unresolved": [
+        "error",
         {
-          ignore: ['^@src'],
+          ignore: ["^@src"],
         },
       ],
-      'vitest/max-expects': 'off',
-      'vitest/no-done-callback': 'off',
-      'vitest/no-hooks': 'off',
-      'vitest/padding-around-after-all-blocks': 'off',
-      'vitest/padding-around-after-each-blocks': 'off',
-      'vitest/padding-around-before-all-blocks': 'off',
-      'vitest/padding-around-before-each-blocks': 'off',
-      'vitest/padding-around-describe-blocks': 'off',
-      'vitest/padding-around-expect-groups': 'off',
-      'vitest/padding-around-test-blocks': 'off',
-      'vitest/prefer-describe-function-title': 'off',
-      'vitest/prefer-expect-assertions': 'off',
+      "vitest/max-expects": "off",
+      "vitest/no-done-callback": "off",
+      "vitest/no-hooks": "off",
+      "vitest/padding-around-after-all-blocks": "off",
+      "vitest/padding-around-after-each-blocks": "off",
+      "vitest/padding-around-before-all-blocks": "off",
+      "vitest/padding-around-before-each-blocks": "off",
+      "vitest/padding-around-describe-blocks": "off",
+      "vitest/padding-around-expect-groups": "off",
+      "vitest/padding-around-test-blocks": "off",
+      "vitest/prefer-describe-function-title": "off",
+      "vitest/prefer-expect-assertions": "off",
     },
-    name: 'eslint/vitest',
+    name: "eslint/vitest",
   },
   {
-    files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
-    ...testingLibrary.configs['flat/dom'],
+    files: ["vitest/*.test.mjs", "vitest/**/*.test.mjs"],
+    ...testingLibrary.configs["flat/dom"],
     rules: {
-      ...testingLibrary.configs['flat/dom'].rules,
-      'testing-library/prefer-explicit-assert': 'error',
-      'testing-library/prefer-user-event': 'error',
+      ...testingLibrary.configs["flat/dom"].rules,
+      "testing-library/prefer-explicit-assert": "error",
+      "testing-library/prefer-user-event": "error",
     },
-    name: 'eslint/testing-library',
+    name: "eslint/testing-library",
   },
   {
-    files: ['vitest/*.test.mjs', 'vitest/**/*.test.mjs'],
-    ...jestDom.configs['flat/all'],
-    name: 'eslint/jest-dom',
+    files: ["vitest/*.test.mjs", "vitest/**/*.test.mjs"],
+    ...jestDom.configs["flat/all"],
+    name: "eslint/jest-dom",
   },
   {
-    ...playwright.configs['flat/recommended'],
-    files: ['playwright/**/*.mjs'],
+    ...playwright.configs["flat/recommended"],
+    files: ["playwright/**/*.mjs"],
     rules: {
-      ...playwright.configs['flat/recommended'].rules,
-      'playwright/no-skipped-test': [
-        'error',
+      ...playwright.configs["flat/recommended"].rules,
+      "playwright/no-skipped-test": [
+        "error",
         {
           allowConditional: true,
         },
       ],
     },
-    name: 'eslint/playwright',
+    name: "eslint/playwright",
   },
   {
-    files: ['**/*.{js,mjs}'],
+    files: ["**/*.{js,mjs}"],
     rules: {
-      'capitalized-comments': 'off',
-      'func-names': ['error', 'always', { generators: 'as-needed' }],
-      'id-length': 'off',
-      'line-comment-position': 'off',
-      'max-lines': 'off',
-      'max-lines-per-function': 'off',
-      'max-params': 'off',
-      'max-statements': 'off',
-      'multiline-comment-style': 'off',
-      'no-continue': 'off',
-      'no-inline-comments': 'off',
-      'no-magic-numbers': 'off',
-      'no-param-reassign': 'off',
-      'no-plusplus': 'off',
-      'no-shadow': 'off',
-      'no-ternary': 'off',
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      'no-warning-comments': 'off',
-      'one-var': 'off',
-      'prefer-destructuring': ['error', { object: true, array: false }],
-      radix: 'off',
-      'sort-keys': 'off',
-      'sort-imports': ['error', { ignoreDeclarationSort: true }],
-      'sort-vars': 'off',
+      "capitalized-comments": "off",
+      "func-names": ["error", "always", { generators: "as-needed" }],
+      "id-length": "off",
+      "line-comment-position": "off",
+      "max-lines": "off",
+      "max-lines-per-function": "off",
+      "max-params": "off",
+      "max-statements": "off",
+      "multiline-comment-style": "off",
+      "no-continue": "off",
+      "no-inline-comments": "off",
+      "no-magic-numbers": "off",
+      "no-param-reassign": "off",
+      "no-plusplus": "off",
+      "no-shadow": "off",
+      "no-ternary": "off",
+      "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+      "no-warning-comments": "off",
+      "one-var": "off",
+      "prefer-destructuring": ["error", { object: true, array: false }],
+      radix: "off",
+      "sort-keys": "off",
+      "sort-imports": ["error", { ignoreDeclarationSort: true }],
+      "sort-vars": "off",
     },
-    name: 'sdavids/js/defaults',
+    name: "sdavids/js/defaults",
   },
   {
-    files: ['src/j/*.js', 'src/j/**/*.js'],
+    files: ["src/j/*.js", "src/j/**/*.js"],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -212,85 +212,85 @@ export default [
       },
     },
     rules: {
-      'import-x/no-extraneous-dependencies': [
-        'error',
+      "import-x/no-extraneous-dependencies": [
+        "error",
         {
           devDependencies: false,
           optionalDependencies: false,
           peerDependencies: false,
         },
       ],
-      'import-x/no-nodejs-modules': 'error',
+      "import-x/no-nodejs-modules": "error",
     },
-    name: 'sdavids/js/browser',
+    name: "sdavids/js/browser",
   },
   {
-    files: ['vitest/**/*.mjs'],
+    files: ["vitest/**/*.mjs"],
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node,
       },
       parserOptions: {
-        ecmaVersion: 'latest',
+        ecmaVersion: "latest",
       },
     },
     rules: {
-      'import-x/no-extraneous-dependencies': [
-        'error',
+      "import-x/no-extraneous-dependencies": [
+        "error",
         {
           optionalDependencies: false,
           peerDependencies: false,
         },
       ],
-      'init-declarations': 'off',
-      'no-shadow': 'off',
-      'no-undefined': 'off',
+      "init-declarations": "off",
+      "no-shadow": "off",
+      "no-undefined": "off",
     },
-    name: 'sdavids/js/vitest',
+    name: "sdavids/js/vitest",
   },
   {
-    files: ['playwright/**/*.mjs'],
+    files: ["playwright/**/*.mjs"],
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node,
       },
       parserOptions: {
-        ecmaVersion: 'latest',
+        ecmaVersion: "latest",
       },
     },
     rules: {
-      'import-x/no-extraneous-dependencies': [
-        'error',
+      "import-x/no-extraneous-dependencies": [
+        "error",
         {
           optionalDependencies: false,
           peerDependencies: false,
         },
       ],
     },
-    name: 'sdavids/js/playwright',
+    name: "sdavids/js/playwright",
   },
   {
-    files: ['*.mjs', 'scripts/*.mjs'],
+    files: ["*.mjs", "scripts/*.mjs"],
     languageOptions: {
       globals: {
         ...globals.node,
       },
       parserOptions: {
-        ecmaVersion: 'latest',
+        ecmaVersion: "latest",
       },
     },
     rules: {
-      'import-x/no-extraneous-dependencies': [
-        'error',
+      "import-x/no-extraneous-dependencies": [
+        "error",
         {
           optionalDependencies: false,
           peerDependencies: false,
         },
       ],
-      'no-console': 'off',
+      "no-console": "off",
     },
-    name: 'sdavids/js/node',
+    name: "sdavids/js/node",
   },
 ];
