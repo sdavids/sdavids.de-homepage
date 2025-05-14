@@ -3,14 +3,10 @@
 SPDX-FileCopyrightText: © 2022 Sebastian Davids <sdavids@gmx.de>
 SPDX-License-Identifier: Apache-2.0
 -->
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sdavids.de/index.html</loc>
-    <lastmod>2025-01-15T07:06:55Z</lastmod>
+    <loc>https://sdavids.de/</loc>
+    <lastmod>2025-05-14T15:00:02Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
