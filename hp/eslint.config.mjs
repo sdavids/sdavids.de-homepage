@@ -61,6 +61,7 @@ export default [
     },
     rules: {
       ...css.configs.recommended.rules,
+      "css/prefer-logical-properties": "error",
       "css/use-baseline": [
         "error",
         {
@@ -71,6 +72,7 @@ export default [
           available: 2022,
         },
       ],
+      "css/use-layers": "error",
     },
     name: "eslint/css/recommended",
   },

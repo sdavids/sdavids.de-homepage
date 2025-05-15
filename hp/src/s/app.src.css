@@ -24,6 +24,7 @@ SPDX-License-Identifier: Apache-2.0
   @supports (font: -apple-system-body) {
     @media screen and (max-width: 719px) {
       html {
+        /* eslint-disable-next-line css/no-important */
         font: -apple-system-body !important;
       }
     }
@@ -50,7 +51,7 @@ SPDX-License-Identifier: Apache-2.0
   h3 {
     font-size: inherit;
     font-weight: inherit;
-    scroll-margin-top: 1rem;
+    scroll-margin-block-start: 1rem;
   }
 
   a {
@@ -77,7 +78,7 @@ SPDX-License-Identifier: Apache-2.0
       ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     font-size: 1em;
-    scroll-margin-top: 2.5rem;
+    scroll-margin-block-start: 2.5rem;
   }
 
   summary {
