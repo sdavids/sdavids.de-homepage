@@ -52,7 +52,7 @@ if [ "$(grep -E -i -c "127\.0\.0\.1.+${host_name//\./\.}" /etc/hosts)" -eq 0 ]; 
   exit 2
 fi
 
-readonly network_name='sdavids.de-homepage'
+readonly network_name='sdavids_homepage'
 
 site_dir="$PWD/dist"
 secrets_dir="$PWD/certs"
