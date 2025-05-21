@@ -47,7 +47,7 @@ Options -MultiViews
   <FilesMatch "\.svg(\.br|\.gz|\.zst)?$">
     Header set Content-Type "image/svg+xml"
   </FilesMatch>
-  <FilesMatch "\.(age|gpg|keys)(\.br|\.gz|\.zst)?$">
+  <FilesMatch "\.(age|gpg|pub)(\.br|\.gz|\.zst)?$">
     Header set Content-Type "text/plain"
   </FilesMatch>
 </IfModule>
@@ -115,7 +115,7 @@ FileETag None
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
 
-  <FilesMatch "\.(age|gpg|keys)(\.br|\.gz|\.zst)?$">
+  <FilesMatch "\.(age|gpg|pub)(\.br|\.gz|\.zst)?$">
     # 10 minutes
     Header set Cache-Control "public, max-age=600, stale-while-revalidate=60"
   </FilesMatch>
@@ -163,51 +163,51 @@ FileETag None
 <IfModule mod_headers.c>
   RewriteCond "%{HTTP:Accept-encoding}" "zstd"
   RewriteCond "%{REQUEST_FILENAME}.zst" -s
-  RewriteRule "^(.*)\.(age|css|gpg|html|js|keys|svg)$" "/$1.$2.zst" [QSA]
+  RewriteRule "^(.*)\.(age|css|gpg|html|js|pub|svg)$" "/$1.$2.zst" [QSA]
 
   RewriteRule "\.age\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.css\.zst$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.gpg\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.html\.zst$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.js\.zst$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.keys\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.pub\.zst$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.svg\.zst$" "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
 
-  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.keys|\.svg)\.zst$">
+  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.pub|\.svg)\.zst$">
     Header append Content-Encoding zstd
     Header append Vary Accept-Encoding
   </FilesMatch>
 
   RewriteCond "%{HTTP:Accept-encoding}" "br"
   RewriteCond "%{REQUEST_FILENAME}.br" -s
-  RewriteRule "^(.*)\.(age|css|gpg|html|js|keys|svg)$" "/$1.$2.br" [QSA]
+  RewriteRule "^(.*)\.(age|css|gpg|html|js|pub|svg)$" "/$1.$2.br" [QSA]
 
   RewriteRule "\.age\.br$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.css\.br$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.gpg\.br$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.html\.br$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.js\.br$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.keys\.br$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:,E=no-zstd:1]
+  RewriteRule "\.pub\.br$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:,E=no-zstd:1]
   RewriteRule "\.svg\.br$" "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
 
-  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.keys|\.svg)\.br$">
+  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.pub|\.svg)\.br$">
     Header append Content-Encoding br
     Header append Vary Accept-Encoding
   </FilesMatch>
 
   RewriteCond "%{HTTP:Accept-encoding}" "gzip"
   RewriteCond "%{REQUEST_FILENAME}.gz" -s
-  RewriteRule "^(.*)\.(age|css|gpg|html|js|keys|svg)$" "/$1.$2.gz" [QSA]
+  RewriteRule "^(.*)\.(age|css|gpg|html|js|pub|svg)$" "/$1.$2.gz" [QSA]
 
   RewriteRule "\.age\.gz$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.css\.gz$" "-" [T=text/css,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.gpg\.gz$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.js\.gz$" "-" [T=text/javascript,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
-  RewriteRule "\.keys\.gz$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
+  RewriteRule "\.pub\.gz$" "-" [T=text/plain,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
   RewriteRule "\.svg\.gz$" "-" [T=image/svg+xml,E=no-brotli:1,E=no-gzip:1,E=no-zstd:1]
 
-  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.keys|\.svg)\.gz$">
+  <FilesMatch "(\.age|\.css|\.gpg|\.html|\.js|\.pub|\.svg)\.gz$">
     Header append Content-Encoding gzip
     Header append Vary Accept-Encoding
   </FilesMatch>
