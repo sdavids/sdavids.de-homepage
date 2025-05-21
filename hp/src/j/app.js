@@ -6,6 +6,7 @@ import { configureCopyButton } from "./copy-button.js";
 for (const id of [
   "encrypt-age",
   "encrypt-gpg",
+  "encrypt-ssh",
   "fingerprint-gpg",
   "import-gpg",
 ]) {

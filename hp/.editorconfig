@@ -18,7 +18,7 @@ max_line_length = 80
 [*.{svg,xml}]
 max_line_length = 80
 
-[*.{age,gpg}]
+[*.{age,gpg,pub}]
 max_line_length = off
 insert_final_newline = false
 trim_trailing_whitespace = false
