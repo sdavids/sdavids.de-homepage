@@ -177,7 +177,7 @@ SPDX-License-Identifier: Apache-2.0
                           </g>
                         </svg></button
                       ><code id="import-gpg-code" class="text-sm"
-                        >curl https://sdavids.de/sdavids.gpg | gpg
+                        >curl -s https://sdavids.de/sdavids.gpg | gpg
                         --import</code
                       >
                     </div>
@@ -331,7 +331,7 @@ SPDX-License-Identifier: Apache-2.0
                     </g>
                   </svg></button
                 ><code id="encrypt-age-code" class="text-sm"
-                  >curl https://sdavids.de/sdavids.age | age -R - -a in.txt >
+                  >curl -s https://sdavids.de/sdavids.age | age -R - -a in.txt >
                   out.txt.age</code
                 >
               </div>
@@ -395,7 +395,7 @@ SPDX-License-Identifier: Apache-2.0
                     </g>
                   </svg></button
                 ><code id="encrypt-ssh-code" class="text-sm"
-                  >curl https://sdavids.de/sdavids.pub | age -R - -a in.txt >
+                  >curl -s https://sdavids.de/sdavids.pub | age -R - -a in.txt >
                   out.txt.ssh.age</code
                 >
               </div>
