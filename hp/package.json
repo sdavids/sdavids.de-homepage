@@ -14,7 +14,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prepare": "scripts/prepare.sh",
+    "prepare": "cd .. && node hp/.husky/install.mjs",
     "build": "scripts/build.sh",
     "build:css": "scripts/build_css.sh",
     "build:dist": "scripts/build_dist.sh",

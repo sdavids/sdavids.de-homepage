@@ -22,3 +22,9 @@ max_line_length = 80
 max_line_length = off
 insert_final_newline = false
 trim_trailing_whitespace = false
+
+[node_modules/**]
+ignore = true
+
+[.husky/_/**]
+ignore = true

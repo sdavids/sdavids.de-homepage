@@ -274,7 +274,7 @@ export default [
     name: "sdavids/js/playwright",
   },
   {
-    files: ["*.mjs", "scripts/*.mjs"],
+    files: ["*.mjs", "scripts/*.mjs", ".husky/*.mjs"],
     languageOptions: {
       globals: {
         ...globals.node,
