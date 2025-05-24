@@ -21,3 +21,6 @@ max_line_length = off
 
 [*.yaml]
 max_line_length = 80
+
+[.devcontainer/devcontainer-lock.json]
+insert_final_newline = false

@@ -53,6 +53,7 @@
         "ms-playwright.playwright"
       ],
       "settings": {
+        "telemetry.telemetryLevel": "off",
         "files.encoding": "utf8",
         "files.eol": "\n",
         "files.insertFinalNewline": true,
