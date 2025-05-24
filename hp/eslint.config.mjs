@@ -19,6 +19,13 @@ import playwright from "eslint-plugin-playwright";
 
 export default [
   {
+    linterOptions: {
+      reportUnusedDisableDirectives: "error",
+      reportUnusedInlineConfigs: "error",
+    },
+    name: "global/report-unused",
+  },
+  {
     ignores: ["dist/*"],
     name: "global/ignores",
   },
