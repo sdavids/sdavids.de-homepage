@@ -14,5 +14,5 @@ export default {
     "shellcheck",
     "shfmt --diff --indent 2 --case-indent --binary-next-line --simplify",
   ],
-  "../**/Dockerfile": ["hadolint --no-color -c ../.hadolint.yaml"],
+  "../**/Dockerfile": ["hadolint --config ../.hadolint.yaml"],
 };

@@ -71,8 +71,8 @@ fi
 
 if command -v hadolint >/dev/null 2>&1; then
   # https://github.com/hadolint/hadolint#cli
-  hadolint --no-color httpd/Dockerfile >&2
-  hadolint --no-color .devcontainer/Dockerfile >&2
+  hadolint httpd/Dockerfile >&2
+  hadolint .devcontainer/Dockerfile >&2
 fi
 
 cd hp || exit 1
