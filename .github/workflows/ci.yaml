@@ -48,6 +48,10 @@ jobs:
             hp:
               - 'hp/**'
       - if: steps.changes.outputs.sh == 'true'
+        name: Check shell script formatting
+        working-directory: .
+        run: scripts/shellscript_format_check.sh
+      - if: steps.changes.outputs.sh == 'true'
         name: Lint shell scripts
         working-directory: .
         run: scripts/shellscript_check.sh
