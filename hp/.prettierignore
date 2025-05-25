@@ -5,10 +5,3 @@
 
 package-lock.json
 devcontainer-lock.json
-dist/
-node_modules/
-.pnpm-store/
-.idea/
-.fleet/
-.vscode/
-.git/
