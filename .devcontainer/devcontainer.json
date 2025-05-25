@@ -61,6 +61,11 @@
         "files.trimTrailingWhitespace": true,
         "shellformat.path": "/usr/bin/shfmt",
         "shellformat.flag": "--indent 2 --case-indent --binary-next-line --simplify",
+        "eslint.workingDirectories": [
+          {
+            "mode": "auto"
+          }
+        ],
         "[html]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
