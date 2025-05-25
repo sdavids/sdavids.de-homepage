@@ -9,7 +9,7 @@
 # https://hub.docker.com/_/debian
 FROM debian:12.11-slim
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/bash", "-Eeuo", "pipefail", "-c"]
 
 # hadolint ignore=DL3008
 RUN apt-get update \
