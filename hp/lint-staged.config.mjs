@@ -7,14 +7,10 @@
 export default {
   "*.{js,mjs}": ["eslint"],
   "src/j/**/*.js": [() => "tsc --project jsconfig.prod.json"],
-  "*.{css,html,js,json,mjs,webmanifest}": [
+  "*.{css,html,js,json,mjs,svg,webmanifest,xml,yaml}": [
     "prettier --plugin=@prettier/plugin-xml --check",
   ],
-  "*.{svg,xml}": ["prettier --plugin=@prettier/plugin-xml --check"],
-  "*.yaml": [
-    "prettier --plugin=@prettier/plugin-xml --check",
-    "yamllint --strict",
-  ],
+  "*.yaml": ["yamllint --strict"],
   "*.sh": [
     "shellcheck",
     "shfmt --diff --indent 2 --case-indent --binary-next-line --simplify",
