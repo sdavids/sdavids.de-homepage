@@ -5,7 +5,6 @@
 
 /// <reference types="vitest/config" />
 
-// eslint-disable-next-line import-x/no-unresolved
 import { defineConfig } from "vitest/config";
 
 const config = defineConfig({

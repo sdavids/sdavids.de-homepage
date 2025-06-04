@@ -7,7 +7,6 @@ import globals from "globals";
 import js from "@eslint/js";
 import json from "@eslint/json";
 import css from "@eslint/css";
-// eslint-disable-next-line import-x/no-unresolved
 import { tailwindSyntax } from "@eslint/css/syntax";
 import compat from "eslint-plugin-compat";
 import { configs as dependConfigs } from "eslint-plugin-depend";
