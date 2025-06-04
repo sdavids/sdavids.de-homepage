@@ -122,10 +122,10 @@
     "vitest": "3.1.4"
   },
   "optionalDependencies": {
-    "@unrs/resolver-binding-arm64-gnu": "1.7.2",
-    "@unrs/resolver-binding-darwin-arm64": "1.7.2",
-    "@unrs/resolver-binding-darwin-x64": "1.7.2",
-    "@unrs/resolver-binding-linux-x64-gnu": "1.7.2"
+    "@unrs/resolver-binding-arm64-gnu": "1.7.9",
+    "@unrs/resolver-binding-darwin-arm64": "1.7.9",
+    "@unrs/resolver-binding-darwin-x64": "1.7.9",
+    "@unrs/resolver-binding-linux-x64-gnu": "1.7.9"
   },
   "browserslist": [
     "extends browserslist-config-baseline"
