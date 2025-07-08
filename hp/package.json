@@ -100,7 +100,7 @@
     "eslint": "9.30.1",
     "eslint-plugin-compat": "6.0.2",
     "eslint-plugin-depend": "1.2.0",
-    "eslint-plugin-import-x": "4.15.0",
+    "eslint-plugin-import-x": "4.16.1",
     "eslint-plugin-jest-dom": "5.5.0",
     "eslint-plugin-playwright": "2.2.0",
     "eslint-plugin-testing-library": "7.5.3",
@@ -118,12 +118,6 @@
     "tailwindcss": "4.1.11",
     "typescript": "5.8.3",
     "vitest": "3.2.4"
-  },
-  "optionalDependencies": {
-    "@unrs/resolver-binding-arm64-gnu": "1.7.9",
-    "@unrs/resolver-binding-darwin-arm64": "1.7.9",
-    "@unrs/resolver-binding-darwin-x64": "1.7.9",
-    "@unrs/resolver-binding-linux-x64-gnu": "1.7.9"
   },
   "browserslist": [
     "extends browserslist-config-baseline"
