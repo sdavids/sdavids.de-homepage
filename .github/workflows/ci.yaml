@@ -153,6 +153,8 @@ jobs:
       - if: steps.changes.outputs.hp == 'true'
         name: Run Lighthouse CI
         run: node --run lhci:ci
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       - if: steps.changes.outputs.hp == 'true'
         name: Install Playwright
         run: >

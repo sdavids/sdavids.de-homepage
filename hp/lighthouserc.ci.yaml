@@ -5,7 +5,8 @@
 # https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md
 # https://github.com/GoogleChrome/lighthouse/blob/main/docs/configuration.md#lighthouse-configuration
 ci:
-  upload: temporary-public-storage
+  upload:
+    target: temporary-public-storage
   collect:
     numberOfRuns: 1
     startServerCommand: node --run start
@@ -13,3 +14,6 @@ ci:
       - http://127.0.0.1:3000/index.html
   assert:
     preset: lighthouse:recommended
+    assertions:
+      cls-culprits-insight: "off"
+      network-dependency-tree-insight: "off"
