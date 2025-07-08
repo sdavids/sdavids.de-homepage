@@ -86,7 +86,7 @@
     "@lhci/cli": "0.14.0",
     "@playwright/test": "1.53.2",
     "@prettier/plugin-xml": "3.4.1",
-    "@tailwindcss/cli": "4.1.8",
+    "@tailwindcss/cli": "4.1.11",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.6.3",
     "@types/node": "22.16.0",
@@ -115,7 +115,7 @@
     "prettier": "3.6.2",
     "prettier-plugin-tailwindcss": "0.6.13",
     "svgo": "4.0.0",
-    "tailwindcss": "4.1.8",
+    "tailwindcss": "4.1.11",
     "typescript": "5.8.3",
     "vitest": "3.2.4"
   },
