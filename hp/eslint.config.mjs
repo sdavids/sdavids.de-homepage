@@ -67,7 +67,22 @@ export default [
     },
     rules: {
       ...css.configs.recommended.rules,
+      // https://github.com/eslint/css/pull/177
+      "css/no-invalid-properties": "off",
+      // "css/no-invalid-properties": [
+      //   "error",
+      //   {
+      //     allowUnknownVariables: true,
+      //   },
+      // ],
       "css/prefer-logical-properties": "error",
+      // https://github.com/eslint/css/issues/193
+      // "css/relative-font-units": [
+      //   "error",
+      //   {
+      //     allowUnits: ["rem"],
+      //   },
+      // ],
       "css/use-baseline": [
         "error",
         {
