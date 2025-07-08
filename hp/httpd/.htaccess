@@ -77,7 +77,7 @@ Options -MultiViews
   RewriteEngine on
   RewriteBase /
   RewriteCond "%{HTTP_USER_AGENT}" "^(?:\s|-)*$"
-  RewriteRule "^" "-" [NC,F,L]
+  RewriteRule "^" "-" [NC,F]
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -168,6 +168,8 @@ FileETag None
 
 # serve pre-compressed brotli, gzip and zstd files
 <IfModule mod_headers.c>
+  RewriteEngine on
+
   RewriteCond "%{HTTP:Accept-encoding}" "zstd"
   RewriteCond "%{REQUEST_FILENAME}.zst" -s
   RewriteRule "^(.*)\.(age|css|gpg|html|js|pub|svg)$" "/$1.$2.zst" [QSA]
