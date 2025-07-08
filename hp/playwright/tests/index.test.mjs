@@ -70,11 +70,20 @@ test.describe("index - a11y", () => {
             - link "sebastian@sdavids.de"
           - region "GPG":
             - heading "GPG" [level=2]
-            - link "GPG public key": Public key
-            - text: 3B05 1F8E AA0B 63D1 7220\\a 168C 99A9 7C77 8DCD F19F
+            - link "GPG public key":
+              - /url: sdavids.gpg
+              - text: Public key
+            - text: 3B05 1F8E AA0B 63D1 7220 168C 99A9 7C77 8DCD F19F
           - region "age":
             - heading "age" [level=2]
-            - link "age public key": Public key
+            - link "age public key":
+              - /url: sdavids.age
+              - text: Public key
+          - region "SSH":
+            - heading "SSH" [level=2]
+            - link "SSH public key":
+              - /url: sdavids.pub
+              - text: Public key
           - region "iMessage":
             - heading "iMessage" [level=2]
             - text: APKTIDVw2zk8ZQeSkpWLUD9UGIhH00TtYdMRkryMUZUtBJRxeCSA
