@@ -4,6 +4,7 @@
 import os from "node:os";
 import { resolve } from "node:path";
 import { access } from "fs/promises";
+// eslint-disable-next-line import-x/named
 import { defineConfig, devices } from "@playwright/test";
 
 // eslint-disable-next-line dot-notation
