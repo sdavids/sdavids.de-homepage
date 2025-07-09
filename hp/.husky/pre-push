@@ -75,7 +75,7 @@ if command -v hadolint >/dev/null 2>&1; then
   hadolint .devcontainer/Dockerfile >&2
 fi
 
-cd hp || exit 1
+cd "$(git rev-parse --show-toplevel)/hp" || exit 1
 
 node --run format:check >&2
 
