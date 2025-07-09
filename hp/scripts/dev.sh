@@ -3,6 +3,9 @@
 # SPDX-FileCopyrightText: © 2022 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
+# pnpm needs to be in $PATH
+# https://pnpm.io/installation
+
 set -eu
 
 readonly base_dir="${1:-$PWD}"
@@ -15,7 +18,7 @@ fi
 cd "${base_dir}"
 
 if [ ! -d 'node_modules' ]; then
-  npm ci --silent --ignore-scripts=true --fund=false
+  pnpm --silent install
 fi
 
-npx --yes --quiet browser-sync src -f src -b 'google chrome' --no-notify --no-ghost-mode
+pnpm --silent dlx browser-sync src -f src -b 'google chrome' --no-notify --no-ghost-mode

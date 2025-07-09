@@ -3,7 +3,8 @@
 # SPDX-FileCopyrightText: © 2022 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
-# npx needs to be in $PATH
+# pnpm needs to be in $PATH
+# https://pnpm.io/installation
 
 set -eu
 
@@ -11,7 +12,7 @@ readonly base_dir="${1:-$PWD}"
 
 # https://www.npmjs.com/package/html-minifier-terser#options-quick-reference
 find "${base_dir}" -type f -name '*.html' -exec \
-  npx --yes --quiet html-minifier-terser {} \
+  pnpm --silent dlx html-minifier-terser {} \
   --collapse-boolean-attributes \
   --collapse-whitespace \
   --collapse-inline-tag-whitespace \

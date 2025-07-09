@@ -3,6 +3,9 @@
 # SPDX-FileCopyrightText: © 2022 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
+# pnpm needs to be in $PATH
+# https://pnpm.io/installation
+
 set -eu
 
 readonly base_dir="${1:-$PWD}"
@@ -15,10 +18,10 @@ fi
 cd "${base_dir}"
 
 if [ ! -d 'node_modules' ]; then
-  npm ci --silent --ignore-scripts=true --fund=false
+  pnpm --silent install
 fi
 
-npx --yes --quiet @tailwindcss/cli --input src/s/app.src.css --output src/s/app.css --minify
+pnpm --silent dlx @tailwindcss/cli --input src/s/app.src.css --output src/s/app.css --minify
 
 # delete tailwind license header
 if [ "$(uname)" = 'Darwin' ]; then

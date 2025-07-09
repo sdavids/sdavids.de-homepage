@@ -74,82 +74,93 @@ jobs:
         with:
           dockerfile: httpd/Dockerfile
       - if: steps.changes.outputs.hp == 'true'
-        name: Setup node and install dependencies
-        uses: ./.github/actions/setup-node-and-install-dependencies
+        name: Install pnpm
+        # https://github.com/pnpm/action-setup/releases
+        uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 10.13.1
+      - if: steps.changes.outputs.hp == 'true'
+        name: Install node
+        # https://github.com/actions/setup-node/releases
+        uses: actions/setup-node@v4.4.0
+        with:
+          cache: pnpm
+          cache-dependency-path: hp/pnpm-lock.yaml
+          # https://github.com/actions/setup-node/issues/1255
+          node-version-file: hp/.nvmrc
+      - if: steps.changes.outputs.hp == 'true'
+        name: Install dependencies
         env:
           HUSKY: 0
-        with:
-          working-directory: hp
-          node-version-file: hp/.nvmrc
-          dependencies-lock-file: hp/package-lock.json
+        run: pnpm install
       - if: steps.changes.outputs.hp == 'true'
         name: Check formatting
-        run: node --run format:check
+        run: pnpm run format:check
       - if: steps.changes.outputs.hp == 'true'
         name: Lint project files
-        run: node --run lint
+        run: pnpm run lint
       - if: steps.changes.outputs.hp == 'true'
         name: Typecheck project files
-        run: node --run check:types
+        run: pnpm run check:types
       - if: steps.changes.outputs.hp == 'true'
         name: Run unit tests
-        run: node --run test:ci
+        run: pnpm run test:ci
         env:
           VITEST_SKIP_INSTALL_CHECKS: 1
       - if: steps.changes.outputs.hp == 'true'
         name: Build project
-        run: node --run build
+        run: pnpm run build
       - if: steps.changes.outputs.hp == 'true'
         name: Hash CSS
-        run: node --run hash:css
+        run: pnpm run hash:css
       - if: steps.changes.outputs.hp == 'true'
         name: Hash JS
-        run: node --run hash:js
+        run: pnpm run hash:js
       - if: steps.changes.outputs.hp == 'true'
         name: Minify JSON-structured script tags
-        run: node --run minify:json-tags
+        run: pnpm run minify:json-tags
       - if: steps.changes.outputs.hp == 'true'
         name: Minify HTML
-        run: node --run minify:html
+        run: pnpm run minify:html
       - if: steps.changes.outputs.hp == 'true'
         name: Create .htaccess file
-        run: node --run create:htaccess
+        run: pnpm run create:htaccess
       - if: steps.changes.outputs.hp == 'true'
         name: Hash importmap
-        run: node --run hash:importmap
+        run: pnpm run hash:importmap
       - if: steps.changes.outputs.hp == 'true'
         name: Minify SVG
-        run: node --run minify:svg
+        run: pnpm run minify:svg
       - if: steps.changes.outputs.hp == 'true'
         name: Hash SVG
-        run: node --run hash:svg
+        run: pnpm run hash:svg
       - if: steps.changes.outputs.hp == 'true'
         name: Minify XML
-        run: node --run minify:xml
+        run: pnpm run minify:xml
       - if: steps.changes.outputs.hp == 'true'
         name: Minify webmanifest
-        run: node --run minify:webmanifest
+        run: pnpm run minify:webmanifest
       - if: steps.changes.outputs.hp == 'true'
         name: Minify traffic-advice
-        run: node --run minify:traffic-advice
+        run: pnpm run minify:traffic-advice
       - if: steps.changes.outputs.hp == 'true'
         name: Minify JSON
-        run: node --run minify:json
+        run: pnpm run minify:json
       - if: steps.changes.outputs.hp == 'true'
         name: Minify robots.txt
-        run: node --run minify:robots
+        run: pnpm run minify:robots
       - if: steps.changes.outputs.hp == 'true'
         name: Add legal notice to robots.txt
-        run: node --run legal:robots
+        run: pnpm run legal:robots
       - if: steps.changes.outputs.hp == 'true'
         name: Compress files
-        run: node --run compress:files
+        run: pnpm run compress:files
       - if: steps.changes.outputs.hp == 'true'
         name: Create Google Verification file
-        run: node --run create:google-verification-file
+        run: pnpm run create:google-verification-file
       - if: steps.changes.outputs.hp == 'true'
         name: Create timestamp file
-        run: node --run create:timestamp-file
+        run: pnpm run create:timestamp-file
       - if: steps.changes.outputs.hp == 'true'
         name: Check Links
         # https://github.com/lycheeverse/lychee-action/releases
@@ -160,16 +171,16 @@ jobs:
           args: --no-progress --require-https 'hp/dist/**/*.html'
       - if: steps.changes.outputs.hp == 'true'
         name: Run Lighthouse CI
-        run: node --run lhci:ci
+        run: pnpm run lhci:ci
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       - if: steps.changes.outputs.hp == 'true'
         name: Install Playwright
         run: >
-          npx --yes --quiet playwright install --with-deps --no-shell chromium
+          pnpm exec playwright install --with-deps --no-shell chromium
       - if: steps.changes.outputs.hp == 'true'
         name: Run playwright Tests
-        run: node --run playwright:ci
+        run: pnpm run playwright:ci
       - if: steps.changes.outputs.hp == 'true'
         name: Fetch project data
         # https://github.com/ionos-deploy-now/retrieve-project-info-action/releases
@@ -198,6 +209,6 @@ jobs:
           steps.changes.outputs.hp == 'true' &&
           steps.project.outputs.deployment-enabled == 'true'
         name: Run Smoke Tests on Deployed Site
-        run: node --run playwright:smoke
+        run: pnpm run playwright:smoke
         env:
           PLAYWRIGHT_BASE_URL: https://sdavids.de

@@ -23,7 +23,7 @@ SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = ["hp/package.json", "hp/package-lock.json"]
+path = ["hp/package.json"]
 SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"
 
@@ -74,5 +74,10 @@ SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
 path = ["hp/src/.well-known/gpc.json"]
+SPDX-FileCopyrightText = "© 2025 Sebastian Davids <sdavids@gmx.de>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["hp/pnpm-lock.yaml"]
 SPDX-FileCopyrightText = "© 2025 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"

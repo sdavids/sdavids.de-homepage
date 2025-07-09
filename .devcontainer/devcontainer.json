@@ -31,7 +31,8 @@
   "remoteUser": "node",
   "remoteEnv": {
     // https://github.com/devcontainers/features/tree/main/src/docker-outside-of-docker#1-use-the-localworkspacefolder-as-environment-variable-in-your-code
-    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+    "PNPM_HOME": "${containerWorkspaceFolder}/.devcontainer/.pnpm-store"
   },
   "customizations": {
     "jetbrains": {

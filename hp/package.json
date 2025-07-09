@@ -29,13 +29,11 @@
     "cert:renew": "scripts/renew_ca_based_cert.sh -d certs -c httpd.internal",
     "cert:verify": "scripts/verify_ca_based_cert.sh -d certs -c httpd.internal",
     "clean": "scripts/clean.sh",
-    "clean:node": "scripts/clean_node.sh",
     "compress:files": "scripts/compress_files.sh dist",
     "create:google-verification-file": "scripts/create_google_verification_file.sh dist",
     "create:htaccess": "scripts/create_htaccess.sh",
     "create:security-txt-file": "scripts/create_security_txt_file.sh",
     "create:timestamp-file": "scripts/create_timestamp_file.sh dist/.deploy-timestamp",
-    "dependency:updates": "scripts/dependency_check_node.sh",
     "dev": "scripts/dev.sh",
     "dev:css": "scripts/dev_css.sh",
     "docker:httpd:logs": "scripts/docker_httpd_logs.sh",
@@ -125,14 +123,15 @@
   "browserslist-config-baseline": {
     "baselineYear": 2022
   },
+  "packageManager": "pnpm@10.13.1",
   "devEngines": {
     "runtime": {
       "name": "node",
       "version": ">= 22.17"
     },
     "packageManager": {
-      "name": "npm",
-      "version": ">= 10.9"
+      "name": "pnpm",
+      "version": "10.13.1"
     }
   }
 }

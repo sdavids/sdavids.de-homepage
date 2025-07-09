@@ -99,16 +99,16 @@ if (isCi) {
 
 const shouldStartWebServer = isCi || isGitPushHook;
 if (shouldStartWebServer) {
-  let command = "node --run start";
+  let command = "pnpm run start";
   if (shouldRunBuild) {
-    command = `node --run build:dist:skip-install && ${command}`;
+    command = `pnpm run build:dist:skip-install && ${command}`;
   } else {
     const distDir = resolve(import.meta.dirname, "dist");
     try {
       await access(distDir);
     } catch {
       console.error(
-        `${distDir} does not exist - execute 'node --run build:dist:skip-install'`,
+        `${distDir} does not exist - execute 'pnpm run build:dist:skip-install'`,
       );
       process.exit(1);
     }

@@ -3,5 +3,5 @@
 
 # https://prettier.io/docs/en/ignore.html
 
-package-lock.json
 devcontainer-lock.json
+pnpm-lock.yaml

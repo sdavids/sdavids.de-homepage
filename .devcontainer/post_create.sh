@@ -5,9 +5,9 @@
 
 find hp -type d -name node_modules -exec rm -rf {} +
 
-curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION='10.8.0' sh -
+curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION="$(jq -r .devEngines.packageManager.version hp/package.json)" sh -
 
-bash -i -c 'cd hp && pnpm env use --global "$(cat .nvmrc)" && npm i --ignore-scripts=true --fund=false --audit=false && export DEBIAN_FRONTEND=noninteractive && npx playwright install --with-deps && npm cache clean --force >/dev/null 2>&1'
+bash -i -c "cd hp && pnpm env use --global $(perl <hp/pnpm-workspace.yaml -n -e '/useNodeVersion: (.*)/ && print $1') && pnpm install && export DEBIAN_FRONTEND=noninteractive && pnpm exec playwright install --with-deps"
 
 sudo apt-get autoremove -y
 sudo apt-get clean -y

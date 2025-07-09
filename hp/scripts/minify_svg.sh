@@ -3,7 +3,8 @@
 # SPDX-FileCopyrightText: © 2022 Sebastian Davids <sdavids@gmx.de>
 # SPDX-License-Identifier: Apache-2.0
 
-# npx needs to be in $PATH
+# pnpm needs to be in $PATH
+# https://pnpm.io/installation
 
 set -eu
 
@@ -12,7 +13,7 @@ readonly base_dir="${1:-$PWD}"
 # https://github.com/svg/svgo
 # https://github.com/svg/svgo/blob/main/lib/svgo/coa.js
 find "${base_dir}" -type f -name '*.svg' -exec \
-  npx --yes --quiet svgo {} \
+  pnpm --silent dlx svgo {} \
   --eol lf \
   --multipass \
   --quiet \

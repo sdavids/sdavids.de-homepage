@@ -5,6 +5,9 @@
 
 # script needs to be invoked from the hp root directory
 
+# pnpm needs to be in $PATH
+# https://pnpm.io/installation
+
 set -eu
 
 while getopts ':s' opt; do
@@ -26,26 +29,26 @@ export CI=true
 if [ "${skip_install}" = 'true' ]; then
   rm -rf dist
 else
-  node --run clean
+  pnpm run clean
   rm -rf node_modules
-  npm ci --silent --ignore-scripts=true --fund=false
+  pnpm --silent install
 fi
 
-node --run build
-node --run hash:css
-node --run hash:js
-node --run minify:json-tags
-node --run minify:html
-node --run create:htaccess
-node --run hash:importmap
-node --run minify:svg
-node --run hash:svg
-node --run minify:xml
-node --run minify:webmanifest
-node --run minify:traffic-advice
-node --run minify:json
-node --run minify:robots
-node --run legal:robots
-node --run compress:files
-node --run create:google-verification-file
-node --run create:timestamp-file
+pnpm run build
+pnpm run hash:css
+pnpm run hash:js
+pnpm run minify:json-tags
+pnpm run minify:html
+pnpm run create:htaccess
+pnpm run hash:importmap
+pnpm run minify:svg
+pnpm run hash:svg
+pnpm run minify:xml
+pnpm run minify:webmanifest
+pnpm run minify:traffic-advice
+pnpm run minify:json
+pnpm run minify:robots
+pnpm run legal:robots
+pnpm run compress:files
+pnpm run create:google-verification-file
+pnpm run create:timestamp-file

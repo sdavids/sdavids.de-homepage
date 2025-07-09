@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 // Prerequisite:
-//   npm i --save-dev htmlparser2 domutils
+//   pnpm add --save-dev htmlparser2 domutils
 
 import { access, readFile, writeFile } from "fs/promises";
 import { createHash } from "node:crypto";

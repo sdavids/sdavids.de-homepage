@@ -5,6 +5,9 @@
 
 # script needs to be invoked from the hp root directory
 
+# pnpm needs to be in $PATH
+# https://pnpm.io/installation
+
 set -Eeu -o pipefail -o posix
 
 while getopts ':ds' opt; do
@@ -63,7 +66,7 @@ if [ ! -d "${secrets_dir}" ]; then
 fi
 
 if [ "${skip_build}" = 'false' ]; then
-  node --run build:dist
+  pnpm run build:dist
 fi
 
 if [ ! -d "${site_dir}" ]; then

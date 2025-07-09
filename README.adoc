@@ -16,9 +16,8 @@ Sebastian Davids <sdavids@gmx.de>
 :rouge-style: github
 // Refs:
 :docker-install-url: https://docs.docker.com/install/
+:pnpm-install-url: https://pnpm.io/installation
 :easyrsa-install-url: https://easy-rsa.readthedocs.io/en/latest/#obtaining-and-using-easy-rsa
-:nvm-install-url: https://github.com/nvm-sh/nvm#installing-and-updating
-:fnm-install-url: https://github.com/Schniz/fnm#installation
 :gh-actions-url: https://github.com/sdavids/sdavids.de-homepage/actions
 
 ifdef::env-browser[:outfilesuffix: .adoc]
@@ -36,7 +35,7 @@ toc::[]
 [,console]
 ----
 $ cd hp
-$ npm i --no-ignore-scripts
+$ pnpm install
 ----
 
 [#dev-server]
@@ -47,7 +46,7 @@ $ npm i --no-ignore-scripts
 [,console]
 ----
 $ cd hp
-$ node --run dev:css
+$ pnpm run dev:css
 ----
 
 ==== Shell 2 - Browsersync process
@@ -55,7 +54,7 @@ $ node --run dev:css
 [,console]
 ----
 $ cd hp
-$ node --run dev
+$ pnpm run dev
 ----
 
 => http://localhost:3000[http://localhost:3000]
@@ -65,7 +64,7 @@ $ node --run dev
 [,console]
 ----
 $ cd hp
-$ node --run build
+$ pnpm run build
 ----
 
 => `hp/dist`
@@ -75,7 +74,7 @@ $ node --run build
 [,console]
 ----
 $ cd hp
-$ node --run format
+$ pnpm run format
 ----
 
 === Lint Source Code
@@ -83,7 +82,7 @@ $ node --run format
 [,console]
 ----
 $ cd hp
-$ node --run lint
+$ pnpm run lint
 ----
 
 === Run Unit Tests
@@ -91,7 +90,7 @@ $ node --run lint
 [,console]
 ----
 $ cd hp
-$ node --run test
+$ pnpm run test
 ----
 
 === Run End-to-End Unit Tests
@@ -108,7 +107,7 @@ Start a <<dev-server,development server>>; in a new shell:
 [,console]
 ----
 $ cd hp
-$ npm run playwright
+$ pnpm run playwright
 ----
 
 ==== Running in Headless Mode With Tracing
@@ -118,7 +117,7 @@ Start a <<dev-server,development server>>; in a new shell:
 [,console]
 ----
 $ cd hp
-$ npm run playwright:trace
+$ pnpm run playwright:trace
 ----
 
 ==== Running in UI Mode
@@ -128,7 +127,7 @@ Start a <<dev-server,development server>>; in a new shell:
 [,console]
 ----
 $ cd hp
-$ npm run playwright:ui
+$ pnpm run playwright:ui
 ----
 
 == Deployment
@@ -140,8 +139,8 @@ $ npm run playwright:ui
 [,console]
 ----
 $ cd hp
-$ node --run cert:ca:create
-$ node --run cert:create
+$ pnpm run cert:ca:create
+$ pnpm run cert:create
 ----
 
 [IMPORTANT]
@@ -162,7 +161,7 @@ $ scripts/docker_build.sh
 [,console]
 ----
 $ cd hp
-$ node --run docker:httpd:start:with-build
+$ pnpm run docker:httpd:start:with-build
 ----
 
 => https://httpd.internal:8443[https://httpd.internal:8443]
@@ -172,7 +171,7 @@ $ node --run docker:httpd:start:with-build
 [,console]
 ----
 $ cd hp
-$ node --run docker:httpd:start
+$ pnpm run docker:httpd:start
 ----
 
 => https://httpd.internal:8443[https://httpd.internal:8443]
@@ -182,7 +181,7 @@ $ node --run docker:httpd:start
 [,console]
 ----
 $ cd hp
-$ node --run docker:httpd:stop
+$ pnpm run docker:httpd:stop
 ----
 
 === Deployment to sdavids.de
@@ -262,107 +261,9 @@ readonly host_name='httpd.internal'
 
 Install {docker-install-url}[Docker].
 
-==== Node Version Manager
+==== pnpm
 
-Install {fnm-install-url}[fnm] or {nvm-install-url}[NVM].
-
-[NOTE]
-====
-This repository uses https://typicode.github.io/husky/[husky] for Git hooks.
-
-More information:
-https://typicode.github.io/husky/troubleshooting.html#command-not-found[Husky - Command not found]
-====
-
-===== fnm
-
-.~/.zprofile
-[,zsh]
-----
-if command -v fnm >/dev/null 2>&1; then
-  eval "$(fnm env --use-on-cd)"
-fi
-----
-
-.~/.config/husky/init.sh
-[,shell]
-----
-#!/usr/bin/env sh
-
-# vim:ft=zsh
-
-# shellcheck shell=sh disable=SC1091
-
-set -eu
-
-[ -e /etc/zshenv ] && . /etc/zshenv
-[ -e "${ZDOTDIR:=${HOME}}/.zshenv" ] && . "${ZDOTDIR:=${HOME}}/.zshenv"
-[ -e /etc/zprofile ] && . /etc/zprofile
-[ -e "${ZDOTDIR:=${HOME}}/.zprofile" ] && . "${ZDOTDIR:=${HOME}}/.zprofile"
-[ -e /etc/zlogin ] && . /etc/zlogin
-[ -e "${ZDOTDIR:=${HOME}}/.zlogin" ] && . "${ZDOTDIR:=${HOME}}/.zlogin"
-----
-
-===== nvm
-
-.~/.zshrc
-[,zsh]
-----
-export NVM_DIR="${HOME}/.nvm"
-
-[ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh"
-[ -s "${NVM_DIR}/bash_completion" ] && . "${NVM_DIR}/bash_completion"
-
-if command -v nvm >/dev/null 2>&1; then
-  autoload -U add-zsh-hook
-  load-nvmrc() {
-    local nvmrc_path="$(nvm_find_nvmrc)"
-    if [ -n "${nvmrc_path}" ]; then
-      local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-      if [ "${nvmrc_node_version}" = "N/A" ]; then
-        nvm install
-      elif [ "${nvmrc_node_version}" != "$(nvm version)" ]; then
-        nvm use
-      fi
-    elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-      echo 'Reverting to nvm default version'
-      nvm use default
-    fi
-  }
-
-  add-zsh-hook chpwd load-nvmrc
-  load-nvmrc
-fi
-----
-
-.~/.config/husky/init.sh
-[,shell]
-----
-#!/usr/bin/env sh
-
-# vim:ft=zsh
-
-# shellcheck shell=sh disable=SC1091
-
-set -eu
-
-[ -e /etc/zshenv ] && . /etc/zshenv
-[ -e "${ZDOTDIR:=${HOME}}/.zshenv" ] && . "${ZDOTDIR:=${HOME}}/.zshenv"
-[ -e /etc/zprofile ] && . /etc/zprofile
-[ -e "${ZDOTDIR:=${HOME}}/.zprofile" ] && . "${ZDOTDIR:=${HOME}}/.zprofile"
-[ -e /etc/zlogin ] && . /etc/zlogin
-[ -e "${ZDOTDIR:=${HOME}}/.zlogin" ] && . "${ZDOTDIR:=${HOME}}/.zlogin"
-
-export NVM_DIR="${HOME}/.nvm"
-
-if [ -f "${NVM_DIR}/nvm.sh" ]; then
-  . "${NVM_DIR}/nvm.sh"
-
-  if [ -f '.nvmrc' ]; then
-    nvm use
-  fi
-fi
-----
+Install {pnpm-install-url}[pnpm].
 
 ==== Certificates
 
@@ -371,8 +272,8 @@ fi
 [,console]
 ----
 $ cd hp
-$ node --run cert:ca:create
-$ node --run cert:create
+$ pnpm run cert:ca:create
+$ pnpm run cert:create
 ----
 
 =====  Existing Certificate
@@ -380,7 +281,7 @@ $ node --run cert:create
 [,console]
 ----
 $ cd hp
-$ node --run cert:copy
+$ pnpm run cert:copy
 ----
 
 ==== jq
@@ -538,7 +439,7 @@ $ rm ~/Downloads/easy-rsa.tgz
 [,console]
 ----
 $ cp hp
-$ npx playwright install --with-deps --no-shell
+$ pnpm exec playwright install --with-deps --no-shell
 ----
 
 [NOTE]
@@ -547,6 +448,6 @@ You can delete all downloaded binaries via:
 
 [,console]
 ----
-$ npx playwright uninstall --all
+$ pnpm exec playwright uninstall --all
 ----
 ====

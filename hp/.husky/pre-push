@@ -10,6 +10,9 @@
 #   Linux:
 #     sudo apt-get install hadolint
 
+# pnpm needs to be in $PATH
+# https://pnpm.io/installation
+
 # _shellcheck needs to be in $PATH
 # https://www.shellcheck.net
 #   Mac:
@@ -67,14 +70,14 @@ hadolint .devcontainer/Dockerfile >&2
 
 cd hp || exit 1
 
-node --run format:check >&2
+pnpm run format:check >&2
 
-node --run lint >&2
+pnpm run lint >&2
 
-node --run check:types >&2
+pnpm run check:types >&2
 
-node --run test >&2
+pnpm run test >&2
 
-node --run build:dist:skip-install >&2
+pnpm run build:dist:skip-install >&2
 
-GIT_PUSH_HOOK=true node --run playwright >&2
+GIT_PUSH_HOOK=true pnpm run playwright >&2
