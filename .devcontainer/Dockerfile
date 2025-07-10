@@ -57,4 +57,4 @@ RUN apt-get update \
   && echo node ALL=\(root\) NOPASSWD:ALL >/etc/sudoers.d/node \
   && chmod 0440 /etc/sudoers.d/node
 
-ENV SHELL /bin/bash
+ENV SHELL=/bin/bash
