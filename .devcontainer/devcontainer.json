@@ -16,6 +16,16 @@
     "ghcr.io/dhoeric/features/hadolint:1.0.0": {
       // https://github.com/hadolint/hadolint/releases
       "version": "2.12.0"
+    },
+    // https://github.com/devcontainers-extra/features/tree/main/src/shfmt
+    "ghcr.io/devcontainers-extra/features/shfmt:1.0.2": {
+      // https://github.com/mvdan/sh/releases
+      "version": "3.12.0"
+    },
+    // https://github.com/devcontainers-extra/features/tree/main/src/yamllint
+    "ghcr.io/devcontainers-extra/features/yamllint:2.0.18": {
+      // https://github.com/adrienverge/yamllint/releases
+      "version": "1.37.1"
     }
   },
   "remoteUser": "node",

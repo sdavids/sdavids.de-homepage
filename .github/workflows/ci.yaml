@@ -21,6 +21,7 @@ jobs:
   # so use one big one to save GH Action minutes
   # https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions
   lint-build-deploy:
+    # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md
     runs-on: ubuntu-24.04
     permissions:
       contents: read
@@ -49,11 +50,11 @@ jobs:
               - 'hp/**'
       - if: steps.changes.outputs.sh == 'true'
         name: Ensure shfmt is installed
-        # https://github.com/awalsh128/cache-apt-pkgs-action/releases
-        uses: awalsh128/cache-apt-pkgs-action@v1.5.1
+        # https://github.com/mfinelli/setup-shfmt/releases
+        uses: mfinelli/setup-shfmt@v3.0.2
         with:
-          packages: shfmt
-          version: 1.0
+          # https://github.com/mvdan/sh/releases
+          shfmt-version: 3.12.0
       - if: steps.changes.outputs.sh == 'true'
         name: Check shell script formatting
         working-directory: .

@@ -33,9 +33,7 @@ RUN apt-get update \
     openssl \
     git \
     jq \
-    shfmt \
     shellcheck \
-    yamllint \
     brotli \
     zstd \
     easy-rsa \
