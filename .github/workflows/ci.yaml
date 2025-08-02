@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: true
 permissions: {}
 jobs:
-  # unfortunately each job is billed for at least 1 minute in GH Actions
+  # unfortunately, each job is billed for at least 1 minute in GH Actions
   # so use one big one to save GH Action minutes
   # https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions
   lint-build-deploy:
