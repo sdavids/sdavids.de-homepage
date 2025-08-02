@@ -83,7 +83,7 @@
     "@eslint/json": "0.13.1",
     "@lhci/cli": "0.15.1",
     "@playwright/test": "1.54.2",
-    "@prettier/plugin-xml": "3.4.1",
+    "@prettier/plugin-xml": "3.4.2",
     "@tailwindcss/cli": "4.1.11",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.6.3",
