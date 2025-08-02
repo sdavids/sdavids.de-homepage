@@ -100,7 +100,7 @@
     "eslint-plugin-depend": "1.2.0",
     "eslint-plugin-import-x": "4.16.1",
     "eslint-plugin-jest-dom": "5.5.0",
-    "eslint-plugin-playwright": "2.2.0",
+    "eslint-plugin-playwright": "2.2.2",
     "eslint-plugin-testing-library": "7.5.3",
     "globals": "16.3.0",
     "happy-dom": "18.0.1",
