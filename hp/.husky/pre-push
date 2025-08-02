@@ -45,12 +45,12 @@ cd "$(git rev-parse --show-toplevel)" || exit 1
 
 set +e
 
-diff="$(find hp/.husky -maxdepth 1 -type f -not -path '*.mjs' -print0 | xargs -0L1 shfmt --diff --indent 2 --case-indent --binary-next-line --simplify)"
+diff="$(find hp/.husky -maxdepth 1 -type f -not -path '*.mjs' -print0 | xargs -0L1 shfmt --indent 2 --case-indent --binary-next-line --simplify --diff)"
 if [ -n "${diff}" ]; then
   printf '%s\n' "${diff}" >&2
   exit 1
 fi
-diff="$(shfmt --diff --indent 2 --case-indent --binary-next-line --simplify .)"
+diff="$(shfmt --indent 2 --case-indent --binary-next-line --simplify --diff .)"
 if [ -n "${diff}" ]; then
   printf '%s\n' "${diff}" >&2
   exit 1
