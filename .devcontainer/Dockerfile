@@ -7,7 +7,7 @@
 # https://docs.docker.com/engine/reference/builder/
 
 # https://hub.docker.com/_/debian
-FROM debian:12.11-slim
+FROM debian:12.12-slim
 
 SHELL ["/bin/bash", "-Eeuo", "pipefail", "-c"]
 
