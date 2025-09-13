@@ -23,7 +23,8 @@ fi
 
 # align with css/use-baseline and parserOptions.ecmaVersion in
 # eslint.config.mjs, browserslist in package.json,
-# and compilerOptions.target and .lib in jsconfig.json
+# browserlist in package.json, and
+# compilerOptions.target and .lib in jsconfig.json
 readonly esbuild_target="${1:-es2022}"
 readonly dir='dist'
 
