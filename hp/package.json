@@ -127,7 +127,7 @@
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": ">= 22.17"
+      "version": ">= 22.19"
     },
     "packageManager": {
       "name": "pnpm",

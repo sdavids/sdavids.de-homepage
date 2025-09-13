@@ -4,7 +4,7 @@
 
 # https://pnpm.io/pnpm-workspace_yaml
 
-useNodeVersion: 22.17.0
+useNodeVersion: 22.19.0
 engineStrict: true
 savePrefix: ""
 ignoreScripts: false
