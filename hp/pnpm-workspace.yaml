@@ -8,6 +8,8 @@ useNodeVersion: 22.19.0
 engineStrict: true
 savePrefix: ""
 ignoreScripts: false
+cleanupUnusedCatalogs: true
+minimumReleaseAge: 1440 # 1 day
 onlyBuiltDependencies:
   - "@parcel/watcher"
   - "@tailwindcss/oxide"
