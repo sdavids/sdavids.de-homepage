@@ -9,6 +9,7 @@ engineStrict: true
 savePrefix: ""
 ignoreScripts: false
 cleanupUnusedCatalogs: true
+resolutionMode: highest
 minimumReleaseAge: 1440 # 1 day
 onlyBuiltDependencies:
   - "@parcel/watcher"
