@@ -70,7 +70,7 @@ jobs:
       - if: steps.changes.outputs.Dockerfile == 'true'
         name: Lint httpd Dockerfile
         # https://github.com/hadolint/hadolint-action/releases
-        uses: hadolint/hadolint-action@v3.1.0
+        uses: hadolint/hadolint-action@v3.3.0
         with:
           dockerfile: httpd/Dockerfile
       - if: steps.changes.outputs.hp == 'true'
