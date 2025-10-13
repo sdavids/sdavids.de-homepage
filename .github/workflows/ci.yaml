@@ -165,7 +165,7 @@ jobs:
       - if: steps.changes.outputs.hp == 'true'
         name: Check Links
         # https://github.com/lycheeverse/lychee-action/releases
-        uses: lycheeverse/lychee-action@v2.4.1
+        uses: lycheeverse/lychee-action@v2.6.1
         with:
           # https://github.com/lycheeverse/lychee/releases
           lycheeVersion: v0.19.1
