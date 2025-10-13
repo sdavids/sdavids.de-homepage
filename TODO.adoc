@@ -12,3 +12,7 @@ https://github.com/actions/setup-node/issues/1255
 * remove `packageManager` (but keep `devEngines.packageManager`) in `package.json`; remove `version` from `pnpm/action-setup`
 +
 https://github.com/pnpm/action-setup/issues/150
+
+* remove workaround for _lint-staged_ in `hp/eslint.config.mjs`
++
+https://github.com/es-tooling/module-replacements/issues/214

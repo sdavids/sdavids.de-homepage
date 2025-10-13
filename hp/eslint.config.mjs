@@ -133,6 +133,17 @@ export default [
   },
   dependConfigs["flat/recommended"],
   {
+    rules: {
+      "depend/ban-dependencies": [
+        "error",
+        {
+          allowed: ["lint-staged"],
+        },
+      ],
+    },
+    name: "workaround/es-tooling/module-replacements/issues/214",
+  },
+  {
     files: ["vitest/*.test.mjs", "vitest/**/*.test.mjs"],
     plugins: {
       vitest,
