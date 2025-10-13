@@ -123,7 +123,7 @@
   "browserslist-config-baseline": {
     "baselineYear": 2022
   },
-  "packageManager": "pnpm@10.16.0",
+  "packageManager": "pnpm@10.18.2",
   "devEngines": {
     "runtime": {
       "name": "node",
@@ -131,7 +131,7 @@
     },
     "packageManager": {
       "name": "pnpm",
-      "version": "10.16.0"
+      "version": "10.18.2"
     }
   }
 }
