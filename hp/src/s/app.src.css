@@ -35,7 +35,7 @@ SPDX-License-Identifier: Apache-2.0
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     font-family:
-      /* eslint-disable-next-line css/use-baseline */
+      /* eslint-disable-next-line css/use-baseline,css/font-family-fallbacks */
       ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
       sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
       "Noto Color Emoji";

@@ -7,7 +7,7 @@ import globals from "globals";
 import js from "@eslint/js";
 import json from "@eslint/json";
 import css from "@eslint/css";
-import { tailwindSyntax } from "@eslint/css/syntax";
+import { tailwind4 } from "tailwind-csstree";
 import compat from "eslint-plugin-compat";
 import { configs as dependConfigs } from "eslint-plugin-depend";
 import { flatConfigs as importConfigs } from "eslint-plugin-import-x";
@@ -63,7 +63,7 @@ export default [
     },
     language: "css/css",
     languageOptions: {
-      customSyntax: tailwindSyntax,
+      customSyntax: tailwind4,
     },
     rules: {
       ...css.configs.recommended.rules,
