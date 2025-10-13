@@ -10,7 +10,7 @@ export default {
   "*.{css,html,js,json,mjs,svg,webmanifest,xml,yaml}": [
     "prettier --plugin=@prettier/plugin-xml --check",
   ],
-  "*.yaml": ["yamllint --strict"],
+  "*.yaml": ["yamllint --config-file ../.yamllint.yaml --strict"],
   "*.sh": [
     "shellcheck",
     "shfmt --diff --indent 2 --case-indent --binary-next-line --simplify",
