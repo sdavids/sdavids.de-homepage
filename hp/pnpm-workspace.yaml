@@ -11,6 +11,5 @@ ignoreScripts: false
 cleanupUnusedCatalogs: true
 onlyBuiltDependencies:
   - "@parcel/watcher"
-  - "@tailwindcss/oxide"
   - esbuild
   - unrs-resolver
