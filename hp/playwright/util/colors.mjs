@@ -15,7 +15,6 @@ export const expect = baseExpect.extend({
     let pass = false;
     let matcherResult = null;
     try {
-      // eslint-disable-next-line playwright/no-standalone-expect
       await baseExpect(locator).toHaveCSS("color", expected, options);
       pass = true;
     } catch (e) {
@@ -50,7 +49,6 @@ export const expect = baseExpect.extend({
     let pass = false;
     let matcherResult = null;
     try {
-      // eslint-disable-next-line playwright/no-standalone-expect
       await baseExpect(locator).toHaveCSS(
         "background-color",
         expected,
