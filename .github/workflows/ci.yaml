@@ -83,7 +83,7 @@ jobs:
       - if: steps.changes.outputs.hp == 'true'
         name: Install node
         # https://github.com/actions/setup-node/releases
-        uses: actions/setup-node@v5.0.0
+        uses: actions/setup-node@v6.0.0
         with:
           cache: pnpm
           cache-dependency-path: hp/pnpm-lock.yaml
