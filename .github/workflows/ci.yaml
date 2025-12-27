@@ -79,7 +79,7 @@ jobs:
         uses: pnpm/action-setup@v4.2.0
         with:
           # https://github.com/pnpm/pnpm/releases
-          version: 10.24.0
+          version: 10.26.2
       - if: steps.changes.outputs.hp == 'true'
         name: Install node
         # https://github.com/actions/setup-node/releases
