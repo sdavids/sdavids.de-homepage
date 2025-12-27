@@ -90,7 +90,7 @@ export default [
           // esbuild_target in build.sh,
           // browserslist in package.json, and
           // compilerOptions.target and .lib in jsconfig.json
-          available: 2022,
+          available: 2023,
         },
       ],
       "css/use-layers": "error",
@@ -242,7 +242,7 @@ export default [
         // esbuild_target in build.sh,
         // browserslist in package.json, and
         // compilerOptions.target and .lib in jsconfig.json
-        ecmaVersion: 2022,
+        ecmaVersion: 2023,
       },
     },
     rules: {

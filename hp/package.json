@@ -118,10 +118,10 @@
     "vitest": "4.0.16"
   },
   "browserslist": [
-    "baseline 2022"
+    "baseline 2023"
   ],
   "browserslist-config-baseline": {
-    "baselineYear": 2022
+    "baselineYear": 2023
   },
   "packageManager": "pnpm@10.26.2",
   "devEngines": {

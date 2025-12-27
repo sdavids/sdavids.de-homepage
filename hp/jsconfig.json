@@ -2,10 +2,10 @@
   "include": ["src/j"],
   "compilerOptions": {
     "checkJs": true,
-    "target": "es2022",
+    "target": "es2023",
     "module": "es2022",
     "moduleResolution": "bundler",
-    "lib": ["es2022", "dom", "dom.iterable", "dom.asynciterable"],
+    "lib": ["es2023", "dom", "dom.iterable", "dom.asynciterable"],
     "types": [],
     "strict": true,
     "skipLibCheck": true,

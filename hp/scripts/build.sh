@@ -25,7 +25,7 @@ fi
 # eslint.config.mjs, browserslist in package.json,
 # browserlist in package.json, and
 # compilerOptions.target and .lib in jsconfig.json
-readonly esbuild_target="${1:-es2022}"
+readonly esbuild_target="${1:-es2023}"
 readonly dir='dist'
 
 pnpm run build:css
