@@ -87,7 +87,7 @@
     "@tailwindcss/cli": "4.1.18",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
-    "@types/node": "24.10.4",
+    "@types/node": "24.10.13",
     "@vitest/eslint-plugin": "1.6.4",
     "browser-sync": "3.0.4",
     "browserslist": "4.28.1",
