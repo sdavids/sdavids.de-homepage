@@ -115,7 +115,7 @@
     "tailwind-csstree": "0.1.4",
     "tailwindcss": "4.1.18",
     "typescript": "5.9.3",
-    "vitest": "4.0.16"
+    "vitest": "4.0.18"
   },
   "browserslist": [
     "baseline 2023"
