@@ -4,7 +4,6 @@
 
 # https://pnpm.io/pnpm-workspace_yaml
 
-useNodeVersion: 24.12.0
 engineStrict: true
 savePrefix: ""
 ignoreScripts: false
