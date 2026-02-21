@@ -11,10 +11,10 @@ FROM httpd:2.4.66-alpine3.23
 
 EXPOSE 443
 
-# docker run --rm httpd:2.4.63-alpine3.22 cat /usr/local/apache2/conf/httpd.conf > httpd.conf
+# docker run --rm httpd:2.4.63-alpine3.23 cat /usr/local/apache2/conf/httpd.conf > httpd.conf
 COPY --chown=www-data:www-data ./httpd.conf /usr/local/apache2/conf/httpd.conf
 
-# docker run --rm httpd:2.4.63-alpine3.22 cat /usr/local/apache2/conf/extra/httpd-ssl.conf > httpd-ssl.conf
+# docker run --rm httpd:2.4.63-alpine3.23 cat /usr/local/apache2/conf/extra/httpd-ssl.conf > httpd-ssl.conf
 COPY --chown=www-data:www-data ./httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 
 # https://github.com/opencontainers/image-spec/blob/master/annotations.md
