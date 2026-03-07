@@ -16,19 +16,19 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get --yes upgrade --no-install-recommends \
   && apt-get --yes install --no-install-recommends \
-    libstdc++6 \
-    locales \
-    sudo \
-    openssh-client \
-    openssl \
+    brotli \
+    easy-rsa \
     git \
     jq \
+    libstdc++6 \
+    locales \
+    neovim \
+    openssh-client \
+    openssl \
     reuse \
     shellcheck \
-    brotli \
+    sudo \
     zstd \
-    easy-rsa \
-    neovim \
 # clean up
   && apt-get --yes autoremove \
   && apt-get --yes clean \
