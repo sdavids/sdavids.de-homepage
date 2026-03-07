@@ -14,13 +14,6 @@ SHELL ["/bin/bash", "-Eeuo", "pipefail", "-c"]
 # hadolint ignore=DL3008
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
-# for lhci
-  && apt-get --yes install --no-install-recommends ca-certificates curl gnupg2 \
-  && curl -s https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg \
-  && mkdir -p /etc/apt/sources.list.d \
-  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/google-chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable main" >/etc/apt/sources.list.d/google-chrome.list \
-  && apt-get update \
-#
   && apt-get --yes upgrade --no-install-recommends \
   && apt-get --yes install --no-install-recommends \
     libstdc++6 \
@@ -36,8 +29,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     zstd \
     easy-rsa \
     neovim \
-# for lhci
-    google-chrome-stable \
 # clean up
   && apt-get --yes autoremove \
   && apt-get --yes clean \

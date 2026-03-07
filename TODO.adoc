@@ -16,3 +16,9 @@ https://github.com/pnpm/action-setup/issues/150
 * remove workaround for _lint-staged_ in `hp/eslint.config.mjs`
 +
 https://github.com/es-tooling/module-replacements/issues/214
+
+=== lhci
+
+* lhci does not work in devcontainer
++
+https://github.com/GoogleChrome/lighthouse-ci/issues/1134
