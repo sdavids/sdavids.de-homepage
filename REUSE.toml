@@ -28,11 +28,6 @@ SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = "hp/.nvmrc"
-SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
-SPDX-License-Identifier = "Apache-2.0"
-
-[[annotations]]
 path = "hp/src/favicon.ico"
 SPDX-FileCopyrightText = "© 2022 Sebastian Davids <sdavids@gmx.de>"
 SPDX-License-Identifier = "Apache-2.0"

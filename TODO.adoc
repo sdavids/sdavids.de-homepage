@@ -5,10 +5,6 @@ Sebastian Davids <sdavids@gmx.de>
 
 == GH Actions
 
-* remove `node-version-file` in `.github/workflows/ci.yaml`; delete `.nvmrc`
-+
-https://github.com/actions/setup-node/issues/1255
-
 * remove `packageManager` (but keep `devEngines.packageManager`) in `package.json`; remove `version` from `pnpm/action-setup`
 +
 https://github.com/pnpm/action-setup/issues/150
