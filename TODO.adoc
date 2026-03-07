@@ -18,3 +18,10 @@ https://github.com/es-tooling/module-replacements/issues/214
 * lhci does not work in devcontainer
 +
 https://github.com/GoogleChrome/lighthouse-ci/issues/1134
+
+=== ESLint Upgrade to v10
+
+Blocked by:
+
+* https://github.com/testing-library/eslint-plugin-jest-dom/issues/417
+* https://github.com/un-ts/eslint-plugin-import-x/issues/438
