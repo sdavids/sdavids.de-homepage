@@ -16,6 +16,7 @@ Sebastian Davids <sdavids@gmx.de>
 :rouge-style: github
 // Refs:
 :docker-install-url: https://docs.docker.com/install/
+:hadolint-install-url: https://github.com/hadolint/hadolint?tab=readme-ov-file#install
 :pnpm-install-url: https://pnpm.io/installation
 :easyrsa-install-url: https://easy-rsa.readthedocs.io/en/latest/#obtaining-and-using-easy-rsa
 :gh-actions-url: https://github.com/sdavids/sdavids.de-homepage/actions
@@ -384,7 +385,7 @@ $ brew install yamllint
 
 ===== Linux
 
-Install https://github.com/hadolint/hadolint?tab=readme-ov-file#install[hadolint].
+Install {hadolint-install-url}[hadolint].
 
 ===== Mac
 
