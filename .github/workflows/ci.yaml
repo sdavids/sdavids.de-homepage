@@ -79,7 +79,7 @@ jobs:
         uses: pnpm/action-setup@v4.4.0
         with:
           # https://github.com/pnpm/pnpm/releases
-          version: 10.30.3
+          version: 10.32.1
       - if: steps.changes.outputs.hp == 'true'
         name: Install dependencies
         env:
