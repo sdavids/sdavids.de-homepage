@@ -24,4 +24,3 @@ https://github.com/GoogleChrome/lighthouse-ci/issues/1134
 Blocked by:
 
 * https://github.com/testing-library/eslint-plugin-jest-dom/issues/417
-* https://github.com/un-ts/eslint-plugin-import-x/issues/438
