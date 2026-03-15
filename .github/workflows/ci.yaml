@@ -187,7 +187,7 @@ jobs:
           steps.project.outputs.deployment-enabled == 'true'
         name: Deploy build
         # https://github.com/ionos-deploy-now/deploy-to-ionos-action/releases
-        uses: ionos-deploy-now/deploy-to-ionos-action@v1.4.8
+        uses: ionos-deploy-now/deploy-to-ionos-action@v2.0.1
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           bootstrap-deploy: ${{ steps.project.outputs.bootstrap-deploy }}
